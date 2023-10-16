@@ -200,6 +200,9 @@ window.addEventListener('load', () => {
               if (swiper.activeIndex !== swiper.params.loopedSlides) {
                 swiper.setTranslate(swiper.translate + Math.abs(correctionTranslate));
               }
+            },
+            slideChange: swiper => {
+              scrollbarMove(swiper, scrollbarWrapper, slideCount, scrollbarDrag);
             }
           },
           breakpoints: {
@@ -229,8 +232,7 @@ window.addEventListener('load', () => {
             if (!isMobile) {
               thumb.slideTo(swiper.activeIndex);
             }
-            const translateValue = swiper.realIndex * (scrollbarWrapper.offsetWidth / slideCount);
-            scrollbarDrag.style.transform = `translateX(${translateValue}px)`;
+            scrollbarMove(swiper, scrollbarWrapper, slideCount, scrollbarDrag);
           },
           slideChangeTransitionEnd: function () {
             if (!activeSlideWidth && !nearActiveSlideWidth && !slideWidth && !isMobile) {
@@ -267,6 +269,11 @@ window.addEventListener('load', () => {
       })
       /***** END MAIN SLIDER *****/
     })
+  }
+
+  function scrollbarMove(swiper, scrollbarWrapper, slideCount, scrollbarDrag) {
+    const translateValue = swiper.realIndex * (scrollbarWrapper.offsetWidth / slideCount);
+    scrollbarDrag.style.transform = `translateX(${translateValue}px)`;
   }
 
   addGallerySwiperClasses(gallerySliders);
