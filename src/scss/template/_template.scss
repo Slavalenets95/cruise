@@ -1,0 +1,649 @@
+html {
+  &[data-noscroll] {
+    overflow: hidden;
+  }
+}
+body {
+  font-size: 17px;
+  line-height: 1.5;
+  font-family: $main-font;
+  color: $dark;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: inline-flex;
+  font-family: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+}
+
+img {
+  max-width: 100%;
+}
+
+/***** CONTAINER *****/
+.container {
+  max-width: 1700px;
+  width: 100%;
+  padding: 0 20px;
+  margin: 0 auto;
+
+  @include respond-to(xxx-large) {
+    max-width: 1360px;
+  }
+
+  @include respond-to(xx-large) {
+    max-width: 1180px;
+  }
+
+  @include respond-to(x-large) {
+    padding: 0 15px;
+    max-width: 990px;
+  }
+
+  @include respond-to(large) {
+    max-width: 750px;
+  }
+}
+/***** END CONTAINER *****/
+
+/***** TEXT STYLES *****/
+.text-14 {
+  font-size: 14px;
+}
+.text-15 {
+  font-size: 15px;
+}
+.text-16 {
+  font-size: 16px;
+}
+.text-17 {
+  font-size: 17px;
+
+  @include respond-to(small) {
+    font-size: 16px;
+  }
+}
+.text-18,
+.title-18 > *:first-child {
+  font-size: 18px;
+}
+.text-20,
+.title-20 > *:first-child {
+  font-size: 20px;
+}
+.text-26,
+.title-26 > *:first-child {
+  font-size: 26px;
+
+  @include respond-to(xxx-large) {
+    font-size: 24px;
+  }
+
+  @include respond-to(small) {
+    font-size: 22px;
+  }
+}
+.text-28,
+.title-28 > *:first-child {
+  font-size: 28px;
+}
+.text-30,
+.title-30 > *:first-child {
+  font-size: 30px;
+
+  @include respond-to(xxx-large) {
+    font-size: 28px;
+  }
+
+  @include respond-to(small) {
+    font-size: 25px;
+  }
+}
+.text-34,
+.title-34 > *:first-child {
+  font-size: 34px;
+
+  @include respond-to(xxx-large) {
+    font-size: 32px;
+  }
+
+  @include respond-to(small) {
+    font-size: 28px;
+  }
+}
+.text-50,
+.title-50 > *:first-child {
+  font-size: 50px;
+
+  @include respond-to(xxx-large) {
+    font-size: 45px;
+  }
+}
+.text-60,
+.title-60 > *:first-child {
+  font-size: 60px;
+
+  @include respond-to(xxx-large) {
+    font-size: 50px;
+  }
+
+  @include respond-to(large) {
+    font-size: 45px;
+  }
+
+  @include respond-to(small) {
+    font-size: 36px;
+  }
+}
+/***** END TEXT STYLES *****/
+
+/***** COLORS *****/
+.dark-blue,
+.f-dark-blue > *:first-child {
+  color: $dark-blue;
+}
+.blue {
+  color: $blue;
+}
+.dark {
+  color: $dark;
+}
+.gray {
+  color: $gray;
+}
+.white {
+  color: $white;
+}
+.light-bg {
+  background-color: $lighest-blue;
+}
+.darkblue-bg {
+  background-color: $dark-blue;
+}
+/***** END COLORS *****/
+
+/***** FONTS *****/
+.main-f {
+  font-family: $main-font;
+}
+.secondary-f {
+  font-family: $secondary-font;
+}
+/***** END FONTS *****/
+
+/***** FONT WEIGHT *****/
+.medium,
+.f-medium > *:first-child {
+  font-weight: 500;
+}
+.semibold,
+.f-semibold > *:first-child {
+  font-weight: 600;
+}
+.bold,
+.f-bold > *:first-child {
+  font-weight: 700;
+}
+.extrabold,
+.f-extrabold > *:first-child {
+  font-weight: 800;
+}
+/***** END FONT WEIGHT *****/
+
+/***** MARGIN & PADDING *****/
+@for $i from 0 through 15 {
+  .mt-#{$i} {
+    margin-top: #{$i * 10}px;
+  }
+  .mb-#{$i} {
+    margin-bottom: #{$i * 10}px;
+  }
+  .my-#{$i} {
+    margin-top: #{$i * 10}px;
+    margin-bottom: #{$i * 10}px;
+  }
+  .pt-#{$i} {
+    padding-top: #{$i * 10}px;
+  }
+  .pb-#{$i} {
+    padding-bottom: #{$i * 10}px;
+  }
+  .py-#{$i} {
+    padding-top: #{$i * 10}px;
+    padding-bottom: #{$i * 10}px;
+  }
+}
+/***** END MARGIN & PADDING *****/
+
+/***** HELPERS *****/
+.flex {
+  display: flex;
+}
+.uc,
+.ft-uc > *:first-child {
+  text-transform: uppercase;
+}
+.relative {
+  position: relative;
+}
+.center {
+  text-align: center;
+}
+/***** END HELPERS *****/
+
+/***** SECTION HEADER *****/
+.section-header:not(.section-header--custom) {
+  .section-header__title {
+    font-family: $secondary-font;
+    & > *:first-child {
+      font-size: 60px;
+      font-weight: 500;
+    }
+  }
+
+  @include respond-to(xxx-large) {
+    .section-header__title {
+      & > *:first-child {
+        font-size: 50px;
+      }
+    }
+  }
+
+  @include respond-to(large) {
+    .section-header__title {
+      & > *:first-child {
+        font-size: 45px;
+      }
+    }
+  }
+
+  @include respond-to(small) {
+    .section-header__title {
+      & > *:first-child {
+        font-size: 36px;
+      }
+    }
+  }
+}
+/***** END SECTION HEADER *****/
+
+/***** SECTION LINKS *****/
+.section-links {
+  font-size: 26px;
+  font-weight: 800;
+  &__item {
+    align-items: center;
+    &,
+    &-ic {
+      display: flex;
+    }
+    &-ic {
+      margin-left: 8px;
+      padding: 5px;
+    }
+    &-text {
+      margin-right: 13px;
+    }
+  }
+
+  @include respond-to(xxx-large) {
+    font-size: 24px;
+  }
+
+  @include respond-to(xxx-large) {
+    font-size: 22px;
+  }
+
+  @include respond-to(small) {
+    flex-direction: column;
+  }
+}
+/***** END SECTION LINKS *****/
+
+/***** STANDARD TEXT STYLES *****/
+.sd {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  ul {
+    margin-top: 20px;
+  }
+  *:first-child {
+    margin-top: 0;
+  }
+  a {
+    transition: color 0.5s;
+  }
+  &--m-10 {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    ul {
+      margin-top: 10px;
+    }
+  }
+  &--light-links {
+    a {
+      color: $light-blue;
+      font-weight: 800;
+
+      &:hover {
+        color: $dark-blue;
+      }
+    }
+  }
+  &--dark-links {
+    a {
+      color: $dark-blue;
+      border-bottom: 1px solid;
+      font-weight: 800;
+      line-height: 1;
+      display: inline-flex;
+
+      &:hover {
+        color: $light-blue;
+      }
+    }
+  }
+}
+/***** END STANDARD TEXT STYLES *****/
+
+/***** BUTTONS STYLES *****/
+.main-btn {
+  padding: 14px 66px;
+  font-size: 18px;
+  font-weight: 800;
+  border-radius: 0px 100px;
+  transition:
+    background-color 0.5s,
+    color 0.5s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  &--light-blue {
+    background-color: $light-blue;
+    color: $white;
+
+    &:hover {
+      background-color: $dark-blue;
+    }
+  }
+
+  &--white {
+    background-color: $white;
+    color: $dark-blue;
+
+    &:hover {
+      background-color: $dark-blue;
+      color: $white;
+    }
+  }
+}
+.square-btn {
+  padding: 12px 56px;
+  border-radius: 6px;
+  font-size: 17px;
+  font-weight: 800;
+  border: 1px solid;
+  transition:
+    border-color 0.5s,
+    background-color 0.5s,
+    color 0.5s;
+
+  &--light-blue {
+    border-color: $light-blue;
+    color: $light-blue;
+    background-color: $white;
+    &:hover {
+      background-color: $light-blue;
+      border-color: $white;
+      color: $white;
+    }
+  }
+}
+.blue-btn {
+  padding: 12px 24px;
+  border-radius: 6px;
+  color: $white;
+  font-weight: 800;
+  background-color: $light-blue;
+  transition: background-color 0.5s;
+
+  &:hover {
+    background-color: $dark-blue;
+  }
+}
+/***** END BUTTONS STYLES *****/
+
+/***** FORM STYLES *****/
+input:not(input[type="submit"]),
+select,
+textarea {
+  border: 1px solid $light-blue;
+  border-radius: 4px;
+  background: $white;
+  padding: 12px 14px;
+  &,
+  &::placeholder {
+    color: $light-gray;
+    font-size: 17px;
+    line-height: 1.5;
+    font-family: inherit;
+  }
+  & + .optional {
+    font-size: 12px;
+    margin-top: 6px;
+    color: $light-gray;
+    display: inline-flex;
+  }
+
+  &:focus {
+    border-color: $dark-blue;
+
+    &,
+    &::placeholder {
+      color: $dark;
+    }
+
+    &:not(:placeholder-shown) {
+      border-color: $light-blue;
+    }
+  }
+}
+/***** END FORM STYLES *****/
+
+/***** PATTERN *****/
+.pattern {
+  &,
+  &-fix {
+    position: relative;
+  }
+  &-fix {
+    z-index: 1;
+  }
+  &::after {
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("../images/pattern.png");
+    background-position: top -200px left -380px;
+    background-size: cover;
+    position: absolute;
+  }
+}
+/***** END PATTERN *****/
+
+/***** HOVER *****/
+
+.header-control {
+  transition: background-color 0.5s;
+  &:hover {
+    background-color: $header-control-hover;
+  }
+}
+.header-has-data {
+  position: relative;
+  overflow: hidden;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%) rotate(-135deg);
+    border: solid $white;
+    border-width: 0 16px 16px 0;
+    transition: opacity 0.5s;
+    opacity: 0;
+  }
+
+  path {
+    transition: fill 0.5s;
+  }
+
+  &[data-active],
+  &--hover:hover {
+    background-color: $dark-blue;
+    color: $white;
+
+    &::after {
+      opacity: 1;
+    }
+
+    path {
+      fill: $white;
+    }
+  }
+}
+.header-hidden-menu {
+  @include respond-to(min-xx-large) {
+    position: absolute;
+    width: 100%;
+    background-color: $white;
+    bottom: 0;
+    left: 0;
+    transform: translateY(100%);
+    pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+    transition:
+      opacity 0.5s,
+      visibility 0.5s;
+    will-change: opacity, visibility;
+    z-index: 99;
+
+    &[data-active] {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: all;
+    }
+  }
+  @include respond-to(xx-large) {
+    position: absolute;
+    width: 100%;
+    min-height: 100%;
+    top: 0;
+    left: 0;
+    padding: 40px;
+    background-color: $lighest-blue;
+    transform: translateX(100%);
+    transition: transform .3s;
+    z-index: 99;
+    &[data-active] {
+      transform: translateX(0);
+    }
+  }
+}
+.header-has-data--hover {
+  &:hover + .header-hidden-menu,
+  & + .header-hidden-menu:hover {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
+  }
+}
+.control {
+  transition: color 0.5s;
+  &-ic {
+    &,
+    svg {
+      position: relative;
+      z-index: 1;
+    }
+
+    svg,
+    path {
+      transition: fill 0.5s;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background-color: transparent;
+      transition: background-color 0.5s;
+      z-index: -1;
+    }
+  }
+
+  &:hover:not(&--white) {
+    color: $light-blue;
+    .control-ic::after {
+      background-color: rgba(0, 144, 208, 0.7);
+    }
+    svg,
+    path {
+      fill: $white;
+    }
+  }
+
+  &--white:hover &-ic::after {
+    background-color: $dark-blue;
+  }
+}
+.overlay {
+  position: fixed;
+  top: 141px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: $dark-blue;
+  opacity: 0;
+  transition: opacity .5s, visibility .5s;
+  visibility: hidden;
+  z-index: -1;
+  pointer-events: none;
+  &[data-active] {
+    opacity: .7;
+    z-index: 1;
+    pointer-events: all;
+    visibility: visible;
+  }
+}
+
+/***** END HOVER *****/

@@ -1,0 +1,207 @@
+.footer {
+  &-body {
+    padding: 65px 0 80px;
+    background: url("../images/footer-bg.jpg") left top/cover #0474b3;
+  }
+  /***** NAVIGATION *****/
+  &-nav {
+    justify-content: space-between;
+
+    &__item {
+      max-width: calc(25% - 25px);
+    }
+    &__item-ic {
+      display: none;
+    }
+    &__item-title {
+      margin-bottom: 30px;
+      letter-spacing: 2.4px;
+    }
+    &__list-item:nth-child(n + 2) {
+      margin-top: 15px;
+    }
+    &__list-link {
+      position: relative;
+      &::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        border-radius: 4px;
+        background-color: $white;
+        bottom: 0;
+        left: 0;
+        transform-origin: right;
+        transform: scaleX(0);
+        transition: transform 0.3s ease-in-out;
+      }
+      &:hover::before {
+        transform-origin: left;
+        transform: scaleX(1);
+      }
+    }
+  }
+  /***** END NAVIGATION *****/
+
+  /***** SOCIAL *****/
+  &-social {
+    &__container {
+      justify-content: center;
+      align-items: center;
+    }
+    &__title {
+      margin-right: 60px;
+    }
+    &__list-item {
+      margin-right: 30px;
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+    &__list-link {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color .5s;
+      border-radius: 6px;
+      &:hover {
+        background-color: $white;
+      }
+    }
+  }
+  /***** END SOCIAL *****/
+
+  /***** FOOTER BOTTOM *****/
+  .bottom-footer {
+    &__list {
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    &__list-link {
+      display: inline-flex;
+      padding: 40px 50px;
+      position: relative;
+
+      &::after {
+        content: "";
+        position: absolute;
+        right: 0;
+        height: 26px;
+        width: 1px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: $dark-blue;
+      }
+    }
+    &__list-item:first-child .bottom-footer__list-link {
+      padding-left: 0;
+    }
+    &__list-item:last-child .bottom-footer__list-link {
+      padding-right: 0;
+      &::after {
+        content: none;
+      }
+    }
+  }
+  /***** END FOOTER BOOTTOM *****/
+
+  @include respond-to(xxx-large) {
+    .bottom-footer {
+      &__list-link {
+        padding: 30px;
+      }
+    }
+  }
+
+  @include respond-to(x-large) {
+    .bottom-footer {
+      &__list-link {
+        padding: 20px;
+      }
+    }
+  }
+
+  @include respond-to(large) {
+    &-body {
+      padding: 60px 0;
+    }
+    &-nav {
+      flex-direction: column;
+      &__item {
+        max-width: none;
+        border-bottom: 1px solid;
+        &:not(:last-child) {
+          margin-bottom: 30px;
+        }
+        &:last-child {
+          border-bottom: none;
+        }
+      }
+      &__item-ic {
+        display: inline-flex;
+      }
+      &__item-title {
+        padding-bottom: 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 0;
+
+        svg {
+          width: 40px;
+          height: 40px;
+        }
+      }
+      &__item:first-child {
+        .footer-nav__item-title {
+          padding-top: 0;
+        }
+      }
+      &__list-item:last-child {
+        margin-bottom: 20px;
+      }
+      &__item-title + &__list {
+        height: 0;
+        overflow: hidden;
+        transition: height .5s;
+      }
+    }
+    &-social {
+      &__container {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      &__list {
+        margin-top: 20px;
+      }
+    }
+  }
+
+  @include respond-to(medium) {
+    .bottom-footer {
+      padding-bottom: 40px;
+    }
+  }
+
+  @include respond-to(small) {
+    &-social {
+      &__list-item:not(:last-child) {
+        margin-right: 10px;
+      }
+      &__list-link {
+        width: 30px;
+        height: 30px;
+      }
+    }
+    .bottom-footer {
+      &__list-link {
+        padding: 12px;
+      }
+      &__text {
+        margin-top: 10px;
+      }
+    }
+  }
+}
