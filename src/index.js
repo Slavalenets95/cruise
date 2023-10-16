@@ -176,6 +176,7 @@ window.addEventListener('load', () => {
       const scrollbarDrag = gallerySlider.querySelector('.scrollbar-drag');
       const scrollbarWrapper = gallerySlider.querySelector('.gallery-scrollbar');
       let thumb = null;
+      let slider = null;
 
       /***** THUMB SLIDER *****/
       if (!isMobile) {
@@ -202,6 +203,7 @@ window.addEventListener('load', () => {
               }
             },
             slideChange: swiper => {
+              slider?.slideTo(swiper.activeIndex)
               scrollbarMove(swiper, scrollbarWrapper, slideCount, scrollbarDrag);
             }
           },
@@ -220,7 +222,7 @@ window.addEventListener('load', () => {
       /***** END THUMB SLIDER *****/
 
       /***** MAIN SLIDER *****/
-      const slider = new Swiper(`.gallery.swiper-${idx} .gallery-slider .swiper`, {
+      slider = new Swiper(`.gallery.swiper-${idx} .gallery-slider .swiper`, {
         spaceBetween: 18,
         loop: true,
         navigation: {
