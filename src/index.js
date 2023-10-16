@@ -84,7 +84,7 @@ window.addEventListener('load', () => {
 
     headerNav.addEventListener('mouseleave', function () {
       const activeEls = headerNav.querySelectorAll('[data-active]');
-      activeEls?.forEach(activeel => activeEl.removeAttribute('data-active'));
+      activeEls?.forEach(activeEl => activeEl.removeAttribute('data-active'));
     })
     /***** END MENU *****/
 
