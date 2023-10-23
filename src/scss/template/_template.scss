@@ -58,150 +58,6 @@ img {
 }
 /***** END CONTAINER *****/
 
-/***** TEXT STYLES *****/
-.text-14 {
-  font-size: 14px;
-}
-.text-15 {
-  font-size: 15px;
-}
-.text-16 {
-  font-size: 16px;
-}
-.text-17 {
-  font-size: 17px;
-
-  @include respond-to(small) {
-    font-size: 16px;
-  }
-}
-.text-18,
-.title-18 > *:first-child {
-  font-size: 18px;
-}
-.text-20,
-.title-20 > *:first-child {
-  font-size: 20px;
-}
-.text-26,
-.title-26 > *:first-child {
-  font-size: 26px;
-
-  @include respond-to(xxx-large) {
-    font-size: 24px;
-  }
-
-  @include respond-to(small) {
-    font-size: 22px;
-  }
-}
-.text-28,
-.title-28 > *:first-child {
-  font-size: 28px;
-}
-.text-30,
-.title-30 > *:first-child {
-  font-size: 30px;
-
-  @include respond-to(xxx-large) {
-    font-size: 28px;
-  }
-
-  @include respond-to(small) {
-    font-size: 25px;
-  }
-}
-.text-34,
-.title-34 > *:first-child {
-  font-size: 34px;
-
-  @include respond-to(xxx-large) {
-    font-size: 32px;
-  }
-
-  @include respond-to(small) {
-    font-size: 28px;
-  }
-}
-.text-50,
-.title-50 > *:first-child {
-  font-size: 50px;
-
-  @include respond-to(xxx-large) {
-    font-size: 45px;
-  }
-}
-.text-60,
-.title-60 > *:first-child {
-  font-size: 60px;
-
-  @include respond-to(xxx-large) {
-    font-size: 50px;
-  }
-
-  @include respond-to(large) {
-    font-size: 45px;
-  }
-
-  @include respond-to(small) {
-    font-size: 36px;
-  }
-}
-/***** END TEXT STYLES *****/
-
-/***** COLORS *****/
-.dark-blue,
-.f-dark-blue > *:first-child {
-  color: $dark-blue;
-}
-.blue {
-  color: $blue;
-}
-.dark {
-  color: $dark;
-}
-.gray {
-  color: $gray;
-}
-.white {
-  color: $white;
-}
-.light-bg {
-  background-color: $lighest-blue;
-}
-.darkblue-bg {
-  background-color: $dark-blue;
-}
-/***** END COLORS *****/
-
-/***** FONTS *****/
-.main-f {
-  font-family: $main-font;
-}
-.secondary-f {
-  font-family: $secondary-font;
-}
-/***** END FONTS *****/
-
-/***** FONT WEIGHT *****/
-.medium,
-.f-medium > *:first-child {
-  font-weight: 500;
-}
-.semibold,
-.f-semibold > *:first-child {
-  font-weight: 600;
-}
-.bold,
-.f-bold > *:first-child {
-  font-weight: 700;
-}
-.extrabold,
-.f-extrabold > *:first-child {
-  font-weight: 800;
-}
-/***** END FONT WEIGHT *****/
-
 /***** MARGIN & PADDING *****/
 @for $i from 0 through 15 {
   .mt-#{$i} {
@@ -226,22 +82,6 @@ img {
   }
 }
 /***** END MARGIN & PADDING *****/
-
-/***** HELPERS *****/
-.flex {
-  display: flex;
-}
-.uc,
-.ft-uc > *:first-child {
-  text-transform: uppercase;
-}
-.relative {
-  position: relative;
-}
-.center {
-  text-align: center;
-}
-/***** END HELPERS *****/
 
 /***** SECTION HEADER *****/
 .section-header:not(.section-header--custom) {
@@ -312,167 +152,6 @@ img {
 }
 /***** END SECTION LINKS *****/
 
-/***** STANDARD TEXT STYLES *****/
-.sd {
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6,
-  p,
-  ul {
-    margin-top: 20px;
-  }
-  *:first-child {
-    margin-top: 0;
-  }
-  a {
-    transition: color 0.5s;
-  }
-  &--m-10 {
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6,
-    p,
-    ul {
-      margin-top: 10px;
-    }
-  }
-  &--light-links {
-    a {
-      color: $light-blue;
-      font-weight: 800;
-
-      &:hover {
-        color: $dark-blue;
-      }
-    }
-  }
-  &--dark-links {
-    a {
-      color: $dark-blue;
-      border-bottom: 1px solid;
-      font-weight: 800;
-      line-height: 1;
-      display: inline-flex;
-
-      &:hover {
-        color: $light-blue;
-      }
-    }
-  }
-}
-/***** END STANDARD TEXT STYLES *****/
-
-/***** BUTTONS STYLES *****/
-.main-btn {
-  padding: 14px 66px;
-  font-size: 18px;
-  font-weight: 800;
-  border-radius: 0px 100px;
-  transition:
-    background-color 0.5s,
-    color 0.5s;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-
-  &--light-blue {
-    background-color: $light-blue;
-    color: $white;
-
-    &:hover {
-      background-color: $dark-blue;
-    }
-  }
-
-  &--white {
-    background-color: $white;
-    color: $dark-blue;
-
-    &:hover {
-      background-color: $dark-blue;
-      color: $white;
-    }
-  }
-}
-.square-btn {
-  padding: 12px 56px;
-  border-radius: 6px;
-  font-size: 17px;
-  font-weight: 800;
-  border: 1px solid;
-  transition:
-    border-color 0.5s,
-    background-color 0.5s,
-    color 0.5s;
-
-  &--light-blue {
-    border-color: $light-blue;
-    color: $light-blue;
-    background-color: $white;
-    &:hover {
-      background-color: $light-blue;
-      border-color: $white;
-      color: $white;
-    }
-  }
-}
-.blue-btn {
-  padding: 12px 24px;
-  border-radius: 6px;
-  color: $white;
-  font-weight: 800;
-  background-color: $light-blue;
-  transition: background-color 0.5s;
-
-  &:hover {
-    background-color: $dark-blue;
-  }
-}
-/***** END BUTTONS STYLES *****/
-
-/***** FORM STYLES *****/
-input:not(input[type="submit"]),
-select,
-textarea {
-  border: 1px solid $light-blue;
-  border-radius: 4px;
-  background: $white;
-  padding: 12px 14px;
-  &,
-  &::placeholder {
-    color: $light-gray;
-    font-size: 17px;
-    line-height: 1.5;
-    font-family: inherit;
-  }
-  & + .optional {
-    font-size: 12px;
-    margin-top: 6px;
-    color: $light-gray;
-    display: inline-flex;
-  }
-
-  &:focus {
-    border-color: $dark-blue;
-
-    &,
-    &::placeholder {
-      color: $dark;
-    }
-
-    &:not(:placeholder-shown) {
-      border-color: $light-blue;
-    }
-  }
-}
-/***** END FORM STYLES *****/
-
 /***** PATTERN *****/
 .pattern {
   &,
@@ -497,7 +176,6 @@ textarea {
 /***** END PATTERN *****/
 
 /***** HOVER *****/
-
 .header-control {
   transition: background-color 0.5s;
   &:hover {
@@ -587,7 +265,16 @@ textarea {
 }
 .control {
   transition: color 0.5s;
+  display: flex;
+  align-items: center;
+
+  &-text {
+    margin-right: 8px;
+  }
   &-ic {
+    display: flex;
+    align-items: center;
+    padding: 5px;
     &,
     svg {
       position: relative;
@@ -647,5 +334,4 @@ textarea {
     visibility: visible;
   }
 }
-
 /***** END HOVER *****/

@@ -1,0 +1,71 @@
+/***** BUTTONS STYLES *****/
+.main-btn {
+  padding: 14px 66px;
+  font-size: 18px;
+  font-weight: 800;
+  border-radius: 0px 100px;
+  transition:
+    background-color 0.5s,
+    color 0.5s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  &--light-blue {
+    background-color: $light-blue;
+    color: $white;
+
+    &:hover {
+      background-color: $dark-blue;
+    }
+  }
+
+  &--white {
+    background-color: $white;
+    color: $dark-blue;
+
+    &:hover {
+      background-color: $dark-blue;
+      color: $white;
+    }
+  }
+
+  &--wide {
+    padding: 14px 98.5px;
+  }
+}
+.square-btn {
+  padding: 12px 56px;
+  border-radius: 6px;
+  font-size: 17px;
+  font-weight: 800;
+  border: 1px solid;
+  transition:
+    border-color 0.5s,
+    background-color 0.5s,
+    color 0.5s;
+
+  &--light-blue {
+    border-color: $light-blue;
+    color: $light-blue;
+    background-color: $white;
+    &:hover {
+      background-color: $light-blue;
+      border-color: $white;
+      color: $white;
+    }
+  }
+}
+.blue-btn {
+  padding: 12px 24px;
+  border-radius: 6px;
+  color: $white;
+  font-weight: 800;
+  background-color: $light-blue;
+  transition: background-color 0.5s;
+
+  &:hover {
+    background-color: $dark-blue;
+  }
+}
+/***** END BUTTONS STYLES *****/

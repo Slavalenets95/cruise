@@ -1,0 +1,15 @@
+/***** HELPERS *****/
+.flex {
+  display: flex;
+}
+.uc,
+.ft-uc > *:first-child {
+  text-transform: uppercase;
+}
+.relative {
+  position: relative;
+}
+.center {
+  text-align: center;
+}
+/***** END HELPERS *****/

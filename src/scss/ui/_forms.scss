@@ -1,0 +1,36 @@
+/***** FORM STYLES *****/
+input:not(input[type="submit"]),
+select,
+textarea {
+  border: 1px solid $light-blue;
+  border-radius: 4px;
+  background: $white;
+  padding: 12px 14px;
+  &,
+  &::placeholder {
+    color: $light-gray;
+    font-size: 17px;
+    line-height: 1.5;
+    font-family: inherit;
+  }
+  & + .optional {
+    font-size: 12px;
+    margin-top: 6px;
+    color: $light-gray;
+    display: inline-flex;
+  }
+
+  &:focus {
+    border-color: $dark-blue;
+
+    &,
+    &::placeholder {
+      color: $dark;
+    }
+
+    &:not(:placeholder-shown) {
+      border-color: $light-blue;
+    }
+  }
+}
+/***** END FORM STYLES *****/

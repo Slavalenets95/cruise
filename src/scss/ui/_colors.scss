@@ -1,0 +1,30 @@
+/***** COLORS *****/
+.dark-blue,
+.f-dark-blue > *:first-child {
+  color: $dark-blue;
+}
+.blue {
+  color: $blue;
+}
+.dark {
+  color: $dark;
+}
+.gray {
+  color: $gray;
+}
+.white {
+  color: $white;
+}
+.light-bg {
+  background-color: $lighest-blue;
+}
+.light-bg--2 {
+  background-color: $gallery-bg;
+}
+.darkblue-bg {
+  background-color: $dark-blue;
+}
+.lighestblue-bg--2 {
+  background-color: $lighest-blue--2;
+}
+/***** END COLORS *****/

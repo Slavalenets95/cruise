@@ -1,0 +1,174 @@
+/***** TEXT STYLES *****/
+.text-14 {
+  font-size: 14px;
+}
+.text-15 {
+  font-size: 15px;
+}
+.text-16 {
+  font-size: 16px;
+}
+.text-17 {
+  font-size: 17px;
+
+  @include respond-to(small) {
+    font-size: 16px;
+  }
+}
+.text-18,
+.title-18 > *:first-child {
+  font-size: 18px;
+}
+.text-20,
+.title-20 > *:first-child {
+  font-size: 20px;
+}
+.text-26,
+.title-26 > *:first-child {
+  font-size: 26px;
+
+  @include respond-to(xxx-large) {
+    font-size: 24px;
+  }
+
+  @include respond-to(small) {
+    font-size: 22px;
+  }
+}
+.text-28,
+.title-28 > *:first-child {
+  font-size: 28px;
+}
+.text-30,
+.title-30 > *:first-child {
+  font-size: 30px;
+
+  @include respond-to(xxx-large) {
+    font-size: 28px;
+  }
+
+  @include respond-to(small) {
+    font-size: 25px;
+  }
+}
+.text-34,
+.title-34 > *:first-child {
+  font-size: 34px;
+
+  @include respond-to(xxx-large) {
+    font-size: 32px;
+  }
+
+  @include respond-to(small) {
+    font-size: 28px;
+  }
+}
+.text-50,
+.title-50 > *:first-child {
+  font-size: 50px;
+
+  @include respond-to(xxx-large) {
+    font-size: 45px;
+  }
+}
+.text-60,
+.title-60 > *:first-child {
+  font-size: 60px;
+
+  @include respond-to(xxx-large) {
+    font-size: 50px;
+  }
+
+  @include respond-to(large) {
+    font-size: 45px;
+  }
+
+  @include respond-to(small) {
+    font-size: 36px;
+  }
+}
+/***** END TEXT STYLES *****/
+
+/***** FONT WEIGHT *****/
+.medium,
+.f-medium > *:first-child {
+  font-weight: 500;
+}
+.semibold,
+.f-semibold > *:first-child {
+  font-weight: 600;
+}
+.bold,
+.f-bold > *:first-child {
+  font-weight: 700;
+}
+.extrabold,
+.f-extrabold > *:first-child {
+  font-weight: 800;
+}
+/***** END FONT WEIGHT *****/
+
+/***** FONTS *****/
+.main-f {
+  font-family: $main-font;
+}
+.secondary-f {
+  font-family: $secondary-font;
+}
+/***** END FONTS *****/
+
+/***** STANDARD TEXT STYLES *****/
+.sd {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  ul {
+    margin-top: 20px;
+  }
+  *:first-child {
+    margin-top: 0;
+  }
+  a {
+    transition: color 0.5s;
+  }
+  &--m-10 {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    ul {
+      margin-top: 10px;
+    }
+  }
+  &--light-links {
+    a {
+      color: $light-blue;
+      font-weight: 800;
+
+      &:hover {
+        color: $dark-blue;
+      }
+    }
+  }
+  &--dark-links {
+    a {
+      color: $dark-blue;
+      border-bottom: 1px solid;
+      font-weight: 800;
+      line-height: 1;
+      display: inline-flex;
+
+      &:hover {
+        color: $light-blue;
+      }
+    }
+  }
+}
+/***** END STANDARD TEXT STYLES *****/

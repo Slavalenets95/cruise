@@ -282,6 +282,66 @@ window.addEventListener('load', () => {
   initializeGallerySliders(gallerySliders);
   /***** END GALLERY SLIDER  *****/
 
+  /***** FAQ *****/
+  const faqSection = document.querySelector('.page-faq');
+
+  if(faqSection) {
+    const activeEl = faqSection.querySelector('.page-faq__item[data-active]');
+    if(activeEl) {
+      const activeElItemBodyHeight = activeEl.querySelector('.page-faq__item-body').scrollHeight;
+      activeEl.querySelector('.page-faq__item-body').style.height = `${activeElItemBodyHeight}px`;
+    }
+    faqSection.addEventListener('click', function(evt) {
+      const isItemHeaderClick = evt.target.classList.contains('page-faq__item-btn') || !!evt.target.closest('.page-faq__item-btn');
+      if(isItemHeaderClick) {
+        const itemWrapper = evt.target.closest('.page-faq__item');
+        const itemBody = itemWrapper?.querySelector('.page-faq__item-body');
+        const itemBodyHeight = itemBody?.scrollHeight;
+        const isActive = itemWrapper.hasAttribute('data-active');
+
+        itemWrapper.toggleAttribute('data-active');
+
+        if(isActive) {
+          itemBody.style.height = '0px';
+        } else {
+          itemBody.style.height = `${itemBodyHeight}px`;
+        }
+      }
+    })
+  }
+  /***** END FAQ *****/
+
+  /***** FEEDBACKS *****/
+  let feedbacksSlider = document.querySelector('.feedbacks-slider');
+
+  if(feedbacksSlider) {
+    feedbacksSlider = new Swiper('.feedbacks-slider', {
+      spaceBetween: 27,
+      slidesPerView: 1,
+      touchRatio: 0.2,
+      navigation: {
+        nextEl: `.feedbacks-slider__next-btn`,
+        prevEl: `.feedbacks-slider__prev-btn`,
+      },
+      pagination: {
+        el: '.feedbacks-slider__dots-wrapper',
+        type: 'bullets',
+        clickable: true,
+      },
+      breakpoints: {
+        // when window width is >= 993px
+        993: {
+          slidesPerView: 2,
+        },
+        // when window width is >= 1400px
+        1400: {
+          slidesPerView: 3,
+        },
+      },
+    })
+  }
+  /***** END FEEDBACKS *****/
+
   /***** REINITIALIZATION *****/
   function reInit() {
     isMobile = window.screen.availWidth <= 600;

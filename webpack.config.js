@@ -97,6 +97,10 @@ module.exports = (env) => {
         filename: "gallery.html",
         template: path.resolve(__dirname, './src/gallery.html'),
       }),
+      new HtmlWebpackPlugin({
+        filename: "plan-page.html",
+        template: path.resolve(__dirname, './src/plan-page.html'),
+      }),
       new webpack.HotModuleReplacementPlugin(),
       new CopyWebpackPlugin({
         patterns: [
