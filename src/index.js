@@ -130,7 +130,7 @@ window.addEventListener('load', () => {
 
   if (footer) {
     footer.addEventListener('click', evt => {
-      if (evt.target.matches('.footer-nav__item-title') && screen.availWidth <= 992) {
+      if (evt.target.matches('.footer-nav__item-title') && screen.availWidth <= 1400) {
         const parent = evt.target.closest('.footer-nav__item');
         const subMenu = parent.querySelector('.footer-nav__list');
         const subMenuHeight = subMenu.scrollHeight;
@@ -285,15 +285,15 @@ window.addEventListener('load', () => {
   /***** FAQ *****/
   const faqSection = document.querySelector('.page-faq');
 
-  if(faqSection) {
+  if (faqSection) {
     const activeEl = faqSection.querySelector('.page-faq__item[data-active]');
-    if(activeEl) {
+    if (activeEl) {
       const activeElItemBodyHeight = activeEl.querySelector('.page-faq__item-body').scrollHeight;
       activeEl.querySelector('.page-faq__item-body').style.height = `${activeElItemBodyHeight}px`;
     }
-    faqSection.addEventListener('click', function(evt) {
+    faqSection.addEventListener('click', function (evt) {
       const isItemHeaderClick = evt.target.classList.contains('page-faq__item-btn') || !!evt.target.closest('.page-faq__item-btn');
-      if(isItemHeaderClick) {
+      if (isItemHeaderClick) {
         const itemWrapper = evt.target.closest('.page-faq__item');
         const itemBody = itemWrapper?.querySelector('.page-faq__item-body');
         const itemBodyHeight = itemBody?.scrollHeight;
@@ -301,7 +301,7 @@ window.addEventListener('load', () => {
 
         itemWrapper.toggleAttribute('data-active');
 
-        if(isActive) {
+        if (isActive) {
           itemBody.style.height = '0px';
         } else {
           itemBody.style.height = `${itemBodyHeight}px`;
@@ -314,7 +314,7 @@ window.addEventListener('load', () => {
   /***** FEEDBACKS *****/
   let feedbacksSlider = document.querySelector('.feedbacks-slider');
 
-  if(feedbacksSlider) {
+  if (feedbacksSlider) {
     feedbacksSlider = new Swiper('.feedbacks-slider', {
       spaceBetween: 27,
       slidesPerView: 1,
@@ -341,6 +341,62 @@ window.addEventListener('load', () => {
     })
   }
   /***** END FEEDBACKS *****/
+
+  /***** OFFERS SLIDER *****/
+  let offersSlider = document.querySelector('.offers-slider');
+
+  if (offersSlider) {
+    offersSlider = new Swiper('.offers-slider', {
+      spaceBetween: 24,
+      slidesPerView: 1,
+      touchRatio: 0.2,
+      navigation: {
+        nextEl: `.offers-slider__next-btn`,
+        prevEl: `.offers-slider__prev-btn`,
+      },
+      pagination: {
+        el: '.offers-slider__dots-wrapper',
+        type: 'bullets',
+        clickable: true,
+      },
+      breakpoints: {
+        // when window width is >= 993px
+        993: {
+          slidesPerView: 2,
+        },
+        // when window width is >= 1400px
+        1400: {
+          slidesPerView: 3,
+        },
+      },
+    })
+  }
+  /***** END OFFERS SLIDER *****/
+
+  /***** HOME INTRO SLIDER *****/
+  let homeIntroSlider = document.querySelector('.home-intro__slider');
+
+  if (homeIntroSlider) {
+    homeIntroSlider = new Swiper('.home-intro__slider', {
+      spaceBetween: 0,
+      slidesPerView: 1,
+      touchRatio: 0.2,
+      pagination: {
+        el: '.home-intro__dots-wrapper',
+        type: 'bullets',
+        clickable: true,
+      },
+      breakpoints: {
+        993: {
+          navigation: {
+            nextEl: `.home-intro__next-btn`,
+            prevEl: `.home-intro__prev-btn`,
+          },
+        }
+      }
+    })
+  }
+  /***** END HOME INTRO SLIDEr *****/
 
   /***** REINITIALIZATION *****/
   function reInit() {

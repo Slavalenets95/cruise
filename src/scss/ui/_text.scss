@@ -23,6 +23,9 @@
 .title-20 > *:first-child {
   font-size: 20px;
 }
+.text-24 {
+  font-size: 24px;
+}
 .text-26,
 .title-26 > *:first-child {
   font-size: 26px;
@@ -112,13 +115,12 @@
 .main-f {
   font-family: $main-font;
 }
-.secondary-f {
-  font-family: $secondary-font;
-}
 /***** END FONTS *****/
 
 /***** STANDARD TEXT STYLES *****/
 .sd {
+  font-size: 20px;
+  line-height: 1.6;
   h1,
   h2,
   h3,

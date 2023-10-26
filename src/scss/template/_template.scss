@@ -86,7 +86,6 @@ img {
 /***** SECTION HEADER *****/
 .section-header:not(.section-header--custom) {
   .section-header__title {
-    font-family: $secondary-font;
     & > *:first-child {
       font-size: 60px;
       font-weight: 500;
@@ -122,7 +121,7 @@ img {
 /***** SECTION LINKS *****/
 .section-links {
   font-size: 26px;
-  font-weight: 800;
+  font-weight: 700;
   &__item {
     align-items: center;
     &,

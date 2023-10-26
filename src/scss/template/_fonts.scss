@@ -1,22 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Krub:wght@400;500;600;700&display=swap');
+
 /***** AVENIR *****/
-@font-face {
-  font-family: 'Avenir';
-  src: url('../fonts/avenir/Avenir-Black.woff2') format('woff2'),
-      url('../fonts/avenir/Avenir-Black.woff') format('woff'),
-      url('../fonts/avenir/Avenir-Black.ttf') format('truetype');
-  font-weight: 900;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Avenir';
-  src: url('../fonts/avenir/Avenir-Heavy.woff2') format('woff2'),
-      url('../fonts/avenir/Avenir-Heavy.woff') format('woff'),
-      url('../fonts/avenir/Avenir-Heavy.ttf') format('truetype');
-  font-weight: 800;
-  font-style: normal;
-  font-display: swap;
-}
+// @font-face {
+//   font-family: 'Avenir';
+//   src: url('../fonts/avenir/Avenir-Black.woff2') format('woff2'),
+//       url('../fonts/avenir/Avenir-Black.woff') format('woff'),
+//       url('../fonts/avenir/Avenir-Black.ttf') format('truetype');
+//   font-weight: 900;
+//   font-style: normal;
+//   font-display: swap;
+// }
+// @font-face {
+//   font-family: 'Avenir';
+//   src: url('../fonts/avenir/Avenir-Heavy.woff2') format('woff2'),
+//       url('../fonts/avenir/Avenir-Heavy.woff') format('woff'),
+//       url('../fonts/avenir/Avenir-Heavy.ttf') format('truetype');
+//   font-weight: 800;
+//   font-style: normal;
+//   font-display: swap;
+// }
 // @font-face {
 //   font-family: 'Avenir Book';
 //   src: url('Avenir-Book.woff2') format('woff2'),
@@ -26,34 +28,52 @@
 //   font-style: normal;
 //   font-display: swap;
 // }
-@font-face {
-  font-family: 'Avenir';
-  src: url('../fonts/avenir/Avenir-Roman.woff2') format('woff2'),
-      url('../fonts/avenir/Avenir-Roman.woff') format('woff'),
-      url('../fonts/avenir/Avenir-Roman.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
 // @font-face {
 //   font-family: 'Avenir';
-//   src: url('Avenir-Medium.woff2') format('woff2'),
-//       url('Avenir-Medium.woff') format('woff'),
-//       url('Avenir-Medium.ttf') format('truetype');
+//   src: url('../fonts/avenir/Avenir-Roman.woff2') format('woff2'),
+//       url('../fonts/avenir/Avenir-Roman.woff') format('woff'),
+//       url('../fonts/avenir/Avenir-Roman.ttf') format('truetype');
 //   font-weight: normal;
 //   font-style: normal;
 //   font-display: swap;
 // }
-/***** END AVENIR *****/
+// // @font-face {
+// //   font-family: 'Avenir';
+// //   src: url('Avenir-Medium.woff2') format('woff2'),
+// //       url('Avenir-Medium.woff') format('woff'),
+// //       url('Avenir-Medium.ttf') format('truetype');
+// //   font-weight: normal;
+// //   font-style: normal;
+// //   font-display: swap;
+// // }
+// /***** END AVENIR *****/
 
-/***** KRUB *****/
-@font-face {
-  font-family: 'Krub';
-  src: url('../fonts/krub/Krub-Medium.woff2') format('woff2'),
-      url('../fonts/krub/Krub-Medium.woff') format('woff'),
-      url('../fonts/krub/Krub-Medium.ttf') format('truetype');
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
+// /***** KRUB *****/
+// @font-face {
+//   font-family: 'Krub';
+//   src: url('../fonts/krub/Krub-SemiBold.woff2') format('woff2'),
+//       url('../fonts/krub/Krub-SemiBold.woff') format('woff'),
+//       url('../fonts/krub/Krub-SemiBold.ttf') format('truetype');
+//   font-weight: 600;
+//   font-style: normal;
+//   font-display: swap;
+// }
+// @font-face {
+//   font-family: 'Krub';
+//   src: url('../fonts/krub/Krub-Medium.woff2') format('woff2'),
+//       url('../fonts/krub/Krub-Medium.woff') format('woff'),
+//       url('../fonts/krub/Krub-Medium.ttf') format('truetype');
+//   font-weight: 500;
+//   font-style: normal;
+//   font-display: swap;
+// }
+// @font-face {
+//   font-family: 'Krub';
+//   src: url('../fonts/krub/Krub-Regular.woff2') format('woff2'),
+//       url('../fonts/krub/Krub-Regular.woff') format('woff'),
+//       url('../fonts/krub/Krub-Regular.ttf') format('truetype');
+//   font-weight: normal;
+//   font-style: normal;
+//   font-display: swap;
+// }
 /***** END KRUB *****/
