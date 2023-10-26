@@ -846,9 +846,9 @@
     <div class="home-intro section white flex">
       <div class="home-intro__slider swiper relative">
         <div class="swiper-wrapper">
-          <div class="swiper-slide home-intro__video-slide">
+          <div class="swiper-slide home-intro__video-slide relative">
             <div class="container">
-              <div class="home-intro__video-slide-wrapper">
+              <div class="home-intro__video-slide-wrapper relative">
                 <div class="section-header">
                   <div class="section-header__title">
                     <h1>Remarkably Arabian</h1>
@@ -886,6 +886,12 @@
                   <a href="#" class="home-intro__link mt-4 center">Book now</a>
                 </div>
               </div>
+              <video preload="none" class="home-intro__video" autoplay muted
+                poster="./images/home-intro-video-poster.jpg">
+                <source type="video/mp4" src="./images/home-intro-video.mp4">
+                </source>
+                Sorry, your browser doesn't support embedded videos
+              </video>
             </div>
           </div>
           <div class="swiper-slide home-intro__slide relative">
@@ -935,295 +941,351 @@
       </div>
     </div>
     <!-- END INTRO -->
-    <!-- OFFERS -->
-    <div class="offers light-bg py-10">
-      <div class="container">
-        <div class="section-header">
-          <div class="section-header__title dark-blue">
-            <h2>Top Offers & Promo ADs</h2>
+    <div class="pattern">
+      <!-- OFFERS -->
+      <div class="offers light-bg py-10 ">
+        <div class="container">
+          <div class="section-header">
+            <div class="section-header__title dark-blue">
+              <h2>Top Offers & Promo ADs</h2>
+            </div>
           </div>
-        </div>
-        <div class="offers-slider swiper mt-6">
-          <div class="swiper-wrapper">
-            <a href="#" class="offers-slide swiper-slide">
-              <div class="offers-slide__header relative flex">
-                <img class="offers-slide__header-img" src="./images/offers-1.jpg" alt="">
-                <div class="offers-slide__title-wrapper flex text-26 bold white">
-                  <h3 class="offers-slide__title darkblue-bg">Try The Observation Breakfast</h3>
+          <div class="offers-slider swiper mt-6">
+            <div class="swiper-wrapper">
+              <a href="#" class="offers-slide swiper-slide">
+                <div class="offers-slide__header relative flex">
+                  <img class="offers-slide__header-img" src="./images/offers-1.jpg" alt="">
+                  <div class="offers-slide__title-wrapper flex text-26 bold white">
+                    <h3 class="offers-slide__title darkblue-bg">Try The Observation Breakfast</h3>
+                  </div>
                 </div>
-              </div>
-              <div class="offers-slide__body">
-                <div class="offers-slide__body-text text-20">
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla massa tellus, sollicitudin </p>
+                <div class="offers-slide__body">
+                  <div class="offers-slide__body-text text-20">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla massa tellus, sollicitudin </p>
+                  </div>
+                  <span href="#" class="offers-slide__body-link text-20 dark-blue">
+                    <span>Learn more</span>
+                    <div class="offers-slide__body-link-icons">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <g id="Arrow line" clip-path="url(#clip0_698_698)">
+                          <path id="Vector"
+                            d="M13.5386 18.4529L19.9453 12.0129L13.5386 5.57286C13.4808 5.49688 13.4073 5.43422 13.3231 5.38911C13.2389 5.34401 13.146 5.31752 13.0507 5.31144C12.9554 5.30536 12.8599 5.31983 12.7707 5.35387C12.6814 5.38791 12.6005 5.44072 12.5335 5.50873C12.4664 5.57674 12.4148 5.65837 12.382 5.74808C12.3493 5.83779 12.3362 5.93349 12.3436 6.0287C12.3511 6.12392 12.3789 6.21642 12.4252 6.29995C12.4715 6.38348 12.5352 6.45609 12.612 6.51286L17.4053 11.3462L4.65198 11.3462C4.47517 11.3462 4.3056 11.4164 4.18058 11.5415C4.05555 11.6665 3.98531 11.8361 3.98531 12.0129C3.98531 12.1897 4.05555 12.3592 4.18058 12.4843C4.3056 12.6093 4.47517 12.6795 4.65198 12.6795L17.4053 12.6795L12.612 17.5129C12.4873 17.6384 12.4177 17.8083 12.4183 17.9852C12.4189 18.1621 12.4898 18.3315 12.6153 18.4562C12.7408 18.5808 12.9108 18.6505 13.0877 18.6499C13.2646 18.6493 13.434 18.5784 13.5586 18.4529H13.5386Z"
+                            fill="#003083" />
+                        </g>
+                        <defs>
+                          <clipPath id="clip0_698_698">
+                            <rect width="24" height="24" fill="white" />
+                          </clipPath>
+                        </defs>
+                      </svg>
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g id="Icon/arrow">
+                          <path id="Vector (Stroke)" fill-rule="evenodd" clip-rule="evenodd"
+                            d="M14.7908 11.7806C15.0697 12.0596 15.0697 12.5118 14.7908 12.7908L10.2194 17.3622C9.94042 17.6412 9.48815 17.6412 9.20921 17.3622C8.93026 17.0833 8.93026 16.631 9.20921 16.3521L13.2756 12.2857L9.20921 8.21936C8.93026 7.94042 8.93026 7.48816 9.20921 7.20921C9.48815 6.93026 9.94042 6.93026 10.2194 7.20921L14.7908 11.7806Z"
+                            fill="white" />
+                        </g>
+                      </svg>
+                    </div>
+                  </span>
                 </div>
-                <span href="#" class="offers-slide__body-link text-20 dark-blue">
-                  <span>Learn more</span>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                    <g id="Arrow line" clip-path="url(#clip0_698_698)">
-                      <path id="Vector"
-                        d="M13.5386 18.4529L19.9453 12.0129L13.5386 5.57286C13.4808 5.49688 13.4073 5.43422 13.3231 5.38911C13.2389 5.34401 13.146 5.31752 13.0507 5.31144C12.9554 5.30536 12.8599 5.31983 12.7707 5.35387C12.6814 5.38791 12.6005 5.44072 12.5335 5.50873C12.4664 5.57674 12.4148 5.65837 12.382 5.74808C12.3493 5.83779 12.3362 5.93349 12.3436 6.0287C12.3511 6.12392 12.3789 6.21642 12.4252 6.29995C12.4715 6.38348 12.5352 6.45609 12.612 6.51286L17.4053 11.3462L4.65198 11.3462C4.47517 11.3462 4.3056 11.4164 4.18058 11.5415C4.05555 11.6665 3.98531 11.8361 3.98531 12.0129C3.98531 12.1897 4.05555 12.3592 4.18058 12.4843C4.3056 12.6093 4.47517 12.6795 4.65198 12.6795L17.4053 12.6795L12.612 17.5129C12.4873 17.6384 12.4177 17.8083 12.4183 17.9852C12.4189 18.1621 12.4898 18.3315 12.6153 18.4562C12.7408 18.5808 12.9108 18.6505 13.0877 18.6499C13.2646 18.6493 13.434 18.5784 13.5586 18.4529H13.5386Z"
-                        fill="#003083" />
-                    </g>
-                    <defs>
-                      <clipPath id="clip0_698_698">
-                        <rect width="24" height="24" fill="white" />
-                      </clipPath>
-                    </defs>
-                  </svg>
-                </span>
-              </div>
-            </a>
-            <a href="#" class="offers-slide swiper-slide">
-              <div class="offers-slide__header relative flex">
-                <img class="offers-slide__header-img" src="./images/offers-2.jpg" alt="">
-                <div class="offers-slide__title-wrapper flex text-26 bold white">
-                  <h3 class="offers-slide__title darkblue-bg">Try The Observation Breakfast</h3>
+              </a>
+              <a href="#" class="offers-slide swiper-slide">
+                <div class="offers-slide__header relative flex">
+                  <img class="offers-slide__header-img" src="./images/offers-2.jpg" alt="">
+                  <div class="offers-slide__title-wrapper flex text-26 bold white">
+                    <h3 class="offers-slide__title darkblue-bg">Try The Observation Breakfast</h3>
+                  </div>
                 </div>
-              </div>
-              <div class="offers-slide__body">
-                <div class="offers-slide__body-text text-20">
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla massa tellus, sollicitudin </p>
+                <div class="offers-slide__body">
+                  <div class="offers-slide__body-text text-20">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla massa tellus, sollicitudin </p>
+                  </div>
+                  <span href="#" class="offers-slide__body-link text-20 dark-blue">
+                    <span>Learn more</span>
+                    <div class="offers-slide__body-link-icons">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <g id="Arrow line" clip-path="url(#clip0_698_698)">
+                          <path id="Vector"
+                            d="M13.5386 18.4529L19.9453 12.0129L13.5386 5.57286C13.4808 5.49688 13.4073 5.43422 13.3231 5.38911C13.2389 5.34401 13.146 5.31752 13.0507 5.31144C12.9554 5.30536 12.8599 5.31983 12.7707 5.35387C12.6814 5.38791 12.6005 5.44072 12.5335 5.50873C12.4664 5.57674 12.4148 5.65837 12.382 5.74808C12.3493 5.83779 12.3362 5.93349 12.3436 6.0287C12.3511 6.12392 12.3789 6.21642 12.4252 6.29995C12.4715 6.38348 12.5352 6.45609 12.612 6.51286L17.4053 11.3462L4.65198 11.3462C4.47517 11.3462 4.3056 11.4164 4.18058 11.5415C4.05555 11.6665 3.98531 11.8361 3.98531 12.0129C3.98531 12.1897 4.05555 12.3592 4.18058 12.4843C4.3056 12.6093 4.47517 12.6795 4.65198 12.6795L17.4053 12.6795L12.612 17.5129C12.4873 17.6384 12.4177 17.8083 12.4183 17.9852C12.4189 18.1621 12.4898 18.3315 12.6153 18.4562C12.7408 18.5808 12.9108 18.6505 13.0877 18.6499C13.2646 18.6493 13.434 18.5784 13.5586 18.4529H13.5386Z"
+                            fill="#003083" />
+                        </g>
+                        <defs>
+                          <clipPath id="clip0_698_698">
+                            <rect width="24" height="24" fill="white" />
+                          </clipPath>
+                        </defs>
+                      </svg>
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g id="Icon/arrow">
+                          <path id="Vector (Stroke)" fill-rule="evenodd" clip-rule="evenodd"
+                            d="M14.7908 11.7806C15.0697 12.0596 15.0697 12.5118 14.7908 12.7908L10.2194 17.3622C9.94042 17.6412 9.48815 17.6412 9.20921 17.3622C8.93026 17.0833 8.93026 16.631 9.20921 16.3521L13.2756 12.2857L9.20921 8.21936C8.93026 7.94042 8.93026 7.48816 9.20921 7.20921C9.48815 6.93026 9.94042 6.93026 10.2194 7.20921L14.7908 11.7806Z"
+                            fill="white" />
+                        </g>
+                      </svg>
+                    </div>
+                  </span>
                 </div>
-                <span href="#" class="offers-slide__body-link text-20 dark-blue">
-                  <span>Learn more</span>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                    <g id="Arrow line" clip-path="url(#clip0_698_698)">
-                      <path id="Vector"
-                        d="M13.5386 18.4529L19.9453 12.0129L13.5386 5.57286C13.4808 5.49688 13.4073 5.43422 13.3231 5.38911C13.2389 5.34401 13.146 5.31752 13.0507 5.31144C12.9554 5.30536 12.8599 5.31983 12.7707 5.35387C12.6814 5.38791 12.6005 5.44072 12.5335 5.50873C12.4664 5.57674 12.4148 5.65837 12.382 5.74808C12.3493 5.83779 12.3362 5.93349 12.3436 6.0287C12.3511 6.12392 12.3789 6.21642 12.4252 6.29995C12.4715 6.38348 12.5352 6.45609 12.612 6.51286L17.4053 11.3462L4.65198 11.3462C4.47517 11.3462 4.3056 11.4164 4.18058 11.5415C4.05555 11.6665 3.98531 11.8361 3.98531 12.0129C3.98531 12.1897 4.05555 12.3592 4.18058 12.4843C4.3056 12.6093 4.47517 12.6795 4.65198 12.6795L17.4053 12.6795L12.612 17.5129C12.4873 17.6384 12.4177 17.8083 12.4183 17.9852C12.4189 18.1621 12.4898 18.3315 12.6153 18.4562C12.7408 18.5808 12.9108 18.6505 13.0877 18.6499C13.2646 18.6493 13.434 18.5784 13.5586 18.4529H13.5386Z"
-                        fill="#003083" />
-                    </g>
-                    <defs>
-                      <clipPath id="clip0_698_698">
-                        <rect width="24" height="24" fill="white" />
-                      </clipPath>
-                    </defs>
-                  </svg>
-                </span>
-              </div>
-            </a>
-            <a href="#" class="offers-slide swiper-slide">
-              <div class="offers-slide__header relative flex">
-                <img class="offers-slide__header-img" src="./images/offers-3.jpg" alt="">
-                <div class="offers-slide__title-wrapper flex text-26 bold white">
-                  <h3 class="offers-slide__title darkblue-bg">Try The Observation Breakfast</h3>
+              </a>
+              <a href="#" class="offers-slide swiper-slide">
+                <div class="offers-slide__header relative flex">
+                  <img class="offers-slide__header-img" src="./images/offers-3.jpg" alt="">
+                  <div class="offers-slide__title-wrapper flex text-26 bold white">
+                    <h3 class="offers-slide__title darkblue-bg">Try The Observation Breakfast</h3>
+                  </div>
                 </div>
-              </div>
-              <div class="offers-slide__body">
-                <div class="offers-slide__body-text text-20">
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla massa tellus, sollicitudin </p>
+                <div class="offers-slide__body">
+                  <div class="offers-slide__body-text text-20">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla massa tellus, sollicitudin </p>
+                  </div>
+                  <span href="#" class="offers-slide__body-link text-20 dark-blue">
+                    <span>Learn more</span>
+                    <div class="offers-slide__body-link-icons">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <g id="Arrow line" clip-path="url(#clip0_698_698)">
+                          <path id="Vector"
+                            d="M13.5386 18.4529L19.9453 12.0129L13.5386 5.57286C13.4808 5.49688 13.4073 5.43422 13.3231 5.38911C13.2389 5.34401 13.146 5.31752 13.0507 5.31144C12.9554 5.30536 12.8599 5.31983 12.7707 5.35387C12.6814 5.38791 12.6005 5.44072 12.5335 5.50873C12.4664 5.57674 12.4148 5.65837 12.382 5.74808C12.3493 5.83779 12.3362 5.93349 12.3436 6.0287C12.3511 6.12392 12.3789 6.21642 12.4252 6.29995C12.4715 6.38348 12.5352 6.45609 12.612 6.51286L17.4053 11.3462L4.65198 11.3462C4.47517 11.3462 4.3056 11.4164 4.18058 11.5415C4.05555 11.6665 3.98531 11.8361 3.98531 12.0129C3.98531 12.1897 4.05555 12.3592 4.18058 12.4843C4.3056 12.6093 4.47517 12.6795 4.65198 12.6795L17.4053 12.6795L12.612 17.5129C12.4873 17.6384 12.4177 17.8083 12.4183 17.9852C12.4189 18.1621 12.4898 18.3315 12.6153 18.4562C12.7408 18.5808 12.9108 18.6505 13.0877 18.6499C13.2646 18.6493 13.434 18.5784 13.5586 18.4529H13.5386Z"
+                            fill="#003083" />
+                        </g>
+                        <defs>
+                          <clipPath id="clip0_698_698">
+                            <rect width="24" height="24" fill="white" />
+                          </clipPath>
+                        </defs>
+                      </svg>
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g id="Icon/arrow">
+                          <path id="Vector (Stroke)" fill-rule="evenodd" clip-rule="evenodd"
+                            d="M14.7908 11.7806C15.0697 12.0596 15.0697 12.5118 14.7908 12.7908L10.2194 17.3622C9.94042 17.6412 9.48815 17.6412 9.20921 17.3622C8.93026 17.0833 8.93026 16.631 9.20921 16.3521L13.2756 12.2857L9.20921 8.21936C8.93026 7.94042 8.93026 7.48816 9.20921 7.20921C9.48815 6.93026 9.94042 6.93026 10.2194 7.20921L14.7908 11.7806Z"
+                            fill="white" />
+                        </g>
+                      </svg>
+                    </div>
+                  </span>
                 </div>
-                <span href="#" class="offers-slide__body-link text-20 dark-blue">
-                  <span>Learn more</span>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                    <g id="Arrow line" clip-path="url(#clip0_698_698)">
-                      <path id="Vector"
-                        d="M13.5386 18.4529L19.9453 12.0129L13.5386 5.57286C13.4808 5.49688 13.4073 5.43422 13.3231 5.38911C13.2389 5.34401 13.146 5.31752 13.0507 5.31144C12.9554 5.30536 12.8599 5.31983 12.7707 5.35387C12.6814 5.38791 12.6005 5.44072 12.5335 5.50873C12.4664 5.57674 12.4148 5.65837 12.382 5.74808C12.3493 5.83779 12.3362 5.93349 12.3436 6.0287C12.3511 6.12392 12.3789 6.21642 12.4252 6.29995C12.4715 6.38348 12.5352 6.45609 12.612 6.51286L17.4053 11.3462L4.65198 11.3462C4.47517 11.3462 4.3056 11.4164 4.18058 11.5415C4.05555 11.6665 3.98531 11.8361 3.98531 12.0129C3.98531 12.1897 4.05555 12.3592 4.18058 12.4843C4.3056 12.6093 4.47517 12.6795 4.65198 12.6795L17.4053 12.6795L12.612 17.5129C12.4873 17.6384 12.4177 17.8083 12.4183 17.9852C12.4189 18.1621 12.4898 18.3315 12.6153 18.4562C12.7408 18.5808 12.9108 18.6505 13.0877 18.6499C13.2646 18.6493 13.434 18.5784 13.5586 18.4529H13.5386Z"
-                        fill="#003083" />
-                    </g>
-                    <defs>
-                      <clipPath id="clip0_698_698">
-                        <rect width="24" height="24" fill="white" />
-                      </clipPath>
-                    </defs>
-                  </svg>
-                </span>
-              </div>
-            </a>
-            <a href="#" class="offers-slide swiper-slide">
-              <div class="offers-slide__header relative flex">
-                <img class="offers-slide__header-img" src="./images/offers-1.jpg" alt="">
-                <div class="offers-slide__title-wrapper flex text-26 bold white">
-                  <h3 class="offers-slide__title darkblue-bg">Try The Observation Breakfast</h3>
+              </a>
+              <a href="#" class="offers-slide swiper-slide">
+                <div class="offers-slide__header relative flex">
+                  <img class="offers-slide__header-img" src="./images/offers-1.jpg" alt="">
+                  <div class="offers-slide__title-wrapper flex text-26 bold white">
+                    <h3 class="offers-slide__title darkblue-bg">Try The Observation Breakfast</h3>
+                  </div>
                 </div>
-              </div>
-              <div class="offers-slide__body">
-                <div class="offers-slide__body-text text-20">
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla massa tellus, sollicitudin </p>
+                <div class="offers-slide__body">
+                  <div class="offers-slide__body-text text-20">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla massa tellus, sollicitudin </p>
+                  </div>
+                  <span href="#" class="offers-slide__body-link text-20 dark-blue">
+                    <span>Learn more</span>
+                    <div class="offers-slide__body-link-icons">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <g id="Arrow line" clip-path="url(#clip0_698_698)">
+                          <path id="Vector"
+                            d="M13.5386 18.4529L19.9453 12.0129L13.5386 5.57286C13.4808 5.49688 13.4073 5.43422 13.3231 5.38911C13.2389 5.34401 13.146 5.31752 13.0507 5.31144C12.9554 5.30536 12.8599 5.31983 12.7707 5.35387C12.6814 5.38791 12.6005 5.44072 12.5335 5.50873C12.4664 5.57674 12.4148 5.65837 12.382 5.74808C12.3493 5.83779 12.3362 5.93349 12.3436 6.0287C12.3511 6.12392 12.3789 6.21642 12.4252 6.29995C12.4715 6.38348 12.5352 6.45609 12.612 6.51286L17.4053 11.3462L4.65198 11.3462C4.47517 11.3462 4.3056 11.4164 4.18058 11.5415C4.05555 11.6665 3.98531 11.8361 3.98531 12.0129C3.98531 12.1897 4.05555 12.3592 4.18058 12.4843C4.3056 12.6093 4.47517 12.6795 4.65198 12.6795L17.4053 12.6795L12.612 17.5129C12.4873 17.6384 12.4177 17.8083 12.4183 17.9852C12.4189 18.1621 12.4898 18.3315 12.6153 18.4562C12.7408 18.5808 12.9108 18.6505 13.0877 18.6499C13.2646 18.6493 13.434 18.5784 13.5586 18.4529H13.5386Z"
+                            fill="#003083" />
+                        </g>
+                        <defs>
+                          <clipPath id="clip0_698_698">
+                            <rect width="24" height="24" fill="white" />
+                          </clipPath>
+                        </defs>
+                      </svg>
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g id="Icon/arrow">
+                          <path id="Vector (Stroke)" fill-rule="evenodd" clip-rule="evenodd"
+                            d="M14.7908 11.7806C15.0697 12.0596 15.0697 12.5118 14.7908 12.7908L10.2194 17.3622C9.94042 17.6412 9.48815 17.6412 9.20921 17.3622C8.93026 17.0833 8.93026 16.631 9.20921 16.3521L13.2756 12.2857L9.20921 8.21936C8.93026 7.94042 8.93026 7.48816 9.20921 7.20921C9.48815 6.93026 9.94042 6.93026 10.2194 7.20921L14.7908 11.7806Z"
+                            fill="white" />
+                        </g>
+                      </svg>
+                    </div>
+                  </span>
                 </div>
-                <span href="#" class="offers-slide__body-link text-20 dark-blue">
-                  <span>Learn more</span>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                    <g id="Arrow line" clip-path="url(#clip0_698_698)">
-                      <path id="Vector"
-                        d="M13.5386 18.4529L19.9453 12.0129L13.5386 5.57286C13.4808 5.49688 13.4073 5.43422 13.3231 5.38911C13.2389 5.34401 13.146 5.31752 13.0507 5.31144C12.9554 5.30536 12.8599 5.31983 12.7707 5.35387C12.6814 5.38791 12.6005 5.44072 12.5335 5.50873C12.4664 5.57674 12.4148 5.65837 12.382 5.74808C12.3493 5.83779 12.3362 5.93349 12.3436 6.0287C12.3511 6.12392 12.3789 6.21642 12.4252 6.29995C12.4715 6.38348 12.5352 6.45609 12.612 6.51286L17.4053 11.3462L4.65198 11.3462C4.47517 11.3462 4.3056 11.4164 4.18058 11.5415C4.05555 11.6665 3.98531 11.8361 3.98531 12.0129C3.98531 12.1897 4.05555 12.3592 4.18058 12.4843C4.3056 12.6093 4.47517 12.6795 4.65198 12.6795L17.4053 12.6795L12.612 17.5129C12.4873 17.6384 12.4177 17.8083 12.4183 17.9852C12.4189 18.1621 12.4898 18.3315 12.6153 18.4562C12.7408 18.5808 12.9108 18.6505 13.0877 18.6499C13.2646 18.6493 13.434 18.5784 13.5586 18.4529H13.5386Z"
-                        fill="#003083" />
-                    </g>
-                    <defs>
-                      <clipPath id="clip0_698_698">
-                        <rect width="24" height="24" fill="white" />
-                      </clipPath>
-                    </defs>
-                  </svg>
-                </span>
-              </div>
-            </a>
-            <a href="#" class="offers-slide swiper-slide">
-              <div class="offers-slide__header relative flex">
-                <img class="offers-slide__header-img" src="./images/offers-2.jpg" alt="">
-                <div class="offers-slide__title-wrapper flex text-26 bold white">
-                  <h3 class="offers-slide__title darkblue-bg">Try The Observation Breakfast</h3>
+              </a>
+              <a href="#" class="offers-slide swiper-slide">
+                <div class="offers-slide__header relative flex">
+                  <img class="offers-slide__header-img" src="./images/offers-2.jpg" alt="">
+                  <div class="offers-slide__title-wrapper flex text-26 bold white">
+                    <h3 class="offers-slide__title darkblue-bg">Try The Observation Breakfast</h3>
+                  </div>
                 </div>
-              </div>
-              <div class="offers-slide__body">
-                <div class="offers-slide__body-text text-20">
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla massa tellus, sollicitudin </p>
+                <div class="offers-slide__body">
+                  <div class="offers-slide__body-text text-20">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla massa tellus, sollicitudin </p>
+                  </div>
+                  <span href="#" class="offers-slide__body-link text-20 dark-blue">
+                    <span>Learn more</span>
+                    <div class="offers-slide__body-link-icons">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <g id="Arrow line" clip-path="url(#clip0_698_698)">
+                          <path id="Vector"
+                            d="M13.5386 18.4529L19.9453 12.0129L13.5386 5.57286C13.4808 5.49688 13.4073 5.43422 13.3231 5.38911C13.2389 5.34401 13.146 5.31752 13.0507 5.31144C12.9554 5.30536 12.8599 5.31983 12.7707 5.35387C12.6814 5.38791 12.6005 5.44072 12.5335 5.50873C12.4664 5.57674 12.4148 5.65837 12.382 5.74808C12.3493 5.83779 12.3362 5.93349 12.3436 6.0287C12.3511 6.12392 12.3789 6.21642 12.4252 6.29995C12.4715 6.38348 12.5352 6.45609 12.612 6.51286L17.4053 11.3462L4.65198 11.3462C4.47517 11.3462 4.3056 11.4164 4.18058 11.5415C4.05555 11.6665 3.98531 11.8361 3.98531 12.0129C3.98531 12.1897 4.05555 12.3592 4.18058 12.4843C4.3056 12.6093 4.47517 12.6795 4.65198 12.6795L17.4053 12.6795L12.612 17.5129C12.4873 17.6384 12.4177 17.8083 12.4183 17.9852C12.4189 18.1621 12.4898 18.3315 12.6153 18.4562C12.7408 18.5808 12.9108 18.6505 13.0877 18.6499C13.2646 18.6493 13.434 18.5784 13.5586 18.4529H13.5386Z"
+                            fill="#003083" />
+                        </g>
+                        <defs>
+                          <clipPath id="clip0_698_698">
+                            <rect width="24" height="24" fill="white" />
+                          </clipPath>
+                        </defs>
+                      </svg>
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g id="Icon/arrow">
+                          <path id="Vector (Stroke)" fill-rule="evenodd" clip-rule="evenodd"
+                            d="M14.7908 11.7806C15.0697 12.0596 15.0697 12.5118 14.7908 12.7908L10.2194 17.3622C9.94042 17.6412 9.48815 17.6412 9.20921 17.3622C8.93026 17.0833 8.93026 16.631 9.20921 16.3521L13.2756 12.2857L9.20921 8.21936C8.93026 7.94042 8.93026 7.48816 9.20921 7.20921C9.48815 6.93026 9.94042 6.93026 10.2194 7.20921L14.7908 11.7806Z"
+                            fill="white" />
+                        </g>
+                      </svg>
+                    </div>
+                  </span>
                 </div>
-                <span href="#" class="offers-slide__body-link text-20 dark-blue">
-                  <span>Learn more</span>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                    <g id="Arrow line" clip-path="url(#clip0_698_698)">
-                      <path id="Vector"
-                        d="M13.5386 18.4529L19.9453 12.0129L13.5386 5.57286C13.4808 5.49688 13.4073 5.43422 13.3231 5.38911C13.2389 5.34401 13.146 5.31752 13.0507 5.31144C12.9554 5.30536 12.8599 5.31983 12.7707 5.35387C12.6814 5.38791 12.6005 5.44072 12.5335 5.50873C12.4664 5.57674 12.4148 5.65837 12.382 5.74808C12.3493 5.83779 12.3362 5.93349 12.3436 6.0287C12.3511 6.12392 12.3789 6.21642 12.4252 6.29995C12.4715 6.38348 12.5352 6.45609 12.612 6.51286L17.4053 11.3462L4.65198 11.3462C4.47517 11.3462 4.3056 11.4164 4.18058 11.5415C4.05555 11.6665 3.98531 11.8361 3.98531 12.0129C3.98531 12.1897 4.05555 12.3592 4.18058 12.4843C4.3056 12.6093 4.47517 12.6795 4.65198 12.6795L17.4053 12.6795L12.612 17.5129C12.4873 17.6384 12.4177 17.8083 12.4183 17.9852C12.4189 18.1621 12.4898 18.3315 12.6153 18.4562C12.7408 18.5808 12.9108 18.6505 13.0877 18.6499C13.2646 18.6493 13.434 18.5784 13.5586 18.4529H13.5386Z"
-                        fill="#003083" />
-                    </g>
-                    <defs>
-                      <clipPath id="clip0_698_698">
-                        <rect width="24" height="24" fill="white" />
-                      </clipPath>
-                    </defs>
-                  </svg>
-                </span>
-              </div>
-            </a>
-            <a href="#" class="offers-slide swiper-slide">
-              <div class="offers-slide__header relative flex">
-                <img class="offers-slide__header-img" src="./images/offers-3.jpg" alt="">
-                <div class="offers-slide__title-wrapper flex text-26 bold white">
-                  <h3 class="offers-slide__title darkblue-bg">Try The Observation Breakfast</h3>
+              </a>
+              <a href="#" class="offers-slide swiper-slide">
+                <div class="offers-slide__header relative flex">
+                  <img class="offers-slide__header-img" src="./images/offers-3.jpg" alt="">
+                  <div class="offers-slide__title-wrapper flex text-26 bold white">
+                    <h3 class="offers-slide__title darkblue-bg">Try The Observation Breakfast</h3>
+                  </div>
                 </div>
-              </div>
-              <div class="offers-slide__body">
-                <div class="offers-slide__body-text text-20">
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla massa tellus, sollicitudin </p>
+                <div class="offers-slide__body">
+                  <div class="offers-slide__body-text text-20">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla massa tellus, sollicitudin </p>
+                  </div>
+                  <span href="#" class="offers-slide__body-link text-20 dark-blue">
+                    <span>Learn more</span>
+                    <div class="offers-slide__body-link-icons">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <g id="Arrow line" clip-path="url(#clip0_698_698)">
+                          <path id="Vector"
+                            d="M13.5386 18.4529L19.9453 12.0129L13.5386 5.57286C13.4808 5.49688 13.4073 5.43422 13.3231 5.38911C13.2389 5.34401 13.146 5.31752 13.0507 5.31144C12.9554 5.30536 12.8599 5.31983 12.7707 5.35387C12.6814 5.38791 12.6005 5.44072 12.5335 5.50873C12.4664 5.57674 12.4148 5.65837 12.382 5.74808C12.3493 5.83779 12.3362 5.93349 12.3436 6.0287C12.3511 6.12392 12.3789 6.21642 12.4252 6.29995C12.4715 6.38348 12.5352 6.45609 12.612 6.51286L17.4053 11.3462L4.65198 11.3462C4.47517 11.3462 4.3056 11.4164 4.18058 11.5415C4.05555 11.6665 3.98531 11.8361 3.98531 12.0129C3.98531 12.1897 4.05555 12.3592 4.18058 12.4843C4.3056 12.6093 4.47517 12.6795 4.65198 12.6795L17.4053 12.6795L12.612 17.5129C12.4873 17.6384 12.4177 17.8083 12.4183 17.9852C12.4189 18.1621 12.4898 18.3315 12.6153 18.4562C12.7408 18.5808 12.9108 18.6505 13.0877 18.6499C13.2646 18.6493 13.434 18.5784 13.5586 18.4529H13.5386Z"
+                            fill="#003083" />
+                        </g>
+                        <defs>
+                          <clipPath id="clip0_698_698">
+                            <rect width="24" height="24" fill="white" />
+                          </clipPath>
+                        </defs>
+                      </svg>
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g id="Icon/arrow">
+                          <path id="Vector (Stroke)" fill-rule="evenodd" clip-rule="evenodd"
+                            d="M14.7908 11.7806C15.0697 12.0596 15.0697 12.5118 14.7908 12.7908L10.2194 17.3622C9.94042 17.6412 9.48815 17.6412 9.20921 17.3622C8.93026 17.0833 8.93026 16.631 9.20921 16.3521L13.2756 12.2857L9.20921 8.21936C8.93026 7.94042 8.93026 7.48816 9.20921 7.20921C9.48815 6.93026 9.94042 6.93026 10.2194 7.20921L14.7908 11.7806Z"
+                            fill="white" />
+                        </g>
+                      </svg>
+                    </div>
+                  </span>
                 </div>
-                <span href="#" class="offers-slide__body-link text-20 dark-blue">
-                  <span>Learn more</span>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                    <g id="Arrow line" clip-path="url(#clip0_698_698)">
-                      <path id="Vector"
-                        d="M13.5386 18.4529L19.9453 12.0129L13.5386 5.57286C13.4808 5.49688 13.4073 5.43422 13.3231 5.38911C13.2389 5.34401 13.146 5.31752 13.0507 5.31144C12.9554 5.30536 12.8599 5.31983 12.7707 5.35387C12.6814 5.38791 12.6005 5.44072 12.5335 5.50873C12.4664 5.57674 12.4148 5.65837 12.382 5.74808C12.3493 5.83779 12.3362 5.93349 12.3436 6.0287C12.3511 6.12392 12.3789 6.21642 12.4252 6.29995C12.4715 6.38348 12.5352 6.45609 12.612 6.51286L17.4053 11.3462L4.65198 11.3462C4.47517 11.3462 4.3056 11.4164 4.18058 11.5415C4.05555 11.6665 3.98531 11.8361 3.98531 12.0129C3.98531 12.1897 4.05555 12.3592 4.18058 12.4843C4.3056 12.6093 4.47517 12.6795 4.65198 12.6795L17.4053 12.6795L12.612 17.5129C12.4873 17.6384 12.4177 17.8083 12.4183 17.9852C12.4189 18.1621 12.4898 18.3315 12.6153 18.4562C12.7408 18.5808 12.9108 18.6505 13.0877 18.6499C13.2646 18.6493 13.434 18.5784 13.5586 18.4529H13.5386Z"
-                        fill="#003083" />
-                    </g>
-                    <defs>
-                      <clipPath id="clip0_698_698">
-                        <rect width="24" height="24" fill="white" />
-                      </clipPath>
-                    </defs>
-                  </svg>
-                </span>
-              </div>
-            </a>
-          </div>
-          <div class="offers-slider__nav flex mt-4">
-            <button type="button" class="offers-slider__swiper-btn offers-slider__prev-btn">
-              <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <g id="Icon/arrow">
-                  <path id="Vector (Stroke)" fill-rule="evenodd" clip-rule="evenodd"
-                    d="M9.70921 11.7806C9.43026 12.0596 9.43026 12.5118 9.70921 12.7908L14.2806 17.3622C14.5596 17.6412 15.0118 17.6412 15.2908 17.3622C15.5697 17.0833 15.5697 16.631 15.2908 16.3521L11.2244 12.2857L15.2908 8.21936C15.5697 7.94042 15.5697 7.48816 15.2908 7.20921C15.0118 6.93026 14.5596 6.93026 14.2806 7.20921L9.70921 11.7806Z"
-                    fill="white" />
-                </g>
-              </svg>
-            </button>
-            <div class="offers-slider__dots-wrapper"></div>
-            <button type="button" class="offers-slider__swiper-btn offers-slider__next-btn">
-              <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <g id="Icon/arrow">
-                  <path id="Vector (Stroke)" fill-rule="evenodd" clip-rule="evenodd"
-                    d="M15.2908 11.7806C15.5697 12.0596 15.5697 12.5118 15.2908 12.7908L10.7194 17.3622C10.4404 17.6412 9.98815 17.6412 9.70921 17.3622C9.43026 17.0833 9.43026 16.631 9.70921 16.3521L13.7756 12.2857L9.70921 8.21936C9.43026 7.94042 9.43026 7.48816 9.70921 7.20921C9.98815 6.93026 10.4404 6.93026 10.7194 7.20921L15.2908 11.7806Z"
-                    fill="white" />
-                </g>
-              </svg>
-            </button>
+              </a>
+            </div>
+            <div class="offers-slider__nav flex mt-4">
+              <button type="button" class="offers-slider__swiper-btn offers-slider__prev-btn">
+                <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <g id="Icon/arrow">
+                    <path id="Vector (Stroke)" fill-rule="evenodd" clip-rule="evenodd"
+                      d="M9.70921 11.7806C9.43026 12.0596 9.43026 12.5118 9.70921 12.7908L14.2806 17.3622C14.5596 17.6412 15.0118 17.6412 15.2908 17.3622C15.5697 17.0833 15.5697 16.631 15.2908 16.3521L11.2244 12.2857L15.2908 8.21936C15.5697 7.94042 15.5697 7.48816 15.2908 7.20921C15.0118 6.93026 14.5596 6.93026 14.2806 7.20921L9.70921 11.7806Z"
+                      fill="white" />
+                  </g>
+                </svg>
+              </button>
+              <div class="offers-slider__dots-wrapper"></div>
+              <button type="button" class="offers-slider__swiper-btn offers-slider__next-btn">
+                <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <g id="Icon/arrow">
+                    <path id="Vector (Stroke)" fill-rule="evenodd" clip-rule="evenodd"
+                      d="M15.2908 11.7806C15.5697 12.0596 15.5697 12.5118 15.2908 12.7908L10.7194 17.3622C10.4404 17.6412 9.98815 17.6412 9.70921 17.3622C9.43026 17.0833 9.43026 16.631 9.70921 16.3521L13.7756 12.2857L9.70921 8.21936C9.43026 7.94042 9.43026 7.48816 9.70921 7.20921C9.98815 6.93026 10.4404 6.93026 10.7194 7.20921L15.2908 11.7806Z"
+                      fill="white" />
+                  </g>
+                </svg>
+              </button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <!-- END OFFERS -->
-    <!-- PRODUCTS SECTION -->
-    <div class="products section py-10">
-      <div class="container">
-        <div class="section-header">
-          <div class="section-header__title dark-blue">
-            <h2>Explore our Destinations</h2>
+      <!-- END OFFERS -->
+      <!-- PRODUCTS SECTION -->
+      <div class="products section py-10 pattern-fix">
+        <div class="container">
+          <div class="section-header">
+            <div class="section-header__title dark-blue">
+              <h2>Explore our Destinations</h2>
+            </div>
+          </div>
+          <div class="products-cards mt-6">
+            <a href="#" class="products-card">
+              <div class="products-card__header">
+                <img src="./images/product-card--1.jpg" alt="">
+              </div>
+              <div class="products-card__body dark-blue light-bg center">
+                <span class="products-card__category text-20 uc">Cruise to</span>
+                <div class="products-card__title text-30 bold">Yanbu</div>
+                <span class="gray text-20">starting from</span>
+                <div class="products-card__price-wrapper">
+                  <span class="products-card__price-currency uc text-24">Sar</span>
+                  <span class="products-card__price text-20 bold">870/person*</span>
+                </div>
+              </div>
+              <span class="products-card__btn main-btn main-btn--light-blue">
+                Book now
+              </span>
+            </a>
+            <a href="#" class="products-card">
+              <div class="products-card__header">
+                <img src="./images/product-card--2.jpeg" alt="">
+              </div>
+              <div class="products-card__body dark-blue light-bg center">
+                <span class="products-card__category text-20 uc">Cruise to</span>
+                <div class="products-card__title text-30 bold">Yanbu</div>
+                <span class="gray text-20">starting from</span>
+                <div class="products-card__price-wrapper">
+                  <span class="products-card__price-currency uc text-24">Sar</span>
+                  <span class="products-card__price text-20 bold">870/person*</span>
+                </div>
+              </div>
+              <span class="products-card__btn main-btn main-btn--light-blue">
+                Book now
+              </span>
+            </a>
+            <a href="#" class="products-card">
+              <div class="products-card__header">
+                <img src="./images/product-card--3.jpg" alt="">
+              </div>
+              <div class="products-card__body dark-blue light-bg center">
+                <span class="products-card__category text-20 uc">Cruise to</span>
+                <div class="products-card__title text-30 bold">Yanbu</div>
+                <span class="gray text-20">starting from</span>
+                <div class="products-card__price-wrapper">
+                  <span class="products-card__price-currency uc text-24">Sar</span>
+                  <span class="products-card__price text-20 bold">870/person*</span>
+                </div>
+              </div>
+              <span class="products-card__btn main-btn main-btn--light-blue">
+                Book now
+              </span>
+            </a>
+            <a href="#" class="products-card">
+              <div class="products-card__header">
+                <img src="./images/product-card--4.jpg" alt="">
+              </div>
+              <div class="products-card__body dark-blue light-bg center">
+                <span class="products-card__category text-20 uc">Cruise to</span>
+                <div class="products-card__title text-30 bold">Yanbu</div>
+                <span class="gray text-20">starting from</span>
+                <div class="products-card__price-wrapper">
+                  <span class="products-card__price-currency uc text-24">Sar</span>
+                  <span class="products-card__price text-20 bold">870/person*</span>
+                </div>
+              </div>
+              <span class="products-card__btn main-btn main-btn--light-blue">
+                Book now
+              </span>
+            </a>
+          </div>
+          <div class="products-footer mt-6 flex center">
+            <a href="#" class="square-btn square-btn--light-blue">See more fares</a>
+            <p class="products-footer__text text-14 gray">Terms & conditions apply *</p>
           </div>
         </div>
-        <div class="products-cards mt-6">
-          <a href="#" class="products-card">
-            <div class="products-card__header">
-              <img src="./images/product-card--1.jpg" alt="">
-            </div>
-            <div class="products-card__body dark-blue light-bg center">
-              <span class="products-card__category text-20 uc">Cruise to</span>
-              <div class="products-card__title text-30 bold">Yanbu</div>
-              <span class="gray text-20">starting from</span>
-              <div class="products-card__price-wrapper">
-                <span class="products-card__price-currency uc text-24">Sar</span>
-                <span class="products-card__price text-20 bold">870/person*</span>
-              </div>
-            </div>
-            <span class="products-card__btn main-btn main-btn--light-blue">
-              Book now
-            </span>
-          </a>
-          <a href="#" class="products-card">
-            <div class="products-card__header">
-              <img src="./images/product-card--2.jpeg" alt="">
-            </div>
-            <div class="products-card__body dark-blue light-bg center">
-              <span class="products-card__category text-20 uc">Cruise to</span>
-              <div class="products-card__title text-30 bold">Yanbu</div>
-              <span class="gray text-20">starting from</span>
-              <div class="products-card__price-wrapper">
-                <span class="products-card__price-currency uc text-24">Sar</span>
-                <span class="products-card__price text-20 bold">870/person*</span>
-              </div>
-            </div>
-            <span class="products-card__btn main-btn main-btn--light-blue">
-              Book now
-            </span>
-          </a>
-          <a href="#" class="products-card">
-            <div class="products-card__header">
-              <img src="./images/product-card--3.jpg" alt="">
-            </div>
-            <div class="products-card__body dark-blue light-bg center">
-              <span class="products-card__category text-20 uc">Cruise to</span>
-              <div class="products-card__title text-30 bold">Yanbu</div>
-              <span class="gray text-20">starting from</span>
-              <div class="products-card__price-wrapper">
-                <span class="products-card__price-currency uc text-24">Sar</span>
-                <span class="products-card__price text-20 bold">870/person*</span>
-              </div>
-            </div>
-            <span class="products-card__btn main-btn main-btn--light-blue">
-              Book now
-            </span>
-          </a>
-          <a href="#" class="products-card">
-            <div class="products-card__header">
-              <img src="./images/product-card--4.jpg" alt="">
-            </div>
-            <div class="products-card__body dark-blue light-bg center">
-              <span class="products-card__category text-20 uc">Cruise to</span>
-              <div class="products-card__title text-30 bold">Yanbu</div>
-              <span class="gray text-20">starting from</span>
-              <div class="products-card__price-wrapper">
-                <span class="products-card__price-currency uc text-24">Sar</span>
-                <span class="products-card__price text-20 bold">870/person*</span>
-              </div>
-            </div>
-            <span class="products-card__btn main-btn main-btn--light-blue">
-              Book now
-            </span>
-          </a>
-        </div>
-        <div class="products-footer mt-6 flex center">
-          <a href="#" class="square-btn square-btn--light-blue">See more fares</a>
-          <p class="products-footer__text text-14 gray">Terms & conditions apply *</p>
-        </div>
       </div>
+      <!-- END PRODUCTS SECTION -->
     </div>
-    <!-- END PRODUCTS SECTION -->
     <!-- CONTENT SECTIONS -->
     <div class="content-section home-content-section section light-bg relative flex">
       <div class="container content-section__container mt-12 pattern-fix flex">
@@ -1241,11 +1303,11 @@
               facilisis enim. Nunc pretium quis nisi ut sagittis. Donec at tincidunt lacus. Suspendisse efficitur
               scelerisque tellus at posuere. Morbi vulputate mauris ut quam accumsan vulputate.</p>
           </div>
-          <div class="section-links mt-3 dark-blue">
+          <div class="section-links section-links--sm mt-3 dark-blue">
             <a class="section-links__item control" href="#">
               <span class="section-links__item__text">Learn More</span>
               <span class="section-links__item-ic control-ic">
-                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg width="24" height="24" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path fill-rule="evenodd" clip-rule="evenodd"
                     d="M20.8839 15.1161C21.372 15.6043 21.372 16.3957 20.8839 16.8839L12.8839 24.8839C12.3957 25.372 11.6043 25.372 11.1161 24.8839C10.628 24.3957 10.628 23.6043 11.1161 23.1161L18.2322 16L11.1161 8.88388C10.628 8.39573 10.628 7.60427 11.1161 7.11612C11.6043 6.62796 12.3957 6.62796 12.8839 7.11612L20.8839 15.1161Z"
                     fill="#003083" />
@@ -1507,7 +1569,7 @@
           </li>
           <li class="footer-social__list-item">
             <a href="#" class="footer-social__list-link">
-              <svg width="41" height="40" viewBox="0 0 41 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <svg width="35" height="35" viewBox="0 0 41 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g id="Component 5">
                   <path id="Vector"
                     d="M23.5 18.1L34.8 5H32.1L22.3 16.4L14.5 5H5.5L17.3 22.2L5.5 36H8.2L18.6 24L26.9 36H35.9L23.5 18.1ZM19.9 22.4L18.7 20.7L9.2 7H13.3L21 18L22.2 19.7L32.2 34H28.1L19.9 22.4Z"
@@ -1596,7 +1658,7 @@
     </div>
     <div class="bottom-footer pb-3">
       <div class="container bottom-footer__container">
-        <ul class="bottom-footer__list flex text-20 dark-blue">
+        <ul class="bottom-footer__list flex text-16 dark-blue">
           <li class="bottom-footer__list-item">
             <a href="#" class="bottom-footer__list-link">
               FAQ

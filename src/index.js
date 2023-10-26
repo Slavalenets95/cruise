@@ -375,6 +375,7 @@ window.addEventListener('load', () => {
 
   /***** HOME INTRO SLIDER *****/
   let homeIntroSlider = document.querySelector('.home-intro__slider');
+  const homeIntroSlidesVideos = document.querySelectorAll(('.home-intro__video-slide .home-intro__video'));
 
   if (homeIntroSlider) {
     homeIntroSlider = new Swiper('.home-intro__slider', {
@@ -393,7 +394,27 @@ window.addEventListener('load', () => {
             prevEl: `.home-intro__prev-btn`,
           },
         }
+      },
+      on: {
+        slideChange: swiper => {
+          const slide = swiper.slides[swiper.activeIndex];
+          const isVideoSlide = slide.classList.contains('home-intro__video-slide');
+
+          if(isVideoSlide) {
+            const video = slide.querySelector('.home-intro__video');
+            if(video.ended) {
+              slide.querySelector('.home-intro__video').play();
+            }
+          }
+        }
       }
+    })
+  }
+  if(homeIntroSlidesVideos && homeIntroSlidesVideos.length) {
+    homeIntroSlidesVideos.forEach(video => {
+      video.addEventListener('ended', () => {
+        homeIntroSlider.slideNext();
+      })
     })
   }
   /***** END HOME INTRO SLIDEr *****/
