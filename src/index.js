@@ -413,7 +413,9 @@ window.addEventListener('load', () => {
   if(homeIntroSlidesVideos && homeIntroSlidesVideos.length) {
     homeIntroSlidesVideos.forEach(video => {
       video.addEventListener('ended', () => {
-        homeIntroSlider.slideNext();
+        if(window.screen.availWidth > 600) {
+          homeIntroSlider.slideNext();
+        }
       })
     })
   }

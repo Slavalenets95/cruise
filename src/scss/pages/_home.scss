@@ -187,6 +187,12 @@
   }
 
   @include respond-to(small) {
+    &__video-slide {
+      background: url('../images/intro-bg--mobile.png') top left/cover no-repeat;
+    }
+    &__video {
+      display: none;
+    }
     .section-links__item:not(:first-child) {
       margin-top: 20px;
     }
