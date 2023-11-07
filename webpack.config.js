@@ -32,7 +32,7 @@ module.exports = (env) => {
             {
               loader: 'css-loader',
             },
-            'sass-loader'
+            'sass-loader',
           ],
         },
         {
@@ -100,6 +100,10 @@ module.exports = (env) => {
       new HtmlWebpackPlugin({
         filename: "plan-page.html",
         template: path.resolve(__dirname, './src/plan-page.html'),
+      }),
+      new HtmlWebpackPlugin({
+        filename: "search-panel.html",
+        template: path.resolve(__dirname, './src/search-panel.html'),
       }),
       new webpack.HotModuleReplacementPlugin(),
       new CopyWebpackPlugin({

@@ -12,6 +12,10 @@ body {
   margin: 0 auto;
 }
 
+label, button {
+  cursor: pointer;
+}
+
 a {
   color: inherit;
   text-decoration: none;
@@ -20,7 +24,6 @@ a {
 button {
   background: none;
   border: none;
-  cursor: pointer;
   padding: 0;
   display: inline-flex;
   font-family: inherit;

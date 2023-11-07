@@ -1,3 +1,77 @@
+/***** SIGNUP SECTION *****/
+.signup {
+  border-top: 2px solid $lighest-blue--3;
+  &-form {
+    &,
+    &__controls {
+      display: flex;
+    }
+    &__controls {
+      flex-grow: 1;
+      justify-content: space-between;
+      margin-right: 33px;
+    }
+    &__controls-item {
+      flex: 0 1 calc(20% - 26.4px);
+    }
+    &__submit-wrapper {
+      flex-shrink: 0;
+    }
+    input,
+    select {
+      width: 100%;
+      max-width: 260px;
+    }
+  }
+
+  @include respond-to(xx-large) {
+    &-form {
+      &__controls {
+        margin-right: 10px;
+      }
+      &__controls-item {
+        flex: 0 1 calc(20% - 10px);
+      }
+    }
+  }
+
+  @include respond-to(large) {
+    &-main {
+      margin-top: 20px;
+    }
+    &-form {
+      &,
+      &__controls {
+        flex-direction: column;
+      }
+      &__controls {
+        margin-right: 0;
+      }
+      &__controls-item:nth-child(n + 2) {
+        margin-top: 20px;
+      }
+      input:not([type="submit"]),
+      select {
+        max-width: none;
+      }
+      &__submit-wrapper {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+      }
+    }
+    &-footer {
+      margin-top: 40px;
+    }
+  }
+
+  @include respond-to(small) {
+    .section-header {
+      text-align: left;
+    }
+  }
+}
+/***** END SIGNUP SECTION *****/
 .footer {
   &-body {
     padding: 60px 0 70px;

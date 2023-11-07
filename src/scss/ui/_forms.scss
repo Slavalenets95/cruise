@@ -1,7 +1,7 @@
 /***** FORM STYLES *****/
-input:not(input[type="submit"]),
-select,
-textarea {
+input:not(input[type="submit"]):not(.custom),
+select:not(.custom),
+textarea:not(.custom) {
   border: 1px solid $light-blue;
   border-radius: 4px;
   background: $white;

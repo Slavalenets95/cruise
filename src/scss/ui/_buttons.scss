@@ -1,6 +1,7 @@
 /***** BUTTONS STYLES *****/
 .main-btn {
-  padding: 14px 66px;
+  padding: 14px 20px;
+  min-width: 217px;
   font-size: 16px;
   font-weight: 600;
   border-radius: 0px 100px;
@@ -18,6 +19,19 @@
     &:hover {
       background-color: $dark-blue;
     }
+  }
+
+  &--dark-blue {
+    background-color: $dark-blue;
+    color: $white;
+
+    &:hover {
+      background-color: $light-blue;
+    }
+  }
+
+  &__arrow {
+    margin-left: 8px;
   }
 
   &--white {
@@ -40,6 +54,7 @@
   font-size: 20px;
   font-weight: 700;
   border: 2px solid;
+  display: inline-flex;
   transition:
     border-color 0.5s,
     background-color 0.5s,
