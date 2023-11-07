@@ -175,5 +175,9 @@
       }
     }
   }
+
+  @include respond-to(x-large) {
+    font-size: 18px;
+  }
 }
 /***** END STANDARD TEXT STYLES *****/

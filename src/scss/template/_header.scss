@@ -4,7 +4,6 @@
     justify-content: space-between;
   }
   &-logo {
-    margin-right: 50px;
     flex-shrink: 0;
     max-width: 196px;
     align-self: center;
@@ -13,12 +12,16 @@
   &-nav {
     margin-right: 50px;
     align-self: stretch;
+    &__sub-control {
+      display: flex;
+      align-items: center;
+    }
   }
   &-nav__list-control {
     display: flex;
     align-items: center;
     height: 100%;
-    padding: 0 40px;
+    padding: 0 30px;
   }
   /***** END NAVIGATION *****/
 
@@ -223,12 +226,22 @@
     .search {
       width: 900px;
     }
+    &-language {
+      display: none;
+    }
+    &-ui {
+      &__list-tel {
+        display: none;
+      }
+    }
+    &-top {
+      display: block;
+    }
   }
 
   @include respond-to(xx-large) {
     min-height: 100px;
-    &-nav,
-    &-language {
+    &-nav {
       display: none;
     }
     .search, .search-bg {

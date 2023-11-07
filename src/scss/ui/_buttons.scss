@@ -78,6 +78,9 @@
   font-weight: 800;
   background-color: $light-blue;
   transition: background-color 0.5s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 
   &:hover {
     background-color: $dark-blue;

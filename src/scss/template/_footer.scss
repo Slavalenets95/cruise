@@ -1,6 +1,10 @@
 /***** SIGNUP SECTION *****/
 .signup {
   border-top: 2px solid $lighest-blue--3;
+  &-main, &-footer {
+    max-width: 1340px;
+    margin: 40px auto 0;
+  }
   &-form {
     &,
     &__controls {
@@ -9,29 +13,16 @@
     &__controls {
       flex-grow: 1;
       justify-content: space-between;
-      margin-right: 33px;
+      margin-right: 40px;
     }
     &__controls-item {
-      flex: 0 1 calc(20% - 26.4px);
+      flex: 0 1 calc(50% - 20px);
     }
     &__submit-wrapper {
       flex-shrink: 0;
     }
-    input,
-    select {
+    input {
       width: 100%;
-      max-width: 260px;
-    }
-  }
-
-  @include respond-to(xx-large) {
-    &-form {
-      &__controls {
-        margin-right: 10px;
-      }
-      &__controls-item {
-        flex: 0 1 calc(20% - 10px);
-      }
     }
   }
 
@@ -74,7 +65,7 @@
 /***** END SIGNUP SECTION *****/
 .footer {
   &-body {
-    padding: 60px 0 70px;
+    padding: 60px 0 30px;
     background: url("../images/footer-bg.jpg") left top/cover #0474b3;
   }
   /***** SUBSCRIBE *****/
