@@ -76,6 +76,9 @@
 
   @include respond-to(xxx-large) {
     min-height: 600px;
+    &__video-slide-title {
+      max-width: 850px;
+    }
     &__slide-wrapper {
       max-width: 550px;
     }
