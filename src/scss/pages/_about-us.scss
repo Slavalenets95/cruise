@@ -28,6 +28,7 @@
 
     @include respond-to(xxx-large) {
       min-height: 600px;
+      padding-left: 80px;
 
       &__wrapper {
         max-width: 550px;
@@ -56,57 +57,198 @@
       padding: 100px 0;
     }
   }
-}
 
-/***** CONTENT SECTION *****/
-.about-us-general {
-  &__container {
-    width: 50%;
-    padding: 20px 120px 80px;
-    align-items: center;
-  }
+  /***** CONTENT SECTION *****/
+  .about-us-general {
+    &__container {
+      width: 50%;
+      padding: 20px 120px 80px;
+      align-items: center;
+    }
 
-  &__content-wrapper {
-    max-width: 691px;
-    flex-direction: column;
-  }
+    &__content-wrapper {
+      max-width: 691px;
+      flex-direction: column;
+    }
 
-  &__image-wrapper {
-    margin-top: auto;
-    height: 100%;
-    width: 50%;
-
-    img {
-      object-fit: cover;
-      width: 100%;
+    &__image-wrapper {
+      margin-top: auto;
       height: 100%;
-      border-radius: 700px 0 0 0;
-    }
-  }
+      width: 50%;
 
-  @include respond-to(x-large) {
-    &__container {
-      padding: 20px 60px 80px 20px;
+      img {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        border-radius: 700px 0 0 0;
+      }
     }
-  }
-  @include respond-to(large) {
-    &__container {
-      padding: 20px 60px 80px 20px;
+
+    @include respond-to(xxx-large) {
+      &__container {
+        padding: 0 30px 60px 80px;
+      }
     }
-    
-    &__content-wrapper {
-      margin-top: 0;
-      margin-right: 0;
-      max-width: none;
-    }
-  }
-  @include respond-to(small) {
-    &__content-wrapper {
-      .content {
-        margin-top: 20px;
-        order: initial;
+
+    @include respond-to(x-large) {
+      &__container {
+        padding-left: 15px;
+        width: 100%;
+      }
+
+      &__image-wrapper {
+        display: none;
       }
     }
   }
+  /***** END CONTENT SECTION *****/
+
+  /***** OUR VIEW SECTION *****/
+  .about-us-view {
+    &__container {
+      width: 50%;
+      padding: 80px 130px;
+      align-items: flex-start;
+      flex-direction: column;
+    }
+
+    &__content-wrapper {
+      max-width: 700px;
+      flex-direction: column;
+    }
+
+    &__image-wrapper {
+      margin-bottom: auto;
+      height: 100%;
+      width: 50%;
+
+      img {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        border-radius: 0 0 700px 0;
+      }
+    }
+
+    @include respond-to(xxx-large) {
+      &__container {
+        padding: 40px 60px;
+      }
+    }
+
+    @include respond-to(x-large) {
+      &__container {
+        padding-left: 15px;
+        width: 100%;
+      }
+
+      &__image-wrapper {
+        display: none;
+      }
+    }
+  }
+  /***** OUR VIEW SECTION *****/
+
+  /***** PATTERN *****/
+  .pattern.about-us-values {
+    &::after {
+      z-index: -1;
+      background-image: url('../images/pattern.png');
+    }
+  }
+  /***** END PATTERN ******/
+
+  /***** OUR VALUES SECTION *****/
+  .about-us-values {
+    padding: 100px 120px;
+
+    &__container {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    &__bage {
+      margin-right: 54px;
+      align-items: center;
+      flex-direction: column;
+      
+      &-icon {
+        width: 250px;
+        padding: 30px 0;
+        border-radius: 0px 100px;
+        background: linear-gradient(113deg, #0092D7 0%, #012E89 100%);
+        justify-content: center;
+        transform: translateY(50%);
+      }
+
+      &-description {
+        width: 350px;
+        padding: 75px 25px 40px;
+        box-sizing: border-box;
+        text-align: center;
+        background: #fff;
+        box-shadow: 0px 4px 32px 0px rgba(0, 24, 86, 0.10);
+        border-radius: 12px;
+      }
+    }
+
+
+    @include respond-to(xxx-large) {
+      padding: 40px 60px;
+    }
+
+    @include respond-to(x-large) {
+      &__bage:nth-child(2n) {
+        margin-right: 0;
+      }
+    }
+
+    @include respond-to(large) {
+      &__bage {
+        margin-right: 20px;
+
+        &:nth-child(2n) {
+          margin-right: 0;
+        }
+      }
+    }
+  
+    @include respond-to(medium) {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+
+      &__bage {
+        margin: 0;
+        scale: 0.8;
+      }
+    }
+
+    @include respond-to(small) {
+      padding: 60px 15px;
+    }
+  }
+  /***** OUR VALUES SECTION *****/
+
+  /***** CTA SECTION *****/
+  .cta-section {
+    background: url("../images/ship-bg.jpg") top left/cover #7bb7cd;
+    min-height: 850px;
+
+    @include respond-to(xxx-large) {
+      min-height: 600px;
+      background-position: center;
+    }
+
+    @include respond-to(small) {
+      background-image: url("../images/ship-bg--mobile.png");
+      padding: 50px 0 30px;
+      min-height: 540px;
+
+      &__content {
+        margin-top: 80px;
+      }
+    }
+  }
+  /***** END CTA SECTION *****/
 }
-/***** END CONTENT SECTION *****/
