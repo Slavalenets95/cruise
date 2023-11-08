@@ -137,7 +137,7 @@
   *:first-child {
     margin-top: 0;
   }
-  a {
+  a:not(.main-btn) {
     transition: color 0.5s;
   }
   &--m-10 {
