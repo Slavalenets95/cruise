@@ -1,95 +1,14 @@
-import { jsonToGraphQLQuery } from 'json-to-graphql-query';
 import { addMonths, addYears, endOfYear, formatISO, startOfYear, getYear, getMonth, format } from 'date-fns';
 import { enUS } from 'date-fns/locale';
-
-// Make from env
-const url = "http://dev.booking.aroya.com:3000/graphql";
-
-class graphQL {
-  url = "";
-
-  constructor(url) {
-    this.url = url;
-  }
-
-  prepareQuery({ queryName, params, fields }) {
-    return {
-      query: {
-        [queryName]: {
-          __args: {
-            params: {
-              ...params
-            }
-          },
-          ...fields
-        }
-      }
-    }
-  }
-
-  makeQuery(queryObj) {
-    const query = jsonToGraphQLQuery(this.prepareQuery({ ...queryObj }));
-
-    return fetch(url, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({ query })
-    }).then(res => res.json())
-  }
-}
-
-class AroyaQueries {
-  maker = null;
-
-  constructor() {
-    this.maker = new graphQL(url);
-  }
-
-  getAvailableVoyages(fromDate, toDate) {
-    const queryObj = {
-      queryName: "availableVoyages",
-      params: {
-        startDateRange: {
-          from: fromDate,
-          to: toDate,
-        },
-        endDateRange: {
-          from: fromDate,
-          to: toDate,
-        }
-      },
-      fields: {
-        pkg: {
-          destinations: {
-            name: true,
-            key: true,
-            comments: true,
-          },
-          vacation: {
-            from: true
-          },
-          location: {
-            from: {
-              name: true,
-              code: true,
-            },
-          }
-        }
-      }
-    }
-    return this.maker.makeQuery(queryObj);
-  }
-}
+import { SeawareApiClient } from './integrations/seaware/sdk/seaware-api-client';
 
 class SearchPanel {
   searchForm = null
-  aroyaQueries = null;
   renderClass = null;
   controlsClass = null;
   monthPicker = null;
   searchPanelFilter = null;
+  #seawareApiClient = new SeawareApiClient();
 
   allVoyages = [];
   // ['key']
@@ -109,7 +28,6 @@ class SearchPanel {
   }
 
   constructor(searchFormNode) {
-    this.aroyaQueries = new AroyaQueries();
     this.renderClass = new SearchPanelRender();
     this.controlsClass = new SearchPanelControls();
     this.monthPicker = new SearchPanelMonthPicker();
@@ -188,8 +106,8 @@ class SearchPanel {
       // Get all voyages
       const fromDateISO = formatISO(new Date(Date.now()));
       const toDateISO = formatISO(endOfYear(addYears(new Date(Date.now()), 2)));
-      await this.aroyaQueries.
-        getAvailableVoyages(fromDateISO, toDateISO)
+      await this.#seawareApiClient
+        .getAvailableVoyages(fromDateISO, toDateISO)
         .then(res => this.allVoyages = res.data.availableVoyages);
 
       // Prepare render values
