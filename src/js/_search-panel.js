@@ -4,7 +4,7 @@ import { SeawareApiClient } from './integrations/seaware/sdk/seaware-api-client'
 
 class SearchPanel {
   searchForm = null
-  renderClass = null;
+  renderClass = new SearchPanelRender();
   controlsClass = null;
   monthPicker = null;
   searchPanelFilter = null;
@@ -28,7 +28,6 @@ class SearchPanel {
   }
 
   constructor(searchFormNode) {
-    this.renderClass = new SearchPanelRender();
     this.controlsClass = new SearchPanelControls();
     this.monthPicker = new SearchPanelMonthPicker();
     this.searchPanelFilter = new SearchPanelFilter(this);
@@ -58,8 +57,7 @@ class SearchPanel {
     }
   }
 
-  // Prepare search form render values
-  transformData() {
+  prepareRenderData() {
     // Convert dateFrom string to obj Date
     this.allVoyages.forEach(({ pkg }) => pkg.vacation.from = new Date(pkg.vacation.from));
 
@@ -102,35 +100,37 @@ class SearchPanel {
   }
 
   async make() {
-    if (this.searchForm) {
-      // Get all voyages
-      const fromDateISO = formatISO(new Date(Date.now()));
-      const toDateISO = formatISO(endOfYear(addYears(new Date(Date.now()), 2)));
-      await this.#seawareApiClient
-        .getAvailableVoyages(fromDateISO, toDateISO)
-        .then(res => this.allVoyages = res.data.availableVoyages);
-
-      // Prepare render values
-      this.transformData();
-
-      // Render
-      this.renderClass.render(
-        this.renderData.destinations,
-        this.renderData.ports,
-        this.renderData.dates
-      );
-
-      // Init form controls
-      this.controlsClass.init();
-
-      // Init search panel monthpicker
-      this.monthPicker.init(this.allDates);
-
-      // Filter & html changes on close search dropdown
-      document.querySelector('#search-form').addEventListener('close-search-dropdown', () => {
-        this.searchPanelFilter.process();
-      })
+    if (!this.searchForm) {
+      return;
     }
+
+    await this.#getAllVoyages();
+
+    this.prepareRenderData();
+    this.renderClass.render(this.renderData);
+
+    this.controlsClass.init();
+
+    this.monthPicker.init(this.allDates);
+
+    this.#filterAndUpdateOnDropdownClose();
+  }
+
+  #getAllVoyages() {
+    const fromDateISO = formatISO(new Date(Date.now()));
+    const toDateISO = formatISO(endOfYear(addYears(new Date(Date.now()), 2)));
+
+    return this.#seawareApiClient
+      .getAvailableVoyages(fromDateISO, toDateISO)
+      .then(res => this.allVoyages = res.data.availableVoyages);
+  }
+
+  #filterAndUpdateOnDropdownClose() {
+    document
+      .querySelector('#search-form')
+      .addEventListener('close-search-dropdown', () => {
+        this.searchPanelFilter.process();
+      });
   }
 }
 
@@ -367,7 +367,8 @@ class SearchPanelRender {
     datesItems.forEach(dateItem => renderNode.appendChild(dateItem));
   }
 
-  render(destinations, ports, dates) {
+  render(renderData) {
+    const { destinations, ports, dates } = renderData;
     // Destinations render
     const destinationsWrapper = document.querySelector('[data-search-destinations]');
     if (destinationsWrapper && destinations.length) {
