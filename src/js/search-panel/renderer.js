@@ -57,6 +57,7 @@ export class SearchPanelRenderer {
 
   render(renderData) {
     const { destinations, ports, dates } = renderData;
+
     // Destinations render
     const destinationsWrapper = document.querySelector('[data-search-destinations]');
     if (destinationsWrapper && destinations.length) {

@@ -1,5 +1,5 @@
-import { addMonths, addYears, endOfYear, formatISO, startOfYear, getYear, getMonth } from 'date-fns';
-import { SeawareApiClient } from './integrations/seaware/sdk/seaware-api-client';
+import { addYears, endOfYear } from 'date-fns';
+import { SeawareApiClient } from './integrations/seaware/seaware-api-client';
 import { SearchPanelControls } from './search-panel/controls';
 import { SearchPanelFilter } from './search-panel/filter';
 import { SearchPanelMonthPicker } from './search-panel/month-picker';
@@ -14,119 +14,95 @@ class SearchPanel {
   #seawareApiClient = new SeawareApiClient();
 
   allVoyages = [];
-  // ['key']
-  allDestinations = new Set();
-  // ['year-month']
-  allDates = new Set();
-  // ['code']
-  allPorts = new Set();
-  // Only for first render
-  renderData = {
-    // [{comment: string, key: string}, ...]
-    destinations: [],
-    // [{name: string, code: string}, ...]
-    ports: [],
-    // {year: ['year-month'], ...}
-    dates: {},
-  }
 
-  // Set dates for calendar render
-  setCalendarRenderDates() {
-    // Get min voyage date
-    let minDate = this.allVoyages.map(({ pkg }) => pkg.vacation.from);
-    minDate = new Date(Math.min.apply(null, minDate));
+  /**
+   * @type { Map<string, { comment: string, key: string }[]> }
+   */
+  availableDestinations = new Map();
 
-    const startDate = startOfYear(new Date(minDate.getTime()));
-    const endDate = endOfYear(addYears(new Date(minDate).getTime(), 1));
+  /** ['year-month'] */
+  availableDates = new Set();
 
-    // Fill render dates
-    let loopDate = new Date(startDate.getTime());
-    this.renderData.dates[getYear(loopDate)] = [];
-    this.renderData.dates[getYear(loopDate)].push(`${getYear(loopDate)}-${getMonth(loopDate) + 1}`);
-
-    while (addMonths(loopDate, 1).getYear() <= endDate.getYear(``)) {
-      loopDate = addMonths(loopDate, 1);
-      if (!this.renderData.dates[getYear(loopDate)]) {
-        this.renderData.dates[getYear(loopDate)] = [];
-      }
-      this.renderData.dates[getYear(loopDate)].push(`${getYear(loopDate)}-${getMonth(loopDate) + 1}`);
-    }
-  }
-
-  prepareRenderData() {
-    // Convert dateFrom string to obj Date
-    this.allVoyages.forEach(({ pkg }) => pkg.vacation.from = new Date(pkg.vacation.from));
-
-    this.allVoyages.forEach(({ pkg }) => {
-      const destinations = pkg.destinations;
-      const port = pkg.location.from;
-      const year = getYear(pkg.vacation.from);
-      const month = getMonth(pkg.vacation.from) + 1;
-      const date = `${year}-${month}`;
-
-      // Filter unique destinations data
-      destinations.forEach(destination => {
-        const key = destination.key;
-        const comment = destination.comments;
-        if (!this.allDestinations.has(key)) {
-          this.allDestinations.add(key)
-          this.renderData.destinations.push({
-            comment: comment,
-            key: key
-          })
-        }
-      })
-
-      // Filter unique ports data
-      if (!this.allPorts.has(port.code)) {
-        this.allPorts.add(port.code);
-        this.renderData.ports.push({
-          name: port.name,
-          code: port.code
-        });
-      }
-
-      // Filter uniquer year-month
-      if (!this.allDates.has(date)) {
-        this.allDates.add(date);
-      }
-    })
-
-    this.setCalendarRenderDates();
-  }
+  /**
+   * @type { Map<string, { name: string, code: string }[]> }
+   */
+  availablePorts = new Map();
 
   async make() {
     if (!this.searchForm) {
       return;
     }
 
-    await this.#getAllVoyages();
+    this.allVoyages = await this.#getAllVoyages();
+    this.#setAvailabilities();
 
-    this.prepareRenderData();
-    this.#renderer.render(this.renderData);
-
+    this.#renderer.render(this.#getInitialRenderData());
     this.#controls.init();
-
-    this.#monthPicker.init(this.allDates);
+    this.#monthPicker.init(this.availableDates);
 
     this.#filterAndUpdateOnDropdownClose();
   }
 
   #getAllVoyages() {
-    const fromDateISO = formatISO(new Date(Date.now()));
-    const toDateISO = formatISO(endOfYear(addYears(new Date(Date.now()), 2)));
+    const searchYearPeriod = 2;
+    const currentDate = new Date(Date.now());
+    const toDate = endOfYear(addYears(currentDate, searchYearPeriod));
 
     return this.#seawareApiClient
-      .getAvailableVoyages(fromDateISO, toDateISO)
-      .then(res => this.allVoyages = res.data.availableVoyages);
+      .getAvailableVoyages(currentDate, toDate)
+      .then(({ availableVoyages }) => availableVoyages);
+  }
+
+  #setAvailabilities() {
+    this.allVoyages.forEach((voyage) => {
+      const {
+        destinations,
+        location: { from: port },
+        vacation: { from: date },
+      } = voyage.pkg;
+      
+      destinations.forEach((destination) => {
+        const key = destination.key;
+        const comment = destination.comments;
+        
+        this.availableDestinations.set(key, { key, comment });
+      });
+      
+      this.availablePorts.set(port.code, port);
+
+      this.availableDates.add(`${date.getFullYear()}-${date.getMonth() + 1}`);
+    });
+  }
+
+  #getInitialRenderData() {
+    return {
+      destinations: [...this.availableDestinations.values()],
+      ports: [...this.availablePorts.values()],
+      dates: this.#getInitialRenderDates(),
+    };
+  }
+
+  #getInitialRenderDates() {
+    const voyageDates = this.allVoyages.map(({ pkg }) => pkg.vacation.from);
+    const minVoyageDate = new Date(Math.min.apply(null, voyageDates));
+    const endDate = addYears(minVoyageDate, 1);
+
+    const initialDates = {};
+    for (let year = minVoyageDate.getFullYear(); year <= endDate.getFullYear(); year++) {
+      initialDates[year] = [];
+      
+      for (let month = 1; month <= 12; month++) {
+        initialDates[year].push(`${year}-${month}`);
+      }
+    }
+
+    return initialDates;
   }
 
   #filterAndUpdateOnDropdownClose() {
-    document
-      .querySelector('#search-form')
-      .addEventListener('close-search-dropdown', () => {
-        this.#filter.process();
-      });
+    this.searchForm.addEventListener('close-search-dropdown', () => {
+      this.#filter.process();
+    });
   }
 }
 

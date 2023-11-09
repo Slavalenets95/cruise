@@ -42,9 +42,9 @@ export class SearchPanelFilter {
       ports: {},
       dates: {}
     };
-    let filteredDestinations = [...this.searchPanel.allDestinations];
-    let filteredPorts = [...this.searchPanel.allPorts];
-    let filteredDates = [...this.searchPanel.allDates];
+    let filteredDestinations = [...this.searchPanel.availableDestinations.keys()];
+    let filteredPorts = [...this.searchPanel.availablePorts.keys()];
+    let filteredDates = [...this.searchPanel.availableDates];
 
     this.searchPanel.allVoyages.forEach(({ pkg }) => {
       const date = `${getYear(pkg.vacation.from)}-${getMonth(pkg.vacation.from) + 1}`;

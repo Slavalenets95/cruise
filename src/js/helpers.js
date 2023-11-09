@@ -19,7 +19,7 @@ export class GraphQL {
           ...fields
         }
       }
-    }
+    };
   }
 
   query(queryObj) {
@@ -31,6 +31,6 @@ export class GraphQL {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({ query })
-    }).then(res => res.json())
+    }).then((res) => res.json());
   }
 }
