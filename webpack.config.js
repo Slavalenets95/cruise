@@ -104,6 +104,19 @@ module.exports = (env) => {
         filename: "all-regions.html",
         template: path.resolve(__dirname, './src/pages/en/all-regions.html'),
       }),
+      // END
+      new HtmlWebpackPlugin({
+        filename: "about-us-page.html",
+        template: path.resolve(__dirname, './src/en/about-us-page.html'),
+      }),
+      new HtmlWebpackPlugin({
+        filename: "search-panel.html",
+        template: path.resolve(__dirname, './src/search-panel.html'),
+      }),
+      new HtmlWebpackPlugin({
+        filename: "about-us-page.html",
+        template: path.resolve(__dirname, './src/about-us-page.html'),
+      }),
 
       new webpack.HotModuleReplacementPlugin(),
       new CopyWebpackPlugin({
