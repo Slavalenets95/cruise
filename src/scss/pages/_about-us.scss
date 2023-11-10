@@ -30,15 +30,28 @@
       min-height: 600px;
       padding-left: 80px;
 
+      &__img {
+        width: 53%;
+        border-radius: 500px 0 0 0;
+      }
+
       &__wrapper {
         max-width: 550px;
+      }
+    }
+
+    @include respond-to(xx-large) {
+      & > .container {
+        margin-left: 0;
       }
     }
   
     @include respond-to(x-large) {
       min-height: 500px;
       padding: 180px 0;
-
+      & > .container {
+        margin-left: auto;
+      }
       &__img {
         max-width: 40%;
       }
@@ -57,7 +70,7 @@
     }
   
     @include respond-to(medium) {
-      padding: 100px 0;
+      padding: 100px 0 0 0;
     }
   }
 
@@ -179,15 +192,6 @@
   }
   /***** OUR VIEW SECTION *****/
 
-  /***** PATTERN *****/
-  .pattern.about-us-values {
-    &::after {
-      z-index: -1;
-      background-image: url('../images/pattern.png');
-    }
-  }
-  /***** END PATTERN ******/
-
   /***** OUR VALUES SECTION *****/
   .about-us-values {
     padding: 100px 120px;
@@ -235,8 +239,6 @@
 
     @include respond-to(large) {
       &__bage {
-        margin-right: 20px;
-
         &:nth-child(2n) {
           margin-right: 0;
         }
@@ -251,6 +253,9 @@
       &__bage {
         margin: 0;
         scale: 0.8;
+        &:not(:first-child) {
+          margin-top: -40px;
+        }
       }
     }
 
