@@ -113,6 +113,16 @@
 
 /***** SLIDER *****/
 .regions-slider {
+  &.pattern {
+    background: url('../images/regions/pattern.png') center center/cover no-repeat;
+
+    &.light-bg {
+      background-color: #ECF3FA;
+    }
+    &::after {
+      z-index: -1;
+    }
+  }
   &__swiper {
     max-width: calc(100% - 122px);
     margin: 0 auto;

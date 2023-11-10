@@ -2,9 +2,9 @@
   .about-us-intro {
     background-color: #011430;
     background: url("../images/about-us-page/intro-bg.jpg") top left/cover no-repeat;
-    padding: 160px 100px;
-    min-height: 700px;
-    flex-direction: row;
+    padding: 100px 0;
+    min-height: 510px;
+    align-items: center;
 
     &__wrapper {
       max-width: 740px;
