@@ -133,6 +133,10 @@
   }
   /***** END CONTENT SECTION *****/
 
+  .about-us__pattern-img {
+    z-index: -1;
+  }
+
   /***** OUR VIEW SECTION *****/
   .about-us-view {
     &__container {
