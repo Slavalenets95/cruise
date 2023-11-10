@@ -27,11 +27,25 @@
 
   /***** SUB MENU *****/
   &-nav__sub {
+    @media screen and (min-width: 1401px) {
+      &-list {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        row-gap: 10px;
+        column-gap: 120px;
+        max-height: 92px;
+      }
+      &-item {
+        min-width: 140px;
+      }
+    }
     &-back {
       display: none;
     }
     &-container {
-      justify-content: center;
+      padding-left: 310px;
+      padding-right: 310px;
     }
     &-control {
       cursor: text;
@@ -41,9 +55,6 @@
     }
     &-row:not(:last-child) {
       margin-right: 60px;
-    }
-    &-item:nth-child(n + 2) {
-      margin-top: 10px;
     }
     &-link {
       position: relative;
@@ -339,6 +350,9 @@
         font-size: 20px;
         font-weight: 800;
         margin-bottom: 0;
+      }
+      &__sub-item:nth-child(n + 2) {
+        margin-top: 10px;
       }
       &__sub-item:last-child {
         margin-bottom: 30px;

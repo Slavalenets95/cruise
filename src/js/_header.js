@@ -5,6 +5,7 @@ class Header {
     const headerNav = document.querySelector('.header-nav');
     const header = document.querySelector('.header');
     const overlay = document.querySelector('.overlay');
+    const body = document.querySelector('body');
 
     if (headerNav && header) {
 
@@ -90,6 +91,7 @@ class Header {
       const mobileMenuControl = document.querySelector('.header-ui__hamb-btn');
       if (mobileMenuControl) {
         mobileMenuControl.addEventListener('click', function () {
+          body.toggleAttribute('menu-open')
           mobileMenuControl.toggleAttribute('data-active');
           headerNav.toggleAttribute('data-active');
           overlay.toggleAttribute('data-active');

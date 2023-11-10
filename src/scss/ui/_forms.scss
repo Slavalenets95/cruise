@@ -8,10 +8,13 @@ textarea:not(.custom) {
   padding: 12px 14px;
   &,
   &::placeholder {
-    color: $light-gray;
+    color: $dark;
     font-size: 20px;
     line-height: 1.6;
     font-family: inherit;
+  }
+  &::placeholder {
+    color: $light-gray;
   }
   & + .optional {
     font-size: 14px;

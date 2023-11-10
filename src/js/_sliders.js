@@ -60,11 +60,54 @@ class Sliders {
       })
     }
   }
+  regionsSlider() {
+    const regionsSliders = document.querySelectorAll('.regions-slider');
+
+    if(regionsSliders.length) {
+      regionsSliders.forEach((slider, idx) => {
+        slider.classList.add(`slider-${idx + 1}`);
+
+        new Swiper(`.regions-slider.slider-${idx + 1} .swiper`, {
+          spaceBetween: 30,
+          slidesPerView: 1,
+          touchRatio: 0.2,
+          pagination: {
+            el: `.regions-slider.slider-${idx + 1} .swiper-nav__dots`,
+            type: 'bullets',
+            clickable: true,
+          },
+          navigation: {
+            nextEl: `.regions-slider.slider-${idx + 1} .swiper-nav__btn.next`,
+            prevEl: `.regions-slider.slider-${idx + 1} .swiper-nav__btn.prev`,
+          },
+          scrollbar: {
+            el: `.regions-slider.slider-${idx + 1} .regions-slider__scrollbar`,
+            draggable: true,
+          },
+          breakpoints: {
+            // when window width is >= 769px
+            769: {
+              slidesPerView: 2,
+            },
+            // when window width is >= 1201px
+            1201: {
+              slidesPerView: 3,
+            },
+            // when window width is >= 1651px
+            1651: {
+              slidesPerView: 4,
+            },
+          },
+        })
+      })
+    }
+  }
   make() {
     let isMobile = window.screen.availWidth <= 600;
 
     this.homeIntroSlider();
     this.offersSlider();
+    this.regionsSlider();
 
     /***** GALLERY SLIDER *****/
     // const gallerySliders = document.querySelectorAll('.gallery');
