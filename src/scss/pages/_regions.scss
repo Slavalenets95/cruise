@@ -39,7 +39,25 @@
 
   @include respond-to(large) {
     &__img {
-      display: none;
+      max-width: 360px;
+    }
+  }
+
+  @include respond-to(medium) {
+    padding-top: 65px;
+    padding-bottom: 0;
+    flex-direction: column;
+    &__container {
+      margin-bottom: auto;
+    }
+    &__text {
+      margin-bottom: auto;
+    }
+    &__img {
+      margin-top: 40px;
+      position: static;
+      width: 100%;
+      max-width: none;
     }
   }
 

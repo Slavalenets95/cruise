@@ -7,8 +7,9 @@ class Scroller {
 
   make() {
     let scroller = document.querySelector('.custom-scroll')
-
-    if(scroller) {
+    const isMobile = screen.availWidth <= 768;
+    
+    if(scroller && !isMobile) {
       gsap.to('.custom-scroll', {
         x: () => scroller.scrollWidth * -1,
         xPercent: 100,
