@@ -76,9 +76,9 @@ module.exports = (env) => {
     },
     devServer: {
       static: {
-        directory: path.join(__dirname, 'src'),
+        directory: path.join(__dirname, 'src/pages/en'),
       },
-      watchFiles: ["src/*.html"],
+      watchFiles: ["src/*/*/*.html"],
       hot: true,
       compress: true,
       port: 9000,
@@ -89,22 +89,22 @@ module.exports = (env) => {
         filename: '[name].css',
         chunkFilename: './[name]-chunk.css',
       }),
+      // EN
       new HtmlWebpackPlugin({
         filename: "index.html",
-        template: path.resolve(__dirname, './src/index.html'),
+        template: path.resolve(__dirname, './src/pages/en/index.html'),
       }),
+      // AR
       new HtmlWebpackPlugin({
-        filename: "gallery.html",
-        template: path.resolve(__dirname, './src/gallery.html'),
+        filename: "index-ar.html",
+        template: path.resolve(__dirname, './src/pages/ar/index.html'),
       }),
+      // EN
       new HtmlWebpackPlugin({
-        filename: "plan-page.html",
-        template: path.resolve(__dirname, './src/plan-page.html'),
+        filename: "all-regions.html",
+        template: path.resolve(__dirname, './src/pages/en/all-regions.html'),
       }),
-      new HtmlWebpackPlugin({
-        filename: "search-panel.html",
-        template: path.resolve(__dirname, './src/search-panel.html'),
-      }),
+
       new webpack.HotModuleReplacementPlugin(),
       new CopyWebpackPlugin({
         patterns: [

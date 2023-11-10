@@ -6,7 +6,7 @@ import Header from './js/_header';
 import Footer from './js/_footer';
 import Faq from './js/_faq';
 import Sliders from './js/_sliders';
-
+import Scroller from './js/_scroller';
 
 // Need add reinit
 // // Throttling Function
@@ -38,4 +38,5 @@ window.addEventListener('load', () => {
   SearchPanel.make();
   Dropdowns.make();
   Sliders.make();
+  Scroller.make();
 })

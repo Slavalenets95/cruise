@@ -1,0 +1,33 @@
+@font-face {
+    font-family: 'Bahij Helvetica Neue 55 Roman';
+    src: url('BahijHelveticaNeue-Roman.eot');
+    src: url('BahijHelveticaNeue-Roman.eot?#iefix') format('embedded-opentype'),
+        url('BahijHelveticaNeue-Roman.woff2') format('woff2'),
+        url('BahijHelveticaNeue-Roman.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Bahij Helvetica Neue 45';
+    src: url('BahijHelveticaNeue-Light.eot');
+    src: url('BahijHelveticaNeue-Light.eot?#iefix') format('embedded-opentype'),
+        url('BahijHelveticaNeue-Light.woff2') format('woff2'),
+        url('BahijHelveticaNeue-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Bahij Helvetica Neue 75';
+    src: url('BahijHelveticaNeue-Bold.eot');
+    src: url('BahijHelveticaNeue-Bold.eot?#iefix') format('embedded-opentype'),
+        url('BahijHelveticaNeue-Bold.woff2') format('woff2'),
+        url('BahijHelveticaNeue-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
