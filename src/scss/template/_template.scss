@@ -12,7 +12,8 @@ body {
   margin: 0 auto;
 }
 
-label, button {
+label,
+button {
   cursor: pointer;
 }
 
@@ -187,7 +188,8 @@ img {
 
 /***** SWIPER NAV *****/
 .swiper-nav {
-  &, &__container {
+  &,
+  &__container {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -218,9 +220,10 @@ img {
       height: 6px;
       background-color: $gray--2;
       border-radius: 50%;
-      transition: background-color 0.5s,
-      width 0.5s,
-      height 0.5s;
+      transition:
+        background-color 0.5s,
+        width 0.5s,
+        height 0.5s;
       display: flex;
       cursor: pointer;
 
@@ -314,7 +317,7 @@ img {
     padding: 40px;
     background-color: $lighest-blue;
     transform: translateX(100%);
-    transition: transform .3s;
+    transition: transform 0.3s;
     z-index: 99;
     &[data-active] {
       transform: translateX(0);
@@ -389,12 +392,14 @@ img {
   bottom: 0;
   background: $dark-blue;
   opacity: 0;
-  transition: opacity .5s, visibility .5s;
+  transition:
+    opacity 0.5s,
+    visibility 0.5s;
   visibility: hidden;
   z-index: -1;
   pointer-events: none;
   &[data-active] {
-    opacity: .7;
+    opacity: 0.7;
     z-index: 1;
     pointer-events: all;
     visibility: visible;
@@ -403,7 +408,7 @@ img {
 .scaled {
   overflow: hidden;
   &-img {
-    transition: transform .3s;
+    transition: transform 0.3s;
   }
   &:hover &-img {
     transform: scale(1.15);
@@ -417,7 +422,7 @@ img {
 .radius-gradient {
   position: relative;
   &::after {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
@@ -425,8 +430,8 @@ img {
     height: 100%;
     display: block;
     border-radius: 0px 0px 0px 80px;
-    transition: all .3s;
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0.00) 51.83%, rgba(0, 0, 0, 0.70) 100%);
+    transition: all 0.3s;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 51.83%, rgba(0, 0, 0, 0.7) 100%);
   }
 }
 .gradient-parent {
@@ -441,7 +446,7 @@ img {
 }
 .pattern-img {
   position: absolute;
-  opacity: .5;
+  opacity: 0.5;
   top: 0;
   left: 0;
   width: 100%;
@@ -449,3 +454,30 @@ img {
   object-fit: cover;
 }
 /***** END PATTERN ******/
+
+/***** LOADER *****/
+.loader {
+  width: 48px;
+  height: 48px;
+  border: 5px solid #fff;
+  border-bottom-color: $dark-blue;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/***** END LOADER *****/

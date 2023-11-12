@@ -4,6 +4,21 @@
   border-radius: 12px;
   margin-left: auto;
   margin-right: auto;
+  min-height: 240px;
+
+  &.loading {
+    .search-form__items {
+      opacity: 0;
+      pointer-events: none;
+    }
+    .loader {
+      display: block;
+    }
+  }
+
+  .loader {
+    display: none;
+  }
 
   // Header
   &__header-item {
@@ -37,6 +52,9 @@
   &__items {
     padding: 30px 40px;
     justify-content: center;
+    transition: opacity .3s;
+    opacity: 1;
+    pointer-events: all;
   }
 
   // Wrapper
@@ -216,10 +234,12 @@
 
 input[data-counter] {
   color: #333;
-  width: 15px;
+  width: 30px;
   font-size: 18px;
   font-weight: 600;
   margin: 0 16px;
+  border: none;
+  text-align: center;
 }
 input[data-counter][value="0"] {
   color: #8b8b8b;
