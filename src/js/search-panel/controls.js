@@ -3,6 +3,11 @@ export class SearchPanelControls {
     this.checkboxClearBtnInit();
     this.clearDateBtnInit();
     this.searchInputInit();
+    this.counterBtnsInit();
+  }
+
+  constructor(searchFormNode) {
+    this.searchFormNode = searchFormNode;
   }
 
   clearDateBtnInit() {
@@ -66,6 +71,75 @@ export class SearchPanelControls {
             })
           })
         }
+      })
+    }
+  }
+
+  getSumCounterValues() {
+    const counters = this.searchFormNode.querySelectorAll('[data-counter]');
+
+    return Array.from(counters).reduce((sum, item) => {
+      return sum + +item.value;
+    }, 0);
+  }
+
+  counterBtnsInit() {
+    const guestCounterItems = this.searchFormNode.querySelectorAll('.search-form__guest');
+    const maxSoloValue = 14;
+    const maxSumValue = 15;
+
+    if (guestCounterItems.length) {
+      guestCounterItems.forEach(item => {
+        const plusBtn = item.querySelector('[data-counter-plus]');
+        const minusBtn = item.querySelector('[data-counter-minus]');
+        const counter = item.querySelector('[data-counter]');
+
+        plusBtn.addEventListener('click', () => {
+          const value = +counter.value;
+          const nextValue = value + 1;
+
+          if (nextValue <= maxSoloValue && this.getSumCounterValues() <= maxSumValue) {
+            counter.value = nextValue;
+            counter.setAttribute('value', nextValue);
+            minusBtn.removeAttribute('disabled');
+          }
+
+          if (nextValue == maxSoloValue) {
+            plusBtn.setAttribute('disabled', '');
+          }
+
+          if (this.getSumCounterValues() >= maxSumValue) {
+            guestCounterItems.forEach(item => item.querySelector('[data-counter-plus]').setAttribute('disabled', ''));
+          }
+        })
+
+        minusBtn.addEventListener('click', () => {
+          const value = +counter.value;
+          const nextValue = value - 1;
+          const isAdult = counter.getAttribute('name') === 'adult';
+
+          if ((nextValue >= 0 && !isAdult) || (isAdult && nextValue >= 1)) {
+            counter.value = nextValue;
+            counter.setAttribute('value', nextValue);
+            minusBtn.removeAttribute('disabled');
+            plusBtn.removeAttribute('disabled');
+          }
+
+          if (nextValue <= 0 || (isAdult && nextValue <= 1)) {
+            minusBtn.setAttribute('disabled', '');
+          }
+
+          if (this.getSumCounterValues() < maxSumValue) {
+            this.searchFormNode.querySelectorAll('.search-form__guest').forEach(item => {
+              const counter = item.querySelector('[data-counter]');
+              const plusBtn = item.querySelector('[data-counter-plus');
+
+              if(counter.value < maxSoloValue) {
+                plusBtn.removeAttribute('disabled');
+              }
+            })
+          }
+        })
       })
     }
   }

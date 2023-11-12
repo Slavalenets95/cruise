@@ -8,7 +8,7 @@ import { SearchPanelRenderer } from './search-panel/renderer';
 class SearchPanel {
   searchForm = document.querySelector('#search-form');
   #monthPicker = new SearchPanelMonthPicker();
-  #controls = new SearchPanelControls();
+  #controls = new SearchPanelControls(this.searchForm);
   #filter = new SearchPanelFilter(this);
   #renderer = new SearchPanelRenderer();
   #seawareApiClient = new SeawareApiClient();
@@ -20,7 +20,9 @@ class SearchPanel {
    */
   availableDestinations = new Map();
 
-  /** ['year-month'] */
+  /**
+   * @type { Set<string> }
+   */
   availableDates = new Set();
 
   /**
@@ -41,6 +43,8 @@ class SearchPanel {
     this.#monthPicker.init(this.availableDates);
 
     this.#filterAndUpdateOnDropdownClose();
+
+    this.#toggleLoading();
   }
 
   #getAllVoyages() {
@@ -60,14 +64,14 @@ class SearchPanel {
         location: { from: port },
         vacation: { from: date },
       } = voyage.pkg;
-      
+
       destinations.forEach((destination) => {
         const key = destination.key;
         const comment = destination.comments;
-        
+
         this.availableDestinations.set(key, { key, comment });
       });
-      
+
       this.availablePorts.set(port.code, port);
 
       this.availableDates.add(`${date.getFullYear()}-${date.getMonth() + 1}`);
@@ -90,7 +94,7 @@ class SearchPanel {
     const initialDates = {};
     for (let year = minVoyageDate.getFullYear(); year <= endDate.getFullYear(); year++) {
       initialDates[year] = [];
-      
+
       for (let month = 1; month <= 12; month++) {
         initialDates[year].push(`${year}-${month}`);
       }
@@ -103,6 +107,10 @@ class SearchPanel {
     this.searchForm.addEventListener('close-search-dropdown', () => {
       this.#filter.process();
     });
+  }
+
+  #toggleLoading() {
+    this.searchForm.classList.toggle('loading');
   }
 }
 
