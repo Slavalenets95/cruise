@@ -104,10 +104,20 @@ module.exports = (env) => {
         filename: "all-regions.html",
         template: path.resolve(__dirname, './src/pages/en/all-regions.html'),
       }),
+      // AR
+      new HtmlWebpackPlugin({
+        filename: "all-regions-ar.html",
+        template: path.resolve(__dirname, './src/pages/ar/all-regions.html'),
+      }),
       // EN
       new HtmlWebpackPlugin({
         filename: "about-us-page.html",
         template: path.resolve(__dirname, './src/pages/en/about-us-page.html'),
+      }),
+      // AR
+      new HtmlWebpackPlugin({
+        filename: "about-us-page-ar.html",
+        template: path.resolve(__dirname, './src/pages/ar/about-us-page.html'),
       }),
       new HtmlWebpackPlugin({
         filename: "search-panel.html",
