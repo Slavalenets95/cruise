@@ -16,26 +16,38 @@ html[dir=rtl] {
       }
     }
   }
-  .swiper-nav {
+  .swiper-nav, .swiper-nav__container {
     flex-direction: row-reverse;
   }
   .header-hidden-menu {
     @include respond-to(xx-large) {
-      left: auto;
+      left: unset;
       right: 0;
       transform: translateX(-100%);
+
+      &[data-active] {
+        transform: translateX(0);
+      }
     }
   }
   .radius-gradient {
-    border-radius: 0 0 80px 0;
+    &::after {
+      border-radius: 0 0 80px 0;
+    }
   }
   .arrow-ic {
     transform: rotate(180deg);
+  }
+  .section-header:not(.section-header--custom) {
+    .section-header__title > *:first-child {
+      font-weight: 700;
+    }
   }
   /***** END TEMPLATE *****/
   /***** BUTTONS *****/
   .main-btn {
     border-radius: 0 100px;
+    font-weight: 700;
     &__arrow {
       margin-right: 8px;
       margin-left: 0;
@@ -45,8 +57,7 @@ html[dir=rtl] {
   /***** HEADER *****/
   .header {
     &-nav {
-      margin-left: 0;
-      margin-right: 50px;
+      margin: 0 50px;
     }
     &-nav__sub {
       &-row:not(:last-child) {
@@ -89,6 +100,9 @@ html[dir=rtl] {
         margin-left: 40px;
         margin-right: 0;
       }
+      &__list-link, &__language-control {
+        flex-direction: row-reverse;
+      }
     }
 
     @include respond-to(xx-large) {
@@ -111,7 +125,7 @@ html[dir=rtl] {
     }
     &__video-slide {
       &-title {
-        max-width: 970px;
+        max-width: 1000px;
       }
     }
     &__slide {
@@ -121,7 +135,7 @@ html[dir=rtl] {
       &-img {
         left: 0;
         right: unset;
-        border-radius: 0 0 340px 0;
+        border-radius: 0 0 300px 0;
       }
     }
 
@@ -142,13 +156,22 @@ html[dir=rtl] {
         justify-content: flex-start;
       }
     }
+
+    @include respond-to(small) {
+      .section-links {
+        flex-direction: column;
+        &__item:first-child {
+          margin-right: 0;
+        }
+      }
+    }
   }
 
   .offers {
     &-slide {
       &__link {
-        margin-right: 0;
-        margin-left: 30px;
+        margin-right: 30px;
+        margin-left: 0;
       }
     }
   }
@@ -175,7 +198,19 @@ html[dir=rtl] {
         border-radius: 12px 0 0 12px;
       }
     }
-    /***** END HOME PAGE *****/
+
+    @include respond-to(x-large) {
+      &__item {
+        &-image-wrapper, &-image {
+          border-radius: 12px 12px 0 0;
+        }
+        &:nth-child(even) {
+          .home-destins__item-image-wrapper, .home-destins__item-image {
+            border-radius: 12px 12px 0 0;
+          }
+        }
+      }
+    }
   }
 
   .home-ship {
@@ -194,9 +229,18 @@ html[dir=rtl] {
     }
 
     @include respond-to(xxx-large) {
+      min-height: 437px;
+      &__container {
+        transform: none;
+        margin-left: 0;
+      }
+      &__content-wrapper {
+        margin-left: 80px;
+      }
       &__image-wrapper {
         right: 0;
         left: auto;
+        width: 100%;
       }
     }
 
@@ -209,19 +253,95 @@ html[dir=rtl] {
         max-width: 42%;
       }
     }
+
+    @include respond-to(large) {
+      &__container {
+        margin-left: auto;
+      }
+      &__content-wrapper {
+        max-width: none;
+      }
+      &__image-wrapper {
+        max-width: 500px;
+      }
+    }
   }
 
   .blog {
     &-card {
       margin-left: 27px;
       margin-right: 0;
+      &:last-child {
+        margin-left: 0;
+      }
+    }
+
+    @include respond-to(medium) {
+      &-card {
+        margin-left: 0;
+      }
     }
   }
   /***** END HOME PAGE *****/
 
+  /***** ALL REGIONS PAGE *****/
+  .regions-intro {
+    &__img {
+      left: 0;
+      right: unset;
+      border-radius: 0px 600px 0px 0px;
+    }
+
+    @include respond-to(x-large) {
+      &__img {
+        border-radius: 0 400px 0 0;
+      }
+    }
+
+    @include respond-to(medium) {
+      &__img {
+        border-radius: 0 600px 0 0;
+      }
+    }
+  }
+  .regions-card {
+    &__title {
+      margin-left: 0;
+      margin-right: 20px;
+    }
+  }
+  .regions-slider {
+    &__slide-link {
+      transform: translate(50%, 50%);
+    }
+  }
+  /***** END ALL REGIONS PAGE *****/
+
+  /***** ABOUS US PAGE *****/
+  .about-us-page {
+    .about-us-intro {
+      &__img {
+        left: 0;
+        right: unset;
+        border-radius: 0px 600px 0px 0px;
+      }
+    }
+    .about-us-general {
+      &__image-wrapper img {
+        border-radius: 0px 800px 0px 0px;
+      }
+    }
+    .about-us-view {
+      &__image-wrapper img {
+        border-radius: 0px 0px 0px 800px;
+      }
+    }
+  }
+  /***** END ABOUS PAGE *****/
+
   /***** FOOTER *****/
   .signup {
-    &__controls {
+    &-form__controls {
       margin-left: 40px;
       margin-right: 0;
     }
@@ -251,8 +371,21 @@ html[dir=rtl] {
       }
     }
     .bottom-footer {
-      &__list-item:last-child .bottom-footer__list-link {
-        padding-left: 0;
+      &__list-item {
+        &:first-child .bottom-footer__list-link {
+          padding-right: 0;
+          padding-left: 50px;
+          &::after {
+            display: none;
+          }
+        }
+        &:last-child .bottom-footer__list-link {
+          padding-left: 0;
+          padding-right: 50px;
+          &::after {
+            content: '';
+          }
+        }
       }
     }
 

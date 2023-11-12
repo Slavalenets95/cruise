@@ -8,11 +8,20 @@ class Scroller {
   make() {
     let scroller = document.querySelector('.custom-scroll')
     const isMobile = screen.availWidth <= 768;
-    
-    if(scroller && !isMobile) {
+
+    if (scroller && !isMobile) {
+      const direction = document.querySelector('html').getAttribute('dir');
+      let xPercent = null;
+      let x = scroller.scrollWidth * -1;
+
+      if (direction === 'rtl') {
+        x = scroller.scrollWidth - scroller.offsetWidth;
+      } else {
+        xPercent = 100;
+      }
       gsap.to('.custom-scroll', {
-        x: () => scroller.scrollWidth * -1,
-        xPercent: 100,
+        x: () => x,
+        xPercent: xPercent,
         scrollTrigger: {
           trigger: '.custom-scroll',
           start: 'center center',

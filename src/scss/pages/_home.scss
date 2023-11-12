@@ -457,6 +457,7 @@ body {
 }
 /***** BLOG *****/
 .blog {
+  overflow: hidden;
   &-cards {
     margin-left: calc((100vw - 1660px) / 2);
     margin-right: calc((100vw - 1660px) / 2);
