@@ -23,10 +23,17 @@ export class SearchPanelMonthPicker {
           const isDisable = evt.target.hasAttribute('data-disable');
           const maxDate = this.getMaxSelectedDate(transformAllMonth);
           const minDate = this.getMinSelectedDate(transformAllMonth);
+          const targetDateTime = new Date(evt.target.getAttribute('data-date')).getTime();
+
+          if (maxDate && minDate && targetDateTime < maxDate.date.getTime() && targetDateTime > minDate.date.getTime()) {
+            evt.target.toggleAttribute('data-active');
+            setTimeout(() => {
+              evt.target.toggleAttribute('data-active');
+            }, 300)
+            return;
+          }
 
           if (!isDisable) evt.target.toggleAttribute('data-active');
-
-          const targetDateTime = new Date(evt.target.getAttribute('data-date')).getTime();
 
           if (maxDate && minDate) {
             if (targetDateTime > maxDate.date.getTime()) {
@@ -43,7 +50,7 @@ export class SearchPanelMonthPicker {
                   i.date.getTime() > targetDateTime;
               })
               betweenMinDates.forEach(i => i.el.setAttribute('data-active', ''));
-            } //else if(targetDateTime < maxDate.getTime())
+            }
           }
         })
       })
