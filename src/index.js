@@ -7,6 +7,7 @@ import Footer from './js/_footer';
 import Faq from './js/_faq';
 import Sliders from './js/_sliders';
 import Scroller from './js/_scroller';
+import Forms from './js/_forms';
 
 // Need add reinit
 // // Throttling Function
@@ -39,4 +40,5 @@ window.addEventListener('load', () => {
   Dropdowns.make();
   Sliders.make();
   Scroller.make();
+  Forms.make();
 })
