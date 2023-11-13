@@ -68,8 +68,8 @@
       flex-direction: column;
       padding: 10px 40px;
       align-items: center;
-
-      &[data-active] {
+      transition: color .3s, background-color .3s;
+      &[data-active], &:hover {
         color: $white;
         background-color: $dark-blue;
 

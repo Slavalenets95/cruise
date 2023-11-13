@@ -67,7 +67,7 @@ class Header {
       /***** SEARCH *****/
       const searchBtn = header.querySelector('.header-ui__search-btn');
       const searchContainer = header.querySelector('.search');
-      const searchCloseBtn = header.querySelector('.search-close');
+      const searchCloseBtn = header.querySelector('.search-header-close');
       const searchBg = header.querySelector('.search-bg')
 
       if (searchBtn && searchContainer) {

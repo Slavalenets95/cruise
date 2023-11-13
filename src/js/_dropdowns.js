@@ -11,12 +11,14 @@ class Dropdowns {
           const activeDropdownBtn = document.querySelector('[data-dropdown-btn][data-active]');
           const activeDropdownBody = document.querySelector('[data-dropdown-body][data-active]');
           const dropdownBody = dropdownBtn.closest('[data-dropdown-parent]').querySelector('[data-dropdown-body]');
+          const isSearchForm = dropdownBtn.closest('#search-form');
 
           // Close other dropdown
           if (activeDropdownBtn && activeDropdownBtn !== dropdownBtn) {
             activeDropdownBtn.removeAttribute('data-active');
           }
           if (activeDropdownBody && activeDropdownBody !== dropdownBody) {
+            if(isSearchForm) dropdownBtn.closest('#search-form').dispatchEvent(new CustomEvent('close-search-dropdown'));
             activeDropdownBody.removeAttribute('data-active');
           }
 
@@ -39,7 +41,7 @@ class Dropdowns {
 
     if ((isDropdownClick || isDropdownChildClick || !activeDropdown) && !flag) return;
 
-    if (activeDropdown.closest('#search-form')) {
+    if (activeDropdown.closest('#search-form') && activeDropdown) {
       document.querySelector('#search-form').dispatchEvent(new CustomEvent('close-search-dropdown'));
     }
 

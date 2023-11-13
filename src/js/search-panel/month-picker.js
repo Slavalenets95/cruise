@@ -43,7 +43,7 @@ export class SearchPanelMonthPicker {
                   i.date.getTime() > targetDateTime;
               })
               betweenMinDates.forEach(i => i.el.setAttribute('data-active', ''));
-            }
+            } //else if(targetDateTime < maxDate.getTime())
           }
         })
       })
