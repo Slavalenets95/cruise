@@ -64,6 +64,10 @@ html[dir=rtl] {
         margin-right: 0;
         margin-left: 60px;
       }
+      &-ic {
+        margin-left: 0;
+        margin-right: 8px;
+      }
     }
     &-ui {
       margin-right: auto;
@@ -84,7 +88,7 @@ html[dir=rtl] {
     .search {
       right: auto;
       left: 0;
-      &-form {
+      &-header-form {
         &__input {
           margin-right: 0;
           margin-left: 20px;
