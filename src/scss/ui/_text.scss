@@ -156,6 +156,7 @@
     a {
       color: $light-blue;
       font-weight: 800;
+      transition: color .5s;
 
       &:hover {
         color: $dark-blue;
