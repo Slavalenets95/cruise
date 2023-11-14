@@ -53,6 +53,21 @@ class Dropdowns {
   //   }
   // }
 
+  reInit() {
+    const activeDropdowns = document.querySelectorAll('[data-dropdown][data-dropdown-active]');
+    
+    if(activeDropdowns.length) {
+      activeDropdowns.forEach(dropdown => {
+        const noToggle = dropdown.hasAttribute('data-dropdown-notoggle');
+        const activeDropdownBody = dropdown.querySelector('[data-dropdown-body]');
+        
+        if(!noToggle && activeDropdownBody) {
+          activeDropdownBody.style.height = 'auto';
+        }
+      })
+    }
+  }
+
   make() {
     const dropdowns = document.querySelectorAll('[data-dropdown-parent]');
 
@@ -63,7 +78,7 @@ class Dropdowns {
         if(activeDropdown && activeDropdownBody) {
           activeDropdownBody.style.height = activeDropdownBody.scrollHeight + 'px';
         }
-        
+
         dropdown.addEventListener('click', evt => {
           const isDropdownBtn = evt.target.hasAttribute('data-dropdown-btn') || evt.target.closest('[data-dropdown-btn]');
 
@@ -85,7 +100,7 @@ class Dropdowns {
                 document.querySelector('#search-form').dispatchEvent(new CustomEvent('close-search-dropdown'));
               }
               if(!noToggle) {
-                if(!activeDropdownBody.style.height) {
+                if(!activeDropdownBody.style.height || activeDropdownBody.style.height === 'auto') {
                   activeDropdownBody.style.height = `${targetDropdownBodyHeight}px`;
                   setTimeout(() => activeDropdownBody.style.height = '0px', 0)
                 } else {

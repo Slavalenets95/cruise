@@ -35,5 +35,12 @@ textarea:not(.custom) {
       border-color: $light-blue;
     }
   }
+
+  @include respond-to(xx-large) {
+    &,
+    &::placeholder {
+      font-size: 16px;
+    }
+  }
 }
 /***** END FORM STYLES *****/

@@ -18,7 +18,9 @@
   }
   &__video-slide,
   &__slide {
-    padding: 160px 0;
+    display: flex;
+    align-items: center;
+    padding: 60px 0;
   }
   &__video-slide {
     position: relative;
@@ -96,6 +98,9 @@
   }
 
   @include respond-to(xx-large) {
+    &__video-slide-title {
+      max-width: 650px;
+    }
     &__slide-wrapper {
       max-width: 600px;
     }
@@ -140,6 +145,20 @@
   }
 
   @include respond-to(small) {
+    &__video-slide,
+    &__intro-slide {
+      padding: 60px 0 100px;
+    }
+    .section-links__item-ic {
+      width: 30px;
+      height: 30px;
+    }
+    .section-links {
+      font-size: 16px;
+    }
+    & .section-header .section-header__title > *:first-child {
+      font-size: 26px;
+    }
     .section-links__item:not(:first-child) {
       margin-top: 20px;
     }
@@ -165,6 +184,7 @@
     }
     &__header {
       height: 255px;
+      width: 100%;
       &,
       &-img {
         border-radius: 16px 16px 0 0;
@@ -288,6 +308,9 @@
     &__item {
       &-image-wrapper {
         flex: 0 0 490px;
+      }
+      &-text-wrapper {
+        padding: 25px 30px;
       }
     }
   }
@@ -511,7 +534,7 @@ body {
       margin-right: calc((100vw - 1120px) / 2);
     }
     &-card {
-      flex: 0 0 500px;
+      flex: 0 0 400px;
       &__header {
         height: 250px;
       }
@@ -531,7 +554,7 @@ body {
       align-items: center;
     }
     &-card {
-      max-width: 600px;
+      max-width: 400px;
       &:nth-child(n + 2) {
         margin-top: 40px;
       }

@@ -45,7 +45,7 @@
     font-size: 24px;
   }
 
-  @include respond-to(small) {
+  @include respond-to(xx-large) {
     font-size: 22px;
   }
 }
@@ -61,6 +61,10 @@
     font-size: 28px;
   }
 
+  @include respond-to(xx-large) {
+    font-size: 26px;
+  }
+
   @include respond-to(small) {
     font-size: 25px;
   }
@@ -70,10 +74,10 @@
   font-size: 34px;
 
   @include respond-to(xxx-large) {
-    font-size: 32px;
+    font-size: 30px;
   }
 
-  @include respond-to(small) {
+  @include respond-to(xx-large) {
     font-size: 28px;
   }
 }
@@ -83,6 +87,10 @@
 
   @include respond-to(xxx-large) {
     font-size: 45px;
+  }
+
+  @include respond-to(xx-large) {
+    font-size: 40px;
   }
 }
 .text-60,
@@ -185,8 +193,12 @@
     }
   }
 
-  @include respond-to(xx-large) {
+  @include respond-to(xxx-large) {
     font-size: 18px;
+  }
+
+  @include respond-to(xx-large) {
+    font-size: 16px;
   }
 }
 /***** END STANDARD TEXT STYLES *****/

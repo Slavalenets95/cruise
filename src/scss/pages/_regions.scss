@@ -72,6 +72,12 @@
   &__wrapper {
     max-width: 1050px;
   }
+
+  @include respond-to(xx-large) {
+    &__wrapper {
+      max-width: 850px;
+    }
+  }
 }
 /***** END TITLE *****/
 

@@ -44,6 +44,9 @@
       & > .container {
         margin-left: 0;
       }
+      &-text {
+        font-size: 16px;
+      }
     }
   
     @include respond-to(x-large) {
@@ -233,6 +236,12 @@
 
     @include respond-to(xxx-large) {
       padding: 40px 60px;
+    }
+
+    @include respond-to(xx-large) {
+      &__bage-description {
+        font-size: 26px;
+      }
     }
 
     @include respond-to(x-large) {
