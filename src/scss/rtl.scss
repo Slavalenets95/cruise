@@ -16,8 +16,9 @@ html[dir=rtl] {
       }
     }
   }
-  .swiper-nav, .swiper-nav__container {
-    flex-direction: row-reverse;
+  .swiper-nav__dots span:not(:last-child) {
+    margin-right: 0;
+    margin-left: 9px;
   }
   .header-hidden-menu {
     @include respond-to(xx-large) {
@@ -33,6 +34,9 @@ html[dir=rtl] {
   .radius-gradient {
     &::after {
       border-radius: 0 0 80px 0;
+    }
+    &--lg::after {
+      border-radius: 0 0 160px 0;
     }
   }
   .arrow-ic {
@@ -195,6 +199,9 @@ html[dir=rtl] {
         flex-grow: 1;
         border-radius: 0 12px 12px 0;
       }
+      &-content > *:first-child {
+        font-weight: 700;
+      }
       &-image-wrapper {
         border-radius: 12px 0 0 12px;
       }
@@ -318,6 +325,16 @@ html[dir=rtl] {
     &__slide-link {
       transform: translate(50%, 50%);
     }
+    &__swiper-btn {
+      &.next {
+        left: 0;
+        right: unset;
+      }
+      &.prev {
+        right: 0;
+        left: unset;
+      }
+    }
   }
   /***** END ALL REGIONS PAGE *****/
 
@@ -338,6 +355,11 @@ html[dir=rtl] {
     .about-us-view {
       &__image-wrapper img {
         border-radius: 0px 0px 0px 800px;
+      }
+    }
+    .cta-section {
+      &__header-title, &__content-title {
+        font-weight: 700;
       }
     }
   }

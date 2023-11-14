@@ -417,6 +417,7 @@ img {
 
 .radius-gradient {
   position: relative;
+
   &::after {
     content: "";
     position: absolute;
@@ -428,6 +429,9 @@ img {
     border-radius: 0px 0px 0px 80px;
     transition: all 0.3s;
     background: linear-gradient(180deg, rgba(0, 0, 0, 0) 51.83%, rgba(0, 0, 0, 0.7) 100%);
+  }
+  &--lg::after {
+    border-radius: 0 0 0 160px;
   }
 }
 .gradient-parent {

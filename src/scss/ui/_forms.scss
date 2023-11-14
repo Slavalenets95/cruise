@@ -43,4 +43,26 @@ textarea:not(.custom) {
     }
   }
 }
+select {
+  cursor: pointer;
+}
+.select-wrapper {
+  position: relative;
+
+  &[data-select-open]::after {
+    top: 18px;
+    transform: rotate(180deg);
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    right: 14px;
+    transition: transform .3s;
+    top: 17px;
+    width: 24px;
+    height: 24px;
+    background: url('../images/icons/select-arrow.svg') center center/cover no-repeat;
+  }
+}
 /***** END FORM STYLES *****/
