@@ -105,7 +105,7 @@ img {
     }
   }
 
-  @include respond-to(large) {
+  @include respond-to(xx-large) {
     .section-header__title {
       & > *:first-child {
         font-size: 45px;
@@ -481,3 +481,54 @@ img {
 }
 
 /***** END LOADER *****/
+
+/***** SCROLL ICON *****/
+.tooltip-horizontal-scroll-icon_hand {
+  animation: tooltip-horizontal-scroll-icon_anim-scroll-hand 2s infinite
+}
+
+.tooltip-horizontal-scroll-icon_card {
+  animation: tooltip-horizontal-scroll-icon_anim-scroll-card 2s infinite
+}
+
+@keyframes tooltip-horizontal-scroll-icon_anim-scroll-hand {
+  0% {
+    transform: translateX(80px) scale(1);
+    opacity: 0
+  }
+
+  10% {
+    transform: translateX(80px) scale(1);
+    opacity: 1
+  }
+
+  20%,
+  60% {
+    transform: translateX(175px) scale(.6);
+    opacity: 1
+  }
+
+  80% {
+    transform: translateX(5px) scale(.6);
+    opacity: 1
+  }
+
+  to {
+    transform: translateX(5px) scale(.6);
+    opacity: 0
+  }
+}
+
+@keyframes tooltip-horizontal-scroll-icon_anim-scroll-card {
+
+  0%,
+  60% {
+    transform: translateX(0)
+  }
+
+  80%,
+  to {
+    transform: translateX(-240px)
+  }
+}
+/***** END SCROLL ICON *****/

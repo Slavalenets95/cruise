@@ -25,9 +25,17 @@
 }
 .text-22 {
   font-size: 22px;
+
+  @include respond-to(xx-large) {
+    font-size: 20px;
+  }
 }
 .text-24 {
   font-size: 24px;
+
+  @include respond-to(xxx-large) {
+    font-size: 22px;
+  }
 }
 .text-26,
 .title-26 > *:first-child {
@@ -177,7 +185,7 @@
     }
   }
 
-  @include respond-to(x-large) {
+  @include respond-to(xx-large) {
     font-size: 18px;
   }
 }

@@ -7,7 +7,7 @@
   <title>Document</title>
 </head>
 
-<body class="home-page">
+<body class="faq-page">
   <!-- HEADER -->
   <div class="header-top darkblue-bg white text-14 py-1 text-16">
     <div class="container">
@@ -83,7 +83,7 @@
                   </div>
                   <ul class="header-nav__sub-list">
                     <li class="header-nav__sub-item">
-                      <a href="#" class="header-nav__sub-link">All Regions</a>
+                      <a href="/all-regions.html" class="header-nav__sub-link">All Regions</a>
                     </li>
                     <li class="header-nav__sub-item">
                       <a href="#" class="header-nav__sub-link">Arabian Gulf</a>
@@ -176,7 +176,7 @@
                   </div>
                   <ul class="header-nav__sub-list">
                     <li class="header-nav__sub-item">
-                      <a href="#" class="header-nav__sub-link">About Aroya</a>
+                      <a href="/about-us-page.html" class="header-nav__sub-link">About Aroya</a>
                     </li>
                     <li class="header-nav__sub-item">
                       <a href="#" class="header-nav__sub-link">Why Aroya</a>
@@ -376,229 +376,291 @@
   </header>
   <!-- END HEADER -->
   <main class="main">
-    <div class="container">
-      <form id="search-form" class="search-form light-bg my-10 relative loading">
-        <div class="search-form__wrapper">
-          <div class="search-form__header flex">
-            <button type="button" class="search-form__header-item text-26 extrabold dark-blue relative flex"
-              data-active>
-              Plan a Cruise
-            </button>
-            <button type="button" class="search-form__header-item text-26 extrabold dark-blue relative flex">
-              Manage Booking
-            </button>
-          </div>
-          <div class="search-form__items flex">
-            <div class="tab flex" data-dropdown-parent data-dropdown-notoggle>
-              <!-- DESTINATIONS -->
-              <div class="search-form__item relative" data-dropdown>
-                <button type="button" class="search-form__item-btn flex center text-18 dark-blue" data-dropdown-btn>
-                  <span class="search-form__item-btn-title text-20 extrabold">Destination</span>
-                  <span>Anywhere</span>
-                  <svg class="search-form__item-btn-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <g id="Icon/arrow">
-                      <path id="Vector (Stroke)" fill-rule="evenodd" clip-rule="evenodd"
-                        d="M12.8839 16.8839C12.3957 17.372 11.6043 17.372 11.1161 16.8839L3.11612 8.88388C2.62796 8.39573 2.62796 7.60427 3.11612 7.11612C3.60427 6.62796 4.39573 6.62796 4.88388 7.11612L12 14.2322L19.1161 7.11612C19.6043 6.62796 20.3957 6.62796 20.8839 7.11612C21.372 7.60427 21.372 8.39573 20.8839 8.88388L12.8839 16.8839Z"
-                        fill="#003083" />
-                    </g>
-                  </svg>
-                </button>
-                <div class="search-form__item-body" data-dropdown-body data-search-parent>
-                  <div class="search-form__item-search relative">
-                    <input type="text" class="search-form__search-input custom" placeholder="Type here to Search"
-                      data-search-input>
-                  </div>
-                  <div class="search-form__checkbox-items" data-clear-parent>
-                    <div data-search-destinations>
-                    </div>
-                    <button type="button" class="search-form__clear text-16 bold" data-clear-btn>
-                      Clear all
-                    </button>
-                  </div>
-                </div>
-              </div>
-              <!-- PORTS -->
-              <div class="search-form__item relative" data-dropdown>
-                <button type="button" class="search-form__item-btn flex center text-18 dark-blue" data-dropdown-btn>
-                  <span class="search-form__item-btn-title text-20 extrabold">Port of departure</span>
-                  <span>Anywhere</span>
-                  <svg class="search-form__item-btn-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <g id="Icon/arrow">
-                      <path id="Vector (Stroke)" fill-rule="evenodd" clip-rule="evenodd"
-                        d="M12.8839 16.8839C12.3957 17.372 11.6043 17.372 11.1161 16.8839L3.11612 8.88388C2.62796 8.39573 2.62796 7.60427 3.11612 7.11612C3.60427 6.62796 4.39573 6.62796 4.88388 7.11612L12 14.2322L19.1161 7.11612C19.6043 6.62796 20.3957 6.62796 20.8839 7.11612C21.372 7.60427 21.372 8.39573 20.8839 8.88388L12.8839 16.8839Z"
-                        fill="#003083" />
-                    </g>
-                  </svg>
-                </button>
-                <div class="search-form__item-body" data-dropdown-body data-search-parent>
-                  <div class="search-form__item-search relative">
-                    <input type="text" class="search-form__search-input custom" placeholder="Type here to Search"
-                      data-search-input>
-                  </div>
-                  <div class="search-form__checkbox-items" data-clear-parent>
-                    <div data-search-ports></div>
-                    <button type="button" class="search-form__clear text-16 bold" data-clear-btn>
-                      Clear all
-                    </button>
-                  </div>
-                </div>
-              </div>
-              <!-- DATES -->
-              <div class="search-form__item relative" data-dropdown>
-                <button type="button" class="search-form__item-btn flex center text-18 dark-blue" data-dropdown-btn>
-                  <span class="search-form__item-btn-title text-20 extrabold">Dates</span>
-                  <span>Any Date</span>
-                  <svg class="search-form__item-btn-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <g id="Icon/arrow">
-                      <path id="Vector (Stroke)" fill-rule="evenodd" clip-rule="evenodd"
-                        d="M12.8839 16.8839C12.3957 17.372 11.6043 17.372 11.1161 16.8839L3.11612 8.88388C2.62796 8.39573 2.62796 7.60427 3.11612 7.11612C3.60427 6.62796 4.39573 6.62796 4.88388 7.11612L12 14.2322L19.1161 7.11612C19.6043 6.62796 20.3957 6.62796 20.8839 7.11612C21.372 7.60427 21.372 8.39573 20.8839 8.88388L12.8839 16.8839Z"
-                        fill="#003083" />
-                    </g>
-                  </svg>
-                </button>
-                <div class="search-form__item-body" data-dropdown-body>
-                  <div class="search-form__dates" data-clear-parent>
-                    <div class="search-form__dates-header">
-                      <div class="search-form__dates-title text-16 bold">Select up to 4 months</div>
-                    </div>
-                    <div class="search-form__dates-body flex mt-2" data-search-form-dates></div>
-                    <div class="search-form__dates-footer flex mt-3">
-                      <button class="search-form__clear text-16 bold" type="button" data-clear-date>Clear all</button>
-                      <button class="search-form__dates-ok uc text-16 bold" type="button">Ok</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- GUESTS -->
-              <div class="search-form__item relative" data-dropdown>
-                <button type="button" class="search-form__item-btn flex center text-18 dark-blue" data-dropdown-btn>
-                  <span class="search-form__item-btn-title text-20 extrabold">Guests</span>
-                  <span>Anywhere</span>
-                  <svg class="search-form__item-btn-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <g id="Icon/arrow">
-                      <path id="Vector (Stroke)" fill-rule="evenodd" clip-rule="evenodd"
-                        d="M12.8839 16.8839C12.3957 17.372 11.6043 17.372 11.1161 16.8839L3.11612 8.88388C2.62796 8.39573 2.62796 7.60427 3.11612 7.11612C3.60427 6.62796 4.39573 6.62796 4.88388 7.11612L12 14.2322L19.1161 7.11612C19.6043 6.62796 20.3957 6.62796 20.8839 7.11612C21.372 7.60427 21.372 8.39573 20.8839 8.88388L12.8839 16.8839Z"
-                        fill="#003083" />
-                    </g>
-                  </svg>
-                </button>
-                <div class="search-form__item-body" data-dropdown-body>
-                  <div class="search-form__guests">
-                    <div class="search-form__guest flex">
-                      <div class="search-form__guest-text"><strong>Adults</strong> (18-64)</div>
-                      <div class="search-form__guest-control flex" data-counter-parent>
-                        <button type="button" class="search-form__guest-btn flex" disabled data-counter-minus>
-                          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="15" viewBox="0 0 14 15"
-                            fill="none">
-                            <path
-                              d="M12.4688 7.5C12.4688 7.67405 12.3996 7.84097 12.2765 7.96404C12.1535 8.08711 11.9865 8.15625 11.8125 8.15625H2.1875C2.01345 8.15625 1.84653 8.08711 1.72346 7.96404C1.60039 7.84097 1.53125 7.67405 1.53125 7.5C1.53125 7.32595 1.60039 7.15903 1.72346 7.03596C1.84653 6.91289 2.01345 6.84375 2.1875 6.84375H11.8125C11.9865 6.84375 12.1535 6.91289 12.2765 7.03596C12.3996 7.15903 12.4688 7.32595 12.4688 7.5Z"
-                              fill="white" />
-                          </svg>
-                        </button>
-                        <input class="custom" type="number" name="adult" readonly value="1" data-counter>
-                        <button type="button" class="search-form__guest-btn flex" data-counter-plus>
-                          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="15" viewBox="0 0 14 15"
-                            fill="none">
-                            <path
-                              d="M14 7.5C14 7.72278 13.9115 7.93644 13.754 8.09397C13.5964 8.2515 13.3828 8.34 13.16 8.34H7.84V13.66C7.84 13.8828 7.7515 14.0964 7.59397 14.254C7.43644 14.4115 7.22278 14.5 7 14.5C6.77722 14.5 6.56356 14.4115 6.40603 14.254C6.2485 14.0964 6.16 13.8828 6.16 13.66V8.34H0.84C0.617218 8.34 0.403561 8.2515 0.24603 8.09397C0.0884998 7.93644 0 7.72278 0 7.5C0 7.27722 0.0884998 7.06356 0.24603 6.90603C0.403561 6.7485 0.617218 6.66 0.84 6.66H6.16V1.34C6.16 1.11722 6.2485 0.903561 6.40603 0.74603C6.56356 0.5885 6.77722 0.5 7 0.5C7.22278 0.5 7.43644 0.5885 7.59397 0.74603C7.7515 0.903561 7.84 1.11722 7.84 1.34V6.66H13.16C13.3828 6.66 13.5964 6.7485 13.754 6.90603C13.9115 7.06356 14 7.27722 14 7.5Z"
-                              fill="white" />
-                          </svg>
-                        </button>
-                      </div>
-                    </div>
-                    <div class="search-form__guest flex">
-                      <div class="search-form__guest-text"><strong>Children</strong> (3-17)</div>
-                      <div class="search-form__guest-control flex" data-counter-parent>
-                        <button type="button" class="search-form__guest-btn flex" disabled data-counter-minus>
-                          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="15" viewBox="0 0 14 15"
-                            fill="none">
-                            <path
-                              d="M12.4688 7.5C12.4688 7.67405 12.3996 7.84097 12.2765 7.96404C12.1535 8.08711 11.9865 8.15625 11.8125 8.15625H2.1875C2.01345 8.15625 1.84653 8.08711 1.72346 7.96404C1.60039 7.84097 1.53125 7.67405 1.53125 7.5C1.53125 7.32595 1.60039 7.15903 1.72346 7.03596C1.84653 6.91289 2.01345 6.84375 2.1875 6.84375H11.8125C11.9865 6.84375 12.1535 6.91289 12.2765 7.03596C12.3996 7.15903 12.4688 7.32595 12.4688 7.5Z"
-                              fill="white" />
-                          </svg>
-                        </button>
-                        <input class="custom" type="number" name="children" readonly value="0" data-counter>
-                        <button type="button" class="search-form__guest-btn flex" data-counter-plus>
-                          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="15" viewBox="0 0 14 15"
-                            fill="none">
-                            <path
-                              d="M14 7.5C14 7.72278 13.9115 7.93644 13.754 8.09397C13.5964 8.2515 13.3828 8.34 13.16 8.34H7.84V13.66C7.84 13.8828 7.7515 14.0964 7.59397 14.254C7.43644 14.4115 7.22278 14.5 7 14.5C6.77722 14.5 6.56356 14.4115 6.40603 14.254C6.2485 14.0964 6.16 13.8828 6.16 13.66V8.34H0.84C0.617218 8.34 0.403561 8.2515 0.24603 8.09397C0.0884998 7.93644 0 7.72278 0 7.5C0 7.27722 0.0884998 7.06356 0.24603 6.90603C0.403561 6.7485 0.617218 6.66 0.84 6.66H6.16V1.34C6.16 1.11722 6.2485 0.903561 6.40603 0.74603C6.56356 0.5885 6.77722 0.5 7 0.5C7.22278 0.5 7.43644 0.5885 7.59397 0.74603C7.7515 0.903561 7.84 1.11722 7.84 1.34V6.66H13.16C13.3828 6.66 13.5964 6.7485 13.754 6.90603C13.9115 7.06356 14 7.27722 14 7.5Z"
-                              fill="white" />
-                          </svg>
-                        </button>
-                      </div>
-                    </div>
-                    <div class="search-form__guest flex">
-                      <div class="search-form__guest-text"><strong>Infants</strong> (0-2)</div>
-                      <div class="search-form__guest-control flex" data-counter-parent>
-                        <button type="button" class="search-form__guest-btn flex" disabled data-counter-minus>
-                          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="15" viewBox="0 0 14 15"
-                            fill="none">
-                            <path
-                              d="M12.4688 7.5C12.4688 7.67405 12.3996 7.84097 12.2765 7.96404C12.1535 8.08711 11.9865 8.15625 11.8125 8.15625H2.1875C2.01345 8.15625 1.84653 8.08711 1.72346 7.96404C1.60039 7.84097 1.53125 7.67405 1.53125 7.5C1.53125 7.32595 1.60039 7.15903 1.72346 7.03596C1.84653 6.91289 2.01345 6.84375 2.1875 6.84375H11.8125C11.9865 6.84375 12.1535 6.91289 12.2765 7.03596C12.3996 7.15903 12.4688 7.32595 12.4688 7.5Z"
-                              fill="white" />
-                          </svg>
-                        </button>
-                        <input class="custom" type="number" name="infants" readonly value="0" data-counter>
-                        <button type="button" class="search-form__guest-btn flex" data-counter-plus>
-                          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="15" viewBox="0 0 14 15"
-                            fill="none">
-                            <path
-                              d="M14 7.5C14 7.72278 13.9115 7.93644 13.754 8.09397C13.5964 8.2515 13.3828 8.34 13.16 8.34H7.84V13.66C7.84 13.8828 7.7515 14.0964 7.59397 14.254C7.43644 14.4115 7.22278 14.5 7 14.5C6.77722 14.5 6.56356 14.4115 6.40603 14.254C6.2485 14.0964 6.16 13.8828 6.16 13.66V8.34H0.84C0.617218 8.34 0.403561 8.2515 0.24603 8.09397C0.0884998 7.93644 0 7.72278 0 7.5C0 7.27722 0.0884998 7.06356 0.24603 6.90603C0.403561 6.7485 0.617218 6.66 0.84 6.66H6.16V1.34C6.16 1.11722 6.2485 0.903561 6.40603 0.74603C6.56356 0.5885 6.77722 0.5 7 0.5C7.22278 0.5 7.43644 0.5885 7.59397 0.74603C7.7515 0.903561 7.84 1.11722 7.84 1.34V6.66H13.16C13.3828 6.66 13.5964 6.7485 13.754 6.90603C13.9115 7.06356 14 7.27722 14 7.5Z"
-                              fill="white" />
-                          </svg>
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <button type="button" class="search-form__control text-20 extrabold flex">
-                <span>Search Cruises</span>
-              </button>
+    <div class="faq-intro relative flex">
+      <div class="container">
+        <div class="faq-intro__content white py-6">
+          <div class="section-header">
+            <div class="section-header__title faq-intro__title">
+              <h1>AROYA Cruises Questions
+                and Answers Sheet</h1>
             </div>
           </div>
         </div>
-        <span class="loader"></span>
-      </form>
+      </div>
+      <img src="../../images/faq-page/faq-intro.jpg" alt="Ship" class="faq-intro__img">
+    </div>
+    <div class="faq light-bg pattern-image-wrapper">
+      <div class="container faq__container">
+        <div class="section-header section-header--custom">
+          <div class="section-header__title text-34 dark-blue medium">
+            <h2>Topics List</h2>
+          </div>
+        </div>
+      </div>
+      <div class="container faq__container flex mt-3" data-tab-parent>
+        <div class="faq-nav">
+          <div class="faq-nav__body" data-tab-nav>
+            <button type="button" class="faq-nav__item" data-tab-btn data-tab-active>
+              <h3 class="text-22 semibold">AROYA Cruises contribution to the development of Saudi tourism</h3>
+            </button>
+            <button type="button" class="faq-nav__item" data-tab-btn>
+              <h3 class="text-22 semibold">Product and operational details</h3>
+            </button>
+          </div>
+        </div>
+        <div class="faq-body" data-tab-body>
+          <div class="faq-body__items" data-tab-item data-tab-active data-dropdown-parent data-dropdown-noclose-body>
+            <div class="faq-body__item" data-dropdown data-dropdown-active>
+              <button type="button" class="faq-body__item-header text-22 semibold" data-dropdown-btn>
+                <h3>Is Cruise Saudi having a conflict of interest in running a cruise line and managing terminals in the
+                  Kingdom at the same time as working with international cruise lines?</h3>
+                <span class="faq-body__item-btn">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path
+                      d="M11.625 3C11.9234 3 12.2095 3.11853 12.4205 3.3295C12.6315 3.54048 12.75 3.82663 12.75 4.125V10.5H19.125C19.4234 10.5 19.7095 10.6185 19.9205 10.8295C20.1315 11.0405 20.25 11.3266 20.25 11.625C20.25 11.9234 20.1315 12.2095 19.9205 12.4205C19.7095 12.6315 19.4234 12.75 19.125 12.75H12.75V19.125C12.75 19.4234 12.6315 19.7095 12.4205 19.9205C12.2095 20.1315 11.9234 20.25 11.625 20.25C11.3266 20.25 11.0405 20.1315 10.8295 19.9205C10.6185 19.7095 10.5 19.4234 10.5 19.125V12.75H4.125C3.82663 12.75 3.54048 12.6315 3.3295 12.4205C3.11853 12.2095 3 11.9234 3 11.625C3 11.3266 3.11853 11.0405 3.3295 10.8295C3.54048 10.6185 3.82663 10.5 4.125 10.5H10.5V4.125C10.5 3.82663 10.6185 3.54048 10.8295 3.3295C11.0405 3.11853 11.3266 3 11.625 3Z"
+                      fill="white" />
+                  </svg>
+                </span>
+              </button>
+              <div class="faq-body__item-text" data-dropdown-body>
+                <div class="faq-body__item-text-wrapper  sd sd--text-18">
+                  <p>The cruise industry in Saudi is still a relatively new concept and Cruise Saudi is responsible for
+                    both the development and operational elements of the ports and terminals: which is not usual
+                    practice
+                    within the wider sector. AROYA Cruises will be run as a separate business unit to the rest of the
+                    work
+                    that Cruise Saudi carries out. For example, there will be different operational and management teams
+                    and it will be separate to Destination Experiences. We are very proud of the relationships we have
+                    fostered with global cruise lines and these partnerships are of top priority to us as well as the
+                    overall vision of Cruise Saudi. With this in mind, AROYA Cruises will work cohesively with partners,
+                    rather than competitively. It is the goal of Cruise Saudi to welcome 1.3 million passengers by 2035
+                    and this can only be achieved by all working together.</p>
+                </div>
+              </div>
+            </div>
+            <div class="faq-body__item" data-dropdown>
+              <button type="button" class="faq-body__item-header text-22 semibold" data-dropdown-btn>
+                <h3>How is AROYA Cruises set to contribute to the National Tourism Strategy and Vision 2030?</h3>
+                <span class="faq-body__item-btn">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path
+                      d="M11.625 3C11.9234 3 12.2095 3.11853 12.4205 3.3295C12.6315 3.54048 12.75 3.82663 12.75 4.125V10.5H19.125C19.4234 10.5 19.7095 10.6185 19.9205 10.8295C20.1315 11.0405 20.25 11.3266 20.25 11.625C20.25 11.9234 20.1315 12.2095 19.9205 12.4205C19.7095 12.6315 19.4234 12.75 19.125 12.75H12.75V19.125C12.75 19.4234 12.6315 19.7095 12.4205 19.9205C12.2095 20.1315 11.9234 20.25 11.625 20.25C11.3266 20.25 11.0405 20.1315 10.8295 19.9205C10.6185 19.7095 10.5 19.4234 10.5 19.125V12.75H4.125C3.82663 12.75 3.54048 12.6315 3.3295 12.4205C3.11853 12.2095 3 11.9234 3 11.625C3 11.3266 3.11853 11.0405 3.3295 10.8295C3.54048 10.6185 3.82663 10.5 4.125 10.5H10.5V4.125C10.5 3.82663 10.6185 3.54048 10.8295 3.3295C11.0405 3.11853 11.3266 3 11.625 3Z"
+                      fill="white" />
+                  </svg>
+                </span>
+              </button>
+              <div class="faq-body__item-text" data-dropdown-body>
+                <div class="faq-body__item-text-wrapper sd sd--text-18">
+                  <p>By creating a dedicated cruise experience in Saudi, for the people of Saudi, we are driving local
+                    tourism revenue back into the economy and encouraging nationals, expatriates and regional guests to
+                    explore what’s on their doorstep. AROYA Cruises will showcase the very best Arabian experiences that
+                    Saudi has to offer whilst contributing growth to the national goal of welcoming over 100 million
+                    visitors annually by 2030.</p>
+                </div>
+              </div>
+            </div>
+            <div class="faq-body__item" data-dropdown>
+              <button type="button" class="faq-body__item-header text-22 semibold" data-dropdown-btn>
+                <h3>Will the crew be Saudi nationals?</h3>
+                <span class="faq-body__item-btn">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path
+                      d="M11.625 3C11.9234 3 12.2095 3.11853 12.4205 3.3295C12.6315 3.54048 12.75 3.82663 12.75 4.125V10.5H19.125C19.4234 10.5 19.7095 10.6185 19.9205 10.8295C20.1315 11.0405 20.25 11.3266 20.25 11.625C20.25 11.9234 20.1315 12.2095 19.9205 12.4205C19.7095 12.6315 19.4234 12.75 19.125 12.75H12.75V19.125C12.75 19.4234 12.6315 19.7095 12.4205 19.9205C12.2095 20.1315 11.9234 20.25 11.625 20.25C11.3266 20.25 11.0405 20.1315 10.8295 19.9205C10.6185 19.7095 10.5 19.4234 10.5 19.125V12.75H4.125C3.82663 12.75 3.54048 12.6315 3.3295 12.4205C3.11853 12.2095 3 11.9234 3 11.625C3 11.3266 3.11853 11.0405 3.3295 10.8295C3.54048 10.6185 3.82663 10.5 4.125 10.5H10.5V4.125C10.5 3.82663 10.6185 3.54048 10.8295 3.3295C11.0405 3.11853 11.3266 3 11.625 3Z"
+                      fill="white" />
+                  </svg>
+                </span>
+              </button>
+              <div class="faq-body__item-text" data-dropdown-body>
+                <div class="faq-body__item-text-wrapper sd sd--text-18">
+                  <p>Our aim is to ensure the majority of the crew speak Arabic to reflect the nature and ethos of AROYA
+                    Cruises. Cruise Saudi is committed to our goal of providing 50,000 direct and indirect jobs in Saudi
+                    by 2035.</p>
+                </div>
+              </div>
+            </div>
+            <div class="faq-body__item" data-dropdown>
+              <button type="button" class="faq-body__item-header text-22 semibold" data-dropdown-btn>
+                <h3>How will AROYA Cruises be managed and run? <br>
+                  Will the leadership team be the same as Cruise Saudi’s leadership team?</h3>
+                <span class="faq-body__item-btn">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path
+                      d="M11.625 3C11.9234 3 12.2095 3.11853 12.4205 3.3295C12.6315 3.54048 12.75 3.82663 12.75 4.125V10.5H19.125C19.4234 10.5 19.7095 10.6185 19.9205 10.8295C20.1315 11.0405 20.25 11.3266 20.25 11.625C20.25 11.9234 20.1315 12.2095 19.9205 12.4205C19.7095 12.6315 19.4234 12.75 19.125 12.75H12.75V19.125C12.75 19.4234 12.6315 19.7095 12.4205 19.9205C12.2095 20.1315 11.9234 20.25 11.625 20.25C11.3266 20.25 11.0405 20.1315 10.8295 19.9205C10.6185 19.7095 10.5 19.4234 10.5 19.125V12.75H4.125C3.82663 12.75 3.54048 12.6315 3.3295 12.4205C3.11853 12.2095 3 11.9234 3 11.625C3 11.3266 3.11853 11.0405 3.3295 10.8295C3.54048 10.6185 3.82663 10.5 4.125 10.5H10.5V4.125C10.5 3.82663 10.6185 3.54048 10.8295 3.3295C11.0405 3.11853 11.3266 3 11.625 3Z"
+                      fill="white" />
+                  </svg>
+                </span>
+              </button>
+              <div class="faq-body__item-text" data-dropdown-body>
+                <div class="faq-body__item-text-wrapper sd sd--text-18">
+                  <p>The launch of AROYA Cruises’ will be led by Ghassan Khan. The brand will be managed as a separate
+                    business unit supporting the fulfilment of Cruise Saudi’s strategic goals of welcoming 1.3 million
+                    cruise visitors by 2035 and providing 50,000 direct and indirect jobs.</p>
+                </div>
+              </div>
+            </div>
+            <div class="faq-body__item" data-dropdown>
+              <button type="button" class="faq-body__item-header text-22 semibold" data-dropdown-btn>
+                <h3>What are the details of Khan’s background before this venture?</h3>
+                <span class="faq-body__item-btn">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path
+                      d="M11.625 3C11.9234 3 12.2095 3.11853 12.4205 3.3295C12.6315 3.54048 12.75 3.82663 12.75 4.125V10.5H19.125C19.4234 10.5 19.7095 10.6185 19.9205 10.8295C20.1315 11.0405 20.25 11.3266 20.25 11.625C20.25 11.9234 20.1315 12.2095 19.9205 12.4205C19.7095 12.6315 19.4234 12.75 19.125 12.75H12.75V19.125C12.75 19.4234 12.6315 19.7095 12.4205 19.9205C12.2095 20.1315 11.9234 20.25 11.625 20.25C11.3266 20.25 11.0405 20.1315 10.8295 19.9205C10.6185 19.7095 10.5 19.4234 10.5 19.125V12.75H4.125C3.82663 12.75 3.54048 12.6315 3.3295 12.4205C3.11853 12.2095 3 11.9234 3 11.625C3 11.3266 3.11853 11.0405 3.3295 10.8295C3.54048 10.6185 3.82663 10.5 4.125 10.5H10.5V4.125C10.5 3.82663 10.6185 3.54048 10.8295 3.3295C11.0405 3.11853 11.3266 3 11.625 3Z"
+                      fill="white" />
+                  </svg>
+                </span>
+              </button>
+              <div class="faq-body__item-text" data-dropdown-body>
+                <div class="faq-body__item-text-wrapper sd sd--text-18">
+                  <p>As the Chief Strategy Officer for Cruise Saudi, Ghassan Khan brings more than 24 years of
+                    professional experience in banking, consulting, and entertainment.
+                    After starting his career in management consulting in the United States, Ghassan has overseen
+                    transformational programs for several financial institutions, such as, the National Commercial Bank,
+                    Bank Al-Jazira, and NCB Capital. Ghassan also served at the Economic Cities and Special Zones
+                    Authority as the City Development Director for King Abdullah Economic City where he supervised the
+                    development of several key socio-economic initiatives, such as, King Abdullah Port amongst others.
+                    Most recently, he was the Chief Strategy and VRO Officer at the General Entertainment Authority,
+                    where he played a key role in establishing programmes designed to develop the local entertainment
+                    sector.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="faq-body__items" data-tab-item data-dropdown-parent data-dropdown-noclose-body>
+            <div class="faq-body__item" data-dropdown data-dropdown-active>
+              <button type="button" class="faq-body__item-header text-22 semibold" data-dropdown-btn>
+                <h3>Is Cruise Saudi having a conflict of interest in running a cruise line and managing terminals in the
+                  Kingdom at the same time as working with international cruise lines?</h3>
+                <span class="faq-body__item-btn">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path
+                      d="M11.625 3C11.9234 3 12.2095 3.11853 12.4205 3.3295C12.6315 3.54048 12.75 3.82663 12.75 4.125V10.5H19.125C19.4234 10.5 19.7095 10.6185 19.9205 10.8295C20.1315 11.0405 20.25 11.3266 20.25 11.625C20.25 11.9234 20.1315 12.2095 19.9205 12.4205C19.7095 12.6315 19.4234 12.75 19.125 12.75H12.75V19.125C12.75 19.4234 12.6315 19.7095 12.4205 19.9205C12.2095 20.1315 11.9234 20.25 11.625 20.25C11.3266 20.25 11.0405 20.1315 10.8295 19.9205C10.6185 19.7095 10.5 19.4234 10.5 19.125V12.75H4.125C3.82663 12.75 3.54048 12.6315 3.3295 12.4205C3.11853 12.2095 3 11.9234 3 11.625C3 11.3266 3.11853 11.0405 3.3295 10.8295C3.54048 10.6185 3.82663 10.5 4.125 10.5H10.5V4.125C10.5 3.82663 10.6185 3.54048 10.8295 3.3295C11.0405 3.11853 11.3266 3 11.625 3Z"
+                      fill="white" />
+                  </svg>
+                </span>
+              </button>
+              <div class="faq-body__item-text" data-dropdown-body>
+                <div class="faq-body__item-text-wrapper  sd sd--text-18">
+                  <p>The cruise industry in Saudi is still a relatively new concept and Cruise Saudi is responsible for
+                    both the development and operational elements of the ports and terminals: which is not usual
+                    practice
+                    within the wider sector. AROYA Cruises will be run as a separate business unit to the rest of the
+                    work
+                    that Cruise Saudi carries out. For example, there will be different operational and management teams
+                    and it will be separate to Destination Experiences. We are very proud of the relationships we have
+                    fostered with global cruise lines and these partnerships are of top priority to us as well as the
+                    overall vision of Cruise Saudi. With this in mind, AROYA Cruises will work cohesively with partners,
+                    rather than competitively. It is the goal of Cruise Saudi to welcome 1.3 million passengers by 2035
+                    and this can only be achieved by all working together.</p>
+                </div>
+              </div>
+            </div>
+            <div class="faq-body__item" data-dropdown>
+              <button type="button" class="faq-body__item-header text-22 semibold" data-dropdown-btn>
+                <h3>How is AROYA Cruises set to contribute to the National Tourism Strategy and Vision 2030?</h3>
+                <span class="faq-body__item-btn">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path
+                      d="M11.625 3C11.9234 3 12.2095 3.11853 12.4205 3.3295C12.6315 3.54048 12.75 3.82663 12.75 4.125V10.5H19.125C19.4234 10.5 19.7095 10.6185 19.9205 10.8295C20.1315 11.0405 20.25 11.3266 20.25 11.625C20.25 11.9234 20.1315 12.2095 19.9205 12.4205C19.7095 12.6315 19.4234 12.75 19.125 12.75H12.75V19.125C12.75 19.4234 12.6315 19.7095 12.4205 19.9205C12.2095 20.1315 11.9234 20.25 11.625 20.25C11.3266 20.25 11.0405 20.1315 10.8295 19.9205C10.6185 19.7095 10.5 19.4234 10.5 19.125V12.75H4.125C3.82663 12.75 3.54048 12.6315 3.3295 12.4205C3.11853 12.2095 3 11.9234 3 11.625C3 11.3266 3.11853 11.0405 3.3295 10.8295C3.54048 10.6185 3.82663 10.5 4.125 10.5H10.5V4.125C10.5 3.82663 10.6185 3.54048 10.8295 3.3295C11.0405 3.11853 11.3266 3 11.625 3Z"
+                      fill="white" />
+                  </svg>
+                </span>
+              </button>
+              <div class="faq-body__item-text" data-dropdown-body>
+                <div class="faq-body__item-text-wrapper sd sd--text-18">
+                  <p>By creating a dedicated cruise experience in Saudi, for the people of Saudi, we are driving local
+                    tourism revenue back into the economy and encouraging nationals, expatriates and regional guests to
+                    explore what’s on their doorstep. AROYA Cruises will showcase the very best Arabian experiences that
+                    Saudi has to offer whilst contributing growth to the national goal of welcoming over 100 million
+                    visitors annually by 2030.</p>
+                </div>
+              </div>
+            </div>
+            <div class="faq-body__item" data-dropdown>
+              <button type="button" class="faq-body__item-header text-22 semibold" data-dropdown-btn>
+                <h3>Will the crew be Saudi nationals?</h3>
+                <span class="faq-body__item-btn">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path
+                      d="M11.625 3C11.9234 3 12.2095 3.11853 12.4205 3.3295C12.6315 3.54048 12.75 3.82663 12.75 4.125V10.5H19.125C19.4234 10.5 19.7095 10.6185 19.9205 10.8295C20.1315 11.0405 20.25 11.3266 20.25 11.625C20.25 11.9234 20.1315 12.2095 19.9205 12.4205C19.7095 12.6315 19.4234 12.75 19.125 12.75H12.75V19.125C12.75 19.4234 12.6315 19.7095 12.4205 19.9205C12.2095 20.1315 11.9234 20.25 11.625 20.25C11.3266 20.25 11.0405 20.1315 10.8295 19.9205C10.6185 19.7095 10.5 19.4234 10.5 19.125V12.75H4.125C3.82663 12.75 3.54048 12.6315 3.3295 12.4205C3.11853 12.2095 3 11.9234 3 11.625C3 11.3266 3.11853 11.0405 3.3295 10.8295C3.54048 10.6185 3.82663 10.5 4.125 10.5H10.5V4.125C10.5 3.82663 10.6185 3.54048 10.8295 3.3295C11.0405 3.11853 11.3266 3 11.625 3Z"
+                      fill="white" />
+                  </svg>
+                </span>
+              </button>
+              <div class="faq-body__item-text" data-dropdown-body>
+                <div class="faq-body__item-text-wrapper sd sd--text-18">
+                  <p>Our aim is to ensure the majority of the crew speak Arabic to reflect the nature and ethos of AROYA
+                    Cruises. Cruise Saudi is committed to our goal of providing 50,000 direct and indirect jobs in Saudi
+                    by 2035.</p>
+                </div>
+              </div>
+            </div>
+            <div class="faq-body__item" data-dropdown>
+              <button type="button" class="faq-body__item-header text-22 semibold" data-dropdown-btn>
+                <h3>How will AROYA Cruises be managed and run? <br>
+                  Will the leadership team be the same as Cruise Saudi’s leadership team?</h3>
+                <span class="faq-body__item-btn">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path
+                      d="M11.625 3C11.9234 3 12.2095 3.11853 12.4205 3.3295C12.6315 3.54048 12.75 3.82663 12.75 4.125V10.5H19.125C19.4234 10.5 19.7095 10.6185 19.9205 10.8295C20.1315 11.0405 20.25 11.3266 20.25 11.625C20.25 11.9234 20.1315 12.2095 19.9205 12.4205C19.7095 12.6315 19.4234 12.75 19.125 12.75H12.75V19.125C12.75 19.4234 12.6315 19.7095 12.4205 19.9205C12.2095 20.1315 11.9234 20.25 11.625 20.25C11.3266 20.25 11.0405 20.1315 10.8295 19.9205C10.6185 19.7095 10.5 19.4234 10.5 19.125V12.75H4.125C3.82663 12.75 3.54048 12.6315 3.3295 12.4205C3.11853 12.2095 3 11.9234 3 11.625C3 11.3266 3.11853 11.0405 3.3295 10.8295C3.54048 10.6185 3.82663 10.5 4.125 10.5H10.5V4.125C10.5 3.82663 10.6185 3.54048 10.8295 3.3295C11.0405 3.11853 11.3266 3 11.625 3Z"
+                      fill="white" />
+                  </svg>
+                </span>
+              </button>
+              <div class="faq-body__item-text" data-dropdown-body>
+                <div class="faq-body__item-text-wrapper sd sd--text-18">
+                  <p>The launch of AROYA Cruises’ will be led by Ghassan Khan. The brand will be managed as a separate
+                    business unit supporting the fulfilment of Cruise Saudi’s strategic goals of welcoming 1.3 million
+                    cruise visitors by 2035 and providing 50,000 direct and indirect jobs.</p>
+                </div>
+              </div>
+            </div>
+            <div class="faq-body__item" data-dropdown>
+              <button type="button" class="faq-body__item-header text-22 semibold" data-dropdown-btn>
+                <h3>What are the details of Khan’s background before this venture?</h3>
+                <span class="faq-body__item-btn">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path
+                      d="M11.625 3C11.9234 3 12.2095 3.11853 12.4205 3.3295C12.6315 3.54048 12.75 3.82663 12.75 4.125V10.5H19.125C19.4234 10.5 19.7095 10.6185 19.9205 10.8295C20.1315 11.0405 20.25 11.3266 20.25 11.625C20.25 11.9234 20.1315 12.2095 19.9205 12.4205C19.7095 12.6315 19.4234 12.75 19.125 12.75H12.75V19.125C12.75 19.4234 12.6315 19.7095 12.4205 19.9205C12.2095 20.1315 11.9234 20.25 11.625 20.25C11.3266 20.25 11.0405 20.1315 10.8295 19.9205C10.6185 19.7095 10.5 19.4234 10.5 19.125V12.75H4.125C3.82663 12.75 3.54048 12.6315 3.3295 12.4205C3.11853 12.2095 3 11.9234 3 11.625C3 11.3266 3.11853 11.0405 3.3295 10.8295C3.54048 10.6185 3.82663 10.5 4.125 10.5H10.5V4.125C10.5 3.82663 10.6185 3.54048 10.8295 3.3295C11.0405 3.11853 11.3266 3 11.625 3Z"
+                      fill="white" />
+                  </svg>
+                </span>
+              </button>
+              <div class="faq-body__item-text" data-dropdown-body>
+                <div class="faq-body__item-text-wrapper sd sd--text-18">
+                  <p>As the Chief Strategy Officer for Cruise Saudi, Ghassan Khan brings more than 24 years of
+                    professional experience in banking, consulting, and entertainment.
+                    After starting his career in management consulting in the United States, Ghassan has overseen
+                    transformational programs for several financial institutions, such as, the National Commercial Bank,
+                    Bank Al-Jazira, and NCB Capital. Ghassan also served at the Economic Cities and Special Zones
+                    Authority as the City Development Director for King Abdullah Economic City where he supervised the
+                    development of several key socio-economic initiatives, such as, King Abdullah Port amongst others.
+                    Most recently, he was the Chief Strategy and VRO Officer at the General Entertainment Authority,
+                    where he played a key role in establishing programmes designed to develop the local entertainment
+                    sector.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <img class="pattern-img" src="./images/faq-page/faq-pattern.svg" alt="">
+    </div>
+    <div class="faq-cta relative flex">
+      <div class="container faq-cta__container py-6">
+        <div class="section-header faq-cta__section-header">
+          <div class="section-header__title faq-cta__title">
+            <h2>Do you still have questions?</h2>
+          </div>
+          <div class="section-header__link mt-3">
+            <a class="main-btn main-btn--light-blue main-btn--wide" href="/contact-us.html">Contact us</a>
+          </div>
+        </div>
+      </div>
+      <img src="./images/faq-page/faq-cta.jpg" alt="Ship" class="faq-cta__img">
     </div>
   </main>
-  <!-- SIGNUP -->
-  <div class="signup light-bg">
-    <div class="container py-6">
-      <div class="section-header section-header--custom center blue">
-        <div class="section-header__title title-34 secondary-f f-medium">
-          <h2>Never miss a cruise deal, sign up today</h2>
-        </div>
-      </div>
-      <div class="signup-main">
-        <form action="#" method="POST" class="signup-form">
-          <div class="signup-form__controls">
-            <div class="signup-form__controls-item">
-              <input required class="signup-form__control" type="email" placeholder="Email Address">
-            </div>
-            <div class="signup-form__controls-item">
-              <input class="signup-form__control" type="phone" placeholder="Phone">
-              <span class="optional">Optional</span>
-            </div>
-          </div>
-          <div class="signup-form__submit-wrapper">
-            <button class="signup-form__submit-btn main-btn main-btn--light-blue uc" type="submit">Sign up
-            </button>
-          </div>
-        </form>
-      </div>
-      <div class="signup-footer sd sd--light-links gray">
-        <p>Sign up to receive information about our special offers and deals. You can unsubscribe at any time. For
-          more details about how we use your information, view our <a href="#">Privacy Policy</a>.</p>
-      </div>
-    </div>
-  </div>
-  <!-- END SIGNUP -->
   <footer class="footer">
     <div class="footer-body">
       <div class="container">
@@ -620,17 +682,17 @@
               Destinations
               <span class="footer-nav__item-ic">
                 <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="
-                  transform: rotate(90deg);">
+                    transform: rotate(90deg);">
                   <path fill-rule="evenodd" clip-rule="evenodd"
                     d="M20.8839 15.1161C21.372 15.6043 21.372 16.3957 20.8839 16.8839L12.8839 24.8839C12.3957 25.372 11.6043 25.372 11.1161 24.8839C10.628 24.3957 10.628 23.6043 11.1161 23.1161L18.2322 16L11.1161 8.88388C10.628 8.39573 10.628 7.60427 11.1161 7.11612C11.6043 6.62796 12.3957 6.62796 12.8839 7.11612L20.8839 15.1161Z"
                     fill="#003083" style="
-                  fill: white;"></path>
+                    fill: white;"></path>
                 </svg>
               </span>
             </div>
             <ul class="footer-nav__list text-16">
               <li class="footer-nav__list-item">
-                <a href="" class="footer-nav__list-link">All Regions</a>
+                <a href="/all-regions.html" class="footer-nav__list-link">All Regions</a>
               </li>
               <li class="footer-nav__list-item">
                 <a href="" class="footer-nav__list-link">Arabian Gulf</a>
@@ -648,11 +710,11 @@
               Onboard Experiences
               <span class="footer-nav__item-ic">
                 <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="
-                  transform: rotate(90deg);">
+                    transform: rotate(90deg);">
                   <path fill-rule="evenodd" clip-rule="evenodd"
                     d="M20.8839 15.1161C21.372 15.6043 21.372 16.3957 20.8839 16.8839L12.8839 24.8839C12.3957 25.372 11.6043 25.372 11.1161 24.8839C10.628 24.3957 10.628 23.6043 11.1161 23.1161L18.2322 16L11.1161 8.88388C10.628 8.39573 10.628 7.60427 11.1161 7.11612C11.6043 6.62796 12.3957 6.62796 12.8839 7.11612L20.8839 15.1161Z"
                     fill="#003083" style="
-                  fill: white;"></path>
+                    fill: white;"></path>
                 </svg>
               </span>
             </div>
@@ -683,17 +745,17 @@
               Aroya Experiences
               <span class="footer-nav__item-ic">
                 <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="
-                  transform: rotate(90deg);">
+                    transform: rotate(90deg);">
                   <path fill-rule="evenodd" clip-rule="evenodd"
                     d="M20.8839 15.1161C21.372 15.6043 21.372 16.3957 20.8839 16.8839L12.8839 24.8839C12.3957 25.372 11.6043 25.372 11.1161 24.8839C10.628 24.3957 10.628 23.6043 11.1161 23.1161L18.2322 16L11.1161 8.88388C10.628 8.39573 10.628 7.60427 11.1161 7.11612C11.6043 6.62796 12.3957 6.62796 12.8839 7.11612L20.8839 15.1161Z"
                     fill="#003083" style="
-                  fill: white;"></path>
+                    fill: white;"></path>
                 </svg>
               </span>
             </div>
             <ul class="footer-nav__list text-16">
               <li class="footer-nav__list-item">
-                <a href="" class="footer-nav__list-link">About Aroya</a>
+                <a href="/about-us-page.html" class="footer-nav__list-link">About Aroya</a>
               </li>
               <li class="footer-nav__list-item">
                 <a href="" class="footer-nav__list-link">Why Aroya
@@ -730,11 +792,11 @@
               Plan Your Cruise
               <span class="footer-nav__item-ic">
                 <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="
-                  transform: rotate(90deg);">
+                    transform: rotate(90deg);">
                   <path fill-rule="evenodd" clip-rule="evenodd"
                     d="M20.8839 15.1161C21.372 15.6043 21.372 16.3957 20.8839 16.8839L12.8839 24.8839C12.3957 25.372 11.6043 25.372 11.1161 24.8839C10.628 24.3957 10.628 23.6043 11.1161 23.1161L18.2322 16L11.1161 8.88388C10.628 8.39573 10.628 7.60427 11.1161 7.11612C11.6043 6.62796 12.3957 6.62796 12.8839 7.11612L20.8839 15.1161Z"
                     fill="#003083" style="
-                  fill: white;"></path>
+                    fill: white;"></path>
                 </svg>
               </span>
             </div>
@@ -762,11 +824,11 @@
               Help & Support
               <span class="footer-nav__item-ic">
                 <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="
-                  transform: rotate(90deg);">
+                    transform: rotate(90deg);">
                   <path fill-rule="evenodd" clip-rule="evenodd"
                     d="M20.8839 15.1161C21.372 15.6043 21.372 16.3957 20.8839 16.8839L12.8839 24.8839C12.3957 25.372 11.6043 25.372 11.1161 24.8839C10.628 24.3957 10.628 23.6043 11.1161 23.1161L18.2322 16L11.1161 8.88388C10.628 8.39573 10.628 7.60427 11.1161 7.11612C11.6043 6.62796 12.3957 6.62796 12.8839 7.11612L20.8839 15.1161Z"
                     fill="#003083" style="
-                  fill: white;"></path>
+                    fill: white;"></path>
                 </svg>
               </span>
             </div>
