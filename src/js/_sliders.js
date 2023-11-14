@@ -1,12 +1,23 @@
 import Swiper from 'swiper/bundle';
 
 class Sliders {
+  // Home slider
+  homeIntroSliderNode = document.querySelector('.home-intro__slider');
+  homeIntroSliderInstance = null;
+
+  // Offers slider
+  offersSliderNode = document.querySelector('.offers-slider');
+  offersSliderInstance = null;
+
+  // Regions slider
+  regionsSlidersNodes = document.querySelectorAll('.regions-slider');
+  regionsSlidersInstance = [];
+
   homeIntroSlider() {
-    let homeIntroSlider = document.querySelector('.home-intro__slider');
     const homeIntroSlidesVideos = document.querySelectorAll(('.home-intro__video-slide .home-intro__video'));
 
-    if (homeIntroSlider) {
-      homeIntroSlider = new Swiper('.home-intro__slider', {
+    if (this.homeIntroSliderNode) {
+      this.homeIntroSliderInstance = new Swiper('.home-intro__slider', {
         spaceBetween: 0,
         slidesPerView: 1,
         touchRatio: 0.2,
@@ -31,10 +42,8 @@ class Sliders {
     }
   }
   offersSlider() {
-    let offersSlider = document.querySelector('.offers-slider');
-
-    if (offersSlider) {
-      offersSlider = new Swiper('.offers-slider', {
+    if (this.offersSliderNode) {
+      this.offersSliderInstance = new Swiper('.offers-slider', {
         spaceBetween: 24,
         slidesPerView: 1,
         touchRatio: 0.2,
@@ -61,13 +70,11 @@ class Sliders {
     }
   }
   regionsSlider() {
-    const regionsSliders = document.querySelectorAll('.regions-slider');
-
-    if(regionsSliders.length) {
-      regionsSliders.forEach((slider, idx) => {
+    if (this.regionsSlidersNodes.length) {
+      this.regionsSlidersNodes.forEach((slider, idx) => {
         slider.classList.add(`slider-${idx + 1}`);
 
-        new Swiper(`.regions-slider.slider-${idx + 1} .swiper`, {
+        this.regionsSlidersInstance.push(new Swiper(`.regions-slider.slider-${idx + 1} .swiper`, {
           spaceBetween: 30,
           slidesPerView: 1,
           touchRatio: 0.2,
@@ -98,13 +105,21 @@ class Sliders {
               slidesPerView: 4,
             },
           },
-        })
+        }))
       })
     }
   }
-  make() {
-    let isMobile = window.screen.availWidth <= 600;
 
+  reInit() {
+    if(this.homeIntroSliderInstance) this.homeIntroSliderInstance.update();
+
+    if(this.offersSliderInstance) this.offersSliderInstance.update();
+
+    if(this.regionsSlidersInstance.length) {
+      this.regionsSlidersInstance.forEach(slider => slider.update());
+    }
+  }
+  make() {
     this.homeIntroSlider();
     this.offersSlider();
     this.regionsSlider();

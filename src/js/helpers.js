@@ -1,6 +1,6 @@
 import { jsonToGraphQLQuery } from "json-to-graphql-query";
 
-const throttle = (func, delay) => {
+export const throttle = (func, delay) => {
   let prev = 0;
   return (...args) => {
     let now = new Date().getTime();

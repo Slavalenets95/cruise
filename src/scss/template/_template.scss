@@ -108,7 +108,7 @@ img {
   @include respond-to(xx-large) {
     .section-header__title {
       & > *:first-child {
-        font-size: 45px;
+        font-size: 38px;
       }
     }
   }
@@ -150,11 +150,7 @@ img {
   }
 
   @include respond-to(xxx-large) {
-    font-size: 24px;
-  }
-
-  @include respond-to(xxx-large) {
-    font-size: 22px;
+    font-size: 20px;
   }
 
   @include respond-to(small) {

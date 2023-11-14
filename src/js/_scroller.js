@@ -4,35 +4,72 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 class Scroller {
+  scrollerNode = null;
+  scrollerScrollTrigger = null;
+  isMobile = screen.availWidth <= 768;
+  direction = 'ltr';
 
-  make() {
-    let scroller = document.querySelector('.custom-scroll')
-    const isMobile = screen.availWidth <= 768;
+  reInit() {
+    this.isMobile = screen.availWidth <= 768;
 
-    if (scroller && !isMobile) {
-      const direction = document.querySelector('html').getAttribute('dir');
-      let xPercent = null;
-      let x = scroller.scrollWidth * -1;
-
-      if (direction === 'rtl') {
-        x = scroller.scrollWidth - scroller.offsetWidth;
+    if(this.scrollerNode && this.scrollerScrollTrigger) {
+      if(this.isMobile) {
+        this.scrollerScrollTrigger.scrollTrigger.disable();
       } else {
-        xPercent = 100;
+        this.scrollerScrollTrigger.scrollTrigger.enable();
       }
-      gsap.to('.custom-scroll', {
-        x: () => x,
-        xPercent: xPercent,
+    }
+
+    if(!this.scrollerScrollTrigger && this.scrollerNode) {
+      this.gsapInit();
+    }
+  }
+
+  getX() {
+    let x = this.scrollerNode.scrollWidth * -1;
+
+    if (this.direction === 'rtl') {
+      x = this.scrollerNode.scrollWidth - this.scrollerNode.offsetWidth;
+    }
+
+    return x;
+  }
+
+  getXpercent() {
+    let xPercent = null;
+
+    if (this.direction !== 'rtl') {
+      xPercent = 100;
+    }
+
+    return xPercent;
+  }
+
+  gsapInit() {
+    this.scrollerNode = document.querySelector('.custom-scroll');
+    this.isMobile = screen.availWidth <= 768;
+
+    if (this.scrollerNode && !this.isMobile) {
+      this.direction = document.querySelector('html').getAttribute('dir');
+      this.scrollerScrollTrigger = gsap.to('.custom-scroll', {
+        x: () => this.getX(),
+        xPercent: this.getXpercent(),
         scrollTrigger: {
           trigger: '.custom-scroll',
           start: 'center center',
-          end: `+=${scroller.scrollWidth}px`,
+          direction: 'horizontal',
+          end: `+=${document.querySelector('.custom-scroll').scrollWidth}px`,
           pin: 'body',
           scrub: true,
           invalidateOnRefresh: true,
           ease: "power1.inOut"
-        }
+        },
       })
     }
+  }
+
+  make() {
+    this.gsapInit();
   }
 }
 

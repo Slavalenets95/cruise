@@ -9,28 +9,7 @@ import Sliders from './js/_sliders';
 import Scroller from './js/_scroller';
 import Forms from './js/_forms';
 import Tabs from './js/_tabs';
-
-// Need add reinit
-// // Throttling Function
-// const throttle = (func, delay) => {
-//   let prev = 0;
-//   return (...args) => {
-//     let now = new Date().getTime();
-
-//     if (now - prev > delay) {
-//       prev = now;
-//       return func(...args);
-//     }
-//   }
-// }
-// /***** REINITIALIZATION *****/
-// // function reInit() {
-// //   isMobile = window.screen.availWidth <= 600;
-// //   initializeGallerySliders(gallerySliders);
-// // }
-// // window.addEventListener('resize', throttle(reInit, 1000));
-// // window.addEventListener('orientationchange', reInit);
-// /***** END REINITALIZATION *****/
+import { throttle } from './js/helpers';
 
 window.addEventListener('load', () => {
   Header.make();
@@ -44,3 +23,14 @@ window.addEventListener('load', () => {
   Forms.make();
   Tabs.make();
 })
+
+/***** REINITIALIZATION *****/
+function reInit() {
+  Scroller.reInit();
+  Sliders.reInit();
+  Dropdowns.reInit();
+}
+
+window.addEventListener('resize', throttle(reInit, 100));
+window.addEventListener('orientationchange', reInit);
+/***** END REINITALIZATION *****/

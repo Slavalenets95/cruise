@@ -199,6 +199,11 @@
         padding: 30px;
       }
     }
+    &-nav {
+      &__item {
+        max-width: calc(20% - 15px);
+      }
+    }
   }
 
   @include respond-to(xx-large) {
