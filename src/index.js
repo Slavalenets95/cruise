@@ -8,6 +8,7 @@ import Faq from './js/_faq';
 import Sliders from './js/_sliders';
 import Scroller from './js/_scroller';
 import Forms from './js/_forms';
+import Tabs from './js/_tabs';
 
 // Need add reinit
 // // Throttling Function
@@ -41,4 +42,5 @@ window.addEventListener('load', () => {
   Sliders.make();
   Scroller.make();
   Forms.make();
+  Tabs.make();
 })

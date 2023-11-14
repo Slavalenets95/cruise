@@ -1,0 +1,305 @@
+.faq-intro {
+  background: url("../images/faq-page/faq-intro-bg.jpg") top left/cover no-repeat #144f89;
+  min-height: 510px;
+  align-items: center;
+
+  &__content {
+    max-width: 730px;
+  }
+  & &__content &__title > *:first-child {
+    font-weight: 600;
+  }
+  &__img {
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-radius: 600px 0px 0px 0px;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    max-width: 1020px;
+  }
+
+  @include respond-to(xxx-large) {
+    &__content {
+      max-width: 680px;
+    }
+    &__img {
+      max-width: 53%;
+    }
+  }
+
+  @include respond-to(xx-large) {
+    &__content {
+      max-width: 600px;
+    }
+  }
+
+  @include respond-to(x-large) {
+    min-height: 400px;
+    &__img {
+      max-width: 48%;
+    }
+  }
+
+  @include respond-to(large) {
+    flex-direction: column;
+    &__img {
+      position: static;
+      width: 100%;
+      max-width: none;
+      max-height: 300px;
+    }
+  }
+}
+
+.faq {
+  padding: 60px 0 240px;
+  &__container {
+    position: relative;
+    z-index: 1;
+  }
+  &-nav {
+    flex: 0 1 470px;
+    margin-right: 30px;
+    &__item {
+      padding: 15px 30px;
+      position: relative;
+      text-align: left;
+      transition: color 0.5s;
+
+      &[data-tab-active] {
+        &::before {
+          opacity: 1;
+        }
+        color: $dark-blue;
+      }
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 4px;
+        background: $light-blue--2;
+        height: 100%;
+        opacity: 0;
+        transition: opacity 0.5s;
+      }
+    }
+  }
+  &-body {
+    flex: 0 1 1180px;
+    &__item {
+      transition: all 0.5s;
+      border-radius: 52px 0;
+    }
+    /***** DROPDOWNS *****/
+    &__item[data-dropdown-active] {
+      background-color: $white;
+    }
+    &__item[data-dropdown-active] &__item-header {
+      padding-bottom: 10px;
+      color: $dark-blue;
+    }
+    &__item[data-dropdown-active] &__item-text {
+      height: auto;
+    }
+    &__item[data-dropdown-active] &__item-text-wrapper {
+      opacity: 1;
+    }
+    &__item[data-dropdown-active] &__item-btn::after {
+      opacity: 1;
+    }
+    &__item[data-dropdown-active] &__item-btn svg {
+      transform: rotate(-45deg);
+    }
+    &__item + &__item[data-dropdown-active] {
+      margin-top: 30px;
+    }
+    /***** END DROPDOWN *****/
+
+    &__item:first-child:not([data-dropdown-active]) &__item-header {
+      padding-top: 0;
+    }
+
+    /***** TAB *****/
+    &__items {
+      opacity: 0;
+      pointer-events: none;
+      position: absolute;
+    }
+    &__items[data-tab-active] {
+      opacity: 1;
+      position: static;
+      pointer-events: all;
+      transition: all 0.5s;
+    }
+    /***** END TAB *****/
+    &__item-header {
+      padding: 30px 40px 0 40px;
+      display: flex;
+      align-items: center;
+      transition: all 0.5s;
+      width: 100%;
+      text-align: left;
+
+      & > *:first-child {
+        max-width: 900px;
+        margin-right: 20px;
+      }
+    }
+    &__item-btn {
+      padding: 12px;
+      background: linear-gradient(113deg, #0092d7 0%, #012e89 100%);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex: 0 0 100px;
+      margin-left: auto;
+      position: relative;
+
+      &::after,
+      & {
+        border-radius: 52px 0px;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #012e89;
+        opacity: 0;
+        transition: opacity 0.5s;
+      }
+
+      svg {
+        transition: transform 0.5s;
+        position: relative;
+        z-index: 2;
+      }
+    }
+    &__item-text {
+      height: 0;
+      overflow: hidden;
+      transition: height 0.5s;
+      &-wrapper {
+        padding: 0 40px 40px 40px;
+        opacity: 0;
+        transition: opacity 0.5s;
+      }
+    }
+  }
+
+  @include respond-to(xxx-large) {
+    &-nav {
+      min-width: 420px;
+    }
+  }
+
+  @include respond-to(xx-large) {
+    &-nav {
+      min-width: 360px;
+    }
+  }
+
+  @include respond-to(x-large) {
+    padding-bottom: 140px;
+    &__container {
+      flex-direction: column;
+    }
+    &-nav {
+      margin-right: 0;
+      &__body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        background-color: $white;
+        border-radius: 52px 0;
+      }
+      &__item {
+        flex: 0 1 50%;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &::before {
+          bottom: 0;
+          top: unset;
+          width: 70%;
+          height: 4px;
+          left: 50%;
+          right: 50%;
+          transform: translateX(-50%);
+        }
+      }
+    }
+    &-nav, &-body {
+      flex: 0 1 auto;
+    }
+    &-body {
+      margin-top: 40px;
+    }
+  }
+}
+
+.faq-cta {
+  background: url("../images/faq-page/faq-cta-bg.svg") top left/cover no-repeat;
+  min-height: 510px;
+  align-items: center;
+
+  &__section-header {
+    max-width: 600px;
+  }
+
+  & &__section-header &__title > *:first-child {
+    font-weight: 600;
+    background: linear-gradient(113deg, #0092d7 0%, #012e89 100%);
+    background-size: 100%;
+    background-repeat: repeat;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+  }
+
+  &__img {
+    position: absolute;
+    right: 0;
+    top: 0;
+    border-radius: 600px 0px 0px 0px;
+    max-width: 61%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  @include respond-to(xx-large) {
+    &__section-header {
+      max-width: 450px;
+    }
+    &__img {
+      max-width: 58%;
+    }
+  }
+
+  @include respond-to(x-large) {
+    min-height: 400px;
+  }
+
+  @include respond-to(large) {
+    flex-direction: column;
+    &__section-header {
+      max-width: none;
+    }
+    &__img {
+      position: static;
+      max-width: none;
+      width: 100%;
+      max-height: 300px;
+    }
+  }
+}
