@@ -129,56 +129,42 @@ export class SearchPanelFilter {
     };
   }
 
-  htmlChange(filterData) {
+  #showAvailableFilters(filterData) {
     const destinationsInputs = this.searchPanel.searchForm.querySelectorAll('input[name="destinations"]');
-    const portsInputs = this.searchPanel.searchForm.querySelectorAll('input[name="ports"]');
     const monthInputs = this.searchPanel.searchForm.querySelectorAll('[data-date]');
+    const portsInputs = this.searchPanel.searchForm.querySelectorAll('input[name="ports"]');
 
-    if (destinationsInputs.length) {
-      destinationsInputs.forEach(destinationInput => {
-        const destinationVal = destinationInput.value;
-        const parent = destinationInput.closest('[data-search-text-parent]');
-        if (!filterData.destinations.includes(destinationVal)) {
-          destinationInput.checked = false;
-          if (parent) {
-            parent.setAttribute('data-hidden', '');
-          }
-        } else {
-          parent.removeAttribute('data-hidden');
-        }
-      })
-    }
+    this.#showAvailableTextInputs(filterData.destinations, destinationsInputs);
+    this.#showAvailableTextInputs(filterData.ports, portsInputs);
+    this.#showAvailableDates(filterData.dates, monthInputs);
+  }
 
-    if (portsInputs.length) {
-      portsInputs.forEach(portInput => {
-        const portVal = portInput.value;
-        const parent = portInput.closest('[data-search-text-parent]');
-        if (!filterData.ports.includes(portVal)) {
-          portInput.checked = false;
-          if (parent) {
-            parent.setAttribute('data-hidden', '');
-          }
-        } else {
-          parent.removeAttribute('data-hidden');
-        }
-      })
-    }
+  #showAvailableTextInputs(filtered, inputs) {
+    inputs.forEach((input) => {
+      const parent = input.closest('[data-search-text-parent]');
+      if (!filtered.includes(input.value)) {
+        input.checked = false;
+        parent?.setAttribute('data-hidden', '');
+      } else {
+        parent.removeAttribute('data-hidden');
+      }
+    });
+  }
 
-    if (monthInputs.length) {
-      monthInputs.forEach(monthItem => {
-        const dateVal = monthItem.getAttribute('data-date');
-        if (!filterData.dates.includes(dateVal)) {
-          monthItem.removeAttribute('data-active');
-          monthItem.setAttribute('data-disable', '');
-        } else {
-          monthItem.removeAttribute('data-disable');
-        }
-      })
-    }
+  #showAvailableDates(filtered, inputs) {
+    inputs.forEach((input) => {
+      const dateVal = input.getAttribute('data-date');
+      if (!filtered.includes(dateVal)) {
+        input.removeAttribute('data-active');
+        input.setAttribute('data-disable', '');
+      } else {
+        input.removeAttribute('data-disable');
+      }
+    });
   }
 
   process() {
     const filterData = this.filterData();
-    this.htmlChange(filterData);
+    this.#showAvailableFilters(filterData);
   }
 }
