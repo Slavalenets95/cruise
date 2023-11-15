@@ -5,7 +5,7 @@ class Footer {
 
     if (footer) {
       footer.addEventListener('click', evt => {
-        if (evt.target.matches('.footer-nav__item-title') && screen.availWidth <= 1400) {
+        if (evt.target.matches('.footer-nav__item-title') || evt.target.closest('.footer-nav__item-title') && screen.availWidth <= 1400) {
           const parent = evt.target.closest('.footer-nav__item');
           const subMenu = parent.querySelector('.footer-nav__list');
           const subMenuHeight = subMenu.scrollHeight;
