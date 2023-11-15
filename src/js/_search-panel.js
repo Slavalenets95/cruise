@@ -1,5 +1,6 @@
 import { addYears, endOfYear } from 'date-fns';
 import { SeawareApiClient } from './integrations/seaware/seaware-api-client';
+import { SeawareSearchUrlBuilder } from './integrations/seaware/seaware-search-url-builder';
 import { SearchPanelControls } from './search-panel/controls';
 import { SearchPanelFilter } from './search-panel/filter';
 import { SearchPanelMonthPicker } from './search-panel/month-picker';
@@ -45,6 +46,11 @@ class SearchPanel {
     this.#filterAndUpdateOnDropdownClose();
 
     this.#toggleLoading();
+
+    this.searchForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+      this.#redirectToB2C();
+    });
   }
 
   #getAllVoyages() {
@@ -112,6 +118,24 @@ class SearchPanel {
   #toggleLoading() {
     this.searchForm.classList.toggle('loading');
   }
+
+  #redirectToB2C() {
+    const { destinations, ports, dates, ...guests } = this.#filter.getFormData();
+    
+    const fromDate = dates[0] && new Date(dates[0]);
+
+    const toDateString = dates[dates.length - 1];
+    const toDate = toDateString && new Date(toDateString);
+
+    const redirectUrlBuilder = new SeawareSearchUrlBuilder()
+      .withDestinations(destinations)
+      .withPorts(ports)
+      .withDates(fromDate, toDate)
+      .withGuest(guests)
+      .build();
+
+    window.open(redirectUrlBuilder);
+  };
 }
 
 export default new SearchPanel();

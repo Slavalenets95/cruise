@@ -14,7 +14,7 @@ export class SearchPanelFilter {
       dates: [],
       ports: [],
       adults: 0,
-      childrens: 0,
+      children: 0,
       infants: 0,
     };
 
@@ -25,6 +25,10 @@ export class SearchPanelFilter {
     formDataSchema.ports = formData.getAll('ports').slice(0);
     // Get all dates
     const activeDates = this.searchPanel.searchForm.querySelectorAll('button[data-date][data-active]');
+
+    formDataSchema.adults = parseInt(document.querySelector('[data-counter][name=adult]').value);
+    formDataSchema.children = parseInt(document.querySelector('[data-counter][name=children]').value);
+    formDataSchema.infants = parseInt(document.querySelector('[data-counter][name=infants]').value);
 
     if (activeDates.length) {
       activeDates.forEach(date => {
