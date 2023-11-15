@@ -39,94 +39,84 @@ export class SearchPanelFilter {
     return formDataSchema;
   }
 
-  filterData() {
-    const formData = this.getFormData();
-    const filtered = {
+  #filterData() {
+    const selected = this.getFormData();
+    const availables = this.#setAvailability();
+
+    return this.#removeUnavailables(selected, availables);
+  }
+
+  #setAvailability() {
+    const availables = {
       destinations: {},
       ports: {},
       dates: {}
     };
-    let filteredDestinations = [...this.searchPanel.availableDestinations.keys()];
-    let filteredPorts = [...this.searchPanel.availablePorts.keys()];
-    let filteredDates = [...this.searchPanel.availableDates];
 
     this.searchPanel.allVoyages.forEach(({ pkg }) => {
       const date = `${getYear(pkg.vacation.from)}-${getMonth(pkg.vacation.from) + 1}`;
       const port = pkg.location.from.code;
+
       // Destinations
       pkg.destinations.forEach(destination => {
-        if (!filtered.destinations[destination.key]) {
-          filtered.destinations[destination.key] = {};
-          filtered.destinations[destination.key].ports = new Set();
-          filtered.destinations[destination.key].dates = new Set();
+        if (!availables.destinations[destination.key]) {
+          availables.destinations[destination.key] = { ports: new Set(), dates: new Set() };
         }
-        filtered.destinations[destination.key].ports.add(port);
-        filtered.destinations[destination.key].dates.add(date);
+        availables.destinations[destination.key].ports.add(port);
+        availables.destinations[destination.key].dates.add(date);
       })
 
       // Ports
-      if (!filtered.ports[port]) {
-        filtered.ports[port] = {};
-        filtered.ports[port].destinations = new Set();
-        filtered.ports[port].dates = new Set();
+      if (!availables.ports[port]) {
+        availables.ports[port] = { destinations: new Set(), dates: new Set() };
       }
-      pkg.destinations.forEach(destination => filtered.ports[port].destinations.add(destination.key));
-      filtered.ports[port].dates.add(date);
+
+      pkg.destinations.forEach(destination => availables.ports[port].destinations.add(destination.key));
+      availables.ports[port].dates.add(date);
 
       // Dates
-      if (!filtered.dates[date]) {
-        filtered.dates[date] = {};
-        filtered.dates[date].destinations = new Set();
-        filtered.dates[date].ports = new Set();
+      if (!availables.dates[date]) {
+        availables.dates[date] = { destinations: new Set(), ports: new Set() };
       }
-      pkg.destinations.forEach(destination => filtered.dates[date].destinations.add(destination.key));
-      filtered.dates[date].ports.add(port);
-    })
 
-    if (formData.destinations.length) {
-      Object.keys(filtered.ports).forEach(key => {
-        if (![...filtered.ports[key].destinations].some(destination => formData.destinations.includes(destination))) {
-          filteredPorts = filteredPorts.filter(port => port !== key);
-        }
-      })
-      Object.keys(filtered.dates).forEach(key => {
-        if (![...filtered.dates[key].destinations].some(destination => formData.destinations.includes(destination))) {
-          filteredDates = filteredDates.filter(date => date !== key);
-        }
-      })
-    }
+      pkg.destinations.forEach(destination => availables.dates[date].destinations.add(destination.key));
+      availables.dates[date].ports.add(port);
+    });
 
-    if (formData.ports.length) {
-      Object.keys(filtered.destinations).forEach(key => {
-        if (![...filtered.destinations[key].ports].some(port => formData.ports.includes(port))) {
-          filteredDestinations = filteredDestinations.filter(destination => destination !== key);
-        }
-      })
-      Object.keys(filtered.dates).forEach(key => {
-        if (![...filtered.dates[key].ports].some(port => formData.ports.includes(port))) {
-          filteredDates = filteredDates.filter(date => date !== key);
-        }
-      })
-    }
+    return availables;
+  }
 
-    if (formData.dates.length) {
-      Object.keys(filtered.destinations).forEach(key => {
-        if (![...filtered.destinations[key].dates].some(date => formData.dates.includes(date))) {
-          filteredDestinations = filteredDestinations.filter(destination => destination !== key);
-        }
-      })
-      Object.keys(filtered.ports).forEach(key => {
-        if (![...filtered.ports[key].dates].some(date => formData.dates.includes(date))) {
-          filteredPorts = filteredPorts.filter(port => port !== key);
-        }
-      })
-    }
+  /**
+   * @returns {{
+   *  destinations: string[],
+   *  ports: string[],
+   *  dates: string[],
+   * }}
+   */
+  #removeUnavailables(selected, availables) {
+    const filterKeys = Object.keys(availables);
 
-    return {
-      destinations: filteredDestinations,
-      ports: filteredPorts,
-      dates: filteredDates
-    };
+    return filterKeys.reduce((filteredTotal, targetFilter) => {
+      const filteredOptionsSet = new Set(Object.keys(availables[targetFilter]));
+      
+      const filterAvailabilities = availables[targetFilter];
+      Object.entries(filterAvailabilities).forEach(([filterOption, dependFilters]) => {
+        filterKeys.forEach((dependFilter) => {
+          if (dependFilter === targetFilter) return;
+
+          const selectedValues = selected[dependFilter];
+          if (!selectedValues.length) return;
+
+          const dependValues = [...dependFilters[dependFilter]];
+          if (dependValues.every((dependValue) => !selectedValues.includes(dependValue))) {
+            filteredOptionsSet.delete(filterOption);
+          }
+        });
+      });
+
+      filteredTotal[targetFilter] = [...filteredOptionsSet];
+      return filteredTotal;
+    }, {});
   }
 
   #showAvailableFilters(filterData) {
@@ -164,7 +154,6 @@ export class SearchPanelFilter {
   }
 
   process() {
-    const filterData = this.filterData();
-    this.#showAvailableFilters(filterData);
+    this.#showAvailableFilters(this.#filterData());
   }
 }
