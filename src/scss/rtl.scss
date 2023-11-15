@@ -352,6 +352,11 @@ html[dir=rtl] {
         border-radius: 0px 800px 0px 0px;
       }
     }
+    .about-us-values {
+      &__bage-icon {
+        border-radius: 0 100px;
+      }
+    }
     .about-us-view {
       &__image-wrapper img {
         border-radius: 0px 0px 0px 800px;
