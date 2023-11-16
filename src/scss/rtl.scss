@@ -370,6 +370,24 @@ html[dir=rtl] {
   }
   /***** END ABOUS PAGE *****/
 
+  /***** CONTACT US PAGE *****/
+  .contact-us {
+    &__image-wrapper {
+      left: unset;
+      right: 0;
+    }
+    &__form {
+      flex-direction: row-reverse;
+    }
+
+    @include respond-to(small) {
+      &__form {
+        flex-direction: column;
+      }
+    }
+  }
+  /***** END CONTACT US *****/
+
   /***** FOOTER *****/
   .signup {
     &-form__controls {
