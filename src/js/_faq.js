@@ -30,9 +30,15 @@ class Faq {
     this.isMobile = window.screen.availWidth <= 768;
   }
 
+  #setFaqNavTop() {
+    this.faqNavTop = parseInt(getComputedStyle(this.faqNavWrapperNode).top);
+  }
+
   faqScroll = throttle(() => {
     if (this.isMobile) {
       this.#setScrollParamsItems();
+      this.#setFaqNavTop();
+
       const scrollY = Math.round(window.scrollY);
       const idx = this.faqItemsNodesScrollParams.findIndex(params => scrollY >= params.y && scrollY <= params.bottomY);
 
@@ -63,7 +69,7 @@ class Faq {
       this.faqItemsNodes = [...document.querySelectorAll('.faq-body__items')];
       this.faqNavBtns = [...document.querySelectorAll('.faq-nav__item')];
       this.faqNavWrapperNode = this.faqNode.querySelector('.faq-nav');
-      this.faqNavTop = parseInt(getComputedStyle(this.faqNavWrapperNode).top);
+      this.#setFaqNavTop();
 
       window.addEventListener('scroll', this.faqScroll);
     }
