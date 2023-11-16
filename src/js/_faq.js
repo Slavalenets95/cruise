@@ -1,30 +1,71 @@
+import { throttle } from "./helpers";
+
 class Faq {
-  make() {
-    const faqSection = document.querySelector('.page-faq');
+  faqNode = null;
+  isMobile = null;
+  faqItemsNodes = [];
+  faqItemsNodesScrollParams = [];
+  faqNavBtns = [];
+  faqNavWrapperNode = null;
+  faqNavTop = 0;
 
-    if (faqSection) {
-      const activeEl = faqSection.querySelector('.page-faq__item[data-active]');
-      if (activeEl) {
-        const activeElItemBodyHeight = activeEl.querySelector('.page-faq__item-body').scrollHeight;
-        activeEl.querySelector('.page-faq__item-body').style.height = `${activeElItemBodyHeight}px`;
-      }
-      faqSection.addEventListener('click', function (evt) {
-        const isItemHeaderClick = evt.target.classList.contains('page-faq__item-btn') || !!evt.target.closest('.page-faq__item-btn');
-        if (isItemHeaderClick) {
-          const itemWrapper = evt.target.closest('.page-faq__item');
-          const itemBody = itemWrapper?.querySelector('.page-faq__item-body');
-          const itemBodyHeight = itemBody?.scrollHeight;
-          const isActive = itemWrapper.hasAttribute('data-active');
+  #setScrollParamsItems() {
+    if (this.faqItemsNodes.length) {
+      this.faqItemsNodesScrollParams = [];
 
-          itemWrapper.toggleAttribute('data-active');
+      this.faqItemsNodes.forEach(item => {
+        const itemParams = item.getBoundingClientRect();
 
-          if (isActive) {
-            itemBody.style.height = '0px';
-          } else {
-            itemBody.style.height = `${itemBodyHeight}px`;
-          }
-        }
+        this.faqItemsNodesScrollParams.push({
+          node: item,
+          height: Math.round(itemParams.height),
+          y: Math.round(itemParams.y) + Math.round(window.scrollY) - this.faqNavWrapperNode.scrollHeight - this.faqNavTop,
+          bottomY: Math.round(itemParams.height) + Math.round(itemParams.y) + Math.round(window.scrollY) - this.faqNavWrapperNode.scrollHeight - this.faqNavTop,
+        })
       })
+    }
+  }
+
+  #setIsMobile() {
+    this.isMobile = window.screen.availWidth <= 768;
+  }
+
+  faqScroll = throttle(() => {
+    if (this.isMobile) {
+      this.#setScrollParamsItems();
+      const scrollY = Math.round(window.scrollY);
+      const idx = this.faqItemsNodesScrollParams.findIndex(params => scrollY >= params.y && scrollY <= params.bottomY);
+
+      if (idx !== -1) {
+        this.faqNavBtns.forEach(btn => {
+          if (btn.hasAttribute('data-tab-active') && btn !== this.faqNavBtns[idx]) {
+            btn.removeAttribute('data-tab-active');
+          }
+        });
+        this.faqNavBtns[idx].setAttribute('data-tab-active', '');
+      }
+    }
+  }, 100);
+
+  reinit() {
+    this.#setIsMobile();
+
+    if(this.isMobile) {
+      window.addEventListener('scroll', this.faqScroll);
+    }
+  }
+
+  make() {
+    this.faqNode = document.querySelector('.faq');
+    this.#setIsMobile();
+
+    if (this.faqNode) {
+      this.faqItemsNodes = [...document.querySelectorAll('.faq-body__items')];
+      this.faqNavBtns = [...document.querySelectorAll('.faq-nav__item')];
+      this.faqNavWrapperNode = this.faqNode.querySelector('.faq-nav');
+      this.faqNavTop = parseInt(getComputedStyle(this.faqNavWrapperNode).top);
+
+      window.addEventListener('scroll', this.faqScroll);
     }
   }
 }

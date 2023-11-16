@@ -29,6 +29,7 @@ function reInit() {
   Scroller.reInit();
   Sliders.reInit();
   Dropdowns.reInit();
+  Faq.reinit();
 }
 
 window.addEventListener('resize', throttle(reInit, 100));
