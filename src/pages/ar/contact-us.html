@@ -7,7 +7,7 @@
   <title>Document</title>
 </head>
 
-<body class="about-us-page">
+<body class="contact-us-page">
   <!-- HEADER -->
   <div class="header-top darkblue-bg white text-14 py-1 text-16">
     <div class="container">
@@ -376,9 +376,61 @@
   </header>
   <!-- END HEADER -->
   <main class="main">
-    
-    
-
+    <div class="contact-us flex relative">
+      <div class="contact-us__image-wrapper flex">
+        <img src="../../images/contact-us/contact-form-image.jpg" alt="Ship" class="contact-us__img">
+      </div>
+      <div class="container contact-us__container flex">
+        <div class="contact-us__form-wrapper py-5">
+          <div class="section-header">
+            <div class="section-header__title dark-blue">
+              <h1>اتصل بنا</h1>
+            </div>
+            <div class="section-header__text sd">
+              <p>سيتصل بك مستشارونا خلال 24 ساعة ويجيبون على أسئلتك.</p>
+            </div>
+          </div>
+          <form class="contact-us__form mt-4" id="contact-form" action="POST">
+            <div class="contact-us__form-item">
+              <input type="text" placeholder="الاسم الأول" name="first-name">
+            </div>
+            <div class="contact-us__form-item">
+              <input type="text" placeholder="اسم العائلة" name="last-name">
+            </div>
+            <div class="contact-us__form-item">
+              <input type="email" placeholder="عنوان البريد الإلكتروني" name="email">
+            </div>
+            <div class="contact-us__form-item">
+              <input type="text" placeholder="هاتف" name="phone">
+              <span class="optional">خياري</span>
+            </div>
+            <div class="contact-us__form-item">
+              <input type="text" placeholder="رقم الحجز" name="reservation-number">
+              <span class="optional">خياري</span>
+            </div>
+            <div class="contact-us__form-item select-wrapper">
+              <select name="subject" data-select>
+                <option value="">موضوع</option>
+                <option value="Subject 1">موضوع 1</option>
+                <option value="Subject 2">موضوع 2</option>
+                <option value="Subject 3">موضوع 3</option>
+                <option value="Subject 4">موضوع 4</option>
+                <option value="Subject 5">موضوع 5</option>
+              </select>
+              <span class="optional">خياري</span>
+            </div>
+            <div class="contact-us__form-item contact-us__form-item--textarea">
+              <textarea name="question" placeholder="سؤالك"></textarea>
+            </div>
+            <button class="contact-us__form-submit main-btn main-btn--light-blue uc">ارسل طلب</button>
+            <div class="contact-us__form-privacy mt-2 sd--light-links text-14 gray">
+              قم بالتسجيل للحصول على معلومات حول عروضنا وصفقاتنا الخاصة. يمكنك إلغاء الاشتراك في أي
+              وقت. لمزيد من التفاصيل حول كيفية استخدامنا لمعلوماتك، راجع سياسة <a href="#">الخصوصية الخاصة بنا.</a>.
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
   </main>
   <footer class="footer">
     <div class="footer-body">
