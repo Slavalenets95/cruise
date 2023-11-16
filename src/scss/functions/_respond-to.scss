@@ -4,6 +4,7 @@ $x-large: 1200px;
 $large: 992px;
 $medium: 768px;
 $small: 600px;
+$extra-small: 450px;
 
 @mixin respond-to($media) {
   @if $media == xxx-large {
@@ -26,5 +27,8 @@ $small: 600px;
   }
   @else if $media == min-xx-large {
     @media (min-width: $xx-large) { @content; }
+  }
+  @else if $media == extra-small {
+    @media (max-width: $extra-small) { @content }
   }
 }
