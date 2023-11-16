@@ -54,6 +54,12 @@ select {
     transform: rotate(180deg);
   }
 
+  select {
+    background-color: transparent;
+    position: relative;
+    z-index: 1;
+  }
+
   &::after {
     content: '';
     position: absolute;
