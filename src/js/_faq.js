@@ -7,6 +7,7 @@ class Faq {
   faqItemsNodesScrollParams = [];
   faqNavBtns = [];
   faqNavWrapperNode = null;
+  faqNavBodyNode = null;
   faqNavTop = 0;
 
   #setScrollParamsItems() {
@@ -36,9 +37,6 @@ class Faq {
 
   faqScroll = throttle(() => {
     if (this.isMobile) {
-      this.#setScrollParamsItems();
-      this.#setFaqNavTop();
-
       const scrollY = Math.round(window.scrollY);
       const idx = this.faqItemsNodesScrollParams.findIndex(params => scrollY >= params.y && scrollY <= params.bottomY);
 
@@ -48,16 +46,47 @@ class Faq {
             btn.removeAttribute('data-tab-active');
           }
         });
+
+        this.faqNavBodyNode.scrollLeft = this.faqNavBtns[idx].offsetLeft;
         this.faqNavBtns[idx].setAttribute('data-tab-active', '');
       }
     }
   }, 100);
 
-  reinit() {
-    this.#setIsMobile();
+  faqBtnScroll = (evt) => {
+    if (this.isMobile) {
+      this.#setScrollParamsItems();
+      const idx = this.faqNavBtns.findIndex(btn => btn === evt.currentTarget);
+      if (idx !== -1) {
+        this.faqNavBtns.forEach(btn => {
+          btn.removeAttribute('data-tab-active');
+        });
+        window.removeEventListener('scroll', this.faqScroll);
 
-    if(this.isMobile) {
-      window.addEventListener('scroll', this.faqScroll);
+        window.scrollTo({
+          top: this.faqItemsNodesScrollParams[idx].y,
+          behavior: 'smooth'
+        })
+
+        this.faqNavBodyNode.scrollLeft = this.faqNavBtns[idx].offsetLeft;
+        this.faqNavBtns[idx].setAttribute('data-tab-active', '');
+
+        setTimeout(() => {
+          window.addEventListener('scroll', this.faqScroll);
+        }, 1000);
+      }
+    }
+  }
+
+  reinit() {
+    if (this.faqNode) {
+      this.#setIsMobile();
+      this.#setScrollParamsItems();
+      this.#setFaqNavTop();
+
+      if (this.isMobile) {
+        window.addEventListener('scroll', this.faqScroll);
+      }
     }
   }
 
@@ -69,8 +98,11 @@ class Faq {
       this.faqItemsNodes = [...document.querySelectorAll('.faq-body__items')];
       this.faqNavBtns = [...document.querySelectorAll('.faq-nav__item')];
       this.faqNavWrapperNode = this.faqNode.querySelector('.faq-nav');
+      this.faqNavBodyNode = this.faqNode.querySelector('.faq-nav__body');
       this.#setFaqNavTop();
+      this.#setScrollParamsItems();
 
+      this.faqNavBtns.forEach(btn => btn.addEventListener('click', this.faqBtnScroll));
       window.addEventListener('scroll', this.faqScroll);
     }
   }

@@ -404,6 +404,73 @@ html[dir="rtl"] {
   }
   /***** END CONTACT US *****/
 
+  /***** FAQ PAGE *****/
+  .faq-intro {
+    &__title {
+      max-width: 400px;
+    }
+    &__img {
+      left: 0;
+      right: unset;
+      border-radius: 0px 600px 0px 0px;
+    }
+  }
+  .faq {
+    &-nav {
+      margin-right: 0;
+      margin-left: 30px;
+      &__item {
+        text-align: right;
+        * {
+          font-weight: 700;
+        }
+        &::before {
+          left: unset;
+          right: 0;
+        }
+      }
+    }
+    &-body {
+      &__item {
+        &-header {
+          text-align: right;
+          & > *:first-child {
+            margin-right: unset;
+            margin-left: 20px;
+          }
+        }
+        &-btn {
+          margin-left: unset;
+          margin-right: auto;
+          &, &::after {
+            border-radius: 0 52px;
+          }
+        }
+      }
+    }
+
+    @include respond-to(x-large) {
+      &-nav {
+        margin-left: 0;
+        &__item {
+          &::before {
+            left: 50%;
+            right: 50%;
+            transform: translateX(50%);
+          }
+        }
+      }
+    }
+  }
+  .faq-cta {
+    &__img {
+      left: 0;
+      right: unset;
+      border-radius: 0px 600px 0px 0px;
+    }
+  }
+  /***** END FAQ PAGE *****/
+
   /***** FOOTER *****/
   .signup {
     &-form__controls {

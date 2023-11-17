@@ -94,32 +94,32 @@
       border-radius: 52px 0;
     }
     /***** DROPDOWNS *****/
-    &__item[data-dropdown-active] {
+    &__item[data-drop-active] {
       background-color: $white;
     }
-    &__item[data-dropdown-active] &__item-header {
+    &__item[data-drop-active] &__item-header {
       padding-bottom: 10px;
       color: $dark-blue;
     }
-    &__item[data-dropdown-active] &__item-text {
+    &__item[data-drop-active] &__item-text {
       height: auto;
     }
-    &__item[data-dropdown-active] &__item-text-wrapper {
+    &__item[data-drop-active] &__item-text-wrapper {
       opacity: 1;
     }
-    &__item[data-dropdown-active] &__item-btn::after {
+    &__item[data-drop-active] &__item-btn::after {
       opacity: 1;
     }
-    &__item[data-dropdown-active] &__item-btn svg {
+    &__item[data-drop-active] &__item-btn svg {
       transform: rotate(-45deg);
     }
-    &__item + &__item[data-dropdown-active] {
+    &__item[data-drop-active] + &__item[data-drop-active] {
       margin-top: 30px;
     }
     /***** END DROPDOWN *****/
 
-    &__item:first-child:not([data-dropdown-active]) &__item-header {
-      padding-top: 0;
+    &__item:first-child:not([data-drop-active]) &__item-header {
+      margin-top: -30px;
     }
 
     /***** TAB *****/
@@ -135,13 +135,18 @@
       transition: all 0.5s;
     }
     /***** END TAB *****/
+    &__item:not([data-drop-active]) &__item-header:hover {
+      background-color: #F4FAFF;
+    }
+
     &__item-header {
-      padding: 30px 40px 0 40px;
+      padding: 30px 40px;
       display: flex;
       align-items: center;
       transition: all 0.5s;
       width: 100%;
       text-align: left;
+      border-radius: 52px 0;
 
       & > *:first-child {
         max-width: 900px;
@@ -239,7 +244,8 @@
         }
       }
     }
-    &-nav, &-body {
+    &-nav,
+    &-body {
       flex: 0 1 auto;
     }
     &-body {
@@ -250,23 +256,26 @@
   @include respond-to(medium) {
     &-nav {
       position: sticky;
-      top: 20px;
+      top: 0;
       z-index: 3;
       min-width: unset;
-      &__item {
-        opacity: 0;
-        pointer-events: none;
-        visibility: hidden;
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
+      &__body {
+        flex-direction: row;
+        overflow-x: scroll;
+        justify-content: flex-start;
+        border-radius: 16px 16px 0 0;
+        &::-webkit-scrollbar {
+          display: none;
+        }
+        -ms-overflow-style: none;
+        scrollbar-width: none;
       }
-      &__item[data-tab-active] {
-        pointer-events: all;
-        opacity: 1;
-        visibility: visible;
-        position: static;
+      &__item {
+        min-width: 370px;
+        padding: 15px;
+        &::before {
+          width: 100%;
+        }
       }
     }
     &-body {
@@ -297,6 +306,10 @@
   @include respond-to(extra-small) {
     &-nav__item > *:first-child {
       font-size: 16px;
+    }
+    &-nav__item {
+      min-width: 290px;
+      padding: 15px 10px;
     }
   }
 }
