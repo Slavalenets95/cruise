@@ -43,11 +43,8 @@ class Dropdown {
 
     if (active.length) {
       active.forEach(activeEl => {
-        const height = activeEl.querySelector('.drop-body').scrollHeight;
-        activeEl.querySelector('.drop-body').style.height = 'auto';
-        setTimeout(() => {
-          activeEl.querySelector('.drop-body').style.height = `${height}px`;
-        }, 0);
+        const height = activeEl.querySelector('.drop-body > .drop-body__wrapper').scrollHeight;
+        activeEl.querySelector('.drop-body').style.height = `${height}px`;
       })
     }
   }
