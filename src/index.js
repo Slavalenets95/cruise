@@ -28,7 +28,6 @@ window.addEventListener('load', () => {
 function reInit() {
   Scroller.reInit();
   Sliders.reInit();
-  Dropdowns.reInit();
   Faq.reinit();
 }
 

@@ -1,96 +1,189 @@
-class Dropdowns {
+class Dropdown {
+  #dataStr = 'data-drop-active';
 
-  body = document.querySelector('body');
+  options = {
+    parentNode: null,
+    itemSelector: '.drop-item',
+    btnSelector: '.drop-header',
+    bodySelector: '.drop-body',
+    closeOther: false,
+    notCloseOther: 768,
+    animate: false,
+  }
 
-  reInit() {
-    const activeDropdowns = document.querySelectorAll('[data-dropdown][data-dropdown-active]');
-    
-    if(activeDropdowns.length) {
-      activeDropdowns.forEach(dropdown => {
-        const noToggle = dropdown.hasAttribute('data-dropdown-notoggle');
-        const activeDropdownBody = dropdown.querySelector('[data-dropdown-body]');
-        
-        if(!noToggle && activeDropdownBody) {
-          activeDropdownBody.style.height = 'auto';
+  constructor(options) {
+    this.options = {
+      ...this.options,
+      ...options
+    }
+    this.init();
+    document.querySelector('body').addEventListener('click', this.#bodyListener)
+    window.addEventListener('scroll', this.#resize);
+  }
+
+  init() {
+    if (this.options.parentNode) {
+      this.#setActiveHeight();
+      this.options.parentNode.addEventListener('click', (evt) => {
+        if (this.#isDropBtn(evt.target)) {
+          this.#closeOther(evt.target);
+
+          if (this.#isActive(evt.target)) {
+            this.#close(this.#getItemParent(evt.target));
+          } else {
+            this.#open(this.#getItemParent(evt.target));
+          }
         }
       })
     }
   }
 
-  make() {
-    const dropdowns = document.querySelectorAll('[data-dropdown-parent]');
+  #resize() {
+    const active = document.querySelectorAll(`[data-drop-active]`);
 
-    if(dropdowns.length) {
-      dropdowns.forEach(dropdown => {
-        const activeDropdown = dropdown.querySelector('[data-dropdown][data-dropdown-active]');
-        const activeDropdownBody = dropdown.querySelector('[data-dropdown][data-dropdown-active] [data-dropdown-body]');
-        if(activeDropdown && activeDropdownBody) {
-          activeDropdownBody.style.height = activeDropdownBody.scrollHeight + 'px';
-        }
+    if (active.length) {
+      active.forEach(activeEl => {
+        activeEl.querySelector('.drop-body').style.height = 'auto';
+      })
+    }
+  }
 
-        dropdown.addEventListener('click', evt => {
-          const isDropdownBtn = evt.target.hasAttribute('data-dropdown-btn') || evt.target.closest('[data-dropdown-btn]');
+  #setActiveHeight() {
+    const active = this.options.parentNode.querySelectorAll(`[${this.#dataStr}]`);
 
-          if(isDropdownBtn) {
-            const noToggle = dropdown.hasAttribute('data-dropdown-notoggle');
-            const activeDropdown = dropdown.querySelector('[data-dropdown][data-dropdown-active]');
-            const activeDropdownBody = dropdown.querySelector('[data-dropdown][data-dropdown-active] [data-dropdown-body]');
-            const targetDropdown = evt.target.closest('[data-dropdown]');
-            const targetDropdownBody = targetDropdown.querySelector('[data-dropdown-body]');
-            const sameDropdown = targetDropdown === activeDropdown;
-            const targetDropdownBodyHeight = targetDropdownBody.scrollHeight;
+    if (active.length) {
+      active.forEach(activeNode => {
+        const body = activeNode.querySelector(this.options.bodySelector);
+        body.style.height = `${this.#getBodyHeight(activeNode)}px`;
+      })
+    }
+  }
 
-            if(activeDropdown) {
-              const isSearchFormDropdown = activeDropdown.closest('#search-form');
+  #bodyListener(evt) {
+    const dropdowns = document.querySelectorAll('[data-drop-body-close]');
+    let active = [];
+    const isDrop = evt.target.hasAttribute('data-drop-active') || !!evt.target.closest('[data-drop-active]') ?
+      true :
+      false;
 
-              activeDropdown.removeAttribute('data-dropdown-active');
+    if (isDrop) return;
 
-              if(isSearchFormDropdown) {
-                document.querySelector('#search-form').dispatchEvent(new CustomEvent('close-search-dropdown'));
-              }
-              if(!noToggle) {
-                if(!activeDropdownBody.style.height || activeDropdownBody.style.height === 'auto') {
-                  activeDropdownBody.style.height = `${targetDropdownBodyHeight}px`;
-                  setTimeout(() => activeDropdownBody.style.height = '0px', 0)
-                } else {
-                  activeDropdownBody.style.height = '0px'
-                }
-              }
-            }
-
-            if(!sameDropdown) {
-              targetDropdown.setAttribute('data-dropdown-active', '');
-              if(!noToggle) {
-                targetDropdownBody.style.height = `${targetDropdownBodyHeight}px`;
-              }
-            }
-          }
-        })
+    if (dropdowns.length) {
+      dropdowns.forEach(drop => {
+        const dropActive = drop.querySelectorAll(`[data-drop-active]`);
+        active = [...active, ...dropActive];
       })
     }
 
-    this.body.addEventListener('click', function(evt) {
-      const isDropdownBody = evt.target.hasAttribute('data-dropdown-body') || evt.target.closest('[data-dropdown-body]');
-      const isDropdownBtn = evt.target.hasAttribute('data-dropdown-btn') || evt.target.closest('[data-dropdown-btn]');
-      const activeDropdown = document.querySelector('[data-dropdown-parent]:not([data-dropdown-noclose-body]) [data-dropdown][data-dropdown-active]');
-
-      if(isDropdownBody) return;
-
-      if(activeDropdown && !isDropdownBtn) {
-        const isSearchFormDropdown = activeDropdown.closest('#search-form');
-        if(isSearchFormDropdown) {
+    if (active.length) {
+      active.forEach(activeItem => {
+        activeItem.removeAttribute('data-drop-active');
+        if(activeItem.closest('#search-form')) {
           document.querySelector('#search-form').dispatchEvent(new CustomEvent('close-search-dropdown'));
         }
-        activeDropdown.removeAttribute('data-dropdown-active');
-      }
-    })
+      })
+    }
+  }
 
-    // this.initDropdowns();
-    // const okMonthpickerBtn = document.querySelector('.search-form__dates-ok');
-    // if (okMonthpickerBtn) {
-    //   okMonthpickerBtn.addEventListener('click', evt => this.closeActiveDropdown(evt, true));
-    // }
+  #isDropBtn(node) {
+    const isBtn = node.classList.contains(this.options.btnSelector);
+    const isBtnChild = !!node.closest(this.options.btnSelector);
+
+    return isBtn || isBtnChild;
+  }
+
+  #closeOther(targetNode) {
+    if (this.options.closeOther && window.screen.availWidth > this.options.notCloseOther) {
+      const active = this.options.parentNode.querySelectorAll(`[${this.#dataStr}]`);
+
+      if (active.length) {
+        active.forEach(active => {
+          if (this.#getItemParent(targetNode) === active) return;
+
+          this.#close(active);
+          if(active.closest('#search-form')) {
+            document.querySelector('#search-form').dispatchEvent(new CustomEvent('close-search-dropdown'));
+          }
+        })
+      }
+    }
+  }
+
+  #close(node) {
+    if (this.options.animate) {
+      const body = node.querySelector(this.options.bodySelector);
+      const nodeHeight = body.style.height;
+
+      if (nodeHeight === 'auto') {
+        body.style.height = `${this.#getBodyHeight(node)}px`;
+      }
+
+      setTimeout(() => {
+        node.querySelector(this.options.bodySelector).style.height = 0;
+      }, 0)
+    }
+    node.removeAttribute(this.#dataStr);
+  }
+
+  #open(node) {
+    if (this.options.animate) {
+      const bodyHeight = this.#getBodyHeight(node);
+      node.querySelector(this.options.bodySelector).style.height = `${bodyHeight}px`;
+    }
+    node.setAttribute(this.#dataStr, '');
+  }
+
+  #isActive(node) {
+    const parent = node.classList.contains(this.options.itemSelector) ?
+      node :
+      node.closest(this.options.itemSelector);
+
+    return parent.hasAttribute(this.#dataStr);
+  }
+
+  #getBodyHeight(node) {
+    let body = node.classList.contains(this.options.bodySelector) ?
+      node :
+      node.querySelector(this.options.bodySelector);
+
+    if (!body) return
+
+    return body.scrollHeight;
+  }
+
+  #getItemParent(node) {
+    return node.classList.contains(this.options.itemSelector) ?
+      node :
+      node.closest(this.options.itemSelector);
   }
 }
 
-export default new Dropdowns();
+class AroyaDropdowns {
+  make() {
+    // FAQ
+    const faqDropdowns = document.querySelectorAll('.faq-body__items');
+    if (faqDropdowns.length) {
+      faqDropdowns.forEach(faqDropdown => {
+        new Dropdown({
+          parentNode: faqDropdown,
+          animate: true,
+          closeOther: true,
+        });
+      })
+    }
+
+    // Search form
+    const searchFormDropdowns = document.querySelectorAll('.search-form .search-form__items > .tab');
+
+    if (searchFormDropdowns.length) {
+      searchFormDropdowns.forEach(dropdown => {
+        new Dropdown({
+          parentNode: dropdown,
+          closeOther: true,
+        })
+      })
+    }
+  }
+}
+
+export default new AroyaDropdowns();

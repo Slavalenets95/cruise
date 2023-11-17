@@ -134,6 +134,11 @@ module.exports = (env) => {
         filename: "faq-page.html",
         template: path.resolve(__dirname, './src/pages/en/faq-page.html'),
       }),
+      // AR
+      new HtmlWebpackPlugin({
+        filename: "faq-page-ar.html",
+        template: path.resolve(__dirname, './src/pages/ar/faq-page.html'),
+      }),
       // EN
       new HtmlWebpackPlugin({
         filename: "search-panel.html",

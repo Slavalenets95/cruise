@@ -12,13 +12,13 @@
   <link rel="mask-icon" href="./images/favicon/safari-pinned-tab.svg" color="#5bbad5">
 </head>
 
-<body class="about-us-page">
+<body class="contact-us-page">
   <!-- HEADER -->
   <div class="header-top darkblue-bg white text-14 py-1 text-16">
     <div class="container">
       <ul class="header-top__list flex">
         <li class="header-top__list-item">
-          <a href="/about-us-page" class="header-top__language-control" type="button">
+          <a href="/faq-page" class="header-top__language-control" type="button">
             <svg class="header-top__language-ic" xmlns="http://www.w3.org/2000/svg" width="17" height="17"
               viewBox="0 0 25 25" fill="none">
               <path fill-rule="evenodd" clip-rule="evenodd"
@@ -316,10 +316,10 @@
               </button>
               <ul class="header-language__menu header-hidden-menu">
                 <li class="header-language__menu-item">
-                  <a class="header-language__menu-link" href="/about-us-page-ar">AR</a>
+                  <a class="header-language__menu-link" href="/faq-page-ar">AR</a>
                 </li>
                 <li class="header-language__menu-item">
-                  <a class="header-language__menu-link" href="/about-us-page">English</a>
+                  <a class="header-language__menu-link" href="/faq-page">English</a>
                 </li>
               </ul>
             </div>
@@ -381,137 +381,264 @@
   </header>
   <!-- END HEADER -->
   <main class="main">
-    <!-- PAGE INTRO -->
-    <div class="about-us-intro section white relative flex">
+    <div class="faq-intro relative flex">
       <div class="container">
-        <div class="about-us-intro__wrapper">
-          <div class="about-us-intro__text">
-            <div class="section-header white">
-              <div class="section-header__title">
-                <h1>عن أرويا:</h1>
+        <div class="faq-intro__content white py-6">
+          <div class="section-header">
+            <div class="section-header__title faq-intro__title">
+              <h1>أسئلة رحلات أرويا
+                وورقة الإجابات</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+      <img src="../../images/faq-page/faq-intro.jpg" alt="Ship" class="faq-intro__img">
+    </div>
+    <div class="faq light-bg pattern-image-wrapper">
+      <div class="container faq__container">
+        <div class="section-header section-header--custom">
+          <div class="section-header__title text-34 dark-blue medium">
+            <h2>قائمة المواضيع</h2>
+          </div>
+        </div>
+      </div>
+      <div class="container faq__container flex mt-3" data-tab-parent>
+        <div class="faq-nav">
+          <div class="faq-nav__body" data-tab-nav>
+            <button type="button" class="faq-nav__item" data-tab-btn data-tab-active>
+              <h3 class="text-22 semibold">مساهمة رحلات أرويا في تطوير السياحة في المملكة العربية السعودية: </h3>
+            </button>
+            <button type="button" class="faq-nav__item" data-tab-btn>
+              <h3 class="text-22 semibold">تفاصيل المنتج والعمليات: </h3>
+            </button>
+          </div>
+        </div>
+        <div class="faq-body" data-tab-body>
+          <div class="faq-body__items" data-tab-item data-tab-active>
+            <div class="faq-body__item drop-item" data-drop-active>
+              <button type="button" class="faq-body__item-header drop-header text-22 semibold">
+                <h3>هل يولِّد التعاون مع شركات الرحلات البحرية العالمية لأي تضارب في مصلحة "كروز السعودية" ضمن عملية
+                  تشغيل شركة رحلات بحرية وإدارة الموانئ في المملكة في ذات الوقت؟</h3>
+                <span class="faq-body__item-btn">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path
+                      d="M11.625 3C11.9234 3 12.2095 3.11853 12.4205 3.3295C12.6315 3.54048 12.75 3.82663 12.75 4.125V10.5H19.125C19.4234 10.5 19.7095 10.6185 19.9205 10.8295C20.1315 11.0405 20.25 11.3266 20.25 11.625C20.25 11.9234 20.1315 12.2095 19.9205 12.4205C19.7095 12.6315 19.4234 12.75 19.125 12.75H12.75V19.125C12.75 19.4234 12.6315 19.7095 12.4205 19.9205C12.2095 20.1315 11.9234 20.25 11.625 20.25C11.3266 20.25 11.0405 20.1315 10.8295 19.9205C10.6185 19.7095 10.5 19.4234 10.5 19.125V12.75H4.125C3.82663 12.75 3.54048 12.6315 3.3295 12.4205C3.11853 12.2095 3 11.9234 3 11.625C3 11.3266 3.11853 11.0405 3.3295 10.8295C3.54048 10.6185 3.82663 10.5 4.125 10.5H10.5V4.125C10.5 3.82663 10.6185 3.54048 10.8295 3.3295C11.0405 3.11853 11.3266 3 11.625 3Z"
+                      fill="white" />
+                  </svg>
+                </span>
+              </button>
+              <div class="faq-body__item-text drop-body">
+                <div class="faq-body__item-text-wrapper  sd sd--text-18">
+                  <p>تعد صناعة الرحلات البحرية في السعودية مفهومًا نسبياً جديدًا، وتتحمل "كروز السعودية" مسؤولية تطوير
+                    وتشغيل الموانئ والمحطات البحرية، وهو أمر غير معتاد في القطاع العام. سيتم إدارة شركة "أرويا كروز"
+                    كوحدة أعمال منفصلة عن بقية أعمال "كروز السعودية"، فعلى سبيل المثال، سيكون هناك فريق تشغيل وإدارة
+                    مختلفة، وستكون منفصلة عن تجارب الوجهات الأخرى. نحن فخورون جدًا بالعلاقات التي نؤسسها مع شركات
+                    الرحلات البحرية العالمية، وهذه الشراكات تعد أولوية قصوى بالنسبة لنا، بالإضافة إلى الرؤية العامة لـ
+                    "كروز السعودية". وبهذا الصدد، ستعمل "أرويا كروز" بتناغم مع الشركاء، بدلاً من المنافسة.
+                    هدف "كروز السعودية" هو استقبال 1.3 مليون راكب بحري بحلول عام 2035، ولا يمكن تحقيق ذلك إلا من خلال
+                    العمل المشترك للجميع.</p>
+                </div>
               </div>
             </div>
-            <div class="about-us-intro-text mt-2 text-20">
-              <p>نستلهم من جمال البحر تجارب مثرية، لنبحر بكم على أمواجنا العربية</p>
+            <div class="faq-body__item drop-item">
+              <button type="button" class="faq-body__item-header drop-header text-22 semibold">
+                <h3>كيف تعتزم "أرويا كروز" المساهمة في الاستراتيجية الوطنية للسياحة ورؤية 2030؟</h3>
+                <span class="faq-body__item-btn">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path
+                      d="M11.625 3C11.9234 3 12.2095 3.11853 12.4205 3.3295C12.6315 3.54048 12.75 3.82663 12.75 4.125V10.5H19.125C19.4234 10.5 19.7095 10.6185 19.9205 10.8295C20.1315 11.0405 20.25 11.3266 20.25 11.625C20.25 11.9234 20.1315 12.2095 19.9205 12.4205C19.7095 12.6315 19.4234 12.75 19.125 12.75H12.75V19.125C12.75 19.4234 12.6315 19.7095 12.4205 19.9205C12.2095 20.1315 11.9234 20.25 11.625 20.25C11.3266 20.25 11.0405 20.1315 10.8295 19.9205C10.6185 19.7095 10.5 19.4234 10.5 19.125V12.75H4.125C3.82663 12.75 3.54048 12.6315 3.3295 12.4205C3.11853 12.2095 3 11.9234 3 11.625C3 11.3266 3.11853 11.0405 3.3295 10.8295C3.54048 10.6185 3.82663 10.5 4.125 10.5H10.5V4.125C10.5 3.82663 10.6185 3.54048 10.8295 3.3295C11.0405 3.11853 11.3266 3 11.625 3Z"
+                      fill="white" />
+                  </svg>
+                </span>
+              </button>
+              <div class="faq-body__item-text drop-body">
+                <div class="faq-body__item-text-wrapper sd sd--text-18">
+                  <p>من خلال تقديم تجربة رحلات بحرية مخصصة في السعودية للمواطنين والمقيمين، ندفع الإيرادات السياحية
+                    المحلية للعودة إلى الاقتصاد ونشجع المواطنين والمقيمين والضيوف الإقليميين على استكشاف بلدهم. ستعرض
+                    "أرويا كروز" أفضل التجارب العربية التي تقدمها السعودية، وفي نفس الوقت ستسهم في تحقيق الهدف الوطني
+                    لاستقبال أكثر من 100 مليون زائر سنويًا بحلول عام 2030</p>
+                </div>
+              </div>
             </div>
-            <a href="#" class="about-us-intro__link main-btn main-btn--wide main-btn--light-blue mt-3">
-              احجز الان
-            </a>
-          </div>
-        </div>
-      </div>
-      <img src="./images/about-us-page/intro.png" alt="" class="about-us-intro__img">
-    </div>
-    <!-- END PAGE INTRO -->
-
-    <!-- CONTENT SECTIONS -->
-    <div class="about-us-general section light-bg pt-6 relative flex">
-      <div class="container about-us-general__container flex">
-        <div class="about-us-general__content-wrapper flex">
-          <div class="section-header dark-blue">
-            <div class="section-header__title">
-              <h2>عن أرويا:</h2>
+            <div class="faq-body__item drop-item">
+              <button type="button" class="faq-body__item-header drop-header text-22 semibold">
+                <h3>هل سيكون الطاقم الملاحي من المواطنين السعوديين؟</h3>
+                <span class="faq-body__item-btn">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path
+                      d="M11.625 3C11.9234 3 12.2095 3.11853 12.4205 3.3295C12.6315 3.54048 12.75 3.82663 12.75 4.125V10.5H19.125C19.4234 10.5 19.7095 10.6185 19.9205 10.8295C20.1315 11.0405 20.25 11.3266 20.25 11.625C20.25 11.9234 20.1315 12.2095 19.9205 12.4205C19.7095 12.6315 19.4234 12.75 19.125 12.75H12.75V19.125C12.75 19.4234 12.6315 19.7095 12.4205 19.9205C12.2095 20.1315 11.9234 20.25 11.625 20.25C11.3266 20.25 11.0405 20.1315 10.8295 19.9205C10.6185 19.7095 10.5 19.4234 10.5 19.125V12.75H4.125C3.82663 12.75 3.54048 12.6315 3.3295 12.4205C3.11853 12.2095 3 11.9234 3 11.625C3 11.3266 3.11853 11.0405 3.3295 10.8295C3.54048 10.6185 3.82663 10.5 4.125 10.5H10.5V4.125C10.5 3.82663 10.6185 3.54048 10.8295 3.3295C11.0405 3.11853 11.3266 3 11.625 3Z"
+                      fill="white" />
+                  </svg>
+                </span>
+              </button>
+              <div class="faq-body__item-text drop-body">
+                <div class="faq-body__item-text-wrapper sd sd--text-18">
+                  <p>هدفنا هو ضمان أن يتحدث غالبية أفراد الطاقم اللغة العربية ليعكس طبيعة وروح "أرويا كروز". تلتزم "كروز
+                    السعودية" بتحقيق هدفها بتوفير 50,000 وظيفة مباشرة وغير مباشرة في السعودية بحلول عام 2035.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="faq-body__item drop-item">
+              <button type="button" class="faq-body__item-header drop-header text-22 semibold">
+                <h3>كيف سيتم إدارة وتشغيل "أرويا كروز"؟ هل سيكون فريق القيادة فيها هو ذات الفريق الذي يقود "كروز
+                  السعودية"؟
+                </h3>
+                <span class="faq-body__item-btn">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path
+                      d="M11.625 3C11.9234 3 12.2095 3.11853 12.4205 3.3295C12.6315 3.54048 12.75 3.82663 12.75 4.125V10.5H19.125C19.4234 10.5 19.7095 10.6185 19.9205 10.8295C20.1315 11.0405 20.25 11.3266 20.25 11.625C20.25 11.9234 20.1315 12.2095 19.9205 12.4205C19.7095 12.6315 19.4234 12.75 19.125 12.75H12.75V19.125C12.75 19.4234 12.6315 19.7095 12.4205 19.9205C12.2095 20.1315 11.9234 20.25 11.625 20.25C11.3266 20.25 11.0405 20.1315 10.8295 19.9205C10.6185 19.7095 10.5 19.4234 10.5 19.125V12.75H4.125C3.82663 12.75 3.54048 12.6315 3.3295 12.4205C3.11853 12.2095 3 11.9234 3 11.625C3 11.3266 3.11853 11.0405 3.3295 10.8295C3.54048 10.6185 3.82663 10.5 4.125 10.5H10.5V4.125C10.5 3.82663 10.6185 3.54048 10.8295 3.3295C11.0405 3.11853 11.3266 3 11.625 3Z"
+                      fill="white" />
+                  </svg>
+                </span>
+              </button>
+              <div class="faq-body__item-text drop-body">
+                <div class="faq-body__item-text-wrapper sd sd--text-18">
+                  <p>سيتولى غسان خان قيادة إطلاق "أرويا كروز". بينما سيتم إدارة العلامة التجارية كوحدة أعمال منفصلة تدعم
+                    تحقيق الأهداف الاستراتيجية لـ "كروز السعودية" باستقبال 1.3 مليون زائر للرحلات البحرية وتوفير 50,000
+                    وظيفة مباشرة وغير مباشرة في السعودية بحلول عام 2035.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="faq-body__item drop-item">
+              <button type="button" class="faq-body__item-header drop-header text-22 semibold">
+                <h3>ما هي تفاصيل خلفية غسان خان قبل هذا المشروع؟
+                </h3>
+                <span class="faq-body__item-btn">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path
+                      d="M11.625 3C11.9234 3 12.2095 3.11853 12.4205 3.3295C12.6315 3.54048 12.75 3.82663 12.75 4.125V10.5H19.125C19.4234 10.5 19.7095 10.6185 19.9205 10.8295C20.1315 11.0405 20.25 11.3266 20.25 11.625C20.25 11.9234 20.1315 12.2095 19.9205 12.4205C19.7095 12.6315 19.4234 12.75 19.125 12.75H12.75V19.125C12.75 19.4234 12.6315 19.7095 12.4205 19.9205C12.2095 20.1315 11.9234 20.25 11.625 20.25C11.3266 20.25 11.0405 20.1315 10.8295 19.9205C10.6185 19.7095 10.5 19.4234 10.5 19.125V12.75H4.125C3.82663 12.75 3.54048 12.6315 3.3295 12.4205C3.11853 12.2095 3 11.9234 3 11.625C3 11.3266 3.11853 11.0405 3.3295 10.8295C3.54048 10.6185 3.82663 10.5 4.125 10.5H10.5V4.125C10.5 3.82663 10.6185 3.54048 10.8295 3.3295C11.0405 3.11853 11.3266 3 11.625 3Z"
+                      fill="white" />
+                  </svg>
+                </span>
+              </button>
+              <div class="faq-body__item-text drop-body">
+                <div class="faq-body__item-text-wrapper sd sd--text-18">
+                  <p>بصفته المسؤول الأول عن الاستراتيجية في "كروز السعودية"، يتمتع غسان خان بأكثر من 24 عامًا من الخبرة
+                    المهنية في المجال المصرفي والاستشارات والترفيه. بعد بداية مسيرته في استشارات الإدارة في الولايات
+                    المتحدة، قام غسان بتنفيذ برامج تحويلية لعدة مؤسسات مالية مثل البنك السعودي للتجارة والاستثمار وبنك
+                    الجزيرة وإن سي بي كابيتال، كما عمل أيضًا في هيئة المدن الاقتصادية والمناطق الخاصة كمدير لتطوير
+                    المدينة في مدينة الملك عبدالله الاقتصادية، حيث أشرف على تنفيذ عدة مبادرات اجتماعية واقتصادية رئيسية
+                    مثل ميناء الملك عبدالله وغيرها. وفي الآونة الأخيرة، كان غسان رئيسًا للاستراتيجية ومسؤول العلاقات مع
+                    الجهات المعنية بالترفيه في الهيئة العامة للترفيه، حيث شغل دورًا رئيسيًا في إنشاء برامج مصممة لتطوير
+                    قطاع الترفيه المحلي.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="content mt-4 sd">
-            <p>تم إطلاق أرويا كروز للرحلات البحرية لأول مرة في يونيو 2023 كوحدة أعمال منفصلة لشركة كروز السعودية؛ المملوكة لصندوق الاستثمارات العامة بنسبة 100%.</p>
-            <p>يعمل خط أرويا كروز للرحلات البحرية الفاخرة، كوحدة منفصلة من قبل فريق تشغيلي وإداري مستقل يستقر في مدينة جدة.</p>
-            <p>تم إطلاق أرويا كروز للرحلات البحرية تماشياً مع رؤية 2023 وخطة المملكة العربية السعودية لتصبح أحد أفضل مناطق السياحة العالمية بحلول عام 2030، حيث تهدف إلى توفير تجارب استثنائية على مدار العام، مصممة خصيصًا للمواطنين والمقيمين في المملكة العربية السعودية ودول مجلس التعاون الخليجي.</p>
-          </div>
-        </div>
-      </div>
-      <div class="about-us-general__image-wrapper flex">
-        <img src="./images/about-us-page/content-section.jpeg" alt="content-section-hero">
-      </div>
-    </div>
-    <!-- END CONTENT SECTIONS -->
-
-    <!-- OUR VIEW SECTIONS -->
-    <div class="about-us-view section light-bg pb-8 relative flex">
-      <div class="about-us-view__image-wrapper flex">
-        <img src="./images/about-us-page/our-view.jpg" alt="our-view-hero">
-      </div>
-      <div class="container about-us-view__container flex">
-        <div class="about-us-view__content-wrapper flex">
-          <div class="dark-blue mb-2">
-            <div class="title-34 f-medium">
-              <h3>رؤيتنا:</h3>
+          <div class="faq-body__items" data-tab-item>
+            <div class="faq-body__item drop-item" data-drop-active="">
+              <button type="button" class="faq-body__item-header drop-header text-22 semibold">
+                <h3>متى ستبدأ رحلات "أرويا كروز" الأولى؟</h3>
+                <span class="faq-body__item-btn">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path
+                      d="M11.625 3C11.9234 3 12.2095 3.11853 12.4205 3.3295C12.6315 3.54048 12.75 3.82663 12.75 4.125V10.5H19.125C19.4234 10.5 19.7095 10.6185 19.9205 10.8295C20.1315 11.0405 20.25 11.3266 20.25 11.625C20.25 11.9234 20.1315 12.2095 19.9205 12.4205C19.7095 12.6315 19.4234 12.75 19.125 12.75H12.75V19.125C12.75 19.4234 12.6315 19.7095 12.4205 19.9205C12.2095 20.1315 11.9234 20.25 11.625 20.25C11.3266 20.25 11.0405 20.1315 10.8295 19.9205C10.6185 19.7095 10.5 19.4234 10.5 19.125V12.75H4.125C3.82663 12.75 3.54048 12.6315 3.3295 12.4205C3.11853 12.2095 3 11.9234 3 11.625C3 11.3266 3.11853 11.0405 3.3295 10.8295C3.54048 10.6185 3.82663 10.5 4.125 10.5H10.5V4.125C10.5 3.82663 10.6185 3.54048 10.8295 3.3295C11.0405 3.11853 11.3266 3 11.625 3Z"
+                      fill="white" />
+                  </svg>
+                </span>
+              </button>
+              <div class="faq-body__item-text drop-body">
+                <div class="faq-body__item-text-wrapper  sd sd--text-18">
+                  <p>تهدف "أرويا كروز" إلى أن تنطلق بحلول عام 2024.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="faq-body__item drop-item">
+              <button type="button" class="faq-body__item-header drop-header text-22 semibold">
+                <h3>كيف يمكن للمهتمين حجز رحلاتهم؟ </h3>
+                <span class="faq-body__item-btn">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path
+                      d="M11.625 3C11.9234 3 12.2095 3.11853 12.4205 3.3295C12.6315 3.54048 12.75 3.82663 12.75 4.125V10.5H19.125C19.4234 10.5 19.7095 10.6185 19.9205 10.8295C20.1315 11.0405 20.25 11.3266 20.25 11.625C20.25 11.9234 20.1315 12.2095 19.9205 12.4205C19.7095 12.6315 19.4234 12.75 19.125 12.75H12.75V19.125C12.75 19.4234 12.6315 19.7095 12.4205 19.9205C12.2095 20.1315 11.9234 20.25 11.625 20.25C11.3266 20.25 11.0405 20.1315 10.8295 19.9205C10.6185 19.7095 10.5 19.4234 10.5 19.125V12.75H4.125C3.82663 12.75 3.54048 12.6315 3.3295 12.4205C3.11853 12.2095 3 11.9234 3 11.625C3 11.3266 3.11853 11.0405 3.3295 10.8295C3.54048 10.6185 3.82663 10.5 4.125 10.5H10.5V4.125C10.5 3.82663 10.6185 3.54048 10.8295 3.3295C11.0405 3.11853 11.3266 3 11.625 3Z"
+                      fill="white" />
+                  </svg>
+                </span>
+              </button>
+              <div class="faq-body__item-text drop-body">
+                <div class="faq-body__item-text-wrapper sd sd--text-18">
+                  <p>سيتم الإعلان عن مزيد من التفاصيل خلال الإطلاق التجاري في الأشهر المقبلة.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="faq-body__item drop-item">
+              <button type="button" class="faq-body__item-header drop-header text-22 semibold">
+                <h3>متى سيتم توفير مزيد من المعلومات حول رحلات الكروز والجداول الزمنية والباقات؟ </h3>
+                <span class="faq-body__item-btn">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path
+                      d="M11.625 3C11.9234 3 12.2095 3.11853 12.4205 3.3295C12.6315 3.54048 12.75 3.82663 12.75 4.125V10.5H19.125C19.4234 10.5 19.7095 10.6185 19.9205 10.8295C20.1315 11.0405 20.25 11.3266 20.25 11.625C20.25 11.9234 20.1315 12.2095 19.9205 12.4205C19.7095 12.6315 19.4234 12.75 19.125 12.75H12.75V19.125C12.75 19.4234 12.6315 19.7095 12.4205 19.9205C12.2095 20.1315 11.9234 20.25 11.625 20.25C11.3266 20.25 11.0405 20.1315 10.8295 19.9205C10.6185 19.7095 10.5 19.4234 10.5 19.125V12.75H4.125C3.82663 12.75 3.54048 12.6315 3.3295 12.4205C3.11853 12.2095 3 11.9234 3 11.625C3 11.3266 3.11853 11.0405 3.3295 10.8295C3.54048 10.6185 3.82663 10.5 4.125 10.5H10.5V4.125C10.5 3.82663 10.6185 3.54048 10.8295 3.3295C11.0405 3.11853 11.3266 3 11.625 3Z"
+                      fill="white" />
+                  </svg>
+                </span>
+              </button>
+              <div class="faq-body__item-text drop-body">
+                <div class="faq-body__item-text-wrapper sd sd--text-18">
+                  <p>سيتم الإعلان عن المزيد من التفاصيل قريبًا.</p>
+                </div>
+              </div>
+            </div>
+            <div class="faq-body__item drop-item">
+              <button type="button" class="faq-body__item-header drop-header text-22 semibold">
+                <h3>ما العروض المقترحة لتجارب الأطعمة والمشروبات في "أرويا كروز"؟ </h3>
+                <span class="faq-body__item-btn">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path
+                      d="M11.625 3C11.9234 3 12.2095 3.11853 12.4205 3.3295C12.6315 3.54048 12.75 3.82663 12.75 4.125V10.5H19.125C19.4234 10.5 19.7095 10.6185 19.9205 10.8295C20.1315 11.0405 20.25 11.3266 20.25 11.625C20.25 11.9234 20.1315 12.2095 19.9205 12.4205C19.7095 12.6315 19.4234 12.75 19.125 12.75H12.75V19.125C12.75 19.4234 12.6315 19.7095 12.4205 19.9205C12.2095 20.1315 11.9234 20.25 11.625 20.25C11.3266 20.25 11.0405 20.1315 10.8295 19.9205C10.6185 19.7095 10.5 19.4234 10.5 19.125V12.75H4.125C3.82663 12.75 3.54048 12.6315 3.3295 12.4205C3.11853 12.2095 3 11.9234 3 11.625C3 11.3266 3.11853 11.0405 3.3295 10.8295C3.54048 10.6185 3.82663 10.5 4.125 10.5H10.5V4.125C10.5 3.82663 10.6185 3.54048 10.8295 3.3295C11.0405 3.11853 11.3266 3 11.625 3Z"
+                      fill="white" />
+                  </svg>
+                </span>
+              </button>
+              <div class="faq-body__item-text drop-body">
+                <div class="faq-body__item-text-wrapper sd sd--text-18">
+                  <p>فريق "أرويا كروز" يعمل على تقديم تجربة فريدة في مجال الأطعمة والمشروبات، سيتم الإعلان عن المزيد من
+                    التفاصيل قريبًا.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="faq-body__item drop-item">
+              <button type="button" class="faq-body__item-header drop-header text-22 semibold">
+                <h3>كيف ستركز "أرويا كروز" على الاستدامة عند دخولها السوق؟</h3>
+                <span class="faq-body__item-btn">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path
+                      d="M11.625 3C11.9234 3 12.2095 3.11853 12.4205 3.3295C12.6315 3.54048 12.75 3.82663 12.75 4.125V10.5H19.125C19.4234 10.5 19.7095 10.6185 19.9205 10.8295C20.1315 11.0405 20.25 11.3266 20.25 11.625C20.25 11.9234 20.1315 12.2095 19.9205 12.4205C19.7095 12.6315 19.4234 12.75 19.125 12.75H12.75V19.125C12.75 19.4234 12.6315 19.7095 12.4205 19.9205C12.2095 20.1315 11.9234 20.25 11.625 20.25C11.3266 20.25 11.0405 20.1315 10.8295 19.9205C10.6185 19.7095 10.5 19.4234 10.5 19.125V12.75H4.125C3.82663 12.75 3.54048 12.6315 3.3295 12.4205C3.11853 12.2095 3 11.9234 3 11.625C3 11.3266 3.11853 11.0405 3.3295 10.8295C3.54048 10.6185 3.82663 10.5 4.125 10.5H10.5V4.125C10.5 3.82663 10.6185 3.54048 10.8295 3.3295C11.0405 3.11853 11.3266 3 11.625 3Z"
+                      fill="white" />
+                  </svg>
+                </span>
+              </button>
+              <div class="faq-body__item-text drop-body">
+                <div class="faq-body__item-text-wrapper sd sd--text-18">
+                  <p>بالأصالة عنا كوننا "كروز السعودية"، فنحن ملتزمون بالاستدامة ونعمل بالتعاون مع شركائنا وحكومتنا
+                    الرشيدة لحماية بيئتنا، وذلك تماشيًا مع رؤية 2030 وأهداف التنمية المستدامة في الملكة العربية
+                    السعودية.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="content sd">
-            <p>إعادة تعريف الإجازة العربية.</p>
-          </div>
-        </div>
-
-        <div class="about-us-view__content-wrapper flex mt-4">
-          <div class="dark-blue mb-2">
-            <div class="title-34 f-medium">
-              <h3>مهمتنا:</h3>
-            </div>
-          </div>
-          <div class="content sd">
-            <p>من خلال إطلاق أول خط عربي للرحلات البحرية بتجارب استثنائية مبهجة يصعب على ضيوفنا نسيانها، في البحر وعلى الشاطئ، تجاريًا ومستدامًا.</p>
-          </div>
         </div>
       </div>
+      <img class="pattern-img" src="./images/faq-page/faq-pattern.svg" alt="">
     </div>
-    <!-- END OUR VIEW SECTIONS -->
-
-    <!-- OUR VALUES SECTIONS -->
-    <div class="pattern-image-wrapper about-us__pattern about-us-values section">
-      <div class="section-header dark-blue">
-        <div class="section-header__title">
-          <h2>قيمنا:</h2>
+    <div class="faq-cta relative flex">
+      <div class="container faq-cta__container py-6">
+        <div class="section-header faq-cta__section-header">
+          <div class="section-header__title faq-cta__title">
+            <h2>هل لا تزال لديك أسئلة؟</h2>
+          </div>
+          <div class="section-header__link mt-3">
+            <a class="main-btn main-btn--light-blue main-btn--wide" href="/contact-us.html">اتصل بنا</a>
+          </div>
         </div>
       </div>
-      <div class="about-us-values__container flex">
-        <div class="about-us-values__bage flex">
-          <div class="about-us-values__bage-icon flex">
-            <img src="./images/about-us-page/icons/ph_hand-heart.svg" alt="hand-heart">
-          </div>
-          <p class="about-us-values__bage-description text-30 medium">الحفاوة</p>
-        </div>
-
-        <div class="about-us-values__bage flex">
-          <div class="about-us-values__bage-icon flex">
-            <img src="./images/about-us-page/icons/solar_cup-star-linear.svg" alt="cup-star">
-          </div>
-          <p class="about-us-values__bage-description text-30 medium">الاحترام</p>
-        </div>
-
-        <div class="about-us-values__bage flex">
-          <div class="about-us-values__bage-icon flex">
-            <img src="./images/about-us-page/icons/healthicons_wold-care-outline.svg" alt="wold-care">
-          </div>
-          <p class="about-us-values__bage-description text-30 medium">الاثراء</p>
-        </div>
-
-        <div class="about-us-values__bage flex">
-          <div class="about-us-values__bage-icon flex">
-            <img src="./images/about-us-page/icons/idea.svg" alt="idea">
-          </div>
-          <p class="about-us-values__bage-description text-30 medium">الالهام</p>
-        </div>
-      </div>
-      <img src="./images/about-us-page/pattern.svg" alt="pattern" class="pattern-img about-us__pattern-img">
+      <img src="./images/faq-page/faq-cta.jpg" alt="Ship" class="faq-cta__img">
     </div>
-    <!-- END OUR VALUES SECTIONS -->
-
-    <!-- CTA SECTION -->
-    <div class="cta-section section py-8 center white">
-      <div class="container">
-        <div class="cta-section__header secondary-f">
-          <h2 class="cta-section__header-title text-60 medium">اكتشف سفينتنا</h2>
-        </div>
-        <div class="cta-section__content mt-4">
-          <div class="cta-section__content-sub uc text-30 bold">أرويا</div>
-          <h3 class="cta-section__content-title secondary-f text-50 medium">اللؤلؤة العربية</h3>
-          <a href="#" class="main-btn main-btn--white mt-2">اكتشف المزيد</a>
-        </div>
-      </div>
-    </div>
-    <!-- END CTA SECTION -->
-
   </main>
   <footer class="footer">
     <div class="footer-body">

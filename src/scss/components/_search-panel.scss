@@ -62,7 +62,7 @@
     &:not(:last-child) {
       margin-right: 24px;
     }
-    &[data-dropdown-active] &-btn {
+    &[data-drop-active] &-btn {
       color: $white;
       background-color: $dark-blue;
 
@@ -70,7 +70,7 @@
         fill: $white;
       }
     }
-    &[data-dropdown-active] &-body {
+    &[data-drop-active] &-body {
       opacity: 1;
       pointer-events: all;
     }
