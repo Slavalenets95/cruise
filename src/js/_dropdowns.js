@@ -43,7 +43,11 @@ class Dropdown {
 
     if (active.length) {
       active.forEach(activeEl => {
+        const height = activeEl.querySelector('.drop-body').scrollHeight;
         activeEl.querySelector('.drop-body').style.height = 'auto';
+        setTimeout(() => {
+          activeEl.querySelector('.drop-body').style.height = `${height}px`;
+        }, 0);
       })
     }
   }
@@ -78,7 +82,7 @@ class Dropdown {
     if (active.length) {
       active.forEach(activeItem => {
         activeItem.removeAttribute('data-drop-active');
-        if(activeItem.closest('#search-form')) {
+        if (activeItem.closest('#search-form')) {
           document.querySelector('#search-form').dispatchEvent(new CustomEvent('close-search-dropdown'));
         }
       })
@@ -101,7 +105,7 @@ class Dropdown {
           if (this.#getItemParent(targetNode) === active) return;
 
           this.#close(active);
-          if(active.closest('#search-form')) {
+          if (active.closest('#search-form')) {
             document.querySelector('#search-form').dispatchEvent(new CustomEvent('close-search-dropdown'));
           }
         })
@@ -112,15 +116,8 @@ class Dropdown {
   #close(node) {
     if (this.options.animate) {
       const body = node.querySelector(this.options.bodySelector);
-      const nodeHeight = body.style.height;
 
-      if (nodeHeight === 'auto') {
-        body.style.height = `${this.#getBodyHeight(node)}px`;
-      }
-
-      setTimeout(() => {
-        node.querySelector(this.options.bodySelector).style.height = 0;
-      }, 0)
+      node.querySelector(this.options.bodySelector).style.height = 0;
     }
     node.removeAttribute(this.#dataStr);
   }

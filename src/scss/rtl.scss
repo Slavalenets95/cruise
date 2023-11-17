@@ -434,6 +434,7 @@ html[dir="rtl"] {
       &__item {
         &-header {
           text-align: right;
+          font-weight: 700;
           & > *:first-child {
             margin-right: unset;
             margin-left: 20px;
