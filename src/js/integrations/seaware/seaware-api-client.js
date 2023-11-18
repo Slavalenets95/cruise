@@ -3,7 +3,7 @@ import { GraphQL } from '../../helpers';
 
 export class SeawareApiClient {
   // Make from env
-  static #seawareUrl = "http://dev.booking.aroya.com:3000/graphql";
+  static #seawareUrl = "http://uat.booking.aroya.com:3000/graphql";
 
   #graphQLClient = new GraphQL(SeawareApiClient.#seawareUrl);
 

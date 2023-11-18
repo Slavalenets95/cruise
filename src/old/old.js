@@ -698,7 +698,7 @@ function getMinSelectedDate(transformAllMonth) {
 }
 
 // Сделать чтобы это было из env
-const url = "http://dev.booking.aroya.com:3000/graphql";
+const url = "http://uat.booking.aroya.com:3000/graphql";
 
 class graphQL {
   url = "";
