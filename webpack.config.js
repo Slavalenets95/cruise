@@ -19,7 +19,7 @@ module.exports = (env) => {
     mode: isDev ? 'development' : 'production',
     output: {
       path: path.resolve(__dirname, 'assets'),
-      filename: 'index.js',
+      filename: 'index[hash].js',
       assetModuleFilename: 'images/[name][ext]'
     },
     module: {
@@ -86,7 +86,7 @@ module.exports = (env) => {
     plugins: [
       new CleanWebpackPlugin(),
       new MiniCssExtractPlugin({
-        filename: '[name].css',
+        filename: '[name][hash].css',
         chunkFilename: './[name]-chunk.css',
       }),
       // EN
