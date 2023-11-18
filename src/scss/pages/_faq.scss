@@ -122,9 +122,9 @@
     }
     /***** END DROPDOWN *****/
 
-    &__item:first-child:not([data-drop-active]) &__item-header {
-      margin-top: -30px;
-    }
+    // &__item:first-child:not([data-drop-active]) &__item-header {
+    //   margin-top: -30px;
+    // }
 
     /***** TAB *****/
     &__items {
@@ -196,7 +196,7 @@
     &__item-text {
       height: 0;
       overflow: hidden;
-      transition: height 0.5s;
+      transition: height .5s;
       will-change: height;
       &-wrapper {
         padding: 0 40px 40px 40px;
