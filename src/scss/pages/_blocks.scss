@@ -1,0 +1,163 @@
+.page-intro {
+  background: url("../images/pages-blocks/page-intro.jpg") top left/cover no-repeat;
+  min-height: 510px;
+  align-items: center;
+  .section-header .section-header__title > *:first-child {
+    font-weight: 600;
+  }
+  &__text {
+    max-width: 717px;
+  }
+  &__link {
+    min-width: 282px;
+  }
+  &__img {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    object-fit: cover;
+    max-width: 1020px;
+    border-radius: 600px 0 0 0;
+  }
+
+  @include respond-to(xxx-large) {
+    &__img {
+      max-width: 850px;
+    }
+  }
+
+  @include respond-to(xx-large) {
+    &__img {
+      max-width: 700px;
+    }
+  }
+
+  @include respond-to(x-large) {
+    &__img {
+      max-width: 650px;
+    }
+  }
+
+  @include respond-to(large) {
+    &__img {
+      max-width: 450px;
+    }
+  }
+
+  @include respond-to(medium) {
+    padding-top: 65px;
+    padding-bottom: 0;
+    flex-direction: column;
+    &__container {
+      margin-bottom: auto;
+    }
+    &__text {
+      margin-bottom: auto;
+    }
+    &__img {
+      margin-top: 40px;
+      position: static;
+      width: 100%;
+      max-width: none;
+    }
+  }
+
+  @include respond-to(small) {
+    min-height: 450px;
+  }
+}
+
+.page-cta {
+  background-size: cover;
+  background-color: #595c87;
+  min-height: 850px;
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  @include respond-to(xxx-large) {
+    min-height: 600px;
+    background-position: center center;
+  }
+  @include respond-to(x-large) {
+    min-height: 500px;
+  }
+  @include respond-to(extra-small) {
+    .text-50 {
+      font-size: 36px;
+    }
+  }
+}
+
+.page-content {
+  &__container {
+    min-height: 550px;
+    align-items: center;
+  }
+  &__img-wrapper {
+    position: absolute;
+    left: 0;
+    max-width: 47.135%;
+    width: 100%;
+  }
+  &__img {
+    border-radius: 0 0 1000px 0;
+    width: 100%;
+    object-fit: cover;
+  }
+  &__text {
+    max-width: 810px;
+    width: 100%;
+    margin-left: auto;
+  }
+
+  &--right &__img-wrapper {
+    left: unset;
+    right: 0;
+  }
+  &--right &__text {
+    margin-left: unset;
+    margin-right: auto;
+  }
+  &--right &__img {
+    border-radius: 0 0 0 1000px;
+  }
+
+  @include respond-to(xxx-large) {
+    &__img-wrapper {
+      max-width: 45%;
+    }
+    &__text {
+      max-width: 700px;
+    }
+  }
+
+  @include respond-to(xx-large) {
+    &__container {
+      min-height: unset;
+    }
+    &__text {
+      max-width: 600px;
+    }
+  }
+
+  @include respond-to(x-large) {
+    &__container {
+      flex-direction: column;
+    }
+    &__img-wrapper {
+      position: static;
+      max-height: 350px;
+    }
+    &__img-wrapper,
+    &__text {
+      max-width: unset;
+    }
+    &__text {
+      margin-top: 40px;
+    }
+  }
+}
