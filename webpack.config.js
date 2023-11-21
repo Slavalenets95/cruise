@@ -141,6 +141,21 @@ module.exports = (env) => {
       }),
       // EN
       new HtmlWebpackPlugin({
+        filename: "cabins.html",
+        template: path.resolve(__dirname, './src/pages/en/cabins.html'),
+      }),
+      // EN
+      new HtmlWebpackPlugin({
+        filename: "cruise-101.html",
+        template: path.resolve(__dirname, './src/pages/en/cruise-101.html'),
+      }),
+      // EN
+      new HtmlWebpackPlugin({
+        filename: "aroya-ships.html",
+        template: path.resolve(__dirname, './src/pages/en/aroya-ships.html'),
+      }),
+      // EN
+      new HtmlWebpackPlugin({
         filename: "search-panel.html",
         template: path.resolve(__dirname, './src/pages/en/search-panel.html'),
       }),

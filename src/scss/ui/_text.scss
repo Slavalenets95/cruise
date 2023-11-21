@@ -23,11 +23,19 @@
 .title-20 > *:first-child {
   font-size: 20px;
 }
-.text-22 {
+.text-22,
+.title-22 > *:first-child {
   font-size: 22px;
 
   @include respond-to(xx-large) {
     font-size: 20px;
+  }
+}
+.title-23 > *:first-child {
+  font-size: 23px;
+
+  @include respond-to(xxx-large) {
+    font-size: 22px;
   }
 }
 .text-24 {
@@ -192,6 +200,9 @@
       }
     }
   }
+  &--text-18 {
+    font-size: 18px;
+  }
 
   @include respond-to(xxx-large) {
     font-size: 18px;
@@ -202,3 +213,24 @@
   }
 }
 /***** END STANDARD TEXT STYLES *****/
+
+/***** LIST STYLES *****/
+.circle-ul,
+.circle-ul ul {
+  li {
+    padding-left: 18px;
+    position: relative;
+
+    &::before {
+      content: '';
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      position: absolute;
+      left: 0;
+      top: 12px;
+      background-color: $dark-blue;
+    }
+  }
+}
+/***** END LIST STYLES *****/

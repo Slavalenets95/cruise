@@ -394,11 +394,15 @@ img {
   visibility: hidden;
   z-index: -1;
   pointer-events: none;
-  &[data-active] {
+  cursor: pointer;
+  &[data-active], &[data-overlay-active] {
     opacity: 0.7;
     z-index: 1;
     pointer-events: all;
     visibility: visible;
+  }
+  &[data-overlay-active] {
+    top: 0;
   }
 }
 .scaled {
@@ -432,6 +436,10 @@ img {
   }
   &--lg::after {
     border-radius: 0 0 0 160px;
+  }
+
+  &--lgx::after {
+    border-radius: 0 0 0 200px;
   }
 }
 .gradient-parent {
@@ -484,51 +492,50 @@ img {
 
 /***** SCROLL ICON *****/
 .tooltip-horizontal-scroll-icon_hand {
-  animation: tooltip-horizontal-scroll-icon_anim-scroll-hand 2s infinite
+  animation: tooltip-horizontal-scroll-icon_anim-scroll-hand 2s infinite;
 }
 
 .tooltip-horizontal-scroll-icon_card {
-  animation: tooltip-horizontal-scroll-icon_anim-scroll-card 2s infinite
+  animation: tooltip-horizontal-scroll-icon_anim-scroll-card 2s infinite;
 }
 
 @keyframes tooltip-horizontal-scroll-icon_anim-scroll-hand {
   0% {
     transform: translateX(80px) scale(1);
-    opacity: 0
+    opacity: 0;
   }
 
   10% {
     transform: translateX(80px) scale(1);
-    opacity: 1
+    opacity: 1;
   }
 
   20%,
   60% {
-    transform: translateX(175px) scale(.6);
-    opacity: 1
+    transform: translateX(175px) scale(0.6);
+    opacity: 1;
   }
 
   80% {
-    transform: translateX(5px) scale(.6);
-    opacity: 1
+    transform: translateX(5px) scale(0.6);
+    opacity: 1;
   }
 
   to {
-    transform: translateX(5px) scale(.6);
-    opacity: 0
+    transform: translateX(5px) scale(0.6);
+    opacity: 0;
   }
 }
 
 @keyframes tooltip-horizontal-scroll-icon_anim-scroll-card {
-
   0%,
   60% {
-    transform: translateX(0)
+    transform: translateX(0);
   }
 
   80%,
   to {
-    transform: translateX(-240px)
+    transform: translateX(-240px);
   }
 }
 /***** END SCROLL ICON *****/

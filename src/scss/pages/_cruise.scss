@@ -1,0 +1,283 @@
+/***** INTRO *****/
+.cruise-intro {
+  @include respond-to(extra-small) {
+    min-height: 300px;
+  }
+}
+/***** END INTRO *****/
+
+/***** WHY *****/
+.cruise-why {
+  &__content {
+    max-width: 1040px;
+    margin-right: auto;
+  }
+  &__img-wrapper {
+    position: absolute;
+    right: 0;
+    top: 60px;
+    width: 36.427%;
+  }
+  &__img {
+    width: 100%;
+    object-fit: cover;
+    display: block;
+    max-height: 615px;
+  }
+  &__content-row {
+    justify-content: space-between;
+    ul {
+      flex: 0 1 calc(50% - 30px);
+      margin-top: 0;
+    }
+    li:not(:first-child) {
+      margin-top: 5px;
+    }
+  }
+  &__footer-content {
+    padding: 20px 50px;
+    max-width: 1380px;
+    border-radius: 74px 0px 100px 0px;
+    background-color: #cce9f7;
+    position: relative;
+  }
+
+  @include respond-to(xxx-large) {
+    &__content {
+      max-width: 700px;
+    }
+    &__content-row {
+      flex-direction: column;
+      ul:not(:first-child) {
+        margin-top: 20px;
+      }
+    }
+    &__img-wrapper {
+      width: 42%;
+      top: calc(50% - 70px);
+      transform: translateY(-50%);
+    }
+  }
+
+  @include respond-to(xx-large) {
+    &__content {
+      max-width: 600px;
+    }
+  }
+
+  @include respond-to(x-large) {
+    &__container {
+      display: flex;
+      flex-direction: column;
+    }
+    &__content {
+      max-width: unset;
+    }
+    &__img-wrapper {
+      margin-top: 40px;
+      width: auto;
+      align-self: center;
+      position: relative;
+      transform: unset;
+      max-width: 500px;
+    }
+  }
+
+  @include respond-to(extra-small) {
+    &__footer-content {
+      padding: 20px 30px;
+    }
+  }
+}
+/***** END WHY *****/
+
+/***** CARDS *****/
+.information-cards {
+  &__container {
+    position: relative;
+    z-index: 1;
+  }
+  &__items {
+    justify-content: space-between;
+  }
+  &__item {
+    display: flex;
+    flex-direction: column;
+    border-radius: 12px;
+    box-shadow: 9px 16px 46px 0px rgba(0, 24, 86, 0.06);
+    flex: 0 1 calc(25% - 15px);
+  }
+  &__item:hover &__item-link {
+    color: $light-blue--2;
+
+    & > svg {
+      background-color: $light-blue--2;
+    }
+    path {
+      fill: $white;
+    }
+  }
+  &__item-header {
+    height: 285px;
+    border-radius: 12px 12px 0 0;
+    width: 100%;
+  }
+  &__item-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  &__item-body {
+    flex-grow: 1;
+    padding: 20px;
+    background-color: $white;
+    border-radius: 0 0 12px 12px;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    & > *:first-child {
+      margin-bottom: 10px;
+    }
+  }
+  &__item-link {
+    align-items: center;
+    transition: color 0.3s;
+    margin-top: auto;
+    & > svg {
+      margin-left: 8px;
+      border-radius: 50%;
+      transition: background-color 0.3s;
+      width: 25px;
+      height: 25px;
+    }
+    path {
+      transition: fill 0.3s;
+    }
+  }
+
+  @include respond-to(xxx-large) {
+    &__item-header {
+      height: 230px;
+    }
+  }
+
+  @include respond-to(xx-large) {
+    &__items {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    &__item {
+      flex: 0 1 calc(50% - 20px);
+      max-width: 400px;
+      margin-right: 40px;
+      &:nth-child(2n) {
+        margin-right: 0;
+      }
+      &:nth-child(n + 3) {
+        margin-top: 40px;
+      }
+    }
+  }
+
+  @include respond-to(small) {
+    &__items {
+      flex-direction: column;
+      align-items: center;
+    }
+    &__item {
+      margin-right: 0;
+      &:nth-child(n + 2) {
+        margin-top: 40px;
+      }
+    }
+  }
+}
+/*** POPUP ***/
+.information-cards {
+  &__popup {
+    position: fixed;
+    max-width: calc(100% - 40px);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: $white;
+    border-radius: 12px;
+    z-index: 10;
+    height: 650px;
+    max-height: 90vh;
+    width: 1230px;
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transition:
+      visibility 0.3s,
+      opacity 0.3s;
+    &[data-popup-active] {
+      opacity: 1;
+      pointer-events: all;
+      visibility: visible;
+    }
+
+    &-left {
+      flex: 0 1 450px;
+    }
+    &-right {
+      flex: 0 1 780px;
+      flex-direction: column;
+    }
+    &-img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      border-radius: 12px 0 0 12px;
+    }
+    &-header {
+      padding: 15px 20px 15px 40px;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #bdc7df;
+    }
+    &-body {
+      height: 100%;
+      padding: 20px 40px;
+      overflow-x: scroll;
+      scrollbar-width: auto;
+      scrollbar-color: #98AACE #ffffff;
+      &::-webkit-scrollbar {
+        width: 8px;
+      }
+      &::-webkit-scrollbar-track {
+        background: #ffffff;
+      }
+      &::-webkit-scrollbar-thumb {
+        background-color: #98AACE;
+        border-radius: 16px;
+        border: 2px solid #ffffff;
+      }
+      strong {
+        font-weight: 600;
+      }
+    }
+    &-close {
+      margin-left: 10px;
+    }
+  }
+
+  @include respond-to(xx-large) {
+    &__popup {
+      width: 1000px;
+      height: 550px;
+    }
+  }
+
+  @include respond-to(medium) {
+    &__popup {
+      &-left {
+        display: none;
+      }
+    }
+  }
+}
+/*** END POPUP ***/
+/***** END CARDS *****/
