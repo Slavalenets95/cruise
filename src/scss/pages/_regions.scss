@@ -83,9 +83,6 @@
 
 /***** CARD *****/
 .regions-card {
-  border-top: 1px solid #BDC7DF;
-  border-bottom: 1px solid #BDC7DF;
-
   &.reverse &__wrapper {
     flex-direction: row-reverse;
   }
@@ -113,6 +110,7 @@
     height: 100%;
     width: 100%;
     object-fit: cover;
+    border-radius: 12px;
   }
 
   @include respond-to(large) {

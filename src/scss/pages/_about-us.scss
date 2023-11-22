@@ -215,8 +215,8 @@
       flex-direction: column;
       
       &-icon {
-        width: 250px;
-        padding: 30px 0;
+        width: 300px;
+        padding: 16px 0;
         border-radius: 100px 0;
         background: linear-gradient(113deg, #0092D7 0%, #012E89 100%);
         justify-content: center;
@@ -252,7 +252,11 @@
     }
 
     @include respond-to(large) {
+      &__container {
+        flex-direction: column;
+      }
       &__bage {
+        margin-right: 0;
         &:nth-child(2n) {
           margin-right: 0;
         }
@@ -263,14 +267,6 @@
       display: flex;
       align-items: center;
       flex-direction: column;
-
-      &__bage {
-        margin: 0;
-        scale: 0.8;
-        &:not(:first-child) {
-          margin-top: -40px;
-        }
-      }
     }
 
     @include respond-to(small) {

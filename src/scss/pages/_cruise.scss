@@ -6,9 +6,17 @@
 }
 /***** END INTRO *****/
 
+/***** CONTENT *****/
+.cruise-page__content {
+  &-img-wrapper {
+    height: calc(100% - 160px);
+  }
+}
+/***** END CONTENT *****/
+
 /***** WHY *****/
 .cruise-why {
-  &__content {
+  &__content, &__header {
     max-width: 1040px;
     margin-right: auto;
   }
@@ -43,7 +51,10 @@
   }
 
   @include respond-to(xxx-large) {
-    &__content {
+    &__wrapper {
+      position: relative;
+    }
+    &__content, &__header {
       max-width: 700px;
     }
     &__content-row {
@@ -54,32 +65,49 @@
     }
     &__img-wrapper {
       width: 42%;
-      top: calc(50% - 70px);
-      transform: translateY(-50%);
+      top: 0;
+    }
+    &__img {
+      min-height: 600px;
     }
   }
 
   @include respond-to(xx-large) {
     &__content {
-      max-width: 600px;
+      max-width: 630px;
+    }
+    &__img {
+      min-height: 550px;
     }
   }
 
   @include respond-to(x-large) {
+    &__content {
+      max-width: 520px;
+    }
+    &__img-wrapper {
+      top: 40px;
+    }
+  }
+
+  @include respond-to(large) {
     &__container {
       display: flex;
       flex-direction: column;
     }
     &__content {
+      margin-right: 0;
       max-width: unset;
     }
     &__img-wrapper {
-      margin-top: 40px;
+      position: static;
       width: auto;
-      align-self: center;
-      position: relative;
-      transform: unset;
-      max-width: 500px;
+      margin-top: 30px;
+    }
+    &__img {
+      min-height: unset;
+      width: 100%;
+      max-height: 400px;
     }
   }
 
