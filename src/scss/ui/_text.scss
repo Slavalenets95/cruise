@@ -31,7 +31,8 @@
     font-size: 20px;
   }
 }
-.title-23 > *:first-child {
+.title-23 > *:first-child,
+.text-23 {
   font-size: 23px;
 
   @include respond-to(xxx-large) {
