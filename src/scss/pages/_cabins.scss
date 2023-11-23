@@ -123,6 +123,9 @@
     }
     &__footer-item {
       flex: 0 1 calc(50% - 10px);
+      &:nth-child(n + 3) {
+        margin-top: 30px;
+      }
       &:nth-child(2n) {
         margin-right: 0;
       }
@@ -169,6 +172,9 @@
     }
     &__footer-item {
       flex: 0 1 calc(33.33333% - 40px / 3);
+      &:nth-child(3) {
+        margin-top: 0;
+      }
       &:nth-child(3n) {
         margin-right: 0;
       }
@@ -181,6 +187,9 @@
   @include respond-to(extra-small) {
     &__footer-item {
       flex: 0 1 calc(50% - 10px);
+      &:nth-child(n + 3) {
+        margin-top: 30px;
+      }
       &:nth-child(2n) {
         margin-right: 0;
       }
@@ -193,4 +202,7 @@
 
 .cabins-page__cta {
   background-image: url("../images/cabins/cta-bg.jpg");
+  @include respond-to(small) {
+    background-image: url("../images/cabins/cta-bg--mobile.png");
+  }
 }

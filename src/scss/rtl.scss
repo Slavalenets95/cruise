@@ -47,6 +47,16 @@ html[dir="rtl"] {
       font-weight: 700;
     }
   }
+  .circle-ul {
+    li {
+      padding-left: 0;
+      padding-right: 18px;
+      &::before {
+        left: unset;
+        right: 0;
+      }
+    }
+  }
   /***** END TEMPLATE *****/
 
   /***** BUTTONS *****/
@@ -199,13 +209,14 @@ html[dir="rtl"] {
 
   .home-destins {
     &__item {
+      border-radius: 12px;
       &:nth-child(even) {
         .home-destins__item-text-wrapper {
-          border-radius: 0 12px 12px 0;
+          border-radius: 12px 0 0 12px;
         }
         .home-destins__item-image-wrapper,
         .home-destins__item-image {
-          border-radius: 12px 0 0 12px;
+          border-radius: 0 12px 12px 80px;
         }
       }
       &-text-wrapper {
@@ -215,11 +226,8 @@ html[dir="rtl"] {
       &-content > *:first-child {
         font-weight: 700;
       }
-      &-image-wrapper {
-        border-radius: 12px 0 0 12px;
-      }
-      &-image {
-        border-radius: 12px 0 0 12px;
+      &-image-wrapper, &-image {
+        border-radius: 12px 0 80px 12px;
       }
     }
 
@@ -443,7 +451,8 @@ html[dir="rtl"] {
         &-btn {
           margin-left: unset;
           margin-right: auto;
-          &, &::after {
+          &,
+          &::after {
             border-radius: 0 52px;
           }
         }
@@ -471,6 +480,330 @@ html[dir="rtl"] {
     }
   }
   /***** END FAQ PAGE *****/
+
+  /***** PAGE INTRO *****/
+  .page-intro {
+    &__img {
+      right: unset;
+      left: 0;
+      border-radius: 0px 600px 0px 0px;
+    }
+  }
+  /***** END PAGE INTRO *****/
+
+  /***** PAGE CONTENT *****/
+  .page-content {
+    &__text {
+      margin-left: unset;
+      margin-right: auto;
+    }
+    &__img-wrapper {
+      left: unset;
+      right: 0;
+    }
+    &__img {
+      border-radius: 800px 0px 0px 0px;
+    }
+    &--right .page-content__img-wrapper {
+      right: unset;
+      left: 0;
+    }
+    &--right .page-content__text {
+      margin-right: unset;
+      margin-left: auto;
+    }
+    &--right .page-content__img {
+      border-radius: 0px 0px 800px 0px;
+    }
+  }
+  /***** END PAGE CONTENT *****/
+
+  /***** CABINS PAGE *****/
+  .cabins-card {
+    &__body-content {
+      margin-right: unset;
+      margin-left: 60px;
+    }
+    &__size-ic {
+      margin-right: unset;
+      margin-left: 12px;
+    }
+    &__footer {
+      &-item {
+        margin-right: unset;
+        margin-left: 20px;
+        &:nth-child(3n) {
+          margin-left: 0;
+        }
+      }
+      &-title-ic {
+        margin-right: unset;
+        margin-left: 20px;
+      }
+    }
+    @include respond-to(xx-large) {
+      &__footer-item {
+        margin-left: 0;
+      }
+    }
+
+    @include respond-to(x-large) {
+      &__body-content {
+        margin-left: 0;
+      }
+    }
+  }
+  /***** END CABINS PAGE *****/
+
+  /***** AROYA SHIPS *****/
+  .char-cards {
+    &__card {
+      margin-right: unset;
+      margin-left: 50px;
+      &:nth-child(4n) {
+        margin-left: 0;
+      }
+    }
+
+    @include respond-to(xx-large) {
+      &__card {
+        margin-left: 25px;
+      }
+    }
+
+    @include respond-to(x-large) {
+      &__card {
+        &:nth-child(4n) {
+          margin-left: 25px;
+        }
+        &:nth-child(3n) {
+          margin-left: 0;
+        }
+      }
+    }
+
+    @include respond-to(large) {
+      &__card {
+        &, &:nth-child(3n) {
+          margin-left: 30px;
+        }
+        &:nth-child(2n) {
+          margin-left: 0;
+        }
+      }
+    }
+
+    @include respond-to(small) {
+      &__card {
+        &, &:nth-child(3n) {
+          margin-left: 0;
+        }
+      }
+    }
+  }
+  .ships-facilities {
+    &__text {
+      max-width: 810px;
+    }
+    @include respond-to(xxx-large) {
+      &__text {
+        max-width: 615px;
+      }
+    }
+
+    @include respond-to(xx-large) {
+      &__text {
+        max-width: 540px;
+      }
+    }
+
+    @include respond-to(x-large) {
+      &__text {
+        max-width: unset;
+      }
+    }
+  }
+  .ship-cards {
+    &__items {
+      flex-direction: row-reverse;
+    }
+    &__footer {
+      &-item {
+        align-items: center;
+        &:nth-child(2) {
+          margin-right: unset;
+          margin-left: 90px;
+        }
+        &:not(:last-child) {
+          margin-right: unset;
+          margin-left: 30px;
+        }
+      }
+      &-ic {
+        margin-right: unset;
+        margin-left: 30px;
+      }
+    }
+
+    @include respond-to(xx-large) {
+      &__footer {
+        &-item {
+          &:nth-child(2) {
+            margin-right: auto;
+            margin-left: unset;
+          }
+        }
+      }
+    }
+
+    @include respond-to(x-large) {
+      &__footer {
+        &-item{
+          &:nth-child(2) {
+            margin-left: 30px;
+            margin-right: 0;
+          }
+          &:last-child {
+            margin-left: unset;
+            margin-right: auto;
+          }
+        }
+      }
+    }
+
+    @include respond-to(large) {
+      &__footer {
+        &-item {
+          &:nth-child(2) {
+            margin-left: 0;
+            margin-right: auto;
+          }
+        }
+        &-list {
+          margin-left: 0;
+          margin-right: auto;
+        }
+      }
+    }
+
+    @include respond-to(small) {
+      &__items {
+        flex-direction: column;
+      }
+      &__footer {
+        &-ic {
+          margin: 0;
+        }
+        &-item {
+          &:not(:last-child) {
+            margin-left: 0;
+          }
+        }
+      }
+    }
+  }
+  .ships-content {
+    &__img-wrapper {
+      left: 0;
+      right: unset;
+    }
+    &__text {
+      margin-left: auto;
+      margin-right: unset;
+    }
+    &__img {
+      border-radius: 0px 800px 0px 0px;
+    }
+    &.page-content--right .ships-content__img-wrapper {
+      left: unset;
+      right: 0;
+    }
+    &.page-content--right .ships-content__img {
+      border-radius: 0 0 0 800px;
+    }
+    &.page-content--right .ships-content__text {
+      margin-left: unset;
+      margin-right: auto;
+    }
+  }
+  .vacation {
+    &__container {
+      align-items: center;
+    }
+    &-content {
+      margin-right: 0;
+      margin-left: 60px;
+    }
+
+    @include respond-to(x-large) {
+      &__container {
+        align-items: flex-start;
+      }
+      &-content {
+        margin-left: unset;
+      }
+    }
+  }
+  /***** END AROYA SHIPS *****/
+
+  /***** CRUISE PAGE *****/
+  .cruise-page__content {
+    &-img {
+      border-radius: 0px 0px 0px 800px;
+    }
+  }
+  .cruise-why {
+    &__img-wrapper {
+      right: unset;
+      left: 0;
+    }
+    &__content,
+    &__header {
+      margin-right: unset;
+      margin-left: auto;
+    }
+    &__footer-content {
+      border-radius: 74px 0px 100px 0px;
+    }
+
+    @include respond-to(xxx-large) {
+      &__img {
+        min-height: 550px;
+      }
+    }
+    @include respond-to(xx-large) {
+      &__img {
+        min-height: 500px;
+      }
+    }
+  }
+  .information-cards {
+    &__items {
+      flex-direction: row-reverse;
+    }
+    &__item-body {
+      text-align: right;
+    }
+    &__item-link > svg {
+      margin-left: 0;
+      margin-right: 8px;
+    }
+    &__popup {
+      &-img {
+        border-radius: 0 12px 12px 0;
+      }
+      &-close {
+        margin-right: 10px;
+        margin-left: unset;
+      }
+    }
+    @include respond-to(small) {
+      &__items {
+        flex-direction: column;
+      }
+    }
+  }
+  /***** END CRUISE PAGE *****/
 
   /***** FOOTER *****/
   .signup {

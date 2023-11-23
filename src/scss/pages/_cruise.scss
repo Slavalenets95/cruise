@@ -31,6 +31,7 @@
     object-fit: cover;
     display: block;
     max-height: 615px;
+    border-radius: 12px;
   }
   &__content-row {
     justify-content: space-between;
@@ -109,6 +110,12 @@
       width: 100%;
       max-height: 400px;
     }
+    &__wrapper {
+      padding-bottom: 0;
+    }
+    &__footer {
+      margin-top: -50px;
+    }
   }
 
   @include respond-to(extra-small) {
@@ -163,6 +170,7 @@
     display: flex;
     flex-direction: column;
     text-align: left;
+    width: 100%;
     & > *:first-child {
       margin-bottom: 10px;
     }
@@ -197,6 +205,7 @@
     &__item {
       flex: 0 1 calc(50% - 20px);
       max-width: 400px;
+      width: 100%;
       margin-right: 40px;
       &:nth-child(2n) {
         margin-right: 0;
@@ -304,6 +313,18 @@
       &-left {
         display: none;
       }
+    }
+  }
+
+  @include respond-to(small) {
+    &__popup {
+      top: 45%;
+    }
+    &__popup-header {
+      padding-left: 20px;
+    }
+    &__popup-body {
+      padding: 20px;
     }
   }
 }

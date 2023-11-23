@@ -350,11 +350,11 @@
       &__sub-row:not(:last-child) {
         margin-right: 0;
       }
-      &__sub-list {
-        height: 0;
-        overflow: hidden;
-        transition: height .3s;
-      }
+      // &__sub-list {
+      //   height: 0;
+      //   overflow: hidden;
+      //   transition: height .3s;
+      // }
       &__sub-title {
         font-size: 20px;
         font-weight: 800;

@@ -359,6 +359,9 @@
       &-item {
         flex-direction: column;
       }
+      &-ic {
+        margin-right: 0;
+      }
       &-list, &-item, &-ic img {
         width: 100%;
       }
@@ -414,7 +417,7 @@
       max-width: unset;
     }
     & + & {
-      padding-top: 40px;
+      padding: 40px 0;
     }
   }
 }
@@ -450,14 +453,15 @@
   }
 
   @include respond-to(x-large) {
+    padding-top: 40px;
     &-cards {
-      margin-top: 40px;
       align-self: center;
     }
     &__container {
-      flex-direction: column;
+      flex-direction: column-reverse;
     }
     &-content {
+      margin-top: 40px;
       margin-right: 0;
     }
   }
@@ -467,17 +471,8 @@
   }
 
   @include respond-to(extra-small) {
-    &-cards {
-      flex-direction: column;
-      align-items: center;
-    }
-    &-card {
-      &:first-child, &:last-child {
-        flex: 0 1 auto;
-      }
-      &:not(:first-child) {
-        margin-top: 30px;
-      }
+    &-card:first-child {
+      margin-top: 20px;
     }
   }
 }
