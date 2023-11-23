@@ -75,8 +75,8 @@ class Sliders {
         slider.classList.add(`slider-${idx + 1}`);
 
         this.regionsSlidersInstance.push(new Swiper(`.regions-slider.slider-${idx + 1} .swiper`, {
-          spaceBetween: 30,
-          slidesPerView: 1,
+          spaceBetween: 12,
+          slidesPerView: 'auto',
           touchRatio: 0.2,
           pagination: {
             el: `.regions-slider.slider-${idx + 1} .swiper-nav__dots`,
@@ -92,6 +92,10 @@ class Sliders {
             draggable: true,
           },
           breakpoints: {
+            600: {
+              slidesPerView: 1,
+              spaceBetween: 30,
+            },
             // when window width is >= 769px
             769: {
               slidesPerView: 2,

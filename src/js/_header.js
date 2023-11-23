@@ -30,22 +30,22 @@ class Header {
           const subMenu = evt.target.closest('.header-nav__sub-row').querySelector('.header-nav__sub-list');
           const subMenuHeight = subMenu.scrollHeight;
 
-          activeEls?.forEach(activeEl => {
-            if (activeEl !== evt.target && activeEl !== subMenu) {
-              activeEl.removeAttribute('data-active');
-              if (activeEl.matches('.header-nav__sub-list')) {
-                activeEl.style.height = '0px';
-              }
-            }
-          });
+          // activeEls?.forEach(activeEl => {
+          //   if (activeEl !== evt.target && activeEl !== subMenu) {
+          //     activeEl.removeAttribute('data-active');
+          //     if (activeEl.matches('.header-nav__sub-list')) {
+          //       activeEl.style.height = '0px';
+          //     }
+          //   }
+          // });
 
-          if (!subMenu.hasAttribute('data-active')) {
-            subMenu.style.height = subMenuHeight + 'px';
-          } else {
-            subMenu.style.height = '0px';
-          }
-          evt.target.toggleAttribute('data-active');
-          subMenu.toggleAttribute('data-active');
+          // if (!subMenu.hasAttribute('data-active')) {
+          //   subMenu.style.height = subMenuHeight + 'px';
+          // } else {
+          //   subMenu.style.height = '0px';
+          // }
+          // evt.target.toggleAttribute('data-active');
+          // subMenu.toggleAttribute('data-active');
         }
 
         if (evt.target.matches('.header-nav__sub-back') && window.screen.availWidth < 1400) {
@@ -54,7 +54,7 @@ class Header {
           const subLists = parent.querySelectorAll('.header-nav__sub-list');
 
           activeEls.forEach((activeEl) => activeEl.removeAttribute('data-active'));
-          subLists.forEach((subList) => subList.style.height = '0');
+          //subLists.forEach((subList) => subList.style.height = '0');
         }
       })
 

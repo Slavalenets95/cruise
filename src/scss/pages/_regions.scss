@@ -131,6 +131,10 @@
       max-height: 350px;
     }
   }
+
+  @include respond-to(small) {
+    padding: 0;
+  }
 }
 /***** END CARD *****/
 
@@ -235,6 +239,10 @@
   }
 
   @include respond-to(small) {
+    padding-top: 0;
+    &__slide {
+      width: calc(100vw - 75px) !important;
+    }
     &__swiper {
       max-width: none;
       &-nav {
