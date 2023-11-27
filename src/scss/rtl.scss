@@ -639,6 +639,10 @@ html[dir="rtl"] {
           margin-left: 30px;
         }
       }
+      &-list > li > *:first-child {
+        margin-right: unset;
+        margin-left: 20px;
+      }
       &-ic {
         margin-right: unset;
         margin-left: 30px;
