@@ -171,6 +171,11 @@ module.exports = (env) => {
       }),
       // EN
       new HtmlWebpackPlugin({
+        filename: "404.html",
+        template: path.resolve(__dirname, './src/pages/en/404.html'),
+      }),
+      // EN
+      new HtmlWebpackPlugin({
         filename: "search-panel.html",
         template: path.resolve(__dirname, './src/pages/en/search-panel.html'),
       }),
