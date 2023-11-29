@@ -39,93 +39,66 @@ export class SearchPanelFilter {
   }
 
   filterData() {
+    const filters = [
+      {
+        filterName: 'destinations',
+        convertFunction: (voyages) => {
+          const destinations = voyages
+            .map(({ pkg }) => pkg.destinations.map(({ key }) => key))
+            .flat();
+
+          return [...new Set(destinations)];
+        },
+      },
+      {
+        filterName: 'ports',
+        convertFunction: (voyages) => {
+          const ports = voyages.map(({ pkg }) => pkg.location.from.code);
+          return [...new Set(ports)];
+        },
+      },
+      {
+        filterName: 'dates',
+        convertFunction: (voyages) => {
+          const dates = voyages
+            .map(({ pkg }) => `${getYear(pkg.vacation.from)}-${getMonth(pkg.vacation.from) + 1}`);
+          
+          return [...new Set(dates)];
+        },
+      }
+    ];
+
     const formData = this.getFormData();
-    const filtered = {
-      destinations: {},
-      ports: {},
-      dates: {}
-    };
-    let filteredDestinations = [...this.searchPanel.availableDestinations.keys()];
-    let filteredPorts = [...this.searchPanel.availablePorts.keys()];
-    let filteredDates = [...this.searchPanel.availableDates];
 
-    this.searchPanel.allVoyages.forEach(({ pkg }) => {
-      const date = `${getYear(pkg.vacation.from)}-${getMonth(pkg.vacation.from) + 1}`;
-      const port = pkg.location.from.code;
-      // Destinations
-      pkg.destinations.forEach(destination => {
-        if (!filtered.destinations[destination.key]) {
-          filtered.destinations[destination.key] = {};
-          filtered.destinations[destination.key].ports = new Set();
-          filtered.destinations[destination.key].dates = new Set();
-        }
-        filtered.destinations[destination.key].ports.add(port);
-        filtered.destinations[destination.key].dates.add(date);
-      })
+    return filters.reduce((filtered, { filterName, convertFunction }) => {
+      const availableVoyages = this.searchPanel.allVoyages.filter(({ pkg }) => {
+        const date = `${getYear(pkg.vacation.from)}-${getMonth(pkg.vacation.from) + 1}`;
+        if (
+          filterName !== 'dates'
+          && formData.dates.length
+          && !formData.dates.includes(date)
+        ) return false;
 
-      // Ports
-      if (!filtered.ports[port]) {
-        filtered.ports[port] = {};
-        filtered.ports[port].destinations = new Set();
-        filtered.ports[port].dates = new Set();
-      }
-      pkg.destinations.forEach(destination => filtered.ports[port].destinations.add(destination.key));
-      filtered.ports[port].dates.add(date);
+        const destinations = pkg.destinations.map(({ key }) => key);
+        if (
+          filterName !== 'destinations'
+          && formData.destinations.length
+          && formData.destinations.every((selected) => !destinations.includes(selected))
+        ) return false;
 
-      // Dates
-      if (!filtered.dates[date]) {
-        filtered.dates[date] = {};
-        filtered.dates[date].destinations = new Set();
-        filtered.dates[date].ports = new Set();
-      }
-      pkg.destinations.forEach(destination => filtered.dates[date].destinations.add(destination.key));
-      filtered.dates[date].ports.add(port);
-    })
+        const port = pkg.location.from.code;
+        if (
+          filterName !== 'ports'
+          && formData.ports.length
+          && !formData.ports.includes(port)
+        ) return false;
 
-    if (formData.destinations.length) {
-      Object.keys(filtered.ports).forEach(key => {
-        if (![...filtered.ports[key].destinations].some(destination => formData.destinations.includes(destination))) {
-          filteredPorts = filteredPorts.filter(port => port !== key);
-        }
-      })
-      Object.keys(filtered.dates).forEach(key => {
-        if (![...filtered.dates[key].destinations].some(destination => formData.destinations.includes(destination))) {
-          filteredDates = filteredDates.filter(date => date !== key);
-        }
-      })
-    }
+        return true;
+      });
 
-    if (formData.ports.length) {
-      Object.keys(filtered.destinations).forEach(key => {
-        if (![...filtered.destinations[key].ports].some(port => formData.ports.includes(port))) {
-          filteredDestinations = filteredDestinations.filter(destination => destination !== key);
-        }
-      })
-      Object.keys(filtered.dates).forEach(key => {
-        if (![...filtered.dates[key].ports].some(port => formData.ports.includes(port))) {
-          filteredDates = filteredDates.filter(date => date !== key);
-        }
-      })
-    }
-
-    if (formData.dates.length) {
-      Object.keys(filtered.destinations).forEach(key => {
-        if (![...filtered.destinations[key].dates].some(date => formData.dates.includes(date))) {
-          filteredDestinations = filteredDestinations.filter(destination => destination !== key);
-        }
-      })
-      Object.keys(filtered.ports).forEach(key => {
-        if (![...filtered.ports[key].dates].some(date => formData.dates.includes(date))) {
-          filteredPorts = filteredPorts.filter(port => port !== key);
-        }
-      })
-    }
-
-    return {
-      destinations: filteredDestinations,
-      ports: filteredPorts,
-      dates: filteredDates
-    };
+      filtered[filterName] = convertFunction(availableVoyages);
+      return filtered;
+    }, {});
   }
 
   htmlChange(filterData) {
