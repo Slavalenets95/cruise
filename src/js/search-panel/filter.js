@@ -71,6 +71,7 @@ export class SearchPanelFilter {
     const formData = this.getFormData();
 
     return filters.reduce((filtered, { filterName, convertFunction }) => {
+      // Should skip filter that is being processed and empty filter
       const availableVoyages = this.searchPanel.allVoyages.filter(({ pkg }) => {
         const date = `${getYear(pkg.vacation.from)}-${getMonth(pkg.vacation.from) + 1}`;
         if (
