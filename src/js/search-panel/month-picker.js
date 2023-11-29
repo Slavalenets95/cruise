@@ -1,4 +1,6 @@
 export class SearchPanelMonthPicker {
+  searchFormNode = document.querySelector('.search-form');
+
   init(correctDates) {
     const searchMonthPicker = document.querySelector('.search-form__dates');
     if (searchMonthPicker) {
@@ -24,6 +26,7 @@ export class SearchPanelMonthPicker {
           const maxDate = this.getMaxSelectedDate(transformAllMonth);
           const minDate = this.getMinSelectedDate(transformAllMonth);
           const targetDateTime = new Date(evt.target.getAttribute('data-date')).getTime();
+          const selectedText = evt.target.closest('.search-form__item').querySelector('[data-selected-text]');
 
           if (maxDate && minDate && targetDateTime < maxDate.date.getTime() && targetDateTime > minDate.date.getTime()) {
             evt.target.toggleAttribute('data-active');
@@ -52,6 +55,16 @@ export class SearchPanelMonthPicker {
               betweenMinDates.forEach(i => i.el.setAttribute('data-active', ''));
             }
           }
+          const selectedCount = this.searchFormNode.querySelectorAll('[data-date][data-active]').length;
+          switch(selectedCount) {
+            case 0 :
+              selectedText.textContent = 'Any Date';
+              break;
+            default :
+              selectedText.textContent = `Select: ${selectedCount}`;
+              break;
+          }
+          this.setClearAllBtn();
         })
       })
     }
@@ -69,5 +82,27 @@ export class SearchPanelMonthPicker {
     const dates = activeEls.map(i => i.date);
     const minDate = Math.min.apply(null, dates);
     return activeEls.filter(i => i.date.getTime() === minDate)[0];
+  }
+
+  isFormEmpty() {
+    const checkboxEmpty = this.searchFormNode.querySelectorAll('input[type="checkbox"]:checked').length;
+    const dateEmpty = this.searchFormNode.querySelectorAll('[data-date][data-active]').length;
+    const adultsValue = this.searchFormNode.querySelector('input[name="adult"')?.value;
+    const childrenValue = this.searchFormNode.querySelector('input[name="children"]')?.value;
+    const infantsValue = this.searchFormNode.querySelector('input[name="infants"]')?.value;
+
+    return !checkboxEmpty && !dateEmpty && +adultsValue === 1 && +childrenValue === 0 && +infantsValue === 0;
+  }
+
+  setClearAllBtn() {
+    const clearAll = this.searchFormNode.querySelector('.search-form__clear-all');
+
+    if(!clearAll) return;
+
+    if(this.isFormEmpty()) {
+      clearAll.setAttribute('disabled', '');
+    } else {
+      clearAll.removeAttribute('disabled');
+    }
   }
 }

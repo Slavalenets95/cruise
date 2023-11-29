@@ -13,7 +13,7 @@ export class SearchPanelRenderer {
       <label class="search-form__label flex">
         <input type="checkbox" name="${checkboxName}" value="${checkboxValue}">
         <div class="checkbox-after"></div>
-        <span class="search-form__checkbox-text" data-search-text>${checkboxTextValue}</span>
+        <span class="search-form__checkbox-text" data-search-text data-checkbox-text>${checkboxTextValue}</span>
       </label>`;
 
     return checkboxItem;

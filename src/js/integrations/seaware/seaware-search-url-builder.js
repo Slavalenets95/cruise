@@ -1,7 +1,7 @@
 import { endOfMonth, startOfMonth } from "date-fns";
 
 export class SeawareSearchUrlBuilder {
-  #baseUrl = "http://uat.booking.aroya.com/touchb2c";
+  #baseUrl = "https://uat.booking.aroya.com/touchb2c";
   
   /**
    * @type {{

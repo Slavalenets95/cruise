@@ -4,6 +4,9 @@ export class SearchPanelControls {
     this.clearDateBtnInit();
     this.searchInputInit();
     this.counterBtnsInit();
+    this.checkboxChangeInit();
+    this.clearAllInit();
+    this.dateOkBtnInit();
   }
 
   constructor(searchFormNode) {
@@ -12,6 +15,7 @@ export class SearchPanelControls {
 
   clearDateBtnInit() {
     const clearDateButtons = document.querySelectorAll('[data-clear-date]');
+    const selectedDatesText = this.searchFormNode.querySelector('.search-form__item-calendar [data-selected-text]');
     if (clearDateButtons.length) {
       clearDateButtons.forEach(clearBtn => {
         clearBtn.addEventListener('click', evt => {
@@ -20,7 +24,19 @@ export class SearchPanelControls {
             const dateItems = parentWrapper.querySelectorAll('[data-date]');
             dateItems.forEach(item => item.removeAttribute('data-active'));
           }
+          selectedDatesText.textContent = 'Any Date';
+          this.setClearAllBtn();
         })
+      })
+    }
+  }
+
+  dateOkBtnInit() {
+    const btn = this.searchFormNode.querySelector('.search-form__dates-ok');
+    if(btn) {
+      btn.addEventListener('click', (evt) => {
+        evt.target.closest('[data-drop-active]').removeAttribute('data-drop-active');
+        this.searchFormNode.dispatchEvent(new CustomEvent('close-search-dropdown'));
       })
     }
   }
@@ -30,7 +46,6 @@ export class SearchPanelControls {
     if (clearButtons.length) {
       clearButtons.forEach(clearBtn => {
         clearBtn.addEventListener('click', function (evt) {
-          console.log(evt.target.closest('[data-clear-parent]'))
           const clearParent = evt.target.closest('[data-clear-parent]');
           const clearInputs = clearParent.querySelectorAll('input');
 
@@ -41,6 +56,7 @@ export class SearchPanelControls {
               switch (inputType) {
                 case 'checkbox':
                   input.checked = false;
+                  input.dispatchEvent(new Event('change'));
                   break;
                 default:
                   input.value = '';
@@ -87,6 +103,7 @@ export class SearchPanelControls {
     const guestCounterItems = this.searchFormNode.querySelectorAll('.search-form__guest');
     const maxSoloValue = 14;
     const maxSumValue = 15;
+    const selectedText = this.searchFormNode.querySelector('.search-form__item-guests [data-selected-text]');
 
     if (guestCounterItems.length) {
       guestCounterItems.forEach(item => {
@@ -111,6 +128,13 @@ export class SearchPanelControls {
           if (this.getSumCounterValues() >= maxSumValue) {
             guestCounterItems.forEach(item => item.querySelector('[data-counter-plus]').setAttribute('disabled', ''));
           }
+
+          if(this.getSumCounterValues() === 1) {
+            selectedText.textContent = `${this.getSumCounterValues()} Person`;
+          } else {
+            selectedText.textContent = `${this.getSumCounterValues()} Persons`;
+          }
+          this.setClearAllBtn();
         })
 
         minusBtn.addEventListener('click', () => {
@@ -139,8 +163,100 @@ export class SearchPanelControls {
               }
             })
           }
+          if(this.getSumCounterValues() === 1) {
+            selectedText.textContent = `${this.getSumCounterValues()} Person`;
+          } else {
+            selectedText.textContent = `${this.getSumCounterValues()} Persons`;
+          }
+          this.setClearAllBtn();
         })
       })
+    }
+  }
+
+  checkboxChangeInit() {
+    const checkboxes = this.searchFormNode.querySelectorAll('input[type="checkbox"]');
+    if(checkboxes.length) {
+      checkboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', (evt) => {
+          const parent = evt.target.closest('.search-form__item');
+          const selectedText = parent.querySelector('[data-selected-text]');
+          const checkedItems = parent.querySelectorAll('input[type="checkbox"]:checked');
+
+          switch(checkedItems.length) {
+            case 1 :
+              const text = parent.querySelector('input[type="checkbox"]:checked').closest('label').querySelector('[data-checkbox-text]').textContent;
+              selectedText.textContent = text;
+              break;
+            case 0 :
+              selectedText.textContent = 'Anywhere';
+              break;
+            default :
+              selectedText.textContent = `Select: ${checkedItems.length}`;
+              break;
+          }
+          this.setClearAllBtn();
+        })
+      })
+    }
+  }
+
+  clearAllInit() {
+    const clearAll = this.searchFormNode.querySelector('.search-form__clear-all');
+
+    if(!clearAll) return;
+
+    clearAll.addEventListener('click', () => {
+      const checkboxes = this.searchFormNode.querySelectorAll('input[type="checkbox"]:checked');
+      const activeDates = this.searchFormNode.querySelectorAll('[data-date][data-active]');
+      const adults = this.searchFormNode.querySelector('input[name="adult"]');
+      const children = this.searchFormNode.querySelector('input[name="children"]');
+      const infants = this.searchFormNode.querySelector('input[name="infants"]');
+      const selectedDatesText = this.searchFormNode.querySelector('.search-form__item-calendar [data-selected-text]');
+      const selectedGuestsText = this.searchFormNode.querySelector('.search-form__item-guests [data-selected-text]');
+      const minusCounterBtns = this.searchFormNode.querySelectorAll('[data-counter-minus]');
+
+      if(checkboxes.length) {
+        checkboxes.forEach(checkbox => {
+          checkbox.checked = false;
+          checkbox.dispatchEvent(new Event('change'));
+        });
+      }
+
+      if(activeDates.length) {
+        activeDates.forEach(date => date.removeAttribute('data-active'));
+      }
+
+      adults.value = 1;
+      children.value = 0;
+      infants.value = 0;
+      selectedDatesText.textContent = 'Any Date';
+      selectedGuestsText.textContent = '1 Person';
+      minusCounterBtns.forEach(btn => btn.setAttribute('disabled', ''));
+      this.searchFormNode.dispatchEvent(new CustomEvent('close-search-dropdown'));
+      clearAll.setAttribute('disabled', '');
+    })
+  }
+
+  isFormEmpty() {
+    const checkboxEmpty = this.searchFormNode.querySelectorAll('input[type="checkbox"]:checked').length;
+    const dateEmpty = this.searchFormNode.querySelectorAll('[data-date][data-active]').length;
+    const adultsValue = this.searchFormNode.querySelector('input[name="adult"')?.value;
+    const childrenValue = this.searchFormNode.querySelector('input[name="children"]')?.value;
+    const infantsValue = this.searchFormNode.querySelector('input[name="infants"]')?.value;
+
+    return !checkboxEmpty && !dateEmpty && +adultsValue === 1 && +childrenValue === 0 && +infantsValue === 0;
+  }
+
+  setClearAllBtn() {
+    const clearAll = this.searchFormNode.querySelector('.search-form__clear-all');
+
+    if(!clearAll) return;
+
+    if(this.isFormEmpty()) {
+      clearAll.setAttribute('disabled', '');
+    } else {
+      clearAll.removeAttribute('disabled');
     }
   }
 }

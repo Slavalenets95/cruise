@@ -105,13 +105,17 @@ class SearchPanel {
         initialDates[year].push(`${year}-${month}`);
       }
     }
-
+    
     return initialDates;
   }
 
   #filterAndUpdateOnDropdownClose() {
     this.searchForm.addEventListener('close-search-dropdown', () => {
       this.#filter.process();
+      const searchInput = this.searchForm.querySelectorAll('[data-search-input]');
+      if(searchInput.length) {
+        searchInput.forEach(input => input.value = '');
+      }
     });
   }
 

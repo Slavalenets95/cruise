@@ -390,9 +390,6 @@
               data-active>
               Plan a Cruise
             </button>
-            <button type="button" class="search-form__header-item text-26 extrabold dark-blue relative flex">
-              Manage Booking
-            </button>
           </div>
           <div class="search-form__items flex">
             <div class="tab flex" data-drop-body-close>
@@ -400,7 +397,7 @@
               <div class="search-form__item relative drop-item">
                 <button type="button" class="search-form__item-btn flex center text-18 dark-blue drop-header">
                   <span class="search-form__item-btn-title text-20 extrabold">Destination</span>
-                  <span>Anywhere</span>
+                  <span data-selected-text>Anywhere</span>
                   <svg class="search-form__item-btn-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
                     xmlns="http://www.w3.org/2000/svg">
                     <g id="Icon/arrow">
@@ -428,7 +425,7 @@
               <div class="search-form__item relative drop-item">
                 <button type="button" class="search-form__item-btn flex center text-18 dark-blue drop-header">
                   <span class="search-form__item-btn-title text-20 extrabold">Port of departure</span>
-                  <span>Anywhere</span>
+                  <span data-selected-text>Anywhere</span>
                   <svg class="search-form__item-btn-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
                     xmlns="http://www.w3.org/2000/svg">
                     <g id="Icon/arrow">
@@ -452,10 +449,10 @@
                 </div>
               </div>
               <!-- DATES -->
-              <div class="search-form__item relative drop-item">
+              <div class="search-form__item search-form__item-calendar relative drop-item">
                 <button type="button" class="search-form__item-btn flex center text-18 dark-blue drop-header">
                   <span class="search-form__item-btn-title text-20 extrabold">Dates</span>
-                  <span>Any Date</span>
+                  <span data-selected-text>Any Date</span>
                   <svg class="search-form__item-btn-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
                     xmlns="http://www.w3.org/2000/svg">
                     <g id="Icon/arrow">
@@ -479,10 +476,10 @@
                 </div>
               </div>
               <!-- GUESTS -->
-              <div class="search-form__item relative drop-item">
+              <div class="search-form__item search-form__item-guests relative drop-item">
                 <button type="button" class="search-form__item-btn flex center text-18 dark-blue drop-header">
                   <span class="search-form__item-btn-title text-20 extrabold">Guests</span>
-                  <span>Anywhere</span>
+                  <span data-selected-text>1 Person</span>
                   <svg class="search-form__item-btn-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
                     xmlns="http://www.w3.org/2000/svg">
                     <g id="Icon/arrow">
@@ -563,9 +560,12 @@
                   </div>
                 </div>
               </div>
-              <button type="submit" class="search-form__control text-20 extrabold flex">
-                <span>Search Cruises</span>
-              </button>
+              <div class="submit-item">
+                <button type="submit" class="search-form__control text-20 extrabold flex">
+                  <span>Search Cruises</span>
+                </button>
+                <button type="button" class="search-form__clear-all" disabled>Clear all</button>
+              </div>
             </div>
           </div>
         </div>
