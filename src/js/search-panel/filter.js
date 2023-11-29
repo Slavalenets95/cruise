@@ -1,6 +1,5 @@
 import { getMonth, getYear } from "date-fns";
 
-// Need refactoring filter
 export class SearchPanelFilter {
   searchPanel = null;
 

@@ -3,15 +3,15 @@ import { GraphQL } from '../../helpers';
 
 export class SeawareApiClient {
   // Make from env
-  static #seawareUrl = "http://uat.booking.aroya.com:3000/graphql";
+  static #seawareUrl = "https://uat.booking.aroya.com:3000/graphql";
 
   #graphQLClient = new GraphQL(SeawareApiClient.#seawareUrl);
 
   /**
    * Search availabilities
-   * 
+   *
    * @param {Date} fromDate
-   * @param {Date} toDate 
+   * @param {Date} toDate
    * @returns {Promise<{
    *    availableVoyages: {
    *      pkg: {
@@ -57,14 +57,14 @@ export class SeawareApiClient {
         }
       }
     };
-    
+
     return this.#graphQLClient.query(queryObj)
       .then((res) => res.data)
       .then((res) => {
         res.availableVoyages
           .forEach(({ pkg }) => pkg.vacation.from = new Date(pkg.vacation.from));
-        
-          return res;
+
+        return res;
       });
   }
 }

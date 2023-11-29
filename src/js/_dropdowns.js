@@ -6,6 +6,7 @@ class Dropdown {
     itemSelector: '.drop-item',
     btnSelector: '.drop-header',
     bodySelector: '.drop-body',
+    closeSelectors: [],
     closeOther: false,
     notCloseOther: 768,
     animate: false,
@@ -36,17 +37,29 @@ class Dropdown {
         }
       })
     }
+    if(this.options.closeSelectors.length) {
+      this.options.closeSelectors.forEach(closeItem => {
+        const closeItems = this.options.parentNode.querySelectorAll(closeItem);
+        if(closeItems.length) {
+          closeItems.forEach(closeItem => {
+            closeItem.addEventListener('click', (evt) => {
+              this.#close(this.#getItemParent(evt.target));
+            })
+          })
+        }
+      })
+    }
   }
 
   #resize() {
-    const active = document.querySelectorAll(`[data-drop-active]`);
+    // const active = document.querySelectorAll(`[data-drop-active]`);
 
-    if (active.length) {
-      active.forEach(activeEl => {
-        const height = activeEl.querySelector('.drop-body > .drop-body__wrapper').scrollHeight;
-        activeEl.querySelector('.drop-body').style.height = `${height}px`;
-      })
-    }
+    // if (active.length) {
+    //   active.forEach(activeEl => {
+    //     const height = activeEl.querySelector('.drop-body > .drop-body__wrapper').scrollHeight;
+    //     activeEl.querySelector('.drop-body').style.height = `${height}px`;
+    //   })
+    // }
   }
 
   #setActiveHeight() {
@@ -102,9 +115,6 @@ class Dropdown {
           if (this.#getItemParent(targetNode) === active) return;
 
           this.#close(active);
-          if (active.closest('#search-form')) {
-            document.querySelector('#search-form').dispatchEvent(new CustomEvent('close-search-dropdown'));
-          }
         })
       }
     }
@@ -117,6 +127,9 @@ class Dropdown {
       node.querySelector(this.options.bodySelector).style.height = 0;
     }
     node.removeAttribute(this.#dataStr);
+    if (node.closest('#search-form')) {
+      document.querySelector('#search-form').dispatchEvent(new CustomEvent('close-search-dropdown'));
+    }
   }
 
   #open(node) {
@@ -174,6 +187,7 @@ class AroyaDropdowns {
         new Dropdown({
           parentNode: dropdown,
           closeOther: true,
+          closeSelectors: ['.search-form__item-body-close', '.search-form__item-ok-btn']
         })
       })
     }

@@ -16,7 +16,11 @@
   &__slider {
     width: 100%;
   }
-  &__video-slide,
+  &__video-slide {
+    padding: 100px 0 115px;
+    display: flex;
+    align-items: flex-start;
+  }
   &__slide {
     display: flex;
     align-items: center;
@@ -78,7 +82,7 @@
   &__slider-nav {
     position: absolute;
     left: 0;
-    bottom: 40px;
+    bottom: 115px;
     width: 100%;
     z-index: 1;
   }
