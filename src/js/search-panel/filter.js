@@ -50,7 +50,9 @@ export class SearchPanelFilter {
     let filteredDates = [...this.searchPanel.availableDates];
 
     this.searchPanel.allVoyages.forEach(({ pkg }) => {
-      const date = `${getYear(pkg.vacation.from)}-${getMonth(pkg.vacation.from) + 1}`;
+      let month = getMonth(pkg.vacation.from) + 1;
+      month = month < 10 ? `0${month}` : month;
+      const date = `${getYear(pkg.vacation.from)}-${month}`;
       const port = pkg.location.from.code;
       // Destinations
       pkg.destinations.forEach(destination => {

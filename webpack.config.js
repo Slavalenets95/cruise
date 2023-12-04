@@ -64,7 +64,13 @@ module.exports = (env) => {
         {
           test: /\.js$/,
           exclude: /node_modules/,
-          use: ['babel-loader'],
+          use: [{
+            loader: 'babel-loader',
+            options: {
+              presets: [ '@babel/preset-env'],
+              plugins: ["transform-class-properties"]
+          }
+          }],
         }
       ]
     },
@@ -173,6 +179,16 @@ module.exports = (env) => {
       new HtmlWebpackPlugin({
         filename: "404.html",
         template: path.resolve(__dirname, './src/pages/en/404.html'),
+      }),
+      // EN
+      new HtmlWebpackPlugin({
+        filename: "suite.html",
+        template: path.resolve(__dirname, './src/pages/en/suite.html'),
+      }),
+      // EN
+      new HtmlWebpackPlugin({
+        filename: "restaraunt.html",
+        template: path.resolve(__dirname, './src/pages/en/restaraunt.html'),
       }),
       // EN
       new HtmlWebpackPlugin({

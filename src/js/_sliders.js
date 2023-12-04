@@ -113,6 +113,66 @@ class Sliders {
       })
     }
   }
+  restarauntSliders() {
+    // Specialty
+    const specialtyParent = document.querySelector('.restaraunt-specialty');
+    const specialtySlider = document.querySelector('.restaraunt-specialty__swiper');
+    if(specialtySlider && specialtyParent) {
+      new Swiper('.restaraunt-specialty__swiper', {
+        spaceBetween: 10,
+        slidesPerView: 'auto',
+        touchRatio: 0.2,
+        pagination: {
+          el: specialtyParent.querySelector('.swiper-nav__dots'),
+          type: 'bullets',
+          clickable: true,
+        },
+        navigation: {
+          nextEl: specialtyParent.querySelector('.swiper-nav__btn.next'),
+          prevEl: specialtyParent.querySelector('.swiper-nav__btn.prev'),
+        },
+      })
+    }
+
+    // Bards
+    const barsParent = document.querySelector('.restaraunt-bars');
+    const barsSlider = document.querySelector('.restaraunt-bars__swiper');
+    if(barsSlider && barsParent) {
+      new Swiper('.restaraunt-bars__swiper', {
+        spaceBetween: 10,
+        slidesPerView: 'auto',
+        touchRatio: 0.2,
+        pagination: {
+          el: barsParent.querySelector('.swiper-nav__dots'),
+          type: 'bullets',
+          clickable: true,
+        },
+        navigation: {
+          nextEl: barsParent.querySelector('.swiper-nav__btn.next'),
+          prevEl: barsParent.querySelector('.swiper-nav__btn.prev'),
+        },
+      })
+    }
+
+    // Kids
+    const kidsSlider = document.querySelector('.restaraunt-kids__slider');
+    if(kidsSlider) {
+      new Swiper('.restaraunt-kids__slider', {
+        spaceBetween: 10,
+        slidesPerView: 1,
+        touchRatio: 0.2,
+        pagination: {
+          el: document.querySelector('.restaraunt-kids .swiper-nav__dots'),
+          type: 'bullets',
+          clickable: true,
+        },
+        navigation: {
+          nextEl: document.querySelector('.restaraunt-kids .swiper-nav__btn.next'),
+          prevEl: document.querySelector('.restaraunt-kids .swiper-nav__btn.prev'),
+        },
+      })
+    }
+  }
 
   reInit() {
     if(this.homeIntroSliderInstance) this.homeIntroSliderInstance.update();
@@ -127,6 +187,7 @@ class Sliders {
     this.homeIntroSlider();
     this.offersSlider();
     this.regionsSlider();
+    this.restarauntSliders();
 
     /***** GALLERY SLIDER *****/
     // const gallerySliders = document.querySelectorAll('.gallery');
