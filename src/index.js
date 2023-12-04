@@ -10,6 +10,7 @@ import Scroller from './js/_scroller';
 import Forms from './js/_forms';
 import Tabs from './js/_tabs';
 import Popup from './js/_popup';
+import PopupSlider from './js/_popupSlider';
 import { throttle } from './js/helpers';
 
 window.addEventListener('load', () => {
@@ -24,6 +25,7 @@ window.addEventListener('load', () => {
   Forms.make();
   Tabs.make();
   Popup.make();
+  PopupSlider.make();
 })
 
 /***** REINITIALIZATION *****/

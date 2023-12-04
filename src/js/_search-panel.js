@@ -36,9 +36,8 @@ class SearchPanel {
       return;
     }
 
-    this.allVoyages = await this.#getAllVoyages();
+    this.allVoyages = await this.getAllVoyages();
     this.#setAvailabilities();
-
     this.#renderer.render(this.#getInitialRenderData());
     this.#controls.init();
     this.#monthPicker.init(this.availableDates);
@@ -53,7 +52,7 @@ class SearchPanel {
     });
   }
 
-  #getAllVoyages() {
+  getAllVoyages() {
     const searchYearPeriod = 2;
     const currentDate = new Date(Date.now());
     const toDate = endOfYear(addYears(currentDate, searchYearPeriod));
@@ -79,8 +78,11 @@ class SearchPanel {
       });
 
       this.availablePorts.set(port.code, port);
+      
+      let month = date.getMonth() + 1;
+      month = month < 10 ? `0${month}` : month;
 
-      this.availableDates.add(`${date.getFullYear()}-${date.getMonth() + 1}`);
+      this.availableDates.add(`${date.getFullYear()}-${month}`);
     });
   }
 
@@ -96,16 +98,18 @@ class SearchPanel {
     const voyageDates = this.allVoyages.map(({ pkg }) => pkg.vacation.from);
     const minVoyageDate = new Date(Math.min.apply(null, voyageDates));
     const endDate = addYears(minVoyageDate, 1);
+    let strMonth = null;
 
     const initialDates = {};
     for (let year = minVoyageDate.getFullYear(); year <= endDate.getFullYear(); year++) {
       initialDates[year] = [];
 
       for (let month = 1; month <= 12; month++) {
-        initialDates[year].push(`${year}-${month}`);
+        strMonth = month < 10 ? `0${month}` : month;
+        initialDates[year].push(`${year}-${strMonth}`);
       }
     }
-    
+
     return initialDates;
   }
 
@@ -113,7 +117,7 @@ class SearchPanel {
     this.searchForm.addEventListener('close-search-dropdown', () => {
       this.#filter.process();
       const searchInput = this.searchForm.querySelectorAll('[data-search-input]');
-      if(searchInput.length) {
+      if (searchInput.length) {
         searchInput.forEach(input => input.value = '');
       }
     });
@@ -125,7 +129,7 @@ class SearchPanel {
 
   #redirectToB2C() {
     const { destinations, ports, dates, ...guests } = this.#filter.getFormData();
-    
+
     const fromDate = dates[0] && new Date(dates[0]);
 
     const toDateString = dates[dates.length - 1];

@@ -214,7 +214,7 @@ img {
     span {
       width: 6px;
       height: 6px;
-      background-color: #97D3ED;
+      background-color: #97d3ed;
       border-radius: 50%;
       transition:
         background-color 0.5s,
@@ -226,6 +226,9 @@ img {
       &:hover {
         background-color: $dark-blue;
       }
+    }
+    &--white span {
+      background-color: #fff;
     }
     span:not(:last-child) {
       margin-right: 9px;
@@ -395,7 +398,8 @@ img {
   z-index: -1;
   pointer-events: none;
   cursor: pointer;
-  &[data-active], &[data-overlay-active] {
+  &[data-active],
+  &[data-overlay-active] {
     opacity: 0.7;
     z-index: 1;
     pointer-events: all;
@@ -420,7 +424,7 @@ img {
 /***** END HOVER *****/
 
 .brightness-img {
-  transition: all .3s;
+  transition: all 0.3s;
 }
 .radius-gradient {
   position: relative;
@@ -447,7 +451,7 @@ img {
 }
 .brightness-parent {
   &:hover .brightness-img {
-    filter: brightness(70%);
+    filter: brightness(100%);
   }
 }
 .gradient-parent {
@@ -456,6 +460,133 @@ img {
   }
 }
 
+.custom-scrollbar {
+  scrollbar-width: auto;
+  scrollbar-color: #98aace #ffffff;
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+  &::-webkit-scrollbar-track {
+    background: #ffffff;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: #98aace;
+    border-radius: 16px;
+    border: 2px solid #ffffff;
+  }
+}
+
+/*** Popup slide switcher ***/
+.slider-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 95%;
+  width: 1480px;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 5;
+  pointer-events: none;
+  visibility: hidden;
+  opacity: 0;
+  transition:
+    opacity 0.3s,
+    visibility 0.3s;
+  &[data-active] {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: all;
+  }
+}
+.popup__switcher {
+  display: inline-flex;
+  flex-direction: column;
+  align-self: center;
+  width: 600px;
+  &-btn {
+    padding: 8px 10px;
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    border: 1px solid #bdc7df;
+    border-radius: 6px;
+    text-align: left;
+  }
+  &-list {
+    position: absolute;
+    bottom: 15px;
+    left: 0;
+    width: 100%;
+    transform: translateY(100%);
+    background-color: #fff;
+    padding: 20px 10px;
+    border-radius: 12px;
+    z-index: 5;
+    max-height: 200px;
+    overflow-y: scroll;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition:
+      visibility 0.3s,
+      opacity 0.3s;
+    &[data-switcher-active] {
+      visibility: visible;
+      pointer-events: all;
+      opacity: 1;
+    }
+    &-btn {
+      padding: 0 4px;
+      width: 100%;
+      transition: background-color 0.3s;
+      position: relative;
+      &::after {
+        content: "";
+        position: absolute;
+        width: 15px;
+        height: 11px;
+        background-image: url("../images/suite/mark-ic.svg");
+        background-size: contain;
+        background-position: center;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        opacity: 0;
+        transition: opacity 0.3s;
+      }
+      &[data-switcher-el-active] {
+        background-color: #ecf3fa;
+        &::after {
+          opacity: 1;
+        }
+      }
+      &:hover {
+        background-color: #ecf3fa;
+      }
+    }
+  }
+  &-list-item {
+    font-size: 18px;
+    line-height: 1.6;
+    transition: background-color 0.3s;
+    &:hover {
+      background-color: #ecf3fa;
+    }
+    &:nth-child(n + 2) {
+      margin-top: 6px;
+    }
+  }
+  @include respond-to(medium) {
+    width: 100%;
+    &-list {
+      max-height: 350px;
+    }
+  }
+}
+/*** End popup slide switcher ***/
 /***** PATTERN *****/
 .pattern-image-wrapper {
   position: relative;

@@ -177,6 +177,18 @@
       margin-top: 10px;
     }
   }
+  &--m-5 {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    ul {
+      margin-top: 5px;
+    }
+  }
   &--light-links {
     a {
       color: $light-blue;
