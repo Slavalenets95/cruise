@@ -122,6 +122,7 @@ class Sliders {
         spaceBetween: 10,
         slidesPerView: 'auto',
         touchRatio: 0.2,
+        a11y: false,
         pagination: {
           el: specialtyParent.querySelector('.swiper-nav__dots'),
           type: 'bullets',
@@ -142,6 +143,7 @@ class Sliders {
         spaceBetween: 10,
         slidesPerView: 'auto',
         touchRatio: 0.2,
+        a11y: false,
         pagination: {
           el: barsParent.querySelector('.swiper-nav__dots'),
           type: 'bullets',

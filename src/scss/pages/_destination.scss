@@ -1,0 +1,478 @@
+.alain-alsukhna .destination-intro {
+  background-image: url('../images/destinations/alain-alsukhna-intro.jpg');
+}
+.al-aqaba .destination-intro {
+  background-image: url('../images/destinations/AlAqaba-intro.jpg');
+}
+.jeddah .destination-intro {
+  background-image: url('../images/destinations/jeddah-intro.jpg');
+}
+.safaga .destination-intro {
+  background-image: url('../images/destinations/safaga-intro.jpg');
+}
+.sharm-el-sheikh .destination-intro {
+  background-image: url('../images/destinations/sharm-el-sheikh-intro.jpg');
+}
+.dammam .destination-intro {
+  background-image: url('../images/destinations/dammam-intro.jpg');
+}
+.dubai .destination-intro {
+  background-image: url('../images/destinations/dubai-intro.jpg');
+}
+.khasab .destination-intro {
+  background-image: url('../images/destinations/khasab-intro.jpg');
+}
+.muscat .destination-intro {
+  background-image: url('../images/destinations/muscat-intro.jpg');
+}
+.salalah .destination-intro {
+  background-image: url('../images/destinations/salalah-intro.jpg');
+}
+.sir-bani-yas .destination-intro {
+  background-image: url('../images/destinations/sir-bani-yas-intro.jpg');
+}
+/*** Intro ***/
+.destination-intro {
+  background-color: $dark-blue;
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(91deg, rgba(1, 47, 125, 0.8) 22.12%, rgba(0, 48, 131, 0) 69.44%);
+  }
+  &__link {
+    margin-top: 15px;
+  }
+  @include respond-to(large) {
+    padding: 70px 0;
+  }
+}
+/*** End intro ***/
+/*** Content ***/
+.destination-content {
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 20px;
+  &__text-wrapper {
+    width: 40.3645%;
+    max-width: 775px;
+    margin-left: calc(((100vw - 1660px) / 2) - 20px);
+  }
+  &__img {
+    width: 49.47916%;
+    border-radius: 600px 0 0 0;
+    min-height: 430px;
+    object-fit: cover;
+  }
+  &--img-left {
+    flex-direction: row-reverse;
+    padding-left: unset;
+    padding-right: 20px;
+  }
+  &--img-left &__text-wrapper {
+    margin-left: unset;
+    margin-right:  calc(((100vw - 1660px) / 2) - 20px);
+  }
+  &--img-left &__img {
+    border-radius: 0 0 600px 0;
+  }
+  @media screen and (max-width: 1700px) {
+    &__text-wrapper {
+      margin-left: 0;
+    }
+    &--img-left &__text-wrapper {
+      margin-right: 0;
+    }
+  }
+  @include respond-to(xxx-large) {
+    &__text-wrapper {
+      margin-left: calc(((100vw - 1320px) / 2) - 20px);
+    }
+    &--img-left &__text-wrapper {
+      margin-right: calc(((100vw - 1320px) / 2) - 20px);
+    }
+  }
+  @include respond-to(xx-large) {
+    &__text-wrapper {
+      margin-left: calc(((100vw - 1140px) / 2) - 20px);
+    }
+    &--img-left &__text-wrapper {
+      margin-right: calc(((100vw - 1140px) / 2) - 20px);
+    }
+    &__img {
+      min-height: 340px;
+    }
+  }
+  @include respond-to(x-large) {
+    padding-left: 15px;
+    &__text-wrapper {
+      margin-left: calc(((100vw - 960px) / 2) - 15px);
+    }
+    &--img-left {
+      padding-right: 15px;
+    }
+    &--img-left &__text-wrapper {
+      margin-right: calc(((100vw - 960px) / 2) - 15px);
+    }
+    &__img {
+      min-height: 270px;
+    }
+  }
+  @include respond-to(large) {
+    flex-direction: column-reverse;
+    padding-left: 0;
+    &__text-wrapper,
+    &__img {
+      width: 100%;
+      max-width: unset;
+    }
+    &__text-wrapper {
+      max-width: 750px;
+      padding: 0 15px;
+    }
+    &__img {
+      max-height: 320px;
+    }
+    &--img-left {
+      padding-right: 0;
+    }
+    &__text-wrapper,
+    &--img-left &__text-wrapper {
+      margin: 0 auto;
+      margin-top: 40px;
+    }
+  }
+}
+/*** End content ***/
+/*** Tips ***/
+.destination-tips {
+  & > .container {
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__items {
+    flex: 0 1 920px;
+    margin-right: 40px;
+  }
+  &__card {
+    flex: 0 1 720px;
+    padding: 60px 40px;
+    background-color: #CCE9F7;
+    &-header {
+      align-items: center;
+    }
+    &-title {
+      margin-left: 20px;
+    }
+  }
+  &__items-wrapper {
+    justify-content: space-between;
+  }
+  &__item {
+    flex: 0 1 calc(33.33333% - (100px / 3));
+    &-body {
+      margin-top: 12px;
+    }
+  }
+  @include respond-to(xx-large) {
+    &__card {
+      padding: 40px;
+    }
+    &__item {
+      flex: 0 1 calc(33.33333% - (50px / 3));
+    }
+  }
+  @include respond-to(x-large) {
+    & > .container {
+      flex-direction: column;
+    }
+    &__items,
+    &__card {
+      flex: 0 1 auto;
+    }
+    &__items {
+      padding: 40px 0;
+      margin-right: 0;
+    }
+  }
+  @include respond-to(large) {
+    &__items-wrapper {
+      flex-direction: column;
+    }
+    &__item:nth-child(n + 2) {
+      margin-top: 30px;
+    }
+  }
+  @include respond-to(small) {
+    &__card {
+      padding: 30px 20px;
+    }
+  }
+}
+/*** End tips ***/
+/*** Info ***/
+.destination-info {
+  background-image: url('../images/destinations/destination-info-bg.svg');
+  background-repeat: no-repeat;
+  background-position: top right;
+  &__content-header {
+    align-items: center;
+  }
+  &__content-title {
+    margin-left: 20px;
+  }
+  @include respond-to(small) {
+    background-image: unset;
+  }
+}
+/*** End info ***/
+/*** Gallery ***/
+.gallery {
+  & > .container,
+  &-sliders {
+    z-index: 1;
+  }
+  & + & {
+    margin-top: 130px;
+  }
+
+  &-sliders__wrapper {
+    background-color: $lighest-blue--4;
+    background-clip: content-box;
+    border-radius: 16px;
+  }
+
+  /***** BTNS SLIDER *****/
+  &-swiper-btn {
+    background-color: $light-blue;
+    border-radius: 50%;
+    padding: 10px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: background-color .5s;
+    &:hover, &:focus, &:active {
+      background-color: $dark-blue;
+    }
+  }
+  &-next {
+    right: 0;
+  }
+  &-prev {
+    left: 0;
+  }
+  /***** END BTNS SLIDER *****/
+
+  /***** SCROLLBAR SLIDER *****/
+  &-scrollbar {
+    max-width: 1152px;
+    height: 5px;
+    margin: 21px auto 26px;
+    background-color: $white;
+  }
+  .scrollbar-drag {
+    background-color: $gallery-scrollbar;
+    height: 100%;
+    transition: transform .3s;
+  }
+  /***** END SCROLLBAR SLIDER *****/
+
+  /***** MAIN SLIDER *****/
+  &-slider {
+    max-width: 1340px;
+    margin: 0 auto;
+    .swiper {
+      max-width: calc(100% - 188px);
+      margin: 0 auto;
+    }
+  }
+  &-slide {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    img {
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+  &-slide__content {
+    display: none;
+  }
+  /***** END MAIN SLIDER *****/
+
+  /***** THUMB SLIDER *****/
+  .thumb-slider {
+    margin-top: 26px;
+    padding: 0 7px 40px;
+  }
+  .thumb-slide {
+    width: calc((93% / 7) - 126px / 7) !important;
+    opacity: .2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    /* transition: width .3s; */
+
+    img {
+      width: 100%;
+      height: 130px;
+      object-fit: cover;
+    }
+  }
+  .thumb-slide__content {
+    visibility: hidden;
+    opacity: 0;
+    transition: all .5s;
+  }
+  .thumb-slide.swiper-slide-active {
+    width: calc(((93% / 7 + 5%) - 126px / 7)) !important;
+    opacity: 1;
+
+    .thumb-slide__content {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    img {
+      height: 190px;
+    }
+  }
+  .thumb-slide.swiper-slide-next,
+  .thumb-slide.swiper-slide-prev {
+    width: calc(((93% / 7 + 1.5%) - 126px / 7)) !important;
+    opacity: .7;
+
+    img {
+      height: 150px;
+    }
+  }
+  /***** END THUMB SLIDER *****/
+
+  /***** 1600px *****/
+  @include respond-to(xxx-large) {
+    &-scrollbar {
+      max-width: calc(100% - 188px);
+    }
+    &-next {
+      right: 25px;
+    }
+    &-prev {
+      left: 25px;
+    }
+  }
+
+  /***** 1400px *****/
+  @include respond-to(xx-large) {
+    .thumb-slide {
+      width: calc((93% / 5) - 90px / 5) !important;
+    }
+    .thumb-slide.swiper-slide-active {
+      width: calc(((93% / 5 + 5%) - 90px / 5)) !important;
+    }
+    .thumb-slide.swiper-slide-next,
+    .thumb-slide.swiper-slide-prev {
+      width: calc(((93% / 5 + 1.5%) - 90px / 5)) !important;
+    }
+  }
+
+  /***** 1200px *****/
+  @include respond-to(x-large) {
+    .thumb-slide {
+      img {
+        height: 120px;
+      }
+    }
+    .thumb-slide.swiper-slide-active {
+      img {
+        height: 150px;
+      }
+    }
+    .thumb-slide.swiper-slide-next,
+    .thumb-slide.swiper-slide-prev {
+      img {
+        height: 130px;
+      }
+    }
+  }
+
+  /***** 992px *****/
+  @include respond-to(large) {
+    padding: 60px 0;
+    &-slider .swiper,
+    &-scrollbar {
+      max-width: calc(100% - 140px);
+    }
+    &-next, &-prev {
+      width: 30px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+    }
+    .thumb-slide,
+    .thumb-slide.swiper-slide-next,
+    .thumb-slide.swiper-slide-prev {
+      width: calc((95% / 3) - 36px / 3) !important;
+
+      img {
+        height: 115px;
+      }
+    }
+    .thumb-slide.swiper-slide-active {
+      width: calc((95% / 3 + 5%) - 36px / 3) !important;
+
+      img {
+        height: 130px;
+      }
+    }
+  }
+
+  /***** 600px *****/
+  @include respond-to(small) {
+    & + & {
+      margin-top: 100px;
+    }
+    &-sliders {
+      margin-top: 20px;
+      & > .container {
+        padding-bottom: 26px;
+      }
+    }
+    &-slide__content {
+      opacity: 0;
+      visibility: hidden;
+      transition: all .5s;
+      display: block;
+    }
+    &-slide.swiper-slide-active {
+      .gallery-slide__content {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+    .thumb-slider {
+      display: none;
+    }
+    &-next, &-prev {
+      display: none;
+    }
+    &-slider .swiper,
+    &-scrollbar {
+      max-width: calc(100% - 20px);
+    }
+    &-scrollbar {
+      margin-bottom: 0;
+    }
+    &-sliders__wrapper {
+      padding: 30px 0;
+      background-clip: unset;
+    }
+  }
+}
+/*** End gallery ***/
