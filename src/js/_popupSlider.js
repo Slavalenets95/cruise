@@ -104,6 +104,7 @@ class PopupSlider {
 
     subSliders.forEach((slider, idx) => {
       const slideSelector = `${this.options.subSliderSelector}.slide-${idx + 1}`;
+      const paginationSelector = `${this.options.sliderSelector} ${slideSelector} .swiper-nav__dots`;
       const slideLength = slider.querySelectorAll('.swiper-slide').length;
       slider.classList.add(`slide-${idx + 1}`);
 
@@ -118,7 +119,7 @@ class PopupSlider {
         watchOverflow: false,
         a11y: false,
         pagination: {
-          el: `${slideSelector} .swiper-nav__dots`,
+          el: paginationSelector,
           type: 'bullets',
           clickable: true,
         },

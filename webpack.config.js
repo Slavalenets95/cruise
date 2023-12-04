@@ -192,8 +192,58 @@ module.exports = (env) => {
       }),
       // EN
       new HtmlWebpackPlugin({
-        filename: "search-panel.html",
-        template: path.resolve(__dirname, './src/pages/en/search-panel.html'),
+        filename: "alain-alsukhna.html",
+        template: path.resolve(__dirname, './src/pages/en/destination-alain-alsukhna.html'),
+      }),
+      // EN
+      new HtmlWebpackPlugin({
+        filename: "al-aqaba.html",
+        template: path.resolve(__dirname, './src/pages/en/destination-aqaba.html'),
+      }),
+      // EN
+      new HtmlWebpackPlugin({
+        filename: "jeddah.html",
+        template: path.resolve(__dirname, './src/pages/en/destination-jeddah.html'),
+      }),
+      // EN
+      new HtmlWebpackPlugin({
+        filename: "safaga.html",
+        template: path.resolve(__dirname, './src/pages/en/destination-safaga.html'),
+      }),
+      // EN
+      new HtmlWebpackPlugin({
+        filename: "sharm-el-sheikh.html",
+        template: path.resolve(__dirname, './src/pages/en/destination-sharm-el-sheikh.html'),
+      }),
+      // EN
+      new HtmlWebpackPlugin({
+        filename: "dammam.html",
+        template: path.resolve(__dirname, './src/pages/en/destination-dammam.html'),
+      }),
+      // EN
+      new HtmlWebpackPlugin({
+        filename: "dubai.html",
+        template: path.resolve(__dirname, './src/pages/en/destination-dubai.html'),
+      }),
+      // EN
+      new HtmlWebpackPlugin({
+        filename: "khasab.html",
+        template: path.resolve(__dirname, './src/pages/en/destination-khasab.html'),
+      }),
+      // EN
+      new HtmlWebpackPlugin({
+        filename: "muscat.html",
+        template: path.resolve(__dirname, './src/pages/en/destination-muscat.html'),
+      }),
+      // EN
+      new HtmlWebpackPlugin({
+        filename: "salalah.html",
+        template: path.resolve(__dirname, './src/pages/en/destination-salalah.html'),
+      }),
+      // EN
+      new HtmlWebpackPlugin({
+        filename: "sir-bani-yas.html",
+        template: path.resolve(__dirname, './src/pages/en/destination-sir-bani-yas.html'),
       }),
 
       new webpack.HotModuleReplacementPlugin(),

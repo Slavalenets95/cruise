@@ -90,6 +90,16 @@
     font-size: 28px;
   }
 }
+.title-40 > *:first-child {
+  font-size: 40px;
+
+  @include respond-to(xxx-large) {
+    font-size: 32px;
+  }
+  @include respond-to(xx-large) {
+    font-size: 30px;
+  }
+}
 .text-50,
 .title-50 > *:first-child {
   font-size: 50px;
@@ -193,7 +203,7 @@
     a {
       color: $light-blue;
       font-weight: 800;
-      transition: color .5s;
+      transition: color 0.5s;
 
       &:hover {
         color: $dark-blue;
@@ -235,7 +245,7 @@
     position: relative;
 
     &::before {
-      content: '';
+      content: "";
       width: 8px;
       height: 8px;
       border-radius: 50%;

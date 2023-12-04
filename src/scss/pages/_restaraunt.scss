@@ -300,6 +300,14 @@
   &__item {
     background-color: #fff;
   }
+  &__item-preview {
+    align-items: center;
+    justify-content: space-between;
+  }
+  &__item-logo {
+    max-width: 150px;
+    margin-left: 20px;
+  }
   &__item-main {
     width: 100%;
   }
@@ -325,7 +333,14 @@
     width: 32px;
     height: 184px;
     border-radius: 6px;
-    background-color: #003083;
+    background-color: #6681b8;
+    transition: bacground-color .3s;
+    &:hover {
+      background-color: $light-blue;
+    }
+    &.swiper-button-disabled {
+      opacity: .3;
+    }
   }
   // End main slider
   // Sub slider
@@ -402,6 +417,14 @@
     &__item {
       border-radius: 12px;
     }
+    &__item-preview {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+    &__item-logo {
+      margin-left: 0;
+      margin-top: 10px;
+    }
     &__item-mobile-header {
       display: flex;
       align-items: center;
@@ -445,6 +468,7 @@
     &__item-slider-nav {
       margin-top: 10px;
       background-color: unset;
+      height: 20px;
       .swiper-nav__btn {
         display: none;
       }
@@ -483,15 +507,25 @@
   }
   @include respond-to(small) {
     &__item-slider {
+      flex: 0 0 320px;
+      &.disabled {
+        flex: 0 0 300px;
+      }
       & > .swiper-wrapper {
         flex: 0 0 300px;
+        height: 300px;
       }
     }
   }
   @include respond-to(extra-small) {
     &__item-slider {
+      flex: 0 0 270px;
+      &.disabled {
+        flex: 0 0 250px;
+      }
       & > .swiper-wrapper {
         flex: 0 0 250px;
+        height: 250px;
       }
     }
   }
