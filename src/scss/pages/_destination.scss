@@ -1,41 +1,41 @@
 .alain-alsukhna .destination-intro {
-  background-image: url('../images/destinations/alain-alsukhna-intro.jpg');
+  background-image: url("../images/destinations/alain-alsukhna-intro.png");
 }
 .al-aqaba .destination-intro {
-  background-image: url('../images/destinations/AlAqaba-intro.jpg');
+  background-image: url("../images/destinations/AlAqaba-intro.png");
 }
 .jeddah .destination-intro {
-  background-image: url('../images/destinations/jeddah-intro.jpg');
+  background-image: url("../images/destinations/jeddah-intro.png");
 }
 .safaga .destination-intro {
-  background-image: url('../images/destinations/safaga-intro.jpg');
+  background-image: url("../images/destinations/safaga-intro.png");
 }
 .sharm-el-sheikh .destination-intro {
-  background-image: url('../images/destinations/sharm-el-sheikh-intro.jpg');
+  background-image: url("../images/destinations/sharm-el-sheikh-intro.png");
 }
 .dammam .destination-intro {
-  background-image: url('../images/destinations/dammam-intro.jpg');
+  background-image: url("../images/destinations/dammam-intro.png");
 }
 .dubai .destination-intro {
-  background-image: url('../images/destinations/dubai-intro.jpg');
+  background-image: url("../images/destinations/dubai-intro.png");
 }
 .khasab .destination-intro {
-  background-image: url('../images/destinations/khasab-intro.jpg');
+  background-image: url("../images/destinations/khasab-intro.png");
 }
 .muscat .destination-intro {
-  background-image: url('../images/destinations/muscat-intro.jpg');
+  background-image: url("../images/destinations/muscat-intro.png");
 }
 .salalah .destination-intro {
-  background-image: url('../images/destinations/salalah-intro.jpg');
+  background-image: url("../images/destinations/salalah-intro.png");
 }
 .sir-bani-yas .destination-intro {
-  background-image: url('../images/destinations/sir-bani-yas-intro.jpg');
+  background-image: url("../images/destinations/sir-bani-yas-intro.png");
 }
 /*** Intro ***/
 .destination-intro {
   background-color: $dark-blue;
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
@@ -48,6 +48,13 @@
   }
   @include respond-to(large) {
     padding: 70px 0;
+  }
+}
+html[dir="rtl"] {
+  .destination-intro {
+    &::before {
+      background: linear-gradient(to left, rgba(1, 47, 125, 0.8) 22.12%, rgba(0, 48, 131, 0) 69.44%);
+    }
   }
 }
 /*** End intro ***/
@@ -74,7 +81,7 @@
   }
   &--img-left &__text-wrapper {
     margin-left: unset;
-    margin-right:  calc(((100vw - 1660px) / 2) - 20px);
+    margin-right: calc(((100vw - 1660px) / 2) - 20px);
   }
   &--img-left &__img {
     border-radius: 0 0 600px 0;
@@ -145,6 +152,83 @@
       margin-top: 40px;
     }
   }
+  @include respond-to(medium) {
+    &__img {
+      min-height: unset;
+    }
+  }
+}
+html[dir="rtl"] {
+  .destination-content {
+    padding-left: 0;
+    padding-right: 20px;
+    &__img {
+      border-radius: 0 600px 0 0;
+    }
+    &__text-wrapper {
+      margin-left: 0;
+      margin-right: calc(((100vw - 1660px) / 2) - 20px);
+    }
+    &--img-left {
+      padding-right: 0;
+      padding-left: 20px;
+    }
+    &--img-left .destination-content__img {
+      border-radius: 0 0 0 600px;
+    }
+    &--img-left .destination-content__text-wrapper {
+      margin-right: 0;
+      margin-left: calc(((100vw - 1660px) / 2) - 20px);
+    }
+    @media screen and (max-width: 1700px) {
+      &__text-wrapper {
+        margin-left: 0;
+      }
+      &--img-left &__text-wrapper {
+        margin-right: 0;
+      }
+    }
+    @include respond-to(xxx-large) {
+      &__text-wrapper {
+        margin-right: calc(((100vw - 1320px) / 2) - 20px);
+      }
+      &--img-left .destination-content__text-wrapper {
+        margin-left: calc(((100vw - 1320px) / 2) - 20px);
+      }
+    }
+    @include respond-to(xx-large) {
+      &__text-wrapper {
+        margin-right: calc(((100vw - 1140px) / 2) - 20px);
+      }
+      &--img-left .destination-content__text-wrapper {
+        margin-left: calc(((100vw - 1140px) / 2) - 20px);
+      }
+    }
+    @include respond-to(x-large) {
+      padding-right: 15px;
+      &--img-left {
+        padding-left: 15px;
+      }
+      &__text-wrapper {
+        margin-right: calc(((100vw - 960px) / 2) - 15px);
+      }
+      &--img-left .destination-content__text-wrapper {
+        margin-left: calc(((100vw - 960px) / 2) - 15px);
+      }
+    }
+    @include respond-to(large) {
+      padding-right: 0;
+      &--img-left {
+        padding-left: 0;
+      }
+      &__text-wrapper {
+        margin-right: 0;
+      }
+      &--img-left .destination-content__text-wrapper {
+        margin-left: 0;
+      }
+    }
+  }
 }
 /*** End content ***/
 /*** Tips ***/
@@ -160,7 +244,7 @@
   &__card {
     flex: 0 1 720px;
     padding: 60px 40px;
-    background-color: #CCE9F7;
+    background-color: #cce9f7;
     &-header {
       align-items: center;
     }
@@ -212,12 +296,27 @@
     }
   }
 }
+html[dir="rtl"] {
+  .destination-tips {
+    &__items {
+      margin-right: unset;
+      margin-left: 40px;
+    }
+    &__card-title {
+      margin-left: unset;
+      margin-right: 20px;
+    }
+  }
+}
 /*** End tips ***/
 /*** Info ***/
 .destination-info {
-  background-image: url('../images/destinations/destination-info-bg.svg');
+  background-image: url("../images/destinations/destination-info-bg.svg");
   background-repeat: no-repeat;
   background-position: top right;
+  &__content {
+    max-width: 1050px;
+  }
   &__content-header {
     align-items: center;
   }
@@ -226,6 +325,16 @@
   }
   @include respond-to(small) {
     background-image: unset;
+  }
+}
+html[dir="rtl"] {
+  .destination-info {
+    background-image: url("../images/destinations/destination-info-bg-rtl.svg");
+    background-position: top left;
+    &__content-title {
+      margin-left: unset;
+      margin-right: 20px;
+    }
   }
 }
 /*** End info ***/
@@ -253,8 +362,10 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    transition: background-color .5s;
-    &:hover, &:focus, &:active {
+    transition: background-color 0.5s;
+    &:hover,
+    &:focus,
+    &:active {
       background-color: $dark-blue;
     }
   }
@@ -276,7 +387,7 @@
   .scrollbar-drag {
     background-color: $gallery-scrollbar;
     height: 100%;
-    transition: transform .3s;
+    transition: transform 0.3s;
   }
   /***** END SCROLLBAR SLIDER *****/
 
@@ -296,6 +407,7 @@
 
     img {
       width: 100%;
+      height: 100%;
       object-fit: cover;
     }
   }
@@ -311,7 +423,7 @@
   }
   .thumb-slide {
     width: calc((93% / 7) - 126px / 7) !important;
-    opacity: .2;
+    opacity: 0.2;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -327,7 +439,7 @@
   .thumb-slide__content {
     visibility: hidden;
     opacity: 0;
-    transition: all .5s;
+    transition: all 0.5s;
   }
   .thumb-slide.swiper-slide-active {
     width: calc(((93% / 7 + 5%) - 126px / 7)) !important;
@@ -345,7 +457,7 @@
   .thumb-slide.swiper-slide-next,
   .thumb-slide.swiper-slide-prev {
     width: calc(((93% / 7 + 1.5%) - 126px / 7)) !important;
-    opacity: .7;
+    opacity: 0.7;
 
     img {
       height: 150px;
@@ -364,6 +476,10 @@
     &-prev {
       left: 25px;
     }
+    &-slider {
+      height: 500px;
+      display: flex;
+    }
   }
 
   /***** 1400px *****/
@@ -377,6 +493,20 @@
     .thumb-slide.swiper-slide-next,
     .thumb-slide.swiper-slide-prev {
       width: calc(((93% / 5 + 1.5%) - 90px / 5)) !important;
+    }
+    &-slider {
+      height: 450px;
+    }
+    .thumb-slide.swiper-slide-active {
+      img {
+        height: 170px;
+      }
+    }
+    .thumb-slide.swiper-slide-next,
+    .thumb-slide.swiper-slide-prev {
+      img {
+        height: 140px;
+      }
     }
   }
 
@@ -407,7 +537,8 @@
     &-scrollbar {
       max-width: calc(100% - 140px);
     }
-    &-next, &-prev {
+    &-next,
+    &-prev {
       width: 30px;
       height: 30px;
       display: flex;
@@ -431,12 +562,18 @@
         height: 130px;
       }
     }
+    &-slider {
+      height: 300px;
+    }
   }
 
   /***** 600px *****/
   @include respond-to(small) {
     & + & {
       margin-top: 100px;
+    }
+    &-slider {
+      height: unset;
     }
     &-sliders {
       margin-top: 20px;
@@ -447,7 +584,7 @@
     &-slide__content {
       opacity: 0;
       visibility: hidden;
-      transition: all .5s;
+      transition: all 0.5s;
       display: block;
     }
     &-slide.swiper-slide-active {
@@ -459,7 +596,8 @@
     .thumb-slider {
       display: none;
     }
-    &-next, &-prev {
+    &-next,
+    &-prev {
       display: none;
     }
     &-slider .swiper,
@@ -472,6 +610,22 @@
     &-sliders__wrapper {
       padding: 30px 0;
       background-clip: unset;
+    }
+  }
+}
+html[dir="rtl"] {
+  .gallery {
+    &-next,
+    &-prev {
+      transform: rotate(180deg);
+    }
+    &-next {
+      right: unset;
+      left: 0;
+    }
+    &-prev {
+      left: unset;
+      right: 0;
     }
   }
 }

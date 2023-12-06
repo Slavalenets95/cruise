@@ -181,6 +181,30 @@
     }
   }
 }
+html[dir="rtl"] {
+  .suite {
+    &-card {
+      &__body-ic-wrapper {
+        margin-left: unset;
+        margin-right: 10px;
+      }
+      &__body-ic {
+        margin-right: unset;
+        margin-left: 10px;
+      }
+      &__body-content {
+        text-align: right;
+      }
+      &__body-link svg {
+        margin-left: unset;
+        margin-right: 8px;
+        transform: rotate(180deg);
+        position: relative;
+        top: 1.5px;
+      }
+    }
+  }
+}
 /*** End cards ***/
 
 /*** Popup ***/
