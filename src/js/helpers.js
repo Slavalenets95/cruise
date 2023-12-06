@@ -34,13 +34,14 @@ export class GraphQL {
     };
   }
 
-  query(queryObj) {
+  query(queryObj, headers) {
     const query = jsonToGraphQLQuery(this.#prepareQuery({ ...queryObj }));
 
     return fetch(this.#url, {
       method: "POST",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        ...headers,
       },
       body: JSON.stringify({ query })
     }).then((res) => res.json());
