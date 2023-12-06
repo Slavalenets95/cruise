@@ -123,6 +123,7 @@ class Sliders {
         slidesPerView: 'auto',
         touchRatio: 0.2,
         a11y: false,
+        slidesPerGroup: 1,
         pagination: {
           el: specialtyParent.querySelector('.swiper-nav__dots'),
           type: 'bullets',
@@ -131,6 +132,16 @@ class Sliders {
         navigation: {
           nextEl: specialtyParent.querySelector('.swiper-nav__btn.next'),
           prevEl: specialtyParent.querySelector('.swiper-nav__btn.prev'),
+        },
+        breakpoints: {
+          // when window width is >= 769px
+          769: {
+            slidesPerGroup: 2,
+          },
+          // when window width is >= 1201px
+          1400: {
+            slidesPerGroup: 3,
+          },  
         },
       })
     }
@@ -144,6 +155,7 @@ class Sliders {
         slidesPerView: 'auto',
         touchRatio: 0.2,
         a11y: false,
+        slidesPerGroup: 1,
         pagination: {
           el: barsParent.querySelector('.swiper-nav__dots'),
           type: 'bullets',
@@ -152,6 +164,16 @@ class Sliders {
         navigation: {
           nextEl: barsParent.querySelector('.swiper-nav__btn.next'),
           prevEl: barsParent.querySelector('.swiper-nav__btn.prev'),
+        },
+        breakpoints: {
+          // when window width is >= 769px
+          769: {
+            slidesPerGroup: 2,
+          },
+          // when window width is >= 1201px
+          1400: {
+            slidesPerGroup: 3,
+          },  
         },
       })
     }
