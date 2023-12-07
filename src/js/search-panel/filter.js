@@ -40,93 +40,47 @@ export class SearchPanelFilter {
 
   filterData() {
     const formData = this.getFormData();
-    const filtered = {
-      destinations: {},
-      ports: {},
-      dates: {}
-    };
-    let filteredDestinations = [...this.searchPanel.availableDestinations.keys()];
-    let filteredPorts = [...this.searchPanel.availablePorts.keys()];
-    let filteredDates = [...this.searchPanel.availableDates];
+    const filterData = {
+      destinations: new Set(),
+      ports: new Set(),
+      dates: new Set(),
+    }
 
     this.searchPanel.allVoyages.forEach(({ pkg }) => {
-      let month = getMonth(pkg.vacation.from) + 1;
-      month = month < 10 ? `0${month}` : month;
-      const date = `${getYear(pkg.vacation.from)}-${month}`;
-      const port = pkg.location.from.code;
-      // Destinations
-      pkg.destinations.forEach(destination => {
-        if (!filtered.destinations[destination.key]) {
-          filtered.destinations[destination.key] = {};
-          filtered.destinations[destination.key].ports = new Set();
-          filtered.destinations[destination.key].dates = new Set();
-        }
-        filtered.destinations[destination.key].ports.add(port);
-        filtered.destinations[destination.key].dates.add(date);
-      })
+      let date = new Date(pkg.vacation.from);
+      const month = getMonth(date) + 1 < 10 ? `0${getMonth(date) + 1}` : getMonth(date) + 1;
+      const year = getYear(date);
+      date = `${year}-${month}`;
 
-      // Ports
-      if (!filtered.ports[port]) {
-        filtered.ports[port] = {};
-        filtered.ports[port].destinations = new Set();
-        filtered.ports[port].dates = new Set();
-      }
-      pkg.destinations.forEach(destination => filtered.ports[port].destinations.add(destination.key));
-      filtered.ports[port].dates.add(date);
+      let correctDest = true;
+      let correctPort = true;
+      let correctDate = true;
 
-      // Dates
-      if (!filtered.dates[date]) {
-        filtered.dates[date] = {};
-        filtered.dates[date].destinations = new Set();
-        filtered.dates[date].ports = new Set();
+      if (formData.destinations.length) {
+        correctDest = pkg.destinations.some(destination => formData.destinations.includes(destination.key));
       }
-      pkg.destinations.forEach(destination => filtered.dates[date].destinations.add(destination.key));
-      filtered.dates[date].ports.add(port);
+      if (formData.ports.length) {
+        correctPort = formData.ports.includes(pkg.location.from.code);
+      }
+      if (formData.dates.length) {
+        correctDate = formData.dates.includes(date);
+      }
+
+      if (correctDest && correctPort) {
+        filterData.dates.add(date);
+      }
+      if (correctDate && correctPort) {
+        pkg.destinations.forEach(dest => filterData.destinations.add(dest.key));
+      }
+      if (correctDate && correctDest) {
+        filterData.ports.add(pkg.location.from.code);
+      }
     })
 
-    if (formData.destinations.length) {
-      Object.keys(filtered.ports).forEach(key => {
-        if (![...filtered.ports[key].destinations].some(destination => formData.destinations.includes(destination))) {
-          filteredPorts = filteredPorts.filter(port => port !== key);
-        }
-      })
-      Object.keys(filtered.dates).forEach(key => {
-        if (![...filtered.dates[key].destinations].some(destination => formData.destinations.includes(destination))) {
-          filteredDates = filteredDates.filter(date => date !== key);
-        }
-      })
-    }
-
-    if (formData.ports.length) {
-      Object.keys(filtered.destinations).forEach(key => {
-        if (![...filtered.destinations[key].ports].some(port => formData.ports.includes(port))) {
-          filteredDestinations = filteredDestinations.filter(destination => destination !== key);
-        }
-      })
-      Object.keys(filtered.dates).forEach(key => {
-        if (![...filtered.dates[key].ports].some(port => formData.ports.includes(port))) {
-          filteredDates = filteredDates.filter(date => date !== key);
-        }
-      })
-    }
-
-    if (formData.dates.length) {
-      Object.keys(filtered.destinations).forEach(key => {
-        if (![...filtered.destinations[key].dates].some(date => formData.dates.includes(date))) {
-          filteredDestinations = filteredDestinations.filter(destination => destination !== key);
-        }
-      })
-      Object.keys(filtered.ports).forEach(key => {
-        if (![...filtered.ports[key].dates].some(date => formData.dates.includes(date))) {
-          filteredPorts = filteredPorts.filter(port => port !== key);
-        }
-      })
-    }
-
     return {
-      destinations: filteredDestinations,
-      ports: filteredPorts,
-      dates: filteredDates
+      destinations: [...filterData.destinations],
+      ports: [...filterData.ports],
+      dates: [...filterData.dates]
     };
   }
 
