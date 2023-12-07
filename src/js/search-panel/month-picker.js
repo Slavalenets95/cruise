@@ -1,5 +1,11 @@
+import { isAr } from "../helpers";
 export class SearchPanelMonthPicker {
   searchFormNode = document.querySelector('.search-form');
+  isAr = false;
+  
+  constructor() {
+    this.isAr = isAr();
+  }
 
   init(correctDates) {
     const searchMonthPicker = document.querySelector('.search-form__dates');
@@ -58,10 +64,18 @@ export class SearchPanelMonthPicker {
           const selectedCount = this.searchFormNode.querySelectorAll('[data-date][data-active]').length;
           switch(selectedCount) {
             case 0 :
-              selectedText.textContent = 'Any Date';
+              if(this.isAr) {
+                selectedText.textContent = 'جميع التواريخ';
+              } else {
+                selectedText.textContent = 'Any Date';
+              }
               break;
             default :
-              selectedText.textContent = `Select: ${selectedCount}`;
+              if(this.isAr) {
+                selectedText.textContent = `اختر: ${selectedCount}`;
+              } else {
+                selectedText.textContent = `Select: ${selectedCount}`;
+              }
               break;
           }
           this.setClearAllBtn();

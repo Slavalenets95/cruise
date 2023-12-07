@@ -564,5 +564,28 @@ html[dir="rtl"] {
       font-weight: 700;
       width: unset;
     }
+    @include respond-to(large) {
+      &__item:not(:last-child) {
+        margin-left: 0;
+      }
+      .search-form__item:nth-child(odd) .search-form__item-body {
+        left: unset;
+        right: 0;
+      }
+      .search-form__item:nth-child(even) .search-form__item-body {
+        right: unset;
+        left: 0;
+      }
+    }
+    @include respond-to(medium) {
+      .search-form__item[data-drop-active] .search-form__item-body {
+        left: 15px;
+        right: unset;
+      }
+      &__item-body-close {
+        margin-left: unset;
+        margin-right: 20px;
+      }
+    }
   }
 }

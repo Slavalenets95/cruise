@@ -47,3 +47,5 @@ export class GraphQL {
     }).then((res) => res.json());
   }
 }
+
+export const isAr = () => document.querySelector('html').getAttribute('lang') === 'ar';
