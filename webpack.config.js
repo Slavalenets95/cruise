@@ -195,6 +195,11 @@ module.exports = (env) => {
         filename: "restaraunts.html",
         template: path.resolve(__dirname, './src/pages/en/restaraunt.html'),
       }),
+      // AR
+      new HtmlWebpackPlugin({
+        filename: "restaraunts-ar.html",
+        template: path.resolve(__dirname, './src/pages/ar/restaraunt.html'),
+      }),
       // EN
       new HtmlWebpackPlugin({
         filename: "alain-alsukhna.html",
