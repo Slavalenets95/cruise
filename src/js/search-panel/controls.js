@@ -1,4 +1,8 @@
+import { isAr } from "../helpers";
+
 export class SearchPanelControls {
+  isAr = false;
+
   init() {
     this.checkboxClearBtnInit();
     this.clearDateBtnInit();
@@ -11,6 +15,7 @@ export class SearchPanelControls {
   }
 
   constructor(searchFormNode) {
+    this.isAr = isAr();
     this.searchFormNode = searchFormNode;
   }
 
@@ -25,7 +30,11 @@ export class SearchPanelControls {
             const dateItems = parentWrapper.querySelectorAll('[data-date]');
             dateItems.forEach(item => item.removeAttribute('data-active'));
           }
-          selectedDatesText.textContent = 'Any Date';
+          if (this.isAr) {
+            selectedDatesText.textContent = 'جميع التواريخ';
+          } else {
+            selectedDatesText.textContent = 'Any Date';
+          }
           this.setClearAllBtn();
         })
       })
@@ -45,7 +54,11 @@ export class SearchPanelControls {
         adults.value = 1;
         children.value = 0;
         infants.value = 0;
-        selectedGuestsText.textContent = '1 Person';
+        if (this.isAr) {
+          selectedGuestsText.textContent = '1 شخص';
+        } else {
+          selectedGuestsText.textContent = '1 Person';
+        }
         minusCounterBtns.forEach(btn => btn.setAttribute('disabled', ''));
         this.setClearAllBtn();
       })
@@ -150,10 +163,14 @@ export class SearchPanelControls {
             guestCounterItems.forEach(item => item.querySelector('[data-counter-plus]').setAttribute('disabled', ''));
           }
 
-          if (this.getSumCounterValues() === 1) {
-            selectedText.textContent = `${this.getSumCounterValues()} Person`;
+          if (this.isAr) {
+            selectedText.textContent = `${this.getSumCounterValues()} شخص`;
           } else {
-            selectedText.textContent = `${this.getSumCounterValues()} Persons`;
+            if (this.getSumCounterValues() === 1) {
+              selectedText.textContent = `${this.getSumCounterValues()} Person`;
+            } else {
+              selectedText.textContent = `${this.getSumCounterValues()} Persons`;
+            }
           }
           this.setClearAllBtn();
         })
@@ -184,10 +201,14 @@ export class SearchPanelControls {
               }
             })
           }
-          if (this.getSumCounterValues() === 1) {
-            selectedText.textContent = `${this.getSumCounterValues()} Person`;
+          if (this.isAr) {
+            selectedText.textContent = `${this.getSumCounterValues()} شخص`;
           } else {
-            selectedText.textContent = `${this.getSumCounterValues()} Persons`;
+            if (this.getSumCounterValues() === 1) {
+              selectedText.textContent = `${this.getSumCounterValues()} Person`;
+            } else {
+              selectedText.textContent = `${this.getSumCounterValues()} Persons`;
+            }
           }
           this.setClearAllBtn();
         })
@@ -210,10 +231,18 @@ export class SearchPanelControls {
               selectedText.textContent = text;
               break;
             case 0:
-              selectedText.textContent = 'Anywhere';
+              if (this.isAr) {
+                selectedText.textContent = 'جميع الأماكن';
+              } else {
+                selectedText.textContent = 'Anywhere';
+              }
               break;
             default:
-              selectedText.textContent = `Select: ${checkedItems.length}`;
+              if (this.isAr) {
+                selectedText.textContent = `اختر: ${checkedItems.length}`;
+              } else {
+                selectedText.textContent = `Select: ${checkedItems.length}`;
+              }
               break;
           }
           this.setClearAllBtn();
@@ -251,8 +280,13 @@ export class SearchPanelControls {
       adults.value = 1;
       children.value = 0;
       infants.value = 0;
-      selectedDatesText.textContent = 'Any Date';
-      selectedGuestsText.textContent = '1 Person';
+      if (this.isAr) {
+        selectedDatesText.textContent = 'جميع التواريخ';
+        selectedGuestsText.textContent = '1 شخص';
+      } else {
+        selectedDatesText.textContent = 'Any Date';
+        selectedGuestsText.textContent = '1 Person';
+      }
       minusCounterBtns.forEach(btn => btn.setAttribute('disabled', ''));
       this.searchFormNode.dispatchEvent(new CustomEvent('close-search-dropdown'));
       clearAll.setAttribute('disabled', '');
