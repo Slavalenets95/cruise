@@ -66,6 +66,11 @@
     pointer-events: all;
   }
 
+  &__checkbox-items,
+  &__checkbox-items &__clear,
+  &__item-guests &__clear {
+    margin-top: 30px;
+  }
   // Wrapper
   &__item {
     &:not(:last-child) {
@@ -168,6 +173,10 @@
   }
   &__dates-item {
     flex-wrap: wrap;
+    max-width: 256px;
+  }
+  &__dates-body {
+    justify-content: space-between;
   }
   &__dates-item-title {
     margin-bottom: 6px;
@@ -215,6 +224,8 @@
     border-radius: 6px;
     color: $white;
     background-color: $dark-blue;
+    display: flex;
+    align-items: center;
   }
 
   // Guests
@@ -225,6 +236,9 @@
     justify-content: space-between;
     &:not(:first-child) {
       margin-top: 10px;
+    }
+    strong {
+      font-weight: 600;
     }
   }
   &__guest-control {
@@ -273,6 +287,10 @@
     &[disabled] {
       color: #98AACE;
     }
+  }
+
+  input {
+    font-family: inherit;
   }
 
   @include respond-to(x-large) {
@@ -349,7 +367,7 @@
         justify-content: center;
         align-items: center;
         text-align: center;
-        padding: 4px 10px;
+        padding: 10px;
         width: 100%;
         background-color: $dark-blue;
         color: #fff;
@@ -357,10 +375,14 @@
         font-size: 16px;
         font-weight: 600;
         line-height: 1.5;
+        border-radius: 6px;
       }
     }
     &__item[data-drop-active]::after {
       display: block;
+    }
+    &__checkbox-items {
+      margin-top: 20px;
     }
     &__dates-body {
       flex-direction: column;
@@ -384,6 +406,9 @@
     &__date {
       flex: 0 1 320px;
     }
+    &__dates-item {
+      max-width: unset;
+    }
     &__dates-item:nth-child(n + 2) {
       margin-top: 20px;
     }
@@ -394,16 +419,27 @@
       width: 100%;
       min-width: unset;
     }
+    &__guest-btn {
+      width: 32px;
+      height: 32px;
+    }
+    &__guest {
+      align-items: center;
+    }
+    &__guest:not(:first-child) {
+      margin-top: 20px;
+    }
   }
 
   @media screen and (max-width: 650px) {
     &__items {
       padding: 10px;
       & > .tab {
-        row-gap: 10px;
+        gap: 10px;
       }
     }
     &__item {
+      flex: 0 1 calc(50% - 5px);
       &:first-child,
       &:nth-child(2) {
         flex: 0 1 100%;
@@ -499,4 +535,34 @@ input[type="checkbox"] + .checkbox-after {
 }
 input[type="checkbox"]:checked + .checkbox-after {
   background-image: url("../images/checkbox--active.svg");
+}
+
+html[dir="rtl"] {
+  .search-form {
+    &__item:not(:last-child) {
+      margin-right: unset;
+      margin-left: 24px;
+    }
+    &__item-search::after {
+      right: unset;
+      left: 14px;
+    }
+    &__label {
+      flex-direction: row-reverse;
+    }
+    &__date-item {
+      margin-right: unset;
+      margin-left: 12px;
+      &:nth-child(4n) {
+        margin-left: 0;
+      }
+    }
+    &__guest-control {
+      flex-direction: row-reverse;
+    }
+    &__control {
+      font-weight: 700;
+      width: unset;
+    }
+  }
 }
