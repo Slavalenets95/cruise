@@ -7,6 +7,7 @@ export class SearchPanelControls {
     this.checkboxChangeInit();
     this.clearAllInit();
     this.dateOkBtnInit();
+    this.clearGuestBtnInit();
   }
 
   constructor(searchFormNode) {
@@ -31,9 +32,29 @@ export class SearchPanelControls {
     }
   }
 
+  clearGuestBtnInit() {
+    const clearGuestButton = document.querySelector('[data-clear-guest]');
+    if (clearGuestButton) {
+      const adults = this.searchFormNode.querySelector('input[name="adult"]');
+      const children = this.searchFormNode.querySelector('input[name="children"]');
+      const infants = this.searchFormNode.querySelector('input[name="infants"]');
+      const selectedGuestsText = this.searchFormNode.querySelector('.search-form__item-guests [data-selected-text]');
+      const minusCounterBtns = this.searchFormNode.querySelectorAll('[data-counter-minus]');
+
+      clearGuestButton.addEventListener('click', () => {
+        adults.value = 1;
+        children.value = 0;
+        infants.value = 0;
+        selectedGuestsText.textContent = '1 Person';
+        minusCounterBtns.forEach(btn => btn.setAttribute('disabled', ''));
+        this.setClearAllBtn();
+      })
+    }
+  }
+
   dateOkBtnInit() {
     const btn = this.searchFormNode.querySelector('.search-form__dates-ok');
-    if(btn) {
+    if (btn) {
       btn.addEventListener('click', (evt) => {
         evt.target.closest('[data-drop-active]').removeAttribute('data-drop-active');
         this.searchFormNode.dispatchEvent(new CustomEvent('close-search-dropdown'));
@@ -129,7 +150,7 @@ export class SearchPanelControls {
             guestCounterItems.forEach(item => item.querySelector('[data-counter-plus]').setAttribute('disabled', ''));
           }
 
-          if(this.getSumCounterValues() === 1) {
+          if (this.getSumCounterValues() === 1) {
             selectedText.textContent = `${this.getSumCounterValues()} Person`;
           } else {
             selectedText.textContent = `${this.getSumCounterValues()} Persons`;
@@ -158,12 +179,12 @@ export class SearchPanelControls {
               const counter = item.querySelector('[data-counter]');
               const plusBtn = item.querySelector('[data-counter-plus');
 
-              if(counter.value < maxSoloValue) {
+              if (counter.value < maxSoloValue) {
                 plusBtn.removeAttribute('disabled');
               }
             })
           }
-          if(this.getSumCounterValues() === 1) {
+          if (this.getSumCounterValues() === 1) {
             selectedText.textContent = `${this.getSumCounterValues()} Person`;
           } else {
             selectedText.textContent = `${this.getSumCounterValues()} Persons`;
@@ -176,22 +197,22 @@ export class SearchPanelControls {
 
   checkboxChangeInit() {
     const checkboxes = this.searchFormNode.querySelectorAll('input[type="checkbox"]');
-    if(checkboxes.length) {
+    if (checkboxes.length) {
       checkboxes.forEach(checkbox => {
         checkbox.addEventListener('change', (evt) => {
           const parent = evt.target.closest('.search-form__item');
           const selectedText = parent.querySelector('[data-selected-text]');
           const checkedItems = parent.querySelectorAll('input[type="checkbox"]:checked');
 
-          switch(checkedItems.length) {
-            case 1 :
+          switch (checkedItems.length) {
+            case 1:
               const text = parent.querySelector('input[type="checkbox"]:checked').closest('label').querySelector('[data-checkbox-text]').textContent;
               selectedText.textContent = text;
               break;
-            case 0 :
+            case 0:
               selectedText.textContent = 'Anywhere';
               break;
-            default :
+            default:
               selectedText.textContent = `Select: ${checkedItems.length}`;
               break;
           }
@@ -204,7 +225,7 @@ export class SearchPanelControls {
   clearAllInit() {
     const clearAll = this.searchFormNode.querySelector('.search-form__clear-all');
 
-    if(!clearAll) return;
+    if (!clearAll) return;
 
     clearAll.addEventListener('click', () => {
       const checkboxes = this.searchFormNode.querySelectorAll('input[type="checkbox"]:checked');
@@ -216,14 +237,14 @@ export class SearchPanelControls {
       const selectedGuestsText = this.searchFormNode.querySelector('.search-form__item-guests [data-selected-text]');
       const minusCounterBtns = this.searchFormNode.querySelectorAll('[data-counter-minus]');
 
-      if(checkboxes.length) {
+      if (checkboxes.length) {
         checkboxes.forEach(checkbox => {
           checkbox.checked = false;
           checkbox.dispatchEvent(new Event('change'));
         });
       }
 
-      if(activeDates.length) {
+      if (activeDates.length) {
         activeDates.forEach(date => date.removeAttribute('data-active'));
       }
 
@@ -251,9 +272,9 @@ export class SearchPanelControls {
   setClearAllBtn() {
     const clearAll = this.searchFormNode.querySelector('.search-form__clear-all');
 
-    if(!clearAll) return;
+    if (!clearAll) return;
 
-    if(this.isFormEmpty()) {
+    if (this.isFormEmpty()) {
       clearAll.setAttribute('disabled', '');
     } else {
       clearAll.removeAttribute('disabled');
