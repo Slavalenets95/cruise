@@ -58,8 +58,14 @@ class SearchPanel {
     const toDate = endOfYear(addYears(currentDate, searchYearPeriod));
 
     return this.#seawareApiClient
-      .getAvailableVoyages(currentDate, toDate)
+      .getAvailableVoyages(currentDate, toDate, this.#determineLanguage())
       .then(({ availableVoyages }) => availableVoyages);
+  }
+
+  #determineLanguage() {
+    return window.location.href
+      .split(/[-\/]/)
+      .includes('ar') ? 'ar' : 'en';
   }
 
   #setAvailabilities() {
@@ -135,14 +141,15 @@ class SearchPanel {
     const toDateString = dates[dates.length - 1];
     const toDate = toDateString && new Date(toDateString);
 
-    const redirectUrlBuilder = new SeawareSearchUrlBuilder()
+    const redirectUrl = new SeawareSearchUrlBuilder()
       .withDestinations(destinations)
       .withPorts(ports)
       .withDates(fromDate, toDate)
       .withGuest(guests)
+      .withLanguage(this.#determineLanguage())
       .build();
 
-    window.open(redirectUrlBuilder);
+    window.open(redirectUrl);
   };
 }
 

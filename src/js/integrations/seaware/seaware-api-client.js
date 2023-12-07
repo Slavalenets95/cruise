@@ -4,7 +4,7 @@ import { GraphQL } from '../../helpers';
 export class SeawareApiClient {
   // Make from env
   static #seawareUrl = "https://uat.booking.aroya.com:3000/graphql";
-
+  
   #graphQLClient = new GraphQL(SeawareApiClient.#seawareUrl);
 
   /**
@@ -12,6 +12,7 @@ export class SeawareApiClient {
    *
    * @param {Date} fromDate
    * @param {Date} toDate
+   * @param {'en' | 'ar'} language content language
    * @returns {Promise<{
    *    availableVoyages: {
    *      pkg: {
@@ -25,7 +26,7 @@ export class SeawareApiClient {
    *      },
    *    }[]}>}
    */
-  getAvailableVoyages(fromDate, toDate) {
+  getAvailableVoyages(fromDate, toDate, language) {
     const queryObj = {
       queryName: "availableVoyages",
       params: {
@@ -58,12 +59,13 @@ export class SeawareApiClient {
       }
     };
 
-    return this.#graphQLClient.query(queryObj)
+    return this.#graphQLClient.query(queryObj, {
+      'Accept-Language': language,
+    })
       .then((res) => res.data)
       .then((res) => {
         res.availableVoyages
           .forEach(({ pkg }) => pkg.vacation.from = new Date(pkg.vacation.from));
-
         return res;
       });
   }

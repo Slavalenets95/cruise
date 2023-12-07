@@ -5,37 +5,38 @@ export class SeawareSearchUrlBuilder {
   
   /**
    * @type {{
-   *  dateFromVal?: { local: string },
-   *  dateToVal?: { local: string },
-   *  destinationsVal?: string[],
-   *  portsFromVal?: string[],
-   *  resParams: {
-   *    customerCounts: {
-   *      adults: number,
-   *      seniors: number,
-   *      children: number,
-   *      infants: number,
-   *      juniors: number,
-   *      youths: number,
-   *    },
+   *  dateFrom?: string,
+   *  dateTo?: string,
+   *  destination?: string[],
+   *  portFrom?: string,
+   *  guests: {
+   *    adults: number,
+   *    seniors: number,
+   *    children: number,
+   *    infants: number,
+   *    juniors: number,
+   *    youths: number,
    *  },
    * }}
    */
   #query = { resParams: {} };
 
+  #language = 'en';
+
   /**
    * @param {string[]} destinationIds
    */
   withDestinations(destinationIds) {
-    (this.#query.destinationsVal = destinationIds);
+    destinationIds.length && (this.#query.destination = destinationIds.join(','));
     return this;
   }
 
   /**
-   * @param {string[]} portIds
+   * @param {string} portIds
    */
   withPorts(portIds) {
-    portIds.length && (this.#query.portsFromVal = portIds);
+    // Current API only accept one value of portFrom
+    portIds.length && (this.#query.portFrom = portIds[0]);
     return this;
   }
 
@@ -48,8 +49,8 @@ export class SeawareSearchUrlBuilder {
       return this;
     }
 
-    this.#query.dateFromVal = { local: startOfMonth(from).toISOString() };
-    this.#query.dateToVal = { local: endOfMonth(to).toISOString() };
+    this.#query.dateFrom = startOfMonth(from).toISOString();
+    this.#query.dateTo = endOfMonth(to).toISOString();
     return this;
   }
 
@@ -61,14 +62,28 @@ export class SeawareSearchUrlBuilder {
    * }} guests
    */
   withGuest(guests) {
-    this.#query.resParams.customerCounts = {
+    this.#query.guests = {
       ...guests,
     };
     return this;
   }
 
+  withLanguage(language) {
+    this.#language = language;
+    return this;
+  }
+
   build() {
-    const queryPayload = encodeURI(JSON.stringify(this.#query));
-    return `${this.#baseUrl}/?searchVoyages=${queryPayload}`;
+    const { guests, ...params } = this.#query;
+    const query = {
+      locale: this.#language,
+      runSearch: true,
+      ...params,
+      ...guests,
+    };
+
+    const queryPayload = encodeURI(JSON.stringify(query));
+
+    return `${this.#baseUrl}/?inJsonGet=${queryPayload}`;
   };
 }
