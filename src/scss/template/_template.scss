@@ -584,6 +584,14 @@ img {
     }
   }
 }
+html[dir="rtl"] {
+  .popup__switcher {
+    &-list-btn::after {
+      right: unset;
+      left: 10px;
+    }
+  }
+}
 /*** End popup slide switcher ***/
 /***** PATTERN *****/
 .pattern-image-wrapper {
