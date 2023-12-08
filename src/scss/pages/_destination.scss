@@ -311,9 +311,9 @@ html[dir="rtl"] {
 /*** End tips ***/
 /*** Info ***/
 .destination-info {
-  background-image: url("../images/destinations/destination-info-bg.svg");
-  background-repeat: no-repeat;
-  background-position: top right;
+  // background-image: url("../images/destinations/destination-info-bg.svg");
+  // background-repeat: no-repeat;
+  // background-position: top right;
   &__content {
     max-width: 1050px;
   }
@@ -323,14 +323,11 @@ html[dir="rtl"] {
   &__content-title {
     margin-left: 20px;
   }
-  @include respond-to(small) {
-    background-image: unset;
-  }
 }
 html[dir="rtl"] {
   .destination-info {
-    background-image: url("../images/destinations/destination-info-bg-rtl.svg");
-    background-position: top left;
+    // background-image: url("../images/destinations/destination-info-bg-rtl.svg");
+    // background-position: top left;
     &__content-title {
       margin-left: unset;
       margin-right: 20px;
@@ -626,6 +623,14 @@ html[dir="rtl"] {
     &-prev {
       left: unset;
       right: 0;
+    }
+    @include respond-to(xxx-large) {
+      &-prev {
+        right: 25px;
+      }
+      &-next {
+        left: 25px;
+      }
     }
   }
 }
