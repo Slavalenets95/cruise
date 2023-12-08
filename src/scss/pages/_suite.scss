@@ -68,12 +68,21 @@
 }
 html[dir="rtl"]  {
   .suite-content {
+    &__img-wrapper img {
+      border-radius: 0 0 0 800px;
+    }
     @include respond-to(xx-large) {
+      &__img-wrapper img {
+        min-height: 350px;
+      }
       &__text {
         max-width: 550px;
       }
     }
     @include respond-to(x-large) {
+      &__img-wrapper img {
+        min-height: unset;
+      }
       &__text {
         max-width: unset;
       }
