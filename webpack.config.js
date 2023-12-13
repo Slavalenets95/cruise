@@ -5,9 +5,85 @@ const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const fs = require('fs');
+const templates = {
+  footerEn: fs.readFileSync('./src/htmlParts/footerEn.html', { encoding: 'utf-8' }),
+  footerAr: fs.readFileSync('./src/htmlParts/footerAr.html', { encoding: 'utf-8' })
+}
+const pagesEn = fs.readdirSync('./src/pages/en/').map(name => {
+  let nameWithoutExt = path.parse(name).name;
+  if (nameWithoutExt.includes('destination-')) {
+    nameWithoutExt = nameWithoutExt.replace('destination-', '');
+  }
+  let header = fs.readFileSync('./src/htmlParts/headerEn.html', { encoding: 'utf-8' });
+  header = header.replace(
+    '<a href="/index-ar" class="header-top__language-control" type="button">',
+    `<a href="/${nameWithoutExt}-ar" class="header-top__language-control" type="button">`
+  );
+  header = header.replace(
+    '<a class="header-language__menu-link" href="/index-ar">AR</a>',
+    `<a class="header-language__menu-link" href="/${nameWithoutExt}-ar">AR</a>`
+  );
+  header = header.replace(
+    '<a class="header-language__menu-link" href="/">English</a>',
+    `<a class="header-language__menu-link" href="/${nameWithoutExt}">English</a>`
+  );
+  const result = {
+    fileName: '',
+    template: '',
+    templateParameters: {
+      headerEn: header,
+    }
+  };
+  if (name.includes('destination-')) {
+    result.fileName = name.replace('destination-', '');
+  } else {
+    result.fileName = name;
+  }
+  result.template = path.resolve(__dirname, './src/pages/en/' + name);
+
+  return result;
+});
+const pagesAr = fs.readdirSync('./src/pages/ar/').map(name => {
+  let nameWithoutExt = path.parse(name).name;
+  if (nameWithoutExt.includes('destination-')) {
+    nameWithoutExt = nameWithoutExt.replace('destination-', '');
+  }
+  let header = fs.readFileSync('./src/htmlParts/headerAr.html', { encoding: 'utf-8' });
+  header = header.replace(
+    '<a href="/" class="header-top__language-control" type="button">',
+    `<a href="/${nameWithoutExt}" class="header-top__language-control" type="button">`
+  );
+  header = header.replace(
+    '<a class="header-language__menu-link" href="/index-ar">AR</a>',
+    `<a class="header-language__menu-link" href="/${nameWithoutExt}-ar">AR</a>`
+  );
+  header = header.replace(
+    '<a class="header-language__menu-link" href="/">English</a>',
+    `<a class="header-language__menu-link" href="/${nameWithoutExt}">English</a>`
+  );
+  const result = {
+    fileName: null,
+    template: null,
+    templateParameters: {
+      headerAr: header,
+    }
+  };
+  if (name.includes('destination-')) {
+    result.fileName = name.replace('destination-', '');
+  } else {
+    result.fileName = name;
+  }
+  result.fileName = result.fileName.split('.');
+  result.fileName = result.fileName[0] + '-ar.html';
+  result.template = path.resolve(__dirname, './src/pages/ar/' + name);
+
+  return result;
+});
 
 module.exports = (env) => {
   const isDev = env.development ? env.development : false;
+
   return {
     entry: {
       main: path.resolve(__dirname, './src/index.js'),
@@ -67,9 +143,9 @@ module.exports = (env) => {
           use: [{
             loader: 'babel-loader',
             options: {
-              presets: [ '@babel/preset-env'],
+              presets: ['@babel/preset-env'],
               plugins: ["transform-class-properties"]
-          }
+            }
           }],
         }
       ]
@@ -95,222 +171,30 @@ module.exports = (env) => {
         filename: '[name][hash].css',
         chunkFilename: './[name]-chunk.css',
       }),
-      // EN
-      new HtmlWebpackPlugin({
-        filename: "index.html",
-        template: path.resolve(__dirname, './src/pages/en/index.html'),
+      ...pagesEn.map(page => {
+        return new HtmlWebpackPlugin({
+          filename: page.fileName,
+          template: page.template,
+          templateParameters: {
+            templates: {
+              ...page.templateParameters,
+              footerEn: templates.footerEn
+            }
+          }
+        })
       }),
-      // AR
-      new HtmlWebpackPlugin({
-        filename: "index-ar.html",
-        template: path.resolve(__dirname, './src/pages/ar/index.html'),
+      ...pagesAr.map(page => {
+        return new HtmlWebpackPlugin({
+          filename: page.fileName,
+          template: page.template,
+          templateParameters: {
+            templates: {
+              ...page.templateParameters,
+              footerAr: templates.footerAr
+            }
+          }
+        })
       }),
-      // EN
-      new HtmlWebpackPlugin({
-        filename: "all-regions.html",
-        template: path.resolve(__dirname, './src/pages/en/all-regions.html'),
-      }),
-      // AR
-      new HtmlWebpackPlugin({
-        filename: "all-regions-ar.html",
-        template: path.resolve(__dirname, './src/pages/ar/all-regions.html'),
-      }),
-      // EN
-      new HtmlWebpackPlugin({
-        filename: "about-us-page.html",
-        template: path.resolve(__dirname, './src/pages/en/about-us-page.html'),
-      }),
-      // AR
-      new HtmlWebpackPlugin({
-        filename: "about-us-page-ar.html",
-        template: path.resolve(__dirname, './src/pages/ar/about-us-page.html'),
-      }),
-      // EN
-      new HtmlWebpackPlugin({
-        filename: "contact-us.html",
-        template: path.resolve(__dirname, './src/pages/en/contact-us.html'),
-      }),
-      // AR
-      new HtmlWebpackPlugin({
-        filename: "contact-us-ar.html",
-        template: path.resolve(__dirname, './src/pages/ar/contact-us.html'),
-      }),
-      // EN
-      new HtmlWebpackPlugin({
-        filename: "faq-page.html",
-        template: path.resolve(__dirname, './src/pages/en/faq-page.html'),
-      }),
-      // AR
-      new HtmlWebpackPlugin({
-        filename: "faq-page-ar.html",
-        template: path.resolve(__dirname, './src/pages/ar/faq-page.html'),
-      }),
-      // EN
-      new HtmlWebpackPlugin({
-        filename: "cabins.html",
-        template: path.resolve(__dirname, './src/pages/en/cabins.html'),
-      }),
-      // AR
-      new HtmlWebpackPlugin({
-        filename: "cabins-ar.html",
-        template: path.resolve(__dirname, './src/pages/ar/cabins.html'),
-      }),
-      // EN
-      new HtmlWebpackPlugin({
-        filename: "cruise-101.html",
-        template: path.resolve(__dirname, './src/pages/en/cruise-101.html'),
-      }),
-      // AR
-      new HtmlWebpackPlugin({
-        filename: "cruise-101-ar.html",
-        template: path.resolve(__dirname, './src/pages/ar/cruise-101.html'),
-      }),
-      // EN
-      new HtmlWebpackPlugin({
-        filename: "aroya-ships.html",
-        template: path.resolve(__dirname, './src/pages/en/aroya-ships.html'),
-      }),
-      // AR
-      new HtmlWebpackPlugin({
-        filename: "aroya-ships-ar.html",
-        template: path.resolve(__dirname, './src/pages/ar/aroya-ships.html'),
-      }),
-      // EN
-      new HtmlWebpackPlugin({
-        filename: "404.html",
-        template: path.resolve(__dirname, './src/pages/en/404.html'),
-      }),
-      // EN
-      new HtmlWebpackPlugin({
-        filename: "suite.html",
-        template: path.resolve(__dirname, './src/pages/en/suite.html'),
-      }),
-      // AR
-      new HtmlWebpackPlugin({
-        filename: "suite-ar.html",
-        template: path.resolve(__dirname, './src/pages/ar/suite.html'),
-      }),
-      // EN
-      new HtmlWebpackPlugin({
-        filename: "restaraunts.html",
-        template: path.resolve(__dirname, './src/pages/en/restaraunt.html'),
-      }),
-      // AR
-      new HtmlWebpackPlugin({
-        filename: "restaraunts-ar.html",
-        template: path.resolve(__dirname, './src/pages/ar/restaraunt.html'),
-      }),
-      // EN
-      new HtmlWebpackPlugin({
-        filename: "alain-alsukhna.html",
-        template: path.resolve(__dirname, './src/pages/en/destination-alain-alsukhna.html'),
-      }),
-      // AR
-      new HtmlWebpackPlugin({
-        filename: "alain-alsukhna-ar.html",
-        template: path.resolve(__dirname, './src/pages/ar/destination-alain-alsukhna.html'),
-      }),
-      // EN
-      new HtmlWebpackPlugin({
-        filename: "al-aqaba.html",
-        template: path.resolve(__dirname, './src/pages/en/destination-aqaba.html'),
-      }),
-      // AR
-      new HtmlWebpackPlugin({
-        filename: "al-aqaba-ar.html",
-        template: path.resolve(__dirname, './src/pages/ar/destination-aqaba.html'),
-      }),
-      // EN
-      new HtmlWebpackPlugin({
-        filename: "jeddah.html",
-        template: path.resolve(__dirname, './src/pages/en/destination-jeddah.html'),
-      }),
-      // AR
-      new HtmlWebpackPlugin({
-        filename: "jeddah-ar.html",
-        template: path.resolve(__dirname, './src/pages/ar/destination-jeddah.html'),
-      }),
-      // EN
-      new HtmlWebpackPlugin({
-        filename: "safaga.html",
-        template: path.resolve(__dirname, './src/pages/en/destination-safaga.html'),
-      }),
-      // AR
-      new HtmlWebpackPlugin({
-        filename: "safaga-ar.html",
-        template: path.resolve(__dirname, './src/pages/ar/destination-safaga.html'),
-      }),
-      // EN
-      new HtmlWebpackPlugin({
-        filename: "sharm-el-sheikh.html",
-        template: path.resolve(__dirname, './src/pages/en/destination-sharm-el-sheikh.html'),
-      }),
-      // AR
-      new HtmlWebpackPlugin({
-        filename: "sharm-el-sheikh-ar.html",
-        template: path.resolve(__dirname, './src/pages/ar/destination-sharm-el-sheikh.html'),
-      }),
-      // EN
-      new HtmlWebpackPlugin({
-        filename: "dammam.html",
-        template: path.resolve(__dirname, './src/pages/en/destination-dammam.html'),
-      }),
-      // AR
-      new HtmlWebpackPlugin({
-        filename: "dammam-ar.html",
-        template: path.resolve(__dirname, './src/pages/ar/destination-dammam.html'),
-      }),
-      // EN
-      new HtmlWebpackPlugin({
-        filename: "dubai.html",
-        template: path.resolve(__dirname, './src/pages/en/destination-dubai.html'),
-      }),
-      // AR
-      new HtmlWebpackPlugin({
-        filename: "dubai-ar.html",
-        template: path.resolve(__dirname, './src/pages/ar/destination-dubai.html'),
-      }),
-      // EN
-      new HtmlWebpackPlugin({
-        filename: "khasab.html",
-        template: path.resolve(__dirname, './src/pages/en/destination-khasab.html'),
-      }),
-      // AR
-      new HtmlWebpackPlugin({
-        filename: "khasab-ar.html",
-        template: path.resolve(__dirname, './src/pages/ar/destination-khasab.html'),
-      }),
-      // EN
-      new HtmlWebpackPlugin({
-        filename: "muscat.html",
-        template: path.resolve(__dirname, './src/pages/en/destination-muscat.html'),
-      }),
-      // AR
-      new HtmlWebpackPlugin({
-        filename: "muscat-ar.html",
-        template: path.resolve(__dirname, './src/pages/ar/destination-muscat.html'),
-      }),
-      // EN
-      new HtmlWebpackPlugin({
-        filename: "salalah.html",
-        template: path.resolve(__dirname, './src/pages/en/destination-salalah.html'),
-      }),
-      // AR
-      new HtmlWebpackPlugin({
-        filename: "salalah-ar.html",
-        template: path.resolve(__dirname, './src/pages/ar/destination-salalah.html'),
-      }),
-      // EN
-      new HtmlWebpackPlugin({
-        filename: "sir-bani-yas.html",
-        template: path.resolve(__dirname, './src/pages/en/destination-sir-bani-yas.html'),
-      }),
-      // AR
-      new HtmlWebpackPlugin({
-        filename: "sir-bani-yas-ar.html",
-        template: path.resolve(__dirname, './src/pages/ar/destination-sir-bani-yas.html'),
-      }),
-
       new webpack.HotModuleReplacementPlugin(),
       new CopyWebpackPlugin({
         patterns: [
