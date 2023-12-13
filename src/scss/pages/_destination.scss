@@ -31,17 +31,153 @@
 .sir-bani-yas .destination-intro {
   background-image: url("../images/destinations/sir-bani-yas-intro.png");
 }
+.ajaccio .destination-intro {
+  background-image: url("../images/destinations/ajaccio-intro.jpg");
+}
+.alexandria .destination-intro {
+  background-image: url("../images/destinations/alexandria-intro.jpg");
+}
+.antalya .destination-intro {
+  background-image: url("../images/destinations/antalya-intro.jpg");
+}
+.barcelona .destination-intro {
+  background-image: url("../images/destinations/barcelona-intro.jpg");
+}
+.bari .destination-intro {
+  background-image: url("../images/destinations/barcelona-intro.jpg");
+}
+.bodrum .destination-intro {
+  background-image: url("../images/destinations/bodrum-intro.jpg");
+}
+.cagliari .destination-intro {
+  background-image: url("../images/destinations/bodrum-intro.jpg");
+}
+.cannes .destination-intro {
+  background-image: url("../images/destinations/cannes-intro.jpg");
+}
+.cartagena .destination-intro {
+  background-image: url("../images/destinations/cartagena-intro.jpg");
+}
+.catania .destination-intro {
+  background-image: url("../images/destinations/catania-intro.jpg");
+}
+.civitavecchia .destination-intro {
+  background-image: url("../images/destinations/civitavecchia-intro.jpg");
+}
+.corfu .destination-intro {
+  background-image: url("../images/destinations/corfu-intro.jpg");
+}
+.dubrovnik .destination-intro {
+  background-image: url("../images/destinations/dubrovnik-intro.jpg");
+}
+.genoa .destination-intro {
+  background-image: url("../images/destinations/genoa-intro.jpg");
+}
+.ibiza .destination-intro {
+  background-image: url("../images/destinations/ibiza-intro.jpg");
+}
+.istanbul .destination-intro {
+  background-image: url("../images/destinations/istanbul-intro.jpg");
+}
+.kotor .destination-intro {
+  background-image: url("../images/destinations/kotor-intro.jpg");
+}
+.la-spezia .destination-intro {
+  background-image: url("../images/destinations/la-spezia-intro.jpg");
+}
+.limassol .destination-intro {
+  background-image: url("../images/destinations/limassol-intro.jpg");
+}
+.heraklion .destination-intro {
+  background-image: url("../images/destinations/heraklion-intro.jpg");
+}
+.livorno .destination-intro {
+  background-image: url("../images/destinations/livorno-intro.jpg");
+}
+.malaga .destination-intro {
+  background-image: url("../images/destinations/malaga-intro.jpg");
+}
+.malta .destination-intro {
+  background-image: url("../images/destinations/malta-intro.jpg");
+}
+.marmaris .destination-intro {
+  background-image: url("../images/destinations/marmaris-intro.jpg");
+}
+.marseille .destination-intro {
+  background-image: url("../images/destinations/marseille-intro.jpg");
+}
+.melilla .destination-intro {
+  background-image: url("../images/destinations/mellila-intro.jpg");
+}
+.messina .destination-intro {
+  background-image: url("../images/destinations/messina-intro.jpg");
+}
+.mykonos .destination-intro {
+  background-image: url("../images/destinations/mykonos-intro.jpg");
+}
+.naples .destination-intro {
+  background-image: url("../images/destinations/naples-intro.jpg");
+}
+.nice .destination-intro {
+  background-image: url("../images/destinations/nice-intro.jpg");
+}
+.palermo .destination-intro {
+  background-image: url("../images/destinations/palerma-intro.jpg");
+}
+.piraeus .destination-intro {
+  background-image: url("../images/destinations/piraeus-intro.jpg");
+}
+// .palma-de-mallorca .destination-intro {
+//   background-image: url("../images/destinations/palma-de-mallorca-intro.jpg");
+// }
+.port-said .destination-intro {
+  background-image: url("../images/destinations/port-said-intro.jpg");
+}
+.saint-tropez .destination-intro {
+  background-image: url("../images/destinations/saint-tropez-intro.jpg");
+}
+.santorini .destination-intro {
+  background-image: url("../images/destinations/santorini-intro.jpg");
+}
+.souda-bay .destination-intro {
+  background-image: url("../images/destinations/souda-bay-intro.jpg");
+}
+.split .destination-intro {
+  background-image: url("../images/destinations/split-intro.jpg");
+}
+.suez-canal .destination-intro {
+  background-image: url("../images/destinations/suez-canal-intro.jpg");
+}
+.tangier .destination-intro {
+  background-image: url("../images/destinations/tangier-intro.jpg");
+}
+.tunis .destination-intro {
+  background-image: url("../images/destinations/tunis-intro.jpg");
+}
+.valletta .destination-intro {
+  background-image: url("../images/destinations/valletta-intro.jpg");
+}
 /*** Intro ***/
 .destination-intro {
   background-color: $dark-blue;
-  &::before {
-    content: "";
+  background-size: cover;
+  border-radius: 0px 0px 200px 0px;
+  background-color: #ecf3fa;
+  &::before,
+  &::after {
+    content: '';
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(91deg, rgba(1, 47, 125, 0.8) 22.12%, rgba(0, 48, 131, 0) 69.44%);
+  }
+  &::before {
+    background: linear-gradient(91deg, rgba(1, 47, 125, 0.60) 22.12%, rgba(0, 48, 131, 0.00) 69.44%);
+  }
+  &::after {
+    background-color: #ecf3fa;
+    z-index: -1;
   }
   &__link {
     margin-top: 15px;
@@ -49,11 +185,18 @@
   @include respond-to(large) {
     padding: 70px 0;
   }
+  @include respond-to(medium) {
+    border-radius: 0px 0px 100px 0px;
+  }
 }
 html[dir="rtl"] {
   .destination-intro {
+    border-radius: 0 0 0 200px;
     &::before {
-      background: linear-gradient(to left, rgba(1, 47, 125, 0.8) 22.12%, rgba(0, 48, 131, 0) 69.44%);
+      background: linear-gradient(to left, rgba(1, 47, 125, 0.60) 22.12%, rgba(0, 48, 131, 0.00) 69.44%);
+    }
+    @include respond-to(medium) {
+      border-radius:  0 0 0 100px;
     }
   }
 }
@@ -67,6 +210,19 @@ html[dir="rtl"] {
     width: 40.3645%;
     max-width: 775px;
     margin-left: calc(((100vw - 1660px) / 2) - 20px);
+  }
+  &__text ul {
+    display: flex;
+    flex-wrap: wrap;
+    li {
+      flex: 0 1 calc(50% - 10px);
+      &:nth-child(odd) {
+        margin-right: 20px;
+      }
+      &:nth-child(n + 3) {
+        margin-top: 10px;
+      }
+    }
   }
   &__img {
     width: 49.47916%;
@@ -103,6 +259,15 @@ html[dir="rtl"] {
     }
   }
   @include respond-to(xx-large) {
+    &__text ul {
+      flex-direction: column;
+      li:nth-child(n + 2) {
+        margin-top: 10px;
+      }
+      li:nth-child(odd) {
+        margin-right: 0;
+      }
+    }
     &__text-wrapper {
       margin-left: calc(((100vw - 1140px) / 2) - 20px);
     }
@@ -157,6 +322,18 @@ html[dir="rtl"] {
       min-height: unset;
     }
   }
+  @include respond-to(small) {
+    &__text ul {
+      flex-direction: column;
+      flex: 0 1 auto;
+      li:nth-child(odd) {
+        margin-right: 0;;
+      }
+      li:nth-child(n + 2) {
+        margin-top: 10px;
+      }
+    }
+  }
 }
 html[dir="rtl"] {
   .destination-content {
@@ -168,6 +345,14 @@ html[dir="rtl"] {
     &__text-wrapper {
       margin-left: 0;
       margin-right: calc(((100vw - 1660px) / 2) - 20px);
+    }
+    &__text ul {
+      li {
+        &:nth-child(odd) {
+          margin-right: unset;
+          margin-left: 20px;
+        }
+      }
     }
     &--img-left {
       padding-right: 0;
@@ -197,6 +382,13 @@ html[dir="rtl"] {
       }
     }
     @include respond-to(xx-large) {
+      &__text ul {
+        li {
+          &:nth-child(odd) {
+            margin-left: unset;
+          }
+        }
+      }
       &__text-wrapper {
         margin-right: calc(((100vw - 1140px) / 2) - 20px);
       }
