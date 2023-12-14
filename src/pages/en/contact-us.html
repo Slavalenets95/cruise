@@ -32,12 +32,12 @@
               <p>Our consultants will contact you within 24h and answer your questions.</p>
             </div>
           </div>
-          <form class="contact-us__form mt-4" id="contact-form" action="POST">
+          <form class="contact-us__form mt-4" id="contact-form">
             <div class="contact-us__form-item">
-              <input type="text" placeholder="First Name" name="first-name">
+              <input type="text" placeholder="First Name" name="firstName">
             </div>
             <div class="contact-us__form-item">
-              <input type="text" placeholder="Last Name" name="last-name">
+              <input type="text" placeholder="Last Name" name="lastName">
             </div>
             <div class="contact-us__form-item">
               <input type="email" placeholder="Email Address" name="email">
@@ -47,24 +47,13 @@
               <span class="optional">Optional</span>
             </div>
             <div class="contact-us__form-item">
-              <input type="text" placeholder="Reservation Number" name="reservation-number">
-              <span class="optional">Optional</span>
-            </div>
-            <div class="contact-us__form-item select-wrapper">
-              <select name="subject" data-select>
-                <option value="">Subject</option>
-                <option value="Subject 1">Subject 1</option>
-                <option value="Subject 2">Subject 2</option>
-                <option value="Subject 3">Subject 3</option>
-                <option value="Subject 4">Subject 4</option>
-                <option value="Subject 5">Subject 5</option>
-              </select>
+              <input type="number" placeholder="Reservation Number" name="reservationNumber">
               <span class="optional">Optional</span>
             </div>
             <div class="contact-us__form-item contact-us__form-item--textarea">
               <textarea name="question" placeholder="Your question"></textarea>
             </div>
-            <button class="contact-us__form-submit main-btn main-btn--light-blue uc">Send request</button>
+            <button type="submit" class="contact-us__form-submit main-btn main-btn--light-blue uc">Send request</button>
             <div class="contact-us__form-privacy mt-2 sd--light-links text-14 gray">
               Sign up to receive information about our special offers and deals. You can unsubscribe at any time. For
               more details about how we use your information, view our <a href="#">Privacy Policy</a>.
