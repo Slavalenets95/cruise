@@ -36,7 +36,7 @@ export class SeawareSearchUrlBuilder {
    */
   withPorts(portIds) {
     // Current API only accept one value of portFrom
-    portIds.length && (this.#query.portFrom = portIds[0]);
+    portIds.length && (this.#query.portFrom = portIds.join(','));
     return this;
   }
 

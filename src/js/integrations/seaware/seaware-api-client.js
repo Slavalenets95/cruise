@@ -60,7 +60,7 @@ export class SeawareApiClient {
     };
 
     return this.#graphQLClient.query(queryObj, {
-      'Accept-Language': language,
+      'Accept-Languages': language,
     })
       .then((res) => res.data)
       .then((res) => {
