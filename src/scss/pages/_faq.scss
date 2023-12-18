@@ -1,54 +1,11 @@
 .faq-intro {
-  background: url("../images/faq-page/faq-intro-bg.jpg") top left/cover no-repeat #144f89;
-  min-height: 510px;
-  align-items: center;
-
-  &__content {
-    max-width: 730px;
+  background-color: $lighest-blue;
+  &::before {
+    background-image: url('../images/faq-page/faq-intro.jpg');
   }
-  & &__content &__title > *:first-child {
-    font-weight: 600;
-  }
-  &__img {
-    position: absolute;
-    top: 0;
-    right: 0;
-    border-radius: 600px 0px 0px 0px;
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-    max-width: 1020px;
-  }
-
-  @include respond-to(xxx-large) {
-    &__content {
-      max-width: 680px;
-    }
-    &__img {
-      max-width: 53%;
-    }
-  }
-
-  @include respond-to(xx-large) {
-    &__content {
-      max-width: 600px;
-    }
-  }
-
-  @include respond-to(x-large) {
-    min-height: 400px;
-    &__img {
-      max-width: 48%;
-    }
-  }
-
-  @include respond-to(large) {
-    flex-direction: column;
-    &__img {
-      position: static;
-      width: 100%;
-      max-width: none;
-      max-height: 300px;
+  @include respond-to(small) {
+    &::before {
+      background-image: url('../images/faq-page/faq-intro.jpg');
     }
   }
 }
@@ -321,7 +278,6 @@
 }
 
 .faq-cta {
-  background: url("../images/faq-page/faq-cta-bg.svg") top left/cover no-repeat;
   min-height: 510px;
   align-items: center;
 

@@ -1,79 +1,16 @@
 .about-us-page {
   .about-us-intro {
-    background-color: #011430;
-    background: url("../images/about-us-page/intro-bg.jpg") top left/cover no-repeat;
-    padding: 100px 0;
-    min-height: 510px;
-    align-items: center;
-
-    &__wrapper {
-      max-width: 740px;
+    background-color: $lighest-blue;
+    .section-header__description {
+      max-width: 600px;
     }
-
-    &__img {
-      position: absolute;
-      top: 0;
-      right: 0;
-      height: 100%;
-      object-fit: cover;
-      max-width: 1020px;
-      width: 51%;
-      border-radius: 600px 0 0 0;
+    &::before {
+      background-image: url('../images/about-us-page/about-us-intro.jpg');
     }
-
-    &__link {
-      width: 100%;
-      max-width: 282px;
-    }
-
-    @include respond-to(xxx-large) {
-      min-height: 600px;
-      padding-left: 80px;
-
-      &__img {
-        width: 53%;
-        border-radius: 500px 0 0 0;
+    @include respond-to(small) {
+      &::before {
+        background-image: url('../images/about-us-page/about-us-intro--mobile.jpg');
       }
-
-      &__wrapper {
-        max-width: 550px;
-      }
-    }
-
-    @include respond-to(xx-large) {
-      & > .container {
-        margin-left: 0;
-      }
-      &-text {
-        font-size: 16px;
-      }
-    }
-  
-    @include respond-to(x-large) {
-      min-height: 500px;
-      padding: 180px 0;
-      & > .container {
-        margin-left: auto;
-      }
-      &__img {
-        max-width: 40%;
-      }
-    }
-  
-    @include respond-to(large) {
-      padding: 65px 0 0;
-      min-height: 400px;
-      flex-direction: column;
-      &__img {
-        margin-top: 40px;
-        max-width: 100%;
-        width: 100%;
-        position: static;
-      }
-    }
-  
-    @include respond-to(medium) {
-      padding: 100px 0 0 0;
     }
   }
 

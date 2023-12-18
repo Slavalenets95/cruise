@@ -20,31 +20,26 @@
     max-width: 1020px;
     border-radius: 600px 0 0 0;
   }
-
   @include respond-to(xxx-large) {
     &__img {
       max-width: 850px;
     }
   }
-
   @include respond-to(xx-large) {
     &__img {
       max-width: 700px;
     }
   }
-
   @include respond-to(x-large) {
     &__img {
       max-width: 650px;
     }
   }
-
   @include respond-to(large) {
     &__img {
       max-width: 450px;
     }
   }
-
   @include respond-to(medium) {
     padding-top: 65px;
     padding-bottom: 0;
@@ -62,11 +57,72 @@
       max-width: none;
     }
   }
-
   @include respond-to(small) {
     min-height: 450px;
   }
 }
+/*** Page intro radius ***/
+.page-intro {
+  &--radius {
+    position: relative;
+    background: none;
+    .page-intro__container {
+      position: relative;
+      z-index: 1;
+    }
+    &::before, &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 0px 0px 200px 0px;
+    }
+    &::before {
+      background-size: cover;
+      background-position: center center;
+    }
+    &::after {
+      background: linear-gradient(91deg, rgba(1, 47, 125, 0.60) 22.12%, rgba(0, 48, 131, 0.00) 69.44%);
+    }
+  }
+  @include respond-to(medium) {
+    &::before, &::after {
+      border-radius: 0 0 100px 0;
+    }
+    &--radius {
+      min-height: 400px;
+    }
+  }
+  @include respond-to(small) {
+    &::before {
+      border-radius: 0;
+    }
+    &::after {
+      background: linear-gradient(126deg, rgba(1, 47, 125, 0.90) 12.99%, rgba(0, 48, 131, 0.00) 100%);
+    }
+  }
+}
+html[dir="rtl"] {
+  .page-intro {
+    &--radius {
+      &::before {
+        transform: scaleX(-1);
+      }
+      &::after {
+        border-radius: 0 0 0 200px;
+        background: linear-gradient(to left, rgba(1, 47, 125, 0.60) 22.12%, rgba(0, 48, 131, 0.00) 69.44%);
+      }
+      @include respond-to(medium) {
+        &::after {
+          border-radius: 0 0 0 100px;
+        }
+      }
+    }
+  }
+}
+/*** End page intro radius ***/
 
 .page-cta {
   background-size: cover;

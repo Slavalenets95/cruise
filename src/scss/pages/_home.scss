@@ -170,6 +170,9 @@
 
 /***** OFFERS *****/
 .offers {
+  .swiper-wrapper {
+    padding-bottom: 50px;
+  }
   &-slide {
     border-radius: 16px;
     display: flex;
@@ -211,7 +214,13 @@
       bottom: 0;
     }
   }
-
+  .swiper-nav__dots {
+    margin-top: 20px;
+  }
+  .swiper-pagination-lock,
+  .swiper-button-lock {
+    display: none;
+  }
   @include respond-to(xxx-large) {
     &-slide {
       &__body br {

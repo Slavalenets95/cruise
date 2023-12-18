@@ -1,3 +1,20 @@
+/*** Intro ***/
+.cabins-page {
+  .page-intro {
+    background-color: $lighest-blue;
+    &::before {
+      background-image: url('../images/cabins/cabins-intro.jpg');
+    }
+    @include respond-to(small) {
+      min-height: 350px;
+      &::before {
+        background-image: url('../images/cabins/cabins-intro--mobile.jpg');
+      }
+    }
+  }
+}
+/*** End intro ***/
+
 .cabins-card {
   overflow: clip;
   &__container {
@@ -17,6 +34,35 @@
   }
   &__body-view {
     flex: 0 1 830px;
+    position: relative;
+    &.swiper-initialized {
+      .swiper-nav {
+        display: block;
+      }
+    }
+    .swiper-nav {
+      display: none;
+    }
+    .next, .prev {
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    .next, .prev, .swiper-nav__dots {
+      position: absolute;
+      z-index: 1;
+    }
+    .next {
+      right: 25px;
+    }
+    .prev {
+      left: 25px;
+    }
+    .swiper-nav__dots {
+      bottom: 25px;
+      left: 50%;
+      transform: translateX(-50%);
+      margin: 0;
+    }
   }
   &__body-img {
     border-radius: 12px;
@@ -111,12 +157,17 @@
     &__body {
       flex-direction: column;
     }
+    &__body-content {
+      margin-right: 0;
+    }
     &__body-content,
     &__body-view {
       flex: 0 1 auto;
     }
     &__body-view {
       margin-top: 40px;
+      width: 830px;
+      max-width: 100%;
     }
     &__footer-items {
       flex: 0 0 300px;
@@ -183,7 +234,13 @@
       }
     }
   }
-
+  @include respond-to(small) {
+    &__body-view {
+      .prev, .next {
+        display: none;
+      }
+    }
+  }
   @include respond-to(extra-small) {
     &__footer-item {
       flex: 0 1 calc(50% - 10px);
@@ -195,6 +252,23 @@
       }
       &:nth-child(3n) {
         margin-right: 20px;
+      }
+    }
+  }
+}
+html[dir="rtl"] {
+  .cabins-card {
+    &__body-view {
+      .next {
+        left: 25px;
+        right: unset;
+      }
+      .prev {
+        right: 25px;
+        left: unset;
+      }
+      .next, .prev {
+        transform: rotate(180deg);
       }
     }
   }
