@@ -6,7 +6,7 @@ import Header from './js/_header';
 import Footer from './js/_footer';
 import Faq from './js/_faq';
 import Sliders from './js/_sliders';
-import Scroller from './js/_scroller';
+// import Scroller from './js/_scroller';
 import Forms from './js/_forms';
 import Tabs from './js/_tabs';
 import Popup from './js/_popup';
@@ -22,7 +22,7 @@ window.addEventListener('load', () => {
   SearchPanel.make();
   Dropdowns.make();
   Sliders.make();
-  Scroller.make();
+  // Scroller.make();
   Forms.make();
   Tabs.make();
   Popup.make();
@@ -32,7 +32,7 @@ window.addEventListener('load', () => {
 
 /***** REINITIALIZATION *****/
 function reInit() {
-  Scroller.reInit();
+  // Scroller.reInit();
   Sliders.reInit();
   Faq.reinit();
   GallerySlider.reinit();

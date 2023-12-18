@@ -300,22 +300,6 @@ html[dir="rtl"] {
       }
     }
   }
-
-  .blog {
-    &-card {
-      margin-left: 27px;
-      margin-right: 0;
-      &:last-child {
-        margin-left: 0;
-      }
-    }
-
-    @include respond-to(medium) {
-      &-card {
-        margin-left: 0;
-      }
-    }
-  }
   /***** END HOME PAGE *****/
 
   /***** ALL REGIONS PAGE *****/
