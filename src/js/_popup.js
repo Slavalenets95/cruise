@@ -16,22 +16,30 @@ class Popup {
   }
 
   make() {
-    if(this.settings.btn && this.settings.popup) {
+    if (this.settings.btn && this.settings.popup) {
       this.settings.btn.addEventListener('click', (evt) => {
-        if(this.overlay) {
+        if (this.overlay) {
           this.overlay.setAttribute('data-overlay-active', '');
         }
         this.settings.popup.toggleAttribute('data-popup-active');
       })
       const closeBtn = this.settings.popup.querySelector('[data-popup-close]');
-      if(closeBtn) {
-        closeBtn.addEventListener('click', () => {
-          this.settings.popup.removeAttribute('data-popup-active');
-          if(this.overlay) {
-            this.overlay.removeAttribute('data-overlay-active');
-          }
-        })
+      if (closeBtn) {
+        closeBtn.addEventListener('click', () => this.closePopup())
       }
+      document.addEventListener('keydown', (evt) => {
+        const key = evt.key;
+        if (key === "Escape") {
+          this.closePopup();
+        }
+      });
+    }
+  }
+
+  closePopup() {
+    this.settings.popup.removeAttribute('data-popup-active');
+    if (this.overlay) {
+      this.overlay.removeAttribute('data-overlay-active');
     }
   }
 }
@@ -39,7 +47,7 @@ class Popup {
 class AroyaPopup {
   make() {
     const cruisePopups = document.querySelectorAll('.information-cards__item');
-    if(cruisePopups.length) {
+    if (cruisePopups.length) {
       cruisePopups.forEach((popup, idx) => {
         new Popup({
           popup: document.querySelector('.information-cards__popup:nth-child(' + (idx + 1) + ')'),

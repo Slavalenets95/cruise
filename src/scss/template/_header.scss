@@ -12,6 +12,9 @@
   &-nav {
     margin-right: 50px;
     align-self: stretch;
+    &__sub-title {
+      display: none;
+    }
     &__sub-control {
       display: flex;
       align-items: center;

@@ -23,7 +23,12 @@ class PopupSlider {
     }
     this.init();
     this.overlay.addEventListener('click', () => this.closePopup());
-
+    document.addEventListener('keydown', (evt) => {
+      const key = evt.key;
+      if (key === "Escape") {
+        this.closePopup();
+      }
+    });
   }
 
   init() {
