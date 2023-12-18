@@ -163,6 +163,7 @@
   background-size: cover;
   border-radius: 0px 0px 200px 0px;
   background-color: #ecf3fa;
+  min-height: 350px;
   &::before,
   &::after {
     content: '';
