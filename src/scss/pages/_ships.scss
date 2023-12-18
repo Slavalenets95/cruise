@@ -1,3 +1,68 @@
+/*** Intro ***/
+.ships-page {
+  .page-intro {
+    background-color: $lighest-blue;
+    &::before {
+      background: url("../images/ships-page/ships-intro.jpg") center/cover #ace6f4;
+    }
+    &::after {
+      display: none;
+    }
+    @include respond-to(xxx-large) {
+      &::after {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        border-radius: 0 0 200px 0;
+        left: 0;
+        top: 0;
+        background: linear-gradient(126deg, rgba(1, 47, 125, 0.9) 12.99%, rgba(0, 48, 131, 0) 100%);
+      }
+      .section-header__title,
+      .section-header__description {
+        color: $white;
+      }
+    }
+    @include respond-to(large) {
+      &::before {
+        background-position: right center;
+      }
+    }
+    @include respond-to(medium) {
+      &::after {
+        border-radius: 0 0 100px 0;
+      }
+    }
+    @include respond-to(small) {
+      &::before {
+        background-image: url("../images/ships-page/ships-intro--mobile.jpg");
+      }
+    }
+  }
+}
+html[dir="rtl"] {
+  .ships-page {
+    .page-intro {
+      @include respond-to(xxx-large) {
+        &::before {
+          background-position: right center;
+        }
+        &::after {
+          background: linear-gradient(to left, rgba(1, 47, 125, 0.9) 12.99%, rgba(0, 48, 131, 0) 100%);
+          border-radius: 0 0 0 200px;
+        }
+      }
+      @include respond-to(medium) {
+        &::after {
+          border-radius: 0 0 0 100px;
+        }
+      }
+    }
+  }
+}
+/*** End intro ***/
 .ships-aroya {
   &__container {
     min-height: unset;
@@ -102,7 +167,8 @@
   @include respond-to(x-large) {
     &__card {
       flex: 0 1 calc(33.33333% - 20px);
-      &:nth-child(4n), & {
+      &:nth-child(4n),
+      & {
         margin-right: 30px;
       }
       &:nth-child(3n) {
@@ -118,7 +184,8 @@
     padding: 50px 0;
     &__card {
       flex: 0 1 calc(50% - 15px);
-      &, &:nth-child(3n) {
+      &,
+      &:nth-child(3n) {
         margin-right: 30px;
       }
       &:nth-child(2n) {
@@ -235,9 +302,9 @@
         padding: 5px 0;
       }
       & > li:not(:last-child) {
-        border-bottom: 1px solid #CCD4E7;
+        border-bottom: 1px solid #ccd4e7;
       }
-      & > li >*:first-child {
+      & > li > *:first-child {
         margin-right: 20px;
       }
       strong {
@@ -311,7 +378,8 @@
     padding-top: 40px;
     &__card {
       flex: 0 1 calc(50% - 15px);
-      &, &:nth-child(3n) {
+      &,
+      &:nth-child(3n) {
         margin-right: 30px;
       }
       &:nth-child(2n) {
@@ -347,7 +415,8 @@
     &__card {
       width: 100%;
       max-width: 370px;
-      &, &:nth-child(3n) {
+      &,
+      &:nth-child(3n) {
         margin-right: 0;
       }
       &:nth-child(n + 2) {
@@ -362,12 +431,28 @@
       &-ic {
         margin-right: 0;
       }
-      &-list, &-item, &-ic img {
+      &-list,
+      &-item,
+      &-ic img {
         width: 100%;
       }
       &-list {
         font-size: 15px;
         min-width: unset;
+      }
+    }
+  }
+}
+html[dir="rtl"] {
+  .ship-cards {
+    @include respond-to(xxx-large) {
+      &__card-body > *:first-child {
+        min-height: 66px;
+      }
+    }
+    @include respond-to(xx-large) {
+      &__card-body > *:first-child {
+        min-height: unset;
       }
     }
   }
@@ -423,7 +508,7 @@
 }
 
 .vacation {
-  background: url('../images/ships-page/vacation-bg.svg') top left/cover no-repeat;
+  background: url("../images/ships-page/vacation-bg.svg") top left/cover no-repeat;
   &__container {
     justify-content: space-between;
   }
@@ -473,6 +558,14 @@
   @include respond-to(extra-small) {
     &-card:first-child {
       margin-top: 20px;
+    }
+  }
+}
+html[dir="rtl"] {
+  .vacation {
+    &-card:first-child {
+      margin-right: unset;
+      margin-left: 8px;
     }
   }
 }

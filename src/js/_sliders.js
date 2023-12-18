@@ -36,7 +36,7 @@ class Sliders {
         },
         autoplay: {
           delay: 3000,
-          pauseOnMouseEnter: true,
+          // pauseOnMouseEnter: true,
         },
       })
     }
@@ -67,6 +67,12 @@ class Sliders {
           },
         },
       })
+      // const sliderLength = this.offersSliderNode.querySelectorAll('.swiper-slide');
+      // if(window.screen.availWidth >= 1400 && sliderLength <= 3) {
+      //   this.offersSliderNode.classList.add('disabled');
+      // } else if(window.screen.availWidth >= 993 && sliderLength <= 2) {
+      //   this.offersSliderNode.classList.add('disabled');
+      // } else if(window.scre)
     }
   }
   regionsSlider() {
@@ -78,6 +84,7 @@ class Sliders {
           spaceBetween: 12,
           slidesPerView: 'auto',
           touchRatio: 0.2,
+          a11y: false,
           pagination: {
             el: `.regions-slider.slider-${idx + 1} .swiper-nav__dots`,
             type: 'bullets',
@@ -117,7 +124,7 @@ class Sliders {
     // Specialty
     const specialtyParent = document.querySelector('.restaraunt-specialty');
     const specialtySlider = document.querySelector('.restaraunt-specialty__swiper');
-    if(specialtySlider && specialtyParent) {
+    if (specialtySlider && specialtyParent) {
       new Swiper('.restaraunt-specialty__swiper', {
         spaceBetween: 10,
         slidesPerView: 'auto',
@@ -141,7 +148,7 @@ class Sliders {
           // when window width is >= 1201px
           1400: {
             slidesPerGroup: 3,
-          },  
+          },
         },
       })
     }
@@ -149,7 +156,7 @@ class Sliders {
     // Bards
     const barsParent = document.querySelector('.restaraunt-bars');
     const barsSlider = document.querySelector('.restaraunt-bars__swiper');
-    if(barsSlider && barsParent) {
+    if (barsSlider && barsParent) {
       new Swiper('.restaraunt-bars__swiper', {
         spaceBetween: 10,
         slidesPerView: 'auto',
@@ -173,14 +180,14 @@ class Sliders {
           // when window width is >= 1201px
           1400: {
             slidesPerGroup: 3,
-          },  
+          },
         },
       })
     }
 
     // Kids
     const kidsSlider = document.querySelector('.restaraunt-kids__slider');
-    if(kidsSlider) {
+    if (kidsSlider) {
       new Swiper('.restaraunt-kids__slider', {
         spaceBetween: 10,
         slidesPerView: 1,
@@ -197,13 +204,39 @@ class Sliders {
       })
     }
   }
+  cabinsSliders() {
+    const cabinsSliders = document.querySelectorAll('.cabins-card__body-view.swiper');
+    if (cabinsSliders.length) {
+      cabinsSliders.forEach((slider, idx) => {
+        const slides = slider.querySelectorAll('.swiper-slide');
+        if (slides.length > 1) {
+          const newIdx = idx + 1;
+          slider.classList.add(`slider-${newIdx}`);
+          new Swiper(`.cabins-card__body-view.swiper.slider-${newIdx}`, {
+            spaceBetween: 24,
+            slidesPerView: 1,
+            touchRatio: 0.2,
+            navigation: {
+              nextEl: `.cabins-card__body-view.swiper.slider-${newIdx} .next`,
+              prevEl: `.cabins-card__body-view.swiper.slider-${newIdx} .prev`,
+            },
+            pagination: {
+              el: `.cabins-card__body-view.swiper.slider-${newIdx} .swiper-nav__dots`,
+              type: 'bullets',
+              clickable: true,
+            },
+          })
+        }
+      })
+    }
+  }
 
   reInit() {
-    if(this.homeIntroSliderInstance) this.homeIntroSliderInstance.update();
+    if (this.homeIntroSliderInstance) this.homeIntroSliderInstance.update();
 
-    if(this.offersSliderInstance) this.offersSliderInstance.update();
+    if (this.offersSliderInstance) this.offersSliderInstance.update();
 
-    if(this.regionsSlidersInstance.length) {
+    if (this.regionsSlidersInstance.length) {
       this.regionsSlidersInstance.forEach(slider => slider.update());
     }
   }
@@ -212,6 +245,7 @@ class Sliders {
     this.offersSlider();
     this.regionsSlider();
     this.restarauntSliders();
+    this.cabinsSliders();
 
     /***** GALLERY SLIDER *****/
     // const gallerySliders = document.querySelectorAll('.gallery');

@@ -163,7 +163,7 @@ module.exports = (env) => {
       watchFiles: ["src/*/*/*.html"],
       hot: true,
       compress: true,
-      port: 9000,
+      port: 7000,
     },
     plugins: [
       new CleanWebpackPlugin(),
