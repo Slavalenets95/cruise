@@ -211,6 +211,9 @@ html[dir="rtl"] {
     max-width: 775px;
     margin-left: calc(((100vw - 1660px) / 2) - 20px);
   }
+  &__text strong {
+    font-weight: 700;
+  }
   &__text ul {
     display: flex;
     flex-wrap: wrap;
