@@ -97,6 +97,10 @@
 /*** End page ***/
 /*** Intro ***/
 .restaraunt-intro {
+  background-color: $lighest-blue;
+  &::before {
+    background-image: url('../images/restaraunt/restaraunts-intro.jpg');
+  }
   @include respond-to(xxx-large) {
     &__text {
       max-width: 500px;
@@ -114,6 +118,9 @@
     }
   }
   @include respond-to(small) {
+    &::before {
+      background-image: url('../images/restaraunt/restaraunts-intro--mobile.jpg');
+    }
     &__text {
       max-width: 450px;
     }
@@ -631,7 +638,6 @@ html[dir="rtl"] {
 /*** Experience ***/
 .restaraunt-experience {
   &__wrapper {
-    align-items: center;
     justify-content: space-between;
   }
   &__content {
@@ -648,17 +654,12 @@ html[dir="rtl"] {
     border-radius: 12px;
   }
   &__text {
-    margin-top: 85px;
+    margin-top: 20px;
     & > p:nth-child(2) {
       margin-bottom: 20px;
     }
     strong {
       font-weight: 600;
-    }
-  }
-  @include respond-to(xxx-large) {
-    &__text {
-      margin-top: 40px;
     }
   }
   @include respond-to(xx-large) {

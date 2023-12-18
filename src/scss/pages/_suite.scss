@@ -1,16 +1,17 @@
 /*** Suite ***/
 .suite-intro {
-  background-image: url("../images/suite/intro.jpg");
-  &__img {
-    max-width: 53.125%;
+  background-color: $lighest-blue;
+  &::before {
+    background-image: url("../images/suite/suite-intro.jpg");
   }
-  @include respond-to(large) {
-    min-height: 400px;
-  }
-  @include respond-to(medium) {
-    &__img {
-      max-width: unset;
-      max-height: 300px;
+  @include respond-to(small) {
+    padding-top: 100px;
+    min-height: 350px;
+    .section-header__title {
+      max-width: 250px;
+    }
+    &::before {
+      background-image: url('../images/suite/suite-intro--mobile.jpg');
     }
   }
 }
