@@ -1,6 +1,8 @@
-import { wrap } from "gsap";
+import { AroyaApiClient } from "./integrations/aroya/aroya-api-client";
 
 class Forms {
+  #aroyaApiClient = new AroyaApiClient();
+
   selectChangeColor() {
     const selects = document.querySelectorAll('[data-select]');
     const selectWrappers = document.querySelectorAll('.select-wrapper');
@@ -41,8 +43,48 @@ class Forms {
       })
     }
   }
+
+  initSubmitHandlers() {
+    const contactUsForm = document.getElementById('contact-form');
+    contactUsForm?.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const formData = new FormData(contactUsForm);
+
+      await this.#aroyaApiClient.contactUs({
+        firstName: formData.get('firstName'),
+        lastName: formData.get('lastName'),
+        email: formData.get('email'),
+        question: formData.get('question'),
+        phone: formData.get('phone') || undefined,
+        reservationNumber: Number(formData.get('reservationNumber')) || undefined,
+      });
+    });
+
+    const subscribeForm = document.querySelector('.footer-subscribe__form');
+    subscribeForm?.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const formData = new FormData(subscribeForm);
+
+      await this.#aroyaApiClient.subscribeToNewsletter({
+        email: formData.get('email'),
+      });
+    });
+
+    const signUpForm = document.querySelector('.signup-form');
+    signUpForm?.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const formData = new FormData(signUpForm);
+
+      await this.#aroyaApiClient.signUp({
+        email: formData.get('email'),
+        phone: formData.get('phone') || undefined,
+      });
+    });
+  }
+
   make() {
     this.selectChangeColor();
+    this.initSubmitHandlers();
   }
 }
 
