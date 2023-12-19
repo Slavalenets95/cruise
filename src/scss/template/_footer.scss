@@ -313,11 +313,29 @@
       }
     }
     .bottom-footer {
+      &__list {
+        justify-content: space-between;
+      }
+      &__list-item {
+        flex: 0 1 calc(50% - 10px);
+        &:nth-child(n + 3) {
+          margin-top: 15px;
+        }
+      }
+      &__list-item:nth-child(even) .bottom-footer__list-link::after {
+        content: unset;
+      }
+      &__list-item:first-child .bottom-footer__list-link {
+        padding-left: 12px;
+      }
       &__list-link {
         padding: 12px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
       }
       &__text {
-        margin-top: 10px;
+        margin-top: 20px;
       }
     }
   }

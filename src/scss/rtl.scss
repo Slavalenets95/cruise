@@ -850,6 +850,17 @@ html[dir="rtl"] {
           margin-right: 0;
         }
       }
+      .bottom-footer {
+        &__list-item:nth-child(n) .bottom-footer__list-link {
+          padding: 12px;
+        }
+        &__list-item:nth-child(even) .bottom-footer__list-link::after {
+          content: '';
+        }
+        &__list-item:nth-child(odd) .bottom-footer__list-link::after {
+          content: unset;
+        }
+      }
     }
   }
   /***** END FOOTER *****/

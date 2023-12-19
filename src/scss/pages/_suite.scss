@@ -57,6 +57,7 @@
     }
   }
   @include respond-to(small) {
+    padding-top: 40px;
     &__img-wrapper {
       max-height: 300px;
     }
