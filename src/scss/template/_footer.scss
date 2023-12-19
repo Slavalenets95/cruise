@@ -322,3 +322,34 @@
     }
   }
 }
+
+/*** Static ***/
+.footer {
+  .cruise-deal .footer-nav__list-link:hover::before {
+    content: unset;
+  }
+  .cruise-deal strong {
+    margin-top: 5px;
+    display: block;
+    font-weight: 600;
+    font-size: 14px;
+  }
+  .partners-portal {
+    position: relative;
+    strong {
+      position: absolute;
+      bottom: 10px;
+    }
+    @include respond-to(x-large) {
+      strong {
+        bottom: 0px;
+      }
+    }
+    @include respond-to(small) {
+      strong {
+        bottom: -5px;
+      }
+    }
+  }
+}
+/*** End static ***/
