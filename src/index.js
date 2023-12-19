@@ -19,7 +19,7 @@ window.addEventListener('load', () => {
   Footer.make();
   Faq.make();
   Overlay.make();
-  SearchPanel.make();
+  // SearchPanel.make();
   Dropdowns.make();
   Sliders.make();
   // Scroller.make();
