@@ -89,7 +89,9 @@ class Forms {
         email: formData.get('email'),
       }, subscribeForm);
       subscribeForm.classList.remove('loading');
-
+      if(response.ok) {
+        document.cookie = 'subscribeUser=true; max-age=' + + 60 * 60 * 24 * 30 * 12;
+      }
       this.afterSubmit(subscribeForm, response);
     });
 
@@ -118,7 +120,9 @@ class Forms {
         email: formData.get('email'),
       }, signPopup);
       signPopup.classList.remove('loading');
-      
+      if(response.ok) {
+        document.cookie = 'subscribeUser=true; max-age=' + + 60 * 60 * 24 * 30 * 12;
+      }
       this.afterSubmit(signPopup, response);
     })
   }

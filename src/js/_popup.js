@@ -53,7 +53,7 @@ class Popup {
     const popupClass = this.settings.popup.classList[0];
     const LS_KEY = `${popupClass}_shown`;
 
-    if (!sessionStorage.getItem(LS_KEY)) {
+    if (!sessionStorage.getItem(LS_KEY) && !document.cookie.includes("subscribeUser")) {
       setTimeout(() => {
         if (this.overlay) {
           this.overlay.setAttribute('data-overlay-active', '');

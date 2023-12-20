@@ -480,7 +480,7 @@
     content: unset;
   }
   .cruise-deal strong {
-    margin-top: 5px;
+    margin-top: -5px;
     display: block;
     font-size: 14px;
   }
@@ -488,7 +488,13 @@
     position: relative;
     strong {
       position: absolute;
-      bottom: 10px;
+      font-weight: 400;
+      bottom: 25px;
+    }
+    @include respond-to(xxx-large) {
+      strong {
+        bottom: 15px;
+      }
     }
     @include respond-to(x-large) {
       strong {
@@ -507,6 +513,9 @@
 html[dir="rtl"] {
   .footer {
     &-subscribe {
+      .valid-error {
+        right: 0;
+      }
       &__form-item {
         margin-right: unset;
         margin-left: 20px;
@@ -528,6 +537,18 @@ html[dir="rtl"] {
         &__form-item {
           margin-left: 0;
         }
+      }
+    }
+    .cruise-deal strong {
+      margin-top: 0px;
+    }
+    .partners-portal strong {
+      bottom: 20px;
+      @include respond-to(xxx-large) {
+        bottom: 15px;
+      }
+      @include respond-to(x-large) {
+        bottom: 0;
       }
     }
   }

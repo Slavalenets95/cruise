@@ -406,11 +406,11 @@
   .cruise-deal {
     position: relative;
     &::before {
-      content: "( cooming soon )";
+      content: "coming soon";
       position: absolute;
       color: $dark-blue;
       font-size: 14px;
-      bottom: 30px;
+      bottom: 35px;
       left: 50%;
       transform: translateX(-50%);
       text-align: center;
