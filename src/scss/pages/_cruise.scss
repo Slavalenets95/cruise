@@ -60,6 +60,7 @@ html[dir="rtl"] {
     width: 100%;
     object-fit: cover;
     display: block;
+    min-height: 605px;
     max-height: 615px;
     border-radius: 12px;
   }
@@ -364,4 +365,11 @@ html[dir="rtl"] {
   }
 }
 /*** END POPUP ***/
+
+/*** CTA ***/
+.cruise-101-page__cta {
+  background-image: url('../images/cabins/cta-bg.jpg');
+  background-position: right center;
+}
+/*** END CTA ***/
 /***** END CARDS *****/

@@ -144,7 +144,10 @@ html[dir="rtl"] {
   @include respond-to(x-large) {
     min-height: 500px;
   }
-  @include respond-to(extra-small) {
+  @include respond-to(large) {
+    min-height: 400px;
+  }
+   @include respond-to(extra-small) {
     .text-50 {
       font-size: 36px;
     }
