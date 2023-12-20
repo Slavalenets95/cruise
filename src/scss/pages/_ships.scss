@@ -26,9 +26,9 @@
     }
     @include respond-to(small) {
       min-height: 330px;
-      // &::before {
-      //   background-image: url("../images/ships-page/ships-intro--mobile.jpg");
-      // }
+      &::before {
+        background-image: url("../images/ships-page/ships-intro--mobile.jpg");
+      }
     }
   }
 }
