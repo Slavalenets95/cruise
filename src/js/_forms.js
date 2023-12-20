@@ -114,7 +114,7 @@ class Forms {
       const formData = new FormData(signPopup);
 
       signPopup.classList.add('loading');
-      const response = await this.#aroyaApiClient.signUp({
+      const response = await this.#aroyaApiClient.subscribeToNewsletter({
         email: formData.get('email'),
       }, signPopup);
       signPopup.classList.remove('loading');

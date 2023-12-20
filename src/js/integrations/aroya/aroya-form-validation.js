@@ -8,9 +8,9 @@ export class AroyaFormValidation {
       phone: 'The telephone number entered is invalid.',
     },
     ar: {
-      required: 'The field is required.',
-      email: 'The e-mail address entered is invalid.',
-      phone: 'The telephone number entered is invalid.',
+      required: 'هذا الحقل الزامى',
+      email: 'البريد الإلكتروني الذي تم إدخاله غير صالح.',
+      phone: 'رقم الهاتف الذى تم إدخاله غير صالح',
     }
   }
 
