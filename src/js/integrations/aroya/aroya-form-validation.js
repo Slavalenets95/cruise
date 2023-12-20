@@ -1,8 +1,17 @@
+import { isAr } from '../../helpers';
+
 export class AroyaFormValidation {
   messages = {
-    required: 'The field is required.',
-    email: 'The e-mail address entered is invalid.',
-    phone: 'The telephone number entered is invalid.',
+    en: {
+      required: 'The field is required.',
+      email: 'The e-mail address entered is invalid.',
+      phone: 'The telephone number entered is invalid.',
+    },
+    ar: {
+      required: 'The field is required.',
+      email: 'The e-mail address entered is invalid.',
+      phone: 'The telephone number entered is invalid.',
+    }
   }
 
   validate(formData, formEl, validationFields) {
@@ -50,21 +59,32 @@ export class AroyaFormValidation {
   requiredValidation(val) {
     if (!!val) return;
 
-    return this.messages.required;
+    if(isAr()) {
+      return this.messages.ar.required
+    }
+    
+    return this.messages.en.required;
   }
 
   emailValidation(val) {
     const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
     if (!val || val.match(emailRegex)) return;
 
-    return this.messages.email;
+    if (isAr()) {
+      return this.messages.ar.email;
+    }
+    return this.messages.en.email;
   }
 
   phoneValidation(val) {
     const phoneRegex = /^[+]*[(]{0,1}[0-9]{1,3}[)]{0,1}[-\s\./0-9]*$/g;
     if (!val || val.match(phoneRegex)) return;
 
-    return this.messages.phone;
+    if (isAr()) {
+      return this.messages.ar.phone
+    }
+
+    return this.messages.en.phone;
   }
 
   getErrorEl(message) {

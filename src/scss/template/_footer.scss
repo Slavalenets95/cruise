@@ -48,6 +48,9 @@
       font-size: 0;
       display: block;
     }
+    &.loading &__submit-btn {
+      font-size: 0;
+    }
     .loader {
       top: 10px;
       right: 85px;
@@ -82,6 +85,7 @@
         display: flex;
         justify-content: center;
         margin-top: 20px;
+        align-self: center;
       }
     }
     &-footer {
@@ -125,6 +129,9 @@
     justify-content: space-between;
     align-items: center;
 
+    &__form {
+      width: 100%;
+    }
     &__form-body {
       justify-content: space-between;
     }
@@ -475,7 +482,6 @@
   .cruise-deal strong {
     margin-top: 5px;
     display: block;
-    font-weight: 600;
     font-size: 14px;
   }
   .partners-portal {
@@ -497,3 +503,51 @@
   }
 }
 /*** End static ***/
+
+html[dir="rtl"] {
+  .footer {
+    &-subscribe {
+      &__form-item {
+        margin-right: unset;
+        margin-left: 20px;
+      }
+      &__form-thank > svg {
+        margin-right: unset;
+        margin-left: 16px;
+      }
+      &__form-thank p:nth-child(2) {
+        margin-right: unset;
+        margin-left: 30px;
+      }
+      .loader {
+        right: unset;
+        left: 95px;
+        top: 10px;
+      }
+      @include respond-to(small) {
+        &__form-item {
+          margin-left: 0;
+        }
+      }
+    }
+  }
+  .signup {
+    &-form__thank {
+      &-title {
+        & > svg {
+          margin-right: unset;
+          margin-left: 20px;
+        }
+      }
+    }
+    &-form__controls {
+      margin-left: 40px;
+      margin-right: 0;
+    }
+    @include respond-to(large) {
+      &-form__controls {
+        margin-left: unset;
+      }
+    }
+  }
+}

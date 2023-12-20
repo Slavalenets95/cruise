@@ -96,6 +96,9 @@
     }
   }
   @include respond-to(small) {
+    &--radius {
+      min-height: 330px;
+    }
     &::before {
       border-radius: 0;
     }

@@ -284,6 +284,7 @@ html[dir="rtl"] {
       opacity: 1;
       pointer-events: all;
       visibility: visible;
+      z-index: 98;
     }
 
     &-left {

@@ -1,3 +1,67 @@
+<div class="sign-popup">
+  <div class="sign-popup__header relative">
+    <img class="sign-popup__header-img" src="../../images/sign-popup.jpg" alt="">
+    <button class="sign-popup__close" type="button" aria-label="close sign up popup" data-popup-close>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path fill-rule="evenodd" clip-rule="evenodd"
+          d="M3.41622 3.41622C3.97117 2.86126 4.87093 2.86126 5.42589 3.41622L4.42105 4.42105L3.41622 5.42589C2.86126 4.87093 2.86126 3.97117 3.41622 3.41622ZM12 9.99033L5.4266 3.41693L4.42105 4.42105L3.41622 5.42589L9.99033 12L3.41622 18.5741C2.86126 19.1291 2.86126 20.0288 3.41622 20.5838C3.97117 21.1387 4.87093 21.1387 5.42589 20.5838L12 14.0097L18.5697 20.5794L18.5705 20.5802L18.5713 20.581L18.5725 20.5822L18.5734 20.5831L19.5687 19.5892L18.5741 20.5838C19.1291 21.1387 20.0288 21.1387 20.5838 20.5838C21.1387 20.0288 21.1387 19.1291 20.5838 18.5741L20.5831 18.5734L20.5822 18.5725L20.5802 18.5705L20.5794 18.5697L14.0097 12L20.5838 5.42589C21.1387 4.87093 21.1387 3.97117 20.5838 3.41622C20.0288 2.86126 19.1291 2.86126 18.5741 3.41622L12 9.99033Z"
+          fill="white" />
+      </svg>
+    </button>
+  </div>
+  <div class="sign-popup__main">
+    <div class="sign-popup__title-wrapper title-26 f-dark-blue f-semibold">
+      <p>Never miss a cruise deal, sign up today</p>
+      <p class="mt-1 text-18">Plus, get access to exclusive discounts, promotions and special rates.</p>
+      <form class="sign-popup__form mt-3">
+        <div class="sign-popup__form-body">
+          <div class="sign-popup__form-controls flex">
+            <div class="sign-popup__form-item">
+              <input type="text" name="email" placeholder="Email Address">
+            </div>
+            <div class="sign-popup__form-submit">
+              <button class="main-btn main-btn--light-blue uc">Sign up</button>
+              <span class="loader"></span>
+            </div>
+          </div>
+          <div class="sign-popup__form-license text-16 gray sd sd--light-links mt-2">
+            <p>Sign up to receive information about our special offers and deals. You can unsubscribe at any time.
+              For more details about how we use your information, view our <a href="#">Privacy Policy</a>.</p>
+          </div>
+        </div>
+        <div class="sign-popup__thank">
+          <div class="sign-popup__thank-title flex">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="41" viewBox="0 0 40 41" fill="none">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M20 0.500014C22.6269 0.496918 25.2285 1.01283 27.6554 2.01814C30.0823 3.02342 32.2867 4.49826 34.1419 6.35793C36.0016 8.21323 37.4765 10.4176 38.4818 12.8446C39.4871 15.2715 40.003 17.8731 40 20.5C40.0031 23.1269 39.4872 25.7285 38.4819 28.1554C37.4766 30.5824 36.0017 32.7868 34.142 34.642C32.2868 36.5017 30.0824 37.9766 27.6554 38.9819C25.2285 39.9872 22.6269 40.5031 20 40.5C17.3731 40.503 14.7715 39.9871 12.3446 38.9818C9.91768 37.9765 7.71329 36.5017 5.85801 34.642C3.9983 32.7868 2.52343 30.5824 1.51814 28.1554C0.512831 25.7285 -0.0030847 23.1269 1.38749e-05 20.5C-0.00302423 17.8731 0.512914 15.2715 1.51821 12.8446C2.5235 10.4177 3.99833 8.21328 5.858 6.358C7.71328 4.49833 9.91768 3.0235 12.3446 2.01821C14.7715 1.01291 17.3731 0.496973 20 0.500014ZM26.2638 5.37768C24.2788 4.55544 22.1509 4.13359 20.0024 4.13637H19.9977C17.8491 4.13364 15.7212 4.55551 13.7362 5.37775C11.7512 6.19999 9.94825 7.40639 8.43096 8.92762L8.42762 8.93096C6.90639 10.4482 5.69999 12.2512 4.87775 14.2362C4.05551 16.2212 3.63364 18.3491 3.63637 20.4977V20.5024C3.63359 22.6509 4.05544 24.7788 4.87768 26.7638C5.69992 28.7488 6.90634 30.5518 8.4276 32.069L8.43097 32.0724C9.94825 33.5936 11.7512 34.8 13.7362 35.6222C15.7212 36.4445 17.8491 36.8664 19.9977 36.8636H20.0024C22.1509 36.8664 24.2788 36.4446 26.2638 35.6223C28.2488 34.8001 30.0518 33.5937 31.569 32.0724L31.5724 32.069C33.0937 30.5518 34.3001 28.7488 35.1223 26.7638C35.9446 24.7788 36.3664 22.6509 36.3636 20.5024V20.4977C36.3664 18.3491 35.9445 16.2212 35.1222 14.2362C34.3 12.2512 33.0936 10.4483 31.5724 8.93096L31.569 8.9276C30.0518 7.40634 28.2488 6.19992 26.2638 5.37768Z"
+                fill="url(#paint0_linear_3636_9997)" />
+              <path
+                d="M20.0024 4.13637C22.1509 4.13359 24.2788 4.55544 26.2638 5.37768C28.2488 6.19992 30.0518 7.40634 31.569 8.9276L31.5724 8.93096C33.0936 10.4483 34.3 12.2512 35.1222 14.2362C35.9445 16.2212 36.3664 18.3491 36.3636 20.4977V20.5024C36.3664 22.6509 35.9446 24.7788 35.1223 26.7638C34.3001 28.7488 33.0937 30.5518 31.5724 32.069L31.569 32.0724C30.0518 33.5937 28.2488 34.8001 26.2638 35.6223C24.2788 36.4446 22.1509 36.8664 20.0024 36.8636H19.9977C17.8491 36.8664 15.7212 36.4445 13.7362 35.6222C11.7512 34.8 9.94825 33.5936 8.43097 32.0724L8.4276 32.069C6.90634 30.5518 5.69992 28.7488 4.87768 26.7638C4.05544 24.7788 3.63359 22.6509 3.63637 20.5024V20.4977C3.63364 18.3491 4.05551 16.2212 4.87775 14.2362C5.69999 12.2512 6.90639 10.4482 8.42762 8.93096L8.43096 8.92762C9.94825 7.40639 11.7512 6.19999 13.7362 5.37775C15.7212 4.55551 17.8491 4.13364 19.9977 4.13637H20.0024Z"
+                fill="url(#paint1_linear_3636_9997)" />
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M30.3766 13.7598C31.0867 14.4699 31.0867 15.6211 30.3766 16.3311L19.4675 27.2402C18.7575 27.9502 17.6063 27.9502 16.8963 27.2402L11.4417 21.7857C10.7317 21.0756 10.7317 19.9244 11.4417 19.2144C12.1518 18.5043 13.303 18.5043 14.013 19.2144L18.1819 23.3833L27.8053 13.7598C28.5154 13.0498 29.6666 13.0498 30.3766 13.7598Z"
+                fill="white" />
+              <defs>
+                <linearGradient id="paint0_linear_3636_9997" x1="0" y1="0.5" x2="48.2676" y2="21.4709"
+                  gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#0092D7" />
+                  <stop offset="1" stop-color="#012E89" />
+                </linearGradient>
+                <linearGradient id="paint1_linear_3636_9997" x1="0" y1="0.5" x2="48.2676" y2="21.4709"
+                  gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#0092D7" />
+                  <stop offset="1" stop-color="#012E89" />
+                </linearGradient>
+              </defs>
+            </svg>
+            <p class="dark-blue text-34 medium">Thank you for your subscription.</p>
+          </div>
+          <p class="text-20 mt-1 center">You will receive the latest news on your email.</p>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
 <footer class="footer">
   <div class="footer-body">
     <div class="container">
@@ -40,6 +104,43 @@
         </form>
       </div>
       <nav class="footer-nav mt-3 white flex">
+        <!-- Onboard -->
+        <div class="footer-nav__item">
+          <div class="footer-nav__item-title text-20 semibold" data-footer-togle>
+            Onboard Experiences
+            <span class="footer-nav__item-ic">
+              <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="
+                transform: rotate(90deg);">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M20.8839 15.1161C21.372 15.6043 21.372 16.3957 20.8839 16.8839L12.8839 24.8839C12.3957 25.372 11.6043 25.372 11.1161 24.8839C10.628 24.3957 10.628 23.6043 11.1161 23.1161L18.2322 16L11.1161 8.88388C10.628 8.39573 10.628 7.60427 11.1161 7.11612C11.6043 6.62796 12.3957 6.62796 12.8839 7.11612L20.8839 15.1161Z"
+                  fill="#003083" style="
+                fill: white;"></path>
+              </svg>
+            </span>
+          </div>
+          <ul class="footer-nav__list text-16">
+            <li class="footer-nav__list-item">
+              <a href="/aroya-ship" class="footer-nav__list-link">Aroya Ship
+              </a>
+            </li>
+            <!-- <li class="footer-nav__list-item">
+              <a href="/cabins" class="footer-nav__list-link">Aroya Cabins
+              </a>
+            </li>
+            <li class="footer-nav__list-item">
+              <a href="/suite" class="footer-nav__list-link">Khusama Suites</a>
+            </li>
+            <li class="footer-nav__list-item">
+              <a href="/restaraunts" class="footer-nav__list-link">Restaurants
+              </a>
+            </li> -->
+            <!-- <li class="footer-nav__list-item">
+              <a href="" class="footer-nav__list-link">Entrainments
+              </a>
+            </li> -->
+          </ul>
+        </div>
+        <!-- End onboard -->
         <!-- Destinations -->
         <div class="footer-nav__item">
           <div class="footer-nav__item-title text-20 semibold" data-footer-togle>
@@ -70,47 +171,10 @@
           </ul>
         </div>
         <!-- End destination -->
-        <!-- Onboard -->
-        <div class="footer-nav__item">
-          <div class="footer-nav__item-title text-20 semibold" data-footer-togle>
-            Onboard Experiences
-            <span class="footer-nav__item-ic">
-              <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="
-                transform: rotate(90deg);">
-                <path fill-rule="evenodd" clip-rule="evenodd"
-                  d="M20.8839 15.1161C21.372 15.6043 21.372 16.3957 20.8839 16.8839L12.8839 24.8839C12.3957 25.372 11.6043 25.372 11.1161 24.8839C10.628 24.3957 10.628 23.6043 11.1161 23.1161L18.2322 16L11.1161 8.88388C10.628 8.39573 10.628 7.60427 11.1161 7.11612C11.6043 6.62796 12.3957 6.62796 12.8839 7.11612L20.8839 15.1161Z"
-                  fill="#003083" style="
-                fill: white;"></path>
-              </svg>
-            </span>
-          </div>
-          <ul class="footer-nav__list text-16">
-            <li class="footer-nav__list-item">
-              <a href="/aroya-ship" class="footer-nav__list-link">Aroya Ship
-              </a>
-            </li>
-            <li class="footer-nav__list-item">
-              <a href="/cabins" class="footer-nav__list-link">Aroya Cabins
-              </a>
-            </li>
-            <li class="footer-nav__list-item">
-              <a href="/suite" class="footer-nav__list-link">Khusama Suites</a>
-            </li>
-            <li class="footer-nav__list-item">
-              <a href="/restaraunts" class="footer-nav__list-link">Restaurants
-              </a>
-            </li>
-            <!-- <li class="footer-nav__list-item">
-              <a href="" class="footer-nav__list-link">Entrainments
-              </a>
-            </li> -->
-          </ul>
-        </div>
-        <!-- End onboard -->
         <!-- Experience -->
         <div class="footer-nav__item">
           <div class="footer-nav__item-title text-20 semibold" data-footer-togle>
-            Aroya Experiences
+            AROYA Experiences
             <span class="footer-nav__item-ic">
               <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="
                 transform: rotate(90deg);">
@@ -211,10 +275,10 @@
               <a href="/contact-us" class="footer-nav__list-link">Contact us
               </a>
             </li>
-            <li class="footer-nav__list-item">
+            <!-- <li class="footer-nav__list-item">
               <a href="/faq" class="footer-nav__list-link">FAQ
               </a>
-            </li>
+            </li> -->
           </ul>
         </div>
         <!-- End help -->

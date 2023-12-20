@@ -174,3 +174,24 @@
     }
   }
 }
+
+html[dir="rtl"] {
+  .contact-us {
+    &__form {
+      justify-content: flex-end;
+    }
+    &__thank {
+      &-footer-social {
+        & > li:not(:last-child) {
+          margin-right: unset;
+          margin-left: 30px;
+        }
+      }
+    }
+    @include respond-to(small) {
+      &__thank-footer-social > li:not(:last-child) {
+        margin-left: 20px;
+      }
+    }
+  }
+}
