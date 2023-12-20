@@ -1,4 +1,74 @@
 .contact-us {
+  &__form {
+    &-wrapper {
+      min-height: 806px;
+    }
+    .contact-us__thank {
+      display: none;
+    }
+    &.thank .contact-us__thank {
+      display: block;
+    }
+    &.thank &-body {
+      display: none;
+    }
+  }
+  &__thank {
+    &-text {
+      padding: 0 50px;
+    }
+    &-footer {
+      padding: 20px 50px;
+      background-color: #F4FAFF;
+    }
+    &-footer-social {
+      align-items: center;
+      & > li {
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        &:not(:last-child) {
+          margin-right: 30px;
+        }
+      }
+    }
+  }
+  .loader {
+    display: none;
+    position: static;
+    margin: 0 auto;
+    margin-top: 10px;
+    width: 30px;
+    height: 30px;
+    border-color: #003083;
+    border-bottom-color: #fff;
+  }
+  &__form.loading {
+    .loader {
+      display: block;
+    }
+  }
+  @include respond-to(small) {
+    &__thank-text {
+      padding: 0;
+    }
+    &__thank-footer {
+      padding: 20px 0;
+    }
+    &__thank-footer-social {
+      & > li {
+        width: 30px;
+        height: 30px;
+        &:not(:last-child) {
+          margin-right: 20px;
+        }
+      }
+    }
+  }
+}
+.contact-us {
   align-items: center;
   &__image-wrapper {
     max-width: 50.52%;
@@ -21,7 +91,7 @@
     max-width: 780px;
     width: 100%;
   }
-  &__form {
+  &__form, &__form-controls {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -68,12 +138,14 @@
     }
     &__form-wrapper {
       max-width: 650px;
+      min-height: 790px;
     }
   }
 
   @include respond-to(xx-large) {
     &__form-wrapper {
       max-width: 550px;
+      min-height: 770px;
     }
   }
 
@@ -89,11 +161,12 @@
     }
     &__form-wrapper {
       max-width: 100%;
+      min-height: unset;
     }
   }
 
   @include respond-to(small) {
-    &__form {
+    &__form, &__form-controls {
       flex-direction: column;
     }
     &__form-item:nth-child(n + 2) {

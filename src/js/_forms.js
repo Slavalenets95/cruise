@@ -44,20 +44,39 @@ class Forms {
     }
   }
 
+  afterSubmit(form, response) {
+    if (!response) return;
+
+    if (response.ok) {
+      form.classList.add('thank');
+    } else {
+      form.classList.add('error');
+    }
+
+    setTimeout(() => {
+      form.classList.remove('thank');
+      form.classList.remove('error');
+    }, 10000);
+  }
+
   initSubmitHandlers() {
     const contactUsForm = document.getElementById('contact-form');
     contactUsForm?.addEventListener('submit', async (event) => {
       event.preventDefault();
       const formData = new FormData(contactUsForm);
 
-      await this.#aroyaApiClient.contactUs({
+      contactUsForm.classList.add('loading')
+      const response = await this.#aroyaApiClient.contactUs({
         firstName: formData.get('firstName'),
         lastName: formData.get('lastName'),
         email: formData.get('email'),
         question: formData.get('question'),
         phone: formData.get('phone') || undefined,
         reservationNumber: Number(formData.get('reservationNumber')) || undefined,
-      });
+      }, contactUsForm);
+      contactUsForm.classList.remove('loading');
+
+      this.afterSubmit(contactUsForm, response);
     });
 
     const subscribeForm = document.querySelector('.footer-subscribe__form');
@@ -65,9 +84,13 @@ class Forms {
       event.preventDefault();
       const formData = new FormData(subscribeForm);
 
-      await this.#aroyaApiClient.subscribeToNewsletter({
+      subscribeForm.classList.add('loading');
+      const response = await this.#aroyaApiClient.subscribeToNewsletter({
         email: formData.get('email'),
-      });
+      }, subscribeForm);
+      subscribeForm.classList.remove('loading');
+
+      this.afterSubmit(subscribeForm, response);
     });
 
     const signUpForm = document.querySelector('.signup-form');
@@ -75,11 +98,29 @@ class Forms {
       event.preventDefault();
       const formData = new FormData(signUpForm);
 
-      await this.#aroyaApiClient.signUp({
+      signUpForm.classList.add('loading');
+      const response = await this.#aroyaApiClient.signUp({
         email: formData.get('email'),
         phone: formData.get('phone') || undefined,
-      });
+      }, signUpForm);
+      signUpForm.classList.remove('loading');
+      
+      this.afterSubmit(signUpForm, response);
     });
+
+    const signPopup = document.querySelector('.sign-popup__form');
+    signPopup?.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const formData = new FormData(signPopup);
+
+      signPopup.classList.add('loading');
+      const response = await this.#aroyaApiClient.signUp({
+        email: formData.get('email'),
+      }, signPopup);
+      signPopup.classList.remove('loading');
+      
+      this.afterSubmit(signPopup, response);
+    })
   }
 
   make() {

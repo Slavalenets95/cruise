@@ -6,7 +6,7 @@
     margin: 40px auto 0;
   }
   &-form {
-    &,
+    &__body,
     &__controls {
       display: flex;
     }
@@ -19,10 +19,43 @@
       flex: 0 1 calc(50% - 20px);
     }
     &__submit-wrapper {
+      position: relative;
       flex-shrink: 0;
+    }
+    &__submit-btn {
+      height: 52px;
     }
     input {
       width: 100%;
+    }
+    &__thank {
+      display: none;
+      &-title {
+        justify-content: center;
+        align-items: center;
+        svg {
+          margin-right: 20px;
+        }
+      }
+    }
+    &.thank &__thank {
+      display: block;
+    }
+    &.thank &__main {
+      display: none;
+    }
+    &.loading .loader {
+      font-size: 0;
+      display: block;
+    }
+    .loader {
+      top: 10px;
+      right: 85px;
+      transform: none;
+      width: 30px;
+      height: 30px;
+      left: unset;
+      display: none;
     }
   }
 
@@ -31,7 +64,7 @@
       margin-top: 20px;
     }
     &-form {
-      &,
+      &__body,
       &__controls {
         flex-direction: column;
       }
@@ -60,6 +93,24 @@
     .section-header {
       text-align: left;
     }
+    &-form {
+      &__thank-title {
+        flex-direction: column;
+        svg {
+          margin-right: 0;
+          margin-bottom: 20px;
+        }
+      }
+      &__submit-wrapper {
+        align-self: center;
+      }
+      .loader {
+        right: 90px;
+      }
+      &.loading &__submit-btn {
+        font-size: 0;
+      }
+    }
   }
 }
 /***** END SIGNUP SECTION *****/
@@ -74,17 +125,64 @@
     justify-content: space-between;
     align-items: center;
 
+    &__form-body {
+      justify-content: space-between;
+    }
     &__title {
       margin-right: 60px;
       flex-shrink: 0;
     }
-    &__form-wrapper {
+    &__form-inputs {
       max-width: 930px;
       width: 100%;
+      position: relative;
     }
-    &__form-email {
+    &__form-email, &__form-item {
       width: 100%;
       margin-right: 20px;
+    }
+    &__form-item {
+      position: relative;
+    }
+    &__form-thank {
+      align-items: center;
+      display: none;
+      & > svg {
+        margin-right: 16px;
+      }
+      & > p:nth-child(2) {
+        margin-right: 30px;
+      }
+    }
+    &__form.thank &__form-thank {
+      display: flex;
+    }
+    &__form.thank &__form-inputs {
+      display: none;
+    }
+    &__form.loading .loader {
+      display: block;
+    }
+    &__form.loading &__form-submit {
+      font-size: 0;
+    }
+    .loader {
+      width: 30px;
+      height: 30px;
+      top: unset;
+      left: unset;
+      bottom: 16px;
+      right: 95px;
+      transform: none;
+      display: none;
+    }
+    .valid-error {
+      color: $white;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      margin-top: 0;
+      transform: translateY(100%);
     }
   }
   /***** END SUBSCRIBE *****/
@@ -248,17 +346,26 @@
         transition: height .5s;
       }
     }
+    &-subscribe__form.thank &-subscribe__form-body {
+      flex-wrap: wrap;
+    }
+    &-subscribe__form-thank {
+      width: 100%;
+      margin-top: 40px;
+    }
   }
 
   @include respond-to(x-large) {
-    &-subscribe {
+    &-subscribe__form-body {
       flex-direction: column;
       align-items: flex-start;
-
-      &__form-wrapper {
-        margin-top: 40px;
-        max-width: none;
-      }
+    }
+    &-subscribe__form-inputs {
+      margin-top: 40px;
+      max-width: none;
+    }
+    &-subscribe__title {
+      margin-right: 0;
     }
     .bottom-footer {
       &__list-link {
@@ -282,6 +389,13 @@
         margin-top: 20px;
       }
     }
+    &-subscribe__form-thank {
+      flex-direction: column;
+      align-items: flex-start;
+      p {
+        margin-top: 10px;
+      }
+    }
   }
 
   @include respond-to(medium) {
@@ -292,15 +406,27 @@
 
   @include respond-to(small) {
     &-subscribe {
-      &__title, &__form-email {
+      &__title, &__form-email, &__form-item {
         margin-right: 0;
       }
-      &__form {
+      &__form-inputs {
         flex-direction: column;
         align-items: center;
       }
       &__form-submit {
         margin-top: 20px;
+      }
+      &__form.loading &__form-submit {
+        font-size: 16px;
+      }
+      .loader {
+        position: static;
+        margin-top: 5px;
+      }
+      .valid-error {
+        position: static;
+        transform: none;
+        margin-top: 5px;
       }
     }
     &-social {

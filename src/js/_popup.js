@@ -1,7 +1,8 @@
 class Popup {
   settings = {
     popup: null,
-    btn: null
+    btn: null,
+    autoShow: null,
   }
   closeBtns = null;
   overlay = null;
@@ -16,13 +17,15 @@ class Popup {
   }
 
   make() {
-    if (this.settings.btn && this.settings.popup) {
-      this.settings.btn.addEventListener('click', (evt) => {
-        if (this.overlay) {
-          this.overlay.setAttribute('data-overlay-active', '');
-        }
-        this.settings.popup.toggleAttribute('data-popup-active');
-      })
+    if ((this.settings.btn || this.settings.autoShow) && this.settings.popup) {
+      if(this.settings.btn) {
+        this.settings.btn.addEventListener('click', (evt) => {
+          if (this.overlay) {
+            this.overlay.setAttribute('data-overlay-active', '');
+          }
+          this.settings.popup.toggleAttribute('data-popup-active');
+        })
+      }
       const closeBtn = this.settings.popup.querySelector('[data-popup-close]');
       if (closeBtn) {
         closeBtn.addEventListener('click', () => this.closePopup())
@@ -33,6 +36,9 @@ class Popup {
           this.closePopup();
         }
       });
+      if (this.settings.autoShow) {
+        this.autoShow();
+      }
     }
   }
 
@@ -40,6 +46,21 @@ class Popup {
     this.settings.popup.removeAttribute('data-popup-active');
     if (this.overlay) {
       this.overlay.removeAttribute('data-overlay-active');
+    }
+  }
+
+  autoShow() {
+    const popupClass = this.settings.popup.classList[0];
+    const LS_KEY = `${popupClass}_shown`;
+
+    if (!sessionStorage.getItem(LS_KEY)) {
+      setTimeout(() => {
+        if (this.overlay) {
+          this.overlay.setAttribute('data-overlay-active', '');
+        }
+        this.settings.popup.toggleAttribute('data-popup-active');
+        sessionStorage.setItem(LS_KEY, '1');
+      }, 5 * 1000);
     }
   }
 }
@@ -53,6 +74,13 @@ class AroyaPopup {
           popup: document.querySelector('.information-cards__popup:nth-child(' + (idx + 1) + ')'),
           btn: popup
         })
+      })
+    }
+    const signPopup = document.querySelector('.sign-popup');
+    if (signPopup) {
+      new Popup({
+        popup: signPopup,
+        autoShow: true,
       })
     }
   }
