@@ -16,12 +16,6 @@ textarea:not(.custom) {
   &::placeholder {
     color: $light-gray;
   }
-  & + .optional {
-    font-size: 14px;
-    margin-top: 6px;
-    color: $light-gray;
-    display: inline-flex;
-  }
 
   &:focus {
     border-color: $dark-blue;
@@ -43,6 +37,19 @@ textarea:not(.custom) {
     }
   }
 }
+
+.iti, // Phone input with code
+input:not(input[type="submit"]):not(.custom),
+select:not(.custom),
+textarea:not(.custom) {
+  & + .optional {
+    font-size: 14px;
+    margin-top: 6px;
+    color: $light-gray;
+    display: inline-flex;
+  }
+}
+
 select {
   cursor: pointer;
 }
