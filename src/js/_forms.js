@@ -1,7 +1,26 @@
 import { AroyaApiClient } from "./integrations/aroya/aroya-api-client";
+import intlTelInput from 'intl-tel-input';
+import { isAr } from "./helpers";
 
 class Forms {
   #aroyaApiClient = new AroyaApiClient();
+
+  /**
+   * @type { intlTelInput.Plugin }
+   */
+  #contactUsPhoneInput;
+
+  initPhoneCode() {
+    const codeInput = document.getElementById('phone');
+    const siteCountry = isAr() ? 'sa' : 'us';
+
+    this.#contactUsPhoneInput = intlTelInput(codeInput, {
+      initialCountry: siteCountry,
+      preferredCountries: ['sa', 'us'],
+      separateDialCode: true,
+      utilsScript: 'https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.4/js/utils.js',
+    });
+  }
 
   selectChangeColor() {
     const selects = document.querySelectorAll('[data-select]');
@@ -65,13 +84,20 @@ class Forms {
       event.preventDefault();
       const formData = new FormData(contactUsForm);
 
-      contactUsForm.classList.add('loading')
+      contactUsForm.classList.add('loading');
+
+      const phone = this.#contactUsPhoneInput.getNumber().slice(1) || undefined;
+      const country = phone
+        ? this.#contactUsPhoneInput.getSelectedCountryData().name.split('(')[0].trim()
+        : undefined;
+
       const response = await this.#aroyaApiClient.contactUs({
         firstName: formData.get('firstName'),
         lastName: formData.get('lastName'),
         email: formData.get('email'),
         question: formData.get('question'),
-        phone: formData.get('phone') || undefined,
+        phone,
+        country,
         reservationNumber: Number(formData.get('reservationNumber')) || undefined,
       }, contactUsForm);
       contactUsForm.classList.remove('loading');
@@ -128,6 +154,7 @@ class Forms {
   }
 
   make() {
+    this.initPhoneCode();
     this.selectChangeColor();
     this.initSubmitHandlers();
   }

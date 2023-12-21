@@ -132,6 +132,48 @@
     font-weight: normal;
   }
 
+  // Phone Codes Dropdown
+  .iti {
+    width: 100%;
+
+    &__selected-flag, &--allow-dropdown .iti__flag-container:hover .iti__selected-flag {
+      background-color: #ECF3FA;
+    }
+
+    &__arrow {
+      background-image: url('../images/icons/select-arrow.svg');
+      width: 24px;
+      height: 24px;
+      border: 0
+    }
+
+    &__country-list {
+      &::-webkit-scrollbar {
+        width: 12px;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        border-radius: 16px;
+        border-left: 4px solid transparent;
+        border-right: 4px solid transparent;
+        background: #98AACE;
+        background-clip: padding-box;
+      }
+
+      &::-webkit-scrollbar-track {
+        margin: 8px 0;
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        background: #BDC7DF;
+        background-clip: padding-box;
+      }
+    }
+
+    .iti__highlight, & li:hover {
+      background: #ECF3FA;
+    }
+  }
+
   @include respond-to(xxx-large) {
     &__image-wrapper {
       max-width: 48.52%;

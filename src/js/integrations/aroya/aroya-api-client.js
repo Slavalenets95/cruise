@@ -14,6 +14,7 @@ export class AroyaApiClient {
    *  lastName: string,
    *  email: string,
    *  phone?: string,
+   *  country?: string,
    *  reservationNumber?: number,
    *  question: string,
    * }} formData Contact Us form data
