@@ -14,7 +14,7 @@ class Forms {
     const codeInput = document.getElementById('phone');
     const siteCountry = isAr() ? 'sa' : 'us';
 
-    if(this.#contactUsPhoneInput) {
+    if (codeInput) {
       this.#contactUsPhoneInput = intlTelInput(codeInput, {
         initialCountry: siteCountry,
         preferredCountries: ['sa', 'us'],
@@ -117,7 +117,7 @@ class Forms {
         email: formData.get('email'),
       }, subscribeForm);
       subscribeForm.classList.remove('loading');
-      if(response.ok) {
+      if (response.ok) {
         document.cookie = 'subscribeUser=true; max-age=' + + 60 * 60 * 24 * 30 * 12;
       }
       this.afterSubmit(subscribeForm, response);
@@ -134,7 +134,7 @@ class Forms {
         phone: formData.get('phone') || undefined,
       }, signUpForm);
       signUpForm.classList.remove('loading');
-      
+
       this.afterSubmit(signUpForm, response);
     });
 
@@ -148,7 +148,7 @@ class Forms {
         email: formData.get('email'),
       }, signPopup);
       signPopup.classList.remove('loading');
-      if(response.ok) {
+      if (response.ok) {
         document.cookie = 'subscribeUser=true; max-age=' + + 60 * 60 * 24 * 30 * 12;
       }
       this.afterSubmit(signPopup, response);
