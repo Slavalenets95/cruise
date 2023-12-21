@@ -14,12 +14,14 @@ class Forms {
     const codeInput = document.getElementById('phone');
     const siteCountry = isAr() ? 'sa' : 'us';
 
-    this.#contactUsPhoneInput = intlTelInput(codeInput, {
-      initialCountry: siteCountry,
-      preferredCountries: ['sa', 'us'],
-      separateDialCode: true,
-      utilsScript: 'https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.4/js/utils.js',
-    });
+    if(this.#contactUsPhoneInput) {
+      this.#contactUsPhoneInput = intlTelInput(codeInput, {
+        initialCountry: siteCountry,
+        preferredCountries: ['sa', 'us'],
+        separateDialCode: true,
+        utilsScript: 'https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.4/js/utils.js',
+      });
+    }
   }
 
   selectChangeColor() {

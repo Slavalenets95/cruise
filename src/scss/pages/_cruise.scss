@@ -40,6 +40,9 @@ html[dir="rtl"] {
   &-img-wrapper {
     height: calc(100% - 160px);
   }
+  strong {
+    font-weight: 600;
+  }
 }
 /***** END CONTENT *****/
 

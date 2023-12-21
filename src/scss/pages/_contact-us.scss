@@ -173,6 +173,9 @@
       background: #ECF3FA;
     }
   }
+  .iti__flag-container + input {
+    width: 100%;
+  }
 
   @include respond-to(xxx-large) {
     &__image-wrapper {
@@ -216,6 +219,24 @@
     }
   }
 }
+// .contact-us-page {
+//   .iti__country-list {
+//     max-width: 379px;
+
+//     @include respond-to(xxx-large) {
+//       max-width: 314px;
+//     }
+//     @include respond-to(xx-large) {
+//       max-width: 264px;
+//     }
+//     @include respond-to(large) {
+//       max-width: 349px;
+//     }
+//     @include respond-to(medium) {
+//       max-width: 100%;
+//     }
+//   }
+// }
 
 html[dir="rtl"] {
   .contact-us {
