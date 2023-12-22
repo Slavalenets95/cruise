@@ -12,11 +12,10 @@ class Forms {
 
   initPhoneCode() {
     const codeInput = document.getElementById('phone');
-    const siteCountry = isAr() ? 'sa' : 'us';
 
     if (codeInput) {
       this.#contactUsPhoneInput = intlTelInput(codeInput, {
-        initialCountry: siteCountry,
+        initialCountry: 'sa',
         preferredCountries: ['sa', 'us'],
         separateDialCode: true,
         utilsScript: 'https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.4/js/utils.js',
