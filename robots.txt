@@ -1,0 +1,8 @@
+user-agent: *
+
+allow: /
+
+disallow: /contact-us
+disallow: /contact-us-ar
+
+sitemap: /sitemap.xml

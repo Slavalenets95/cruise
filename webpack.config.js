@@ -201,7 +201,9 @@ module.exports = (env) => {
           {
             from: path.resolve(__dirname, 'src/images'),
             to: path.resolve(__dirname, 'assets/images')
-          }
+          },
+          'robots.txt',
+          'sitemap.xml',
         ]
       }),
     ],
