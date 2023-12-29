@@ -1,19 +1,107 @@
+<div class="cookies">
+  <div class="container cookies__container flex">
+    <div class="cookies__text-wrapper title-30 f-bold">
+      <p>إشعار ملفات تعريف الارتباط (الكوكيز)</p>
+      <p class="white mt-1 text-20">
+        تساعد ملفات تعريف الارتباط (الكوكيز) في تخصيص طابع شخصي لرحلتكم، تحفظ تفضيلاتكم، وتعرض لكم جميع الخيارات
+        الملائمة.
+        قبول الكوكيز يتيح لكم الفرصة لتجربة أفضل. نقوم باستخدام الكوكيز لتحسين جودة الموقع الإلكتروني، لتحليل البيانات،
+        والإعلانات. تعرف اكثر على سياسات ملفات تعريف الارتباط (الكوكيز).
+      </p>
+    </div>
+    <div class="cookies-controls flex">
+      <button type="button" class="cookies-decline white text-20">رفض ملفات تعريف الارتباط</button>
+      <button type="button" data-accept class="cookies-accept main-btn main-btn--light-blue">قبول جميع ملفات تعريف
+        الارتباط</button>
+    </div>
+  </div>
+</div>
 <footer class="footer">
   <div class="footer-body">
     <div class="container">
       <div class="footer-subscribe flex white pb-6">
-        <p class="footer-subscribe__title text-34 semibold">الاشتراك في نشرتنا الإخبارية</p>
-        <div class="footer-subscribe__form-wrapper">
-          <form class="footer-subscribe__form flex">
-            <input class="footer-subscribe__form-email" name="email" type="email" required
-              placeholder="عنوان البريد الإلكتروني">
-            <button class="footer-subscribe__form-submit main-btn main-btn--light-blue" type="submit">
-              انضم
-            </button>
-          </form>
-        </div>
+        <form class="footer-subscribe__form">
+          <div class="footer-subscribe__form-body flex">
+            <p class="footer-subscribe__title text-34 semibold">الاشتراك في نشرتنا الإخبارية</p>
+            <div class="footer-subscribe__form-inputs flex">
+              <div class="footer-subscribe__form-item">
+                <input class="footer-subscribe__form-email" name="email" type="text"
+                  placeholder="عنوان البريد الإلكتروني">
+              </div>
+              <div class="footer-subscribe__form-item--agree">
+                <label class="flex">
+                  <input name="agree" type="checkbox">
+                  <span>أوافق على استقبال آخر الأخبار والمستجدات</span>
+                </label>
+              </div>
+              <button class="footer-subscribe__form-submit main-btn main-btn--light-blue" type="submit">
+                إشترك الان
+              </button>
+              <span class="loader"></span>
+            </div>
+            <div class="footer-subscribe__form-thank text-20">
+              <svg xmlns="http://www.w3.org/2000/svg" width="30" height="31" viewBox="0 0 30 31" fill="none">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M15 0.50001C16.9702 0.497689 18.9214 0.884626 20.7416 1.6386C22.5618 2.39257 24.215 3.49869 25.6065 4.89345C27.0012 6.28492 28.1074 7.93824 28.8613 9.75844C29.6153 11.5786 30.0023 13.5298 30 15.5C30.0023 17.4702 29.6154 19.4214 28.8614 21.2416C28.1074 23.0618 27.0013 24.7151 25.6065 26.1065C24.2151 27.5013 22.5618 28.6074 20.7416 29.3614C18.9214 30.1154 16.9701 30.5023 15 30.5C13.0298 30.5023 11.0786 30.1153 9.25844 29.3613C7.43826 28.6074 5.78497 27.5013 4.39351 26.1065C2.99872 24.7151 1.89258 23.0618 1.1386 21.2416C0.384624 19.4214 -0.00231352 17.4701 1.04062e-05 15.5C-0.00226817 13.5298 0.384686 11.5786 1.13866 9.75844C1.89262 7.93826 2.99875 6.28496 4.3935 4.8935C5.78496 3.49875 7.43826 2.39262 9.25844 1.63866C11.0786 0.884684 13.0298 0.49773 15 0.50001ZM19.6979 4.15826C18.2091 3.54158 16.6132 3.22519 15.0018 3.22728H14.9983C13.3868 3.22523 11.7909 3.54163 10.3022 4.15831C8.8134 4.77499 7.46119 5.67979 6.32322 6.82072L6.32072 6.82322C5.17979 7.96119 4.27499 9.3134 3.65831 10.8022C3.04163 12.2909 2.72523 13.8868 2.72728 15.4983V15.5018C2.72519 17.1132 3.04158 18.7091 3.65826 20.1979C4.27494 21.6866 5.17975 23.0388 6.3207 24.1768L6.32322 24.1793C7.46119 25.3202 8.8134 26.225 10.3022 26.8417C11.7909 27.4584 13.3868 27.7748 14.9983 27.7727H15.0018C16.6132 27.7748 18.2091 27.4584 19.6979 26.8417C21.1866 26.2251 22.5388 25.3202 23.6768 24.1793L23.6793 24.1768C24.8202 23.0388 25.7251 21.6866 26.3417 20.1979C26.9584 18.7091 27.2748 17.1132 27.2727 15.5018V15.4983C27.2748 13.8868 26.9584 12.2909 26.3417 10.8022C25.725 9.3134 24.8202 7.96119 23.6793 6.82322L23.6768 6.8207C22.5388 5.67975 21.1866 4.77494 19.6979 4.15826Z"
+                  fill="#F4FAFF" />
+                <path
+                  d="M15.0018 3.22728C16.6132 3.22519 18.2091 3.54158 19.6979 4.15826C21.1866 4.77494 22.5388 5.67975 23.6768 6.8207L23.6793 6.82322C24.8202 7.96119 25.725 9.3134 26.3417 10.8022C26.9584 12.2909 27.2748 13.8868 27.2727 15.4983V15.5018C27.2748 17.1132 26.9584 18.7091 26.3417 20.1979C25.7251 21.6866 24.8202 23.0388 23.6793 24.1768L23.6768 24.1793C22.5388 25.3202 21.1866 26.2251 19.6979 26.8417C18.2091 27.4584 16.6132 27.7748 15.0018 27.7727H14.9983C13.3868 27.7748 11.7909 27.4584 10.3022 26.8417C8.8134 26.225 7.46119 25.3202 6.32322 24.1793L6.3207 24.1768C5.17975 23.0388 4.27494 21.6866 3.65826 20.1979C3.04158 18.7091 2.72519 17.1132 2.72728 15.5018V15.4983C2.72523 13.8868 3.04163 12.2909 3.65831 10.8022C4.27499 9.3134 5.17979 7.96119 6.32072 6.82322L6.32322 6.82072C7.46119 5.67979 8.8134 4.77499 10.3022 4.15831C11.7909 3.54163 13.3868 3.22523 14.9983 3.22728H15.0018Z"
+                  fill="#F4FAFF" />
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M22.7822 10.4453C23.3148 10.9778 23.3148 11.8412 22.7822 12.3738L14.6004 20.5556C14.0679 21.0881 13.2045 21.0881 12.6719 20.5556L8.58104 16.4647C8.04851 15.9321 8.04851 15.0687 8.58104 14.5362C9.11357 14.0037 9.97698 14.0037 10.5095 14.5362L13.6362 17.6629L20.8538 10.4453C21.3863 9.91277 22.2497 9.91277 22.7822 10.4453Z"
+                  fill="url(#paint0_linear_3539_21559)" />
+                <defs>
+                  <linearGradient id="paint0_linear_3539_21559" x1="8.18164" y1="10.0459" x2="24.0393" y2="19.5193"
+                    gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#0092D7" />
+                    <stop offset="1" stop-color="#012E89" />
+                  </linearGradient>
+                </defs>
+              </svg>
+              <p class="bold">شكراً لك على الاشتراك في نشرتنا الإخبارية.</p>
+              <p>سوف يصلك آخر اخبارنا على بريدك الإلكتروني.</p>
+            </div>
+          </div>
+        </form>
       </div>
       <nav class="footer-nav mt-3 white flex">
+        <!-- Onboard -->
+        <div class="footer-nav__item">
+          <div class="footer-nav__item-title text-20 semibold" data-footer-togle>
+            سفينة أرويا
+            <span class="footer-nav__item-ic">
+              <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="
+                transform: rotate(90deg);">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M20.8839 15.1161C21.372 15.6043 21.372 16.3957 20.8839 16.8839L12.8839 24.8839C12.3957 25.372 11.6043 25.372 11.1161 24.8839C10.628 24.3957 10.628 23.6043 11.1161 23.1161L18.2322 16L11.1161 8.88388C10.628 8.39573 10.628 7.60427 11.1161 7.11612C11.6043 6.62796 12.3957 6.62796 12.8839 7.11612L20.8839 15.1161Z"
+                  fill="#003083" style="
+                fill: white;"></path>
+              </svg>
+            </span>
+          </div>
+          <ul class="footer-nav__list text-16">
+            <li class="footer-nav__list-item">
+              <a href="/aroya-ship-ar" class="footer-nav__list-link">سفينة أرويا
+              </a>
+            </li>
+            <!-- <li class="footer-nav__list-item">
+              <a href="/cabins-ar" class="footer-nav__list-link">كبائن أرويا
+              </a>
+            </li>
+            <li class="footer-nav__list-item">
+              <a href="/suite-ar" class="footer-nav__list-link">أجنحة خزامى </a>
+            </li>
+            <li class="footer-nav__list-item">
+              <a href="/restaraunts-ar" class="footer-nav__list-link">المطاعم
+              </a>
+            </li> -->
+            <!-- <li class="footer-nav__list-item">
+              <a href="" class="footer-nav__list-link">وسائل الترفيه
+              </a>
+            </li> -->
+          </ul>
+        </div>
+        <!-- End onboard -->
         <!-- Destinations -->
         <div class="footer-nav__item">
           <div class="footer-nav__item-title text-20 semibold" data-footer-togle>
@@ -44,43 +132,6 @@
           </ul>
         </div>
         <!-- End destinations -->
-        <!-- Onboard -->
-        <div class="footer-nav__item">
-          <div class="footer-nav__item-title text-20 semibold" data-footer-togle>
-            تجارب على متن السفينة
-            <span class="footer-nav__item-ic">
-              <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="
-                transform: rotate(90deg);">
-                <path fill-rule="evenodd" clip-rule="evenodd"
-                  d="M20.8839 15.1161C21.372 15.6043 21.372 16.3957 20.8839 16.8839L12.8839 24.8839C12.3957 25.372 11.6043 25.372 11.1161 24.8839C10.628 24.3957 10.628 23.6043 11.1161 23.1161L18.2322 16L11.1161 8.88388C10.628 8.39573 10.628 7.60427 11.1161 7.11612C11.6043 6.62796 12.3957 6.62796 12.8839 7.11612L20.8839 15.1161Z"
-                  fill="#003083" style="
-                fill: white;"></path>
-              </svg>
-            </span>
-          </div>
-          <ul class="footer-nav__list text-16">
-            <li class="footer-nav__list-item">
-              <a href="/aroya-ship-ar" class="footer-nav__list-link">سفينة أرويا
-              </a>
-            </li>
-            <li class="footer-nav__list-item">
-              <a href="/cabins-ar" class="footer-nav__list-link">كبائن أرويا
-              </a>
-            </li>
-            <li class="footer-nav__list-item">
-              <a href="/suite-ar" class="footer-nav__list-link">أجنحة خزامى </a>
-            </li>
-            <li class="footer-nav__list-item">
-              <a href="/restaraunts-ar" class="footer-nav__list-link">المطاعم
-              </a>
-            </li>
-            <!-- <li class="footer-nav__list-item">
-              <a href="" class="footer-nav__list-link">وسائل الترفيه
-              </a>
-            </li> -->
-          </ul>
-        </div>
-        <!-- End onboard -->
         <!-- Experience -->
         <div class="footer-nav__item">
           <div class="footer-nav__item-title text-20 semibold" data-footer-togle>
@@ -104,7 +155,7 @@
               </a>
             </li> -->
             <li class="footer-nav__list-item">
-              <a href="/cruise-101-ar" class="footer-nav__list-link">كروز 101
+              <a href="/cruise-101-ar" class="footer-nav__list-link">أرويا كروز 101
               </a>
             </li>
             <!-- <li class="footer-nav__list-item">
@@ -144,9 +195,11 @@
             </span>
           </div>
           <ul class="footer-nav__list text-16">
-            <li class="footer-nav__list-item">
-              <a href="" class="footer-nav__list-link">العروض
-              </a>
+            <li class="footer-nav__list-item cruise-deal">
+              <span class="footer-nav__list-link">
+                العروض
+                <strong>قريباً</strong>
+              </span>
             </li>
             <!-- <li class="footer-nav__list-item">
               <a href="" class="footer-nav__list-link">مخطط الرحلات البحرية
@@ -166,7 +219,7 @@
         <!-- Help -->
         <div class="footer-nav__item">
           <div class="footer-nav__item-title text-20 semibold" data-footer-togle>
-            المساعدة والدعم
+            اتصل بنا
             <span class="footer-nav__item-ic">
               <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="
                 transform: rotate(90deg);">
@@ -182,10 +235,10 @@
               <a href="/contact-us-ar" class="footer-nav__list-link">اتصل بنا
               </a>
             </li>
-            <li class="footer-nav__list-item">
-              <a href="/faq-page-ar" class="footer-nav__list-link">الأسئلة الشائعة
+            <!-- <li class="footer-nav__list-item">
+              <a href="/faq-ar" class="footer-nav__list-link">الأسئلة الشائعة
               </a>
-            </li>
+            </li> -->
           </ul>
         </div>
         <!-- End help -->
@@ -198,7 +251,8 @@
       <ul class="footer-social__list flex">
         <!-- Facebook -->
         <li class="footer-social__list-item">
-          <a href="https://www.facebook.com/profile.php?id=100088807207913&sk=about" class="footer-social__list-link">
+          <a target="_blank" href="https://www.facebook.com/AROYACRUISES?mibextid=LQQJ4d"
+            class="footer-social__list-link">
             <svg width="15" height="30" viewBox="0 0 15 30" fill="none" xmlns="http://www.w3.org/2000/svg">
               <g id="Group">
                 <g id="Group_2">
@@ -213,7 +267,7 @@
         <!-- End facebook -->
         <!-- X -->
         <li class="footer-social__list-item">
-          <a href="https://twitter.com/AROYACRUISES" class="footer-social__list-link">
+          <a target="_blank" href="https://twitter.com/AROYACRUISES" class="footer-social__list-link">
             <svg width="35" height="35" viewBox="0 0 41 40" fill="none" xmlns="http://www.w3.org/2000/svg">
               <g id="Component 5">
                 <path id="Vector"
@@ -226,7 +280,7 @@
         <!-- End x -->
         <!-- Insta -->
         <li class="footer-social__list-item">
-          <a href="https://www.instagram.com/aroyacruises/" class="footer-social__list-link">
+          <a target="_blank" href="https://www.instagram.com/aroyacruises/" class="footer-social__list-link">
             <svg width="41" height="40" viewBox="0 0 41 40" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path
                 d="M20.5834 33.6667C19.3334 33.6667 18 33.6667 16.75 33.6667C15.5 33.6667 14.2501 33.6667 13.0834 33.3333C10.1667 32.5833 8.33339 30.75 7.66672 27.8333C7.41672 26.8333 7.41672 25.8333 7.41672 24.8333C7.41672 21.9167 7.41672 19 7.41672 16.0833C7.41672 14.9167 7.50005 13.6667 7.83338 12.5C8.66672 9.75 10.5001 8.16667 13.2501 7.5C14.2501 7.25 15.2501 7.25 16.2501 7.25C19.1667 7.25 22.0834 7.25 25.0001 7.25C26.1667 7.25 27.3334 7.33333 28.5001 7.66667C31.3334 8.41667 33 10.3333 33.5834 13.0833C33.8334 14.25 33.8334 15.5 33.8334 16.6667C33.8334 19.1667 33.8334 21.75 33.8334 24.25C33.8334 25.5 33.8334 26.75 33.5001 28C32.7501 31 30.9167 32.75 27.9167 33.4167C26.7501 33.6667 25.5834 33.6667 24.4167 33.6667C23.1667 33.6667 21.8334 33.6667 20.5834 33.6667ZM20.5834 9.5C19.5001 9.5 18.4167 9.5 17.4167 9.58333C16.1667 9.58333 15.0001 9.58333 13.7501 9.83333C11.8334 10.25 10.5834 11.3333 10.0834 13.25C9.83338 14.0833 9.83339 15 9.75005 15.8333C9.75005 18.5833 9.66672 21.25 9.75005 24C9.75005 25.0833 9.75005 26.25 10 27.3333C10.4167 29.25 11.5 30.5 13.4167 31C14.25 31.25 15.0834 31.25 15.9167 31.25C19.0834 31.25 22.2501 31.25 25.4167 31.25C26.0834 31.25 26.8334 31.1667 27.5001 31.0833C29.4167 30.75 30.7501 29.5833 31.2501 27.6667C31.5001 26.8333 31.5 25.9167 31.5 25.0833C31.5 22 31.5 18.9167 31.5 15.8333C31.5 15 31.4167 14.25 31.2501 13.5C30.9167 12.1667 30.25 11.0833 29 10.4167C28.0834 9.91667 27.1667 9.75 26.1667 9.75C24.25 9.58333 22.4167 9.58333 20.5834 9.5Z"
@@ -243,7 +297,7 @@
         <!-- End insta -->
         <!-- Snapchat -->
         <li class="footer-social__list-item">
-          <a href="https://accounts.snapchat.com/accounts/welcome" class="footer-social__list-link">
+          <a target="_blank" href="https://www.snapchat.com/add/aroyacruises" class="footer-social__list-link">
             <svg width="41" height="40" viewBox="0 0 41 40" fill="none" xmlns="http://www.w3.org/2000/svg">
               <g id="Component 5">
                 <path id="Vector"
@@ -256,7 +310,7 @@
         <!-- End snapchat -->
         <!-- In -->
         <li class="footer-social__list-item">
-          <a href="https://www.linkedin.com/company/aroyacruises/" class="footer-social__list-link">
+          <a target="_blank" href="https://www.linkedin.com/company/aroyacruises/" class="footer-social__list-link">
             <svg width="23" height="21" viewBox="0 0 23 21" fill="none" xmlns="http://www.w3.org/2000/svg">
               <g id="Group">
                 <g id="Group_2">
@@ -276,7 +330,7 @@
         <!-- End in -->
         <!-- Youtube -->
         <li class="footer-social__list-item">
-          <a href="https://www.youtube.com/@AroyaCruises/about" class="footer-social__list-link">
+          <a target="_blank" href="https://www.youtube.com/@AroyaCruises/about" class="footer-social__list-link">
             <svg width="27" height="19" viewBox="0 0 27 19" fill="none" xmlns="http://www.w3.org/2000/svg">
               <g id="Group">
                 <g id="Group_2">
@@ -291,9 +345,11 @@
         <!-- End youtube -->
         <!-- Tik tok -->
         <li class="footer-social__list-item">
-          <a href="https://www.tiktok.com/@aroyacruises?lang=en" class="footer-social__list-link">
+          <a target="_blank" href="https://www.tiktok.com/@aroyacruises?lang=en" class="footer-social__list-link">
             <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
-              <path d="M26.4541 11.0733C25.495 9.94612 24.9664 8.49851 24.9668 7H20.6314V24.9111C20.5979 25.8804 20.2005 26.7985 19.5226 27.472C18.8448 28.1456 17.9395 28.5221 16.9974 28.5222C15.0051 28.5222 13.3495 26.8467 13.3495 24.7667C13.3495 22.2822 15.6786 20.4189 18.0778 21.1844V16.62C13.2372 15.9556 9 19.8267 9 24.7667C9 29.5767 12.8724 33 16.9834 33C21.389 33 24.9668 29.3167 24.9668 24.7667V15.6811C26.7249 16.9809 28.8356 17.6783 31 17.6744V13.2111C31 13.2111 28.3622 13.3411 26.4541 11.0733Z" fill="#012E89"/>
+              <path
+                d="M26.4541 11.0733C25.495 9.94612 24.9664 8.49851 24.9668 7H20.6314V24.9111C20.5979 25.8804 20.2005 26.7985 19.5226 27.472C18.8448 28.1456 17.9395 28.5221 16.9974 28.5222C15.0051 28.5222 13.3495 26.8467 13.3495 24.7667C13.3495 22.2822 15.6786 20.4189 18.0778 21.1844V16.62C13.2372 15.9556 9 19.8267 9 24.7667C9 29.5767 12.8724 33 16.9834 33C21.389 33 24.9668 29.3167 24.9668 24.7667V15.6811C26.7249 16.9809 28.8356 17.6783 31 17.6744V13.2111C31 13.2111 28.3622 13.3411 26.4541 11.0733Z"
+                fill="#012E89" />
             </svg>
           </a>
         </li>
@@ -305,39 +361,35 @@
     <div class="container bottom-footer__container">
       <ul class="bottom-footer__list flex text-16 dark-blue">
         <li class="bottom-footer__list-item">
-          <a href="/faq-page-ar" class="bottom-footer__list-link">
-            الأسئلة الشائعة
-          </a>
-        </li>
-        <li class="bottom-footer__list-item">
           <a href="#" class="bottom-footer__list-link">
             شروط الاستخدام
           </a>
         </li>
         <li class="bottom-footer__list-item">
           <a href="#" class="bottom-footer__list-link">
-            سياسة الاستخدام
+            سياسة الخصوصية
           </a>
         </li>
-        <li class="bottom-footer__list-item">
+        <!-- <li class="bottom-footer__list-item">
           <a href="#" class="bottom-footer__list-link">
             الإعلانات القائمة على الاهتمامات
           </a>
-        </li>
+        </li> -->
         <li class="bottom-footer__list-item">
           <a href="#" class="bottom-footer__list-link">
             اتفاقية ملفات تعريف الارتباط
           </a>
         </li>
-        <li class="bottom-footer__list-item">
+        <!-- <li class="bottom-footer__list-item">
           <a href="#" class="bottom-footer__list-link">
             إدارة التفضيلات
           </a>
-        </li>
+        </li> -->
         <li class="bottom-footer__list-item">
-          <a href="#" class="bottom-footer__list-link">
+          <span class="partners-portal bottom-footer__list-link">
             منصة الشركاء
-          </a>
+            <strong class="dark-blue bold text-14">قريباً</strong>
+          </span>
         </li>
       </ul>
       <p class="bottom-footer__text text-16 gray mt-2 center">

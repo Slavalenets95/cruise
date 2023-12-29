@@ -12,7 +12,10 @@ class Overlay {
         activeEls.forEach((activeEl) => activeEl.removeAttribute('data-active'));
       }
       if(popupActive.length) {
-        popupActive.forEach(activePopup => activePopup.removeAttribute('data-popup-active'));
+        popupActive.forEach(activePopup => {
+          activePopup.removeAttribute('data-popup-active');
+          activePopup.querySelector('video')?.pause();
+        });
       }
     })
   }

@@ -48,13 +48,13 @@ class Header {
           // subMenu.toggleAttribute('data-active');
         }
 
-        if (evt.target.matches('.header-nav__sub-back') && window.screen.availWidth < 1400) {
+        if ((evt.target.matches('.header-nav__sub-back') || evt.target.closest('.header-nav__sub-back')) && window.screen.availWidth < 1400) {
           const parent = evt.target.closest('.header-nav__list-item');
           const activeEls = parent.querySelectorAll('[data-active]');
           const subLists = parent.querySelectorAll('.header-nav__sub-list');
 
           activeEls.forEach((activeEl) => activeEl.removeAttribute('data-active'));
-          //subLists.forEach((subList) => subList.style.height = '0');
+          // subLists.forEach((subList) => subList.style.height = '0');
         }
       })
 

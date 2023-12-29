@@ -21,7 +21,7 @@ html[dir="rtl"] {
     margin-left: 9px;
   }
   .header-hidden-menu {
-    @include respond-to(xx-large) {
+    @include respond-to(x-large) {
       left: unset;
       right: 0;
       transform: translateX(-100%);
@@ -135,7 +135,7 @@ html[dir="rtl"] {
       }
     }
 
-    @include respond-to(xx-large) {
+    @include respond-to(x-large) {
       .header-nav {
         left: 0;
         right: auto;
@@ -144,17 +144,24 @@ html[dir="rtl"] {
         &__sub-row:not(:last-child) {
           margin-left: 0;
         }
+        &__sub-back svg {
+          left: unset;
+          right: -30px;
+          transform: rotate(0);
+        }
       }
+
     }
   }
   /***** END HEADER *****/
 
   /***** HOME PAGE *****/
   .home-intro {
-    .section-links {
-      flex-direction: row-reverse;
-    }
     &__video-slide {
+      .section-links__item.control:first-child {
+        margin-right: unset;
+        margin-left: 60px;
+      }
       &-title {
         max-width: 1000px;
       }
@@ -193,6 +200,7 @@ html[dir="rtl"] {
         flex-direction: column;
         &__item:first-child {
           margin-right: 0;
+          margin-left: 0;
         }
       }
     }
@@ -226,7 +234,8 @@ html[dir="rtl"] {
       &-content > *:first-child {
         font-weight: 700;
       }
-      &-image-wrapper, &-image {
+      &-image-wrapper,
+      &-image {
         border-radius: 12px 0 80px 12px;
       }
     }
@@ -320,12 +329,6 @@ html[dir="rtl"] {
       &__img {
         border-radius: 0 600px 0 0;
       }
-    }
-  }
-  .regions-card {
-    &__title {
-      margin-left: 0;
-      margin-right: 20px;
     }
   }
   .regions-slider {
@@ -568,7 +571,8 @@ html[dir="rtl"] {
 
     @include respond-to(large) {
       &__card {
-        &, &:nth-child(3n) {
+        &,
+        &:nth-child(3n) {
           margin-left: 30px;
         }
         &:nth-child(2n) {
@@ -579,7 +583,8 @@ html[dir="rtl"] {
 
     @include respond-to(small) {
       &__card {
-        &, &:nth-child(3n) {
+        &,
+        &:nth-child(3n) {
           margin-left: 0;
         }
       }
@@ -646,7 +651,7 @@ html[dir="rtl"] {
 
     @include respond-to(x-large) {
       &__footer {
-        &-item{
+        &-item {
           &:nth-child(2) {
             margin-left: 30px;
             margin-right: 0;
@@ -735,21 +740,7 @@ html[dir="rtl"] {
   /***** END AROYA SHIPS *****/
 
   /***** CRUISE PAGE *****/
-  .cruise-page__content {
-    &-img {
-      border-radius: 0px 0px 0px 800px;
-    }
-  }
   .cruise-why {
-    &__img-wrapper {
-      right: unset;
-      left: 0;
-    }
-    &__content,
-    &__header {
-      margin-right: unset;
-      margin-left: auto;
-    }
     &__footer-content {
       border-radius: 74px 0px 100px 0px;
     }
@@ -761,14 +752,16 @@ html[dir="rtl"] {
     }
     @include respond-to(xx-large) {
       &__img {
-        min-height: 500px;
+        max-height: 400px;
+      }
+    }
+    @include respond-to(large) {
+      &__img {
+        min-height: unset;
       }
     }
   }
   .information-cards {
-    &__items {
-      flex-direction: row-reverse;
-    }
     &__item-body {
       text-align: right;
     }
@@ -785,21 +778,24 @@ html[dir="rtl"] {
         margin-left: unset;
       }
     }
+    @include respond-to(xx-large) {
+      &__item {
+        margin-right: unset;
+        margin-left: 40px;
+        &:nth-child(2n) {
+          margin-left: unset;
+        }
+      }
+    }
     @include respond-to(small) {
-      &__items {
-        flex-direction: column;
+      &__item {
+        margin-left: unset;
       }
     }
   }
   /***** END CRUISE PAGE *****/
 
   /***** FOOTER *****/
-  .signup {
-    &-form__controls {
-      margin-left: 40px;
-      margin-right: 0;
-    }
-  }
   .footer {
     &-subscribe {
       &__title {
@@ -842,6 +838,13 @@ html[dir="rtl"] {
         }
       }
     }
+    @include respond-to(xxx-large) {
+      .bottom-footer {
+        &__list-item:first-child .bottom-footer__list-link {
+          padding-left: 30px;
+        }
+      }
+    }
 
     @include respond-to(small) {
       &-subscribe {
@@ -854,6 +857,17 @@ html[dir="rtl"] {
         &__list-item:not(:last-child) {
           margin-left: 10px;
           margin-right: 0;
+        }
+      }
+      .bottom-footer {
+        &__list-item:nth-child(n) .bottom-footer__list-link {
+          padding: 12px;
+        }
+        &__list-item:nth-child(even) .bottom-footer__list-link::after {
+          content: "";
+        }
+        &__list-item:nth-child(odd) .bottom-footer__list-link::after {
+          content: unset;
         }
       }
     }

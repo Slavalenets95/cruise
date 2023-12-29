@@ -1,4 +1,74 @@
 .contact-us {
+  &__form {
+    &-wrapper {
+      min-height: 806px;
+    }
+    .contact-us__thank {
+      display: none;
+    }
+    &.thank .contact-us__thank {
+      display: block;
+    }
+    &.thank &-body {
+      display: none;
+    }
+  }
+  &__thank {
+    &-text {
+      padding: 0 50px;
+    }
+    &-footer {
+      padding: 20px 50px;
+      background-color: #F4FAFF;
+    }
+    &-footer-social {
+      align-items: center;
+      & > li {
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        &:not(:last-child) {
+          margin-right: 30px;
+        }
+      }
+    }
+  }
+  .loader {
+    display: none;
+    position: static;
+    margin: 0 auto;
+    margin-top: 10px;
+    width: 30px;
+    height: 30px;
+    border-color: #003083;
+    border-bottom-color: #fff;
+  }
+  &__form.loading {
+    .loader {
+      display: block;
+    }
+  }
+  @include respond-to(small) {
+    &__thank-text {
+      padding: 0;
+    }
+    &__thank-footer {
+      padding: 20px 0;
+    }
+    &__thank-footer-social {
+      & > li {
+        width: 30px;
+        height: 30px;
+        &:not(:last-child) {
+          margin-right: 20px;
+        }
+      }
+    }
+  }
+}
+.contact-us {
   align-items: center;
   &__image-wrapper {
     max-width: 50.52%;
@@ -21,7 +91,7 @@
     max-width: 780px;
     width: 100%;
   }
-  &__form {
+  &__form, &__form-controls {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -40,6 +110,9 @@
   &__form-submit {
     width: 100%;
     margin-top: 15px;
+  }
+  &__form-item:nth-child(5) {
+    flex: 0 1 100%;
   }
   input,
   select,
@@ -61,6 +134,74 @@
   &__form-privacy a {
     font-weight: normal;
   }
+  &__form-item--agree {
+    flex: 0 1 100%;
+    span {
+      font-size: 18px;
+      max-width: calc(100% - 45px);
+    }
+    label {
+      flex-wrap: wrap;
+    }
+    .valid-error {
+      width: 100%;
+      order: 99;
+    }
+    input {
+      width: 25px;
+      height: 25px;
+      margin: 0;
+      margin-right: 20px;
+    }
+  }
+
+  // Phone Codes Dropdown
+  .iti {
+    width: 100%;
+
+    &__selected-flag, &--allow-dropdown .iti__flag-container:hover .iti__selected-flag {
+      background-color: #ECF3FA;
+    }
+
+    &__arrow {
+      background-image: url('../images/icons/select-arrow.svg');
+      width: 24px;
+      height: 24px;
+      border: 0
+    }
+
+    &__country-list {
+      &::-webkit-scrollbar {
+        width: 12px;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        border-radius: 16px;
+        border-left: 4px solid transparent;
+        border-right: 4px solid transparent;
+        background: #98AACE;
+        background-clip: padding-box;
+      }
+
+      &::-webkit-scrollbar-track {
+        margin: 8px 0;
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        background: #BDC7DF;
+        background-clip: padding-box;
+      }
+    }
+
+    .iti__highlight, & li:hover {
+      background: #ECF3FA;
+    }
+  }
+  .iti__selected-flag {
+    height: 55px;
+  }
+  .iti__flag-container + input {
+    width: 100%;
+  }
 
   @include respond-to(xxx-large) {
     &__image-wrapper {
@@ -68,12 +209,17 @@
     }
     &__form-wrapper {
       max-width: 650px;
+      min-height: 790px;
     }
   }
 
   @include respond-to(xx-large) {
+    .iti__selected-flag {
+      height: 48px;
+    }
     &__form-wrapper {
       max-width: 550px;
+      min-height: 770px;
     }
   }
 
@@ -89,15 +235,61 @@
     }
     &__form-wrapper {
       max-width: 100%;
+      min-height: unset;
     }
   }
 
   @include respond-to(small) {
-    &__form {
+    &__form, &__form-controls {
       flex-direction: column;
     }
     &__form-item:nth-child(n + 2) {
       margin-top: 15px;
+    }
+  }
+}
+// .contact-us-page {
+//   .iti__country-list {
+//     max-width: 379px;
+
+//     @include respond-to(xxx-large) {
+//       max-width: 314px;
+//     }
+//     @include respond-to(xx-large) {
+//       max-width: 264px;
+//     }
+//     @include respond-to(large) {
+//       max-width: 349px;
+//     }
+//     @include respond-to(medium) {
+//       max-width: 100%;
+//     }
+//   }
+// }
+
+html[dir="rtl"] {
+  .contact-us {
+    &__form {
+      justify-content: flex-end;
+      &-item--agree {
+        input {
+          margin-right: unset;
+          margin-left: 20px;
+        }
+      }
+    }
+    &__thank {
+      &-footer-social {
+        & > li:not(:last-child) {
+          margin-right: unset;
+          margin-left: 30px;
+        }
+      }
+    }
+    @include respond-to(small) {
+      &__thank-footer-social > li:not(:last-child) {
+        margin-left: 20px;
+      }
     }
   }
 }

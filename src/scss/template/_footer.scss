@@ -1,12 +1,16 @@
 /***** SIGNUP SECTION *****/
 .signup {
   border-top: 2px solid $lighest-blue--3;
-  &-main, &-footer {
+  &-main,
+  &-footer {
     max-width: 1340px;
-    margin: 40px auto 0;
+    margin: 0 auto;
+  }
+  &-footer {
+    margin-top: 20px;
   }
   &-form {
-    &,
+    &__body,
     &__controls {
       display: flex;
     }
@@ -14,24 +18,85 @@
       flex-grow: 1;
       justify-content: space-between;
       margin-right: 40px;
+      flex-wrap: wrap;
     }
     &__controls-item {
       flex: 0 1 calc(50% - 20px);
     }
+    &__controls-item--agree {
+      margin-top: 10px;
+      display: flex;
+      justify-content: flex-start;
+      .valid-error {
+        width: 100%;
+        order: 999;
+      }
+      span {
+        max-width: calc(100% - 45px);
+      }
+      label {
+        flex-wrap: wrap;
+        align-items: center;
+        font-size: 18px;
+      }
+      .custom {
+        width: 25px;
+        height: 25px;
+        margin: 0;
+        margin-right: 20px;
+      }
+    }
     &__submit-wrapper {
+      position: relative;
       flex-shrink: 0;
+    }
+    &__submit-btn {
+      height: 52px;
     }
     input {
       width: 100%;
     }
+    &__thank {
+      display: none;
+      &-title {
+        justify-content: center;
+        align-items: center;
+        svg {
+          margin-right: 20px;
+        }
+      }
+    }
+    &.thank &__thank {
+      display: block;
+    }
+    &.thank &__main,
+    &.thank .section-header {
+      display: none;
+    }
+    &.loading .loader {
+      font-size: 0;
+      display: block;
+    }
+    &.loading &__submit-btn {
+      font-size: 0;
+    }
+    .loader {
+      top: 10px;
+      right: 85px;
+      transform: none;
+      width: 30px;
+      height: 30px;
+      left: unset;
+      display: none;
+    }
   }
 
   @include respond-to(large) {
-    &-main {
+    &-form__main {
       margin-top: 20px;
     }
     &-form {
-      &,
+      &__body,
       &__controls {
         flex-direction: column;
       }
@@ -49,6 +114,7 @@
         display: flex;
         justify-content: center;
         margin-top: 20px;
+        align-self: center;
       }
     }
     &-footer {
@@ -60,6 +126,36 @@
     .section-header {
       text-align: left;
     }
+    &-form {
+      &__thank-title {
+        flex-direction: column;
+        svg {
+          margin-right: 0;
+          margin-bottom: 20px;
+        }
+      }
+      &__submit-wrapper {
+        align-self: center;
+      }
+      .loader {
+        right: 90px;
+      }
+      &.loading &__submit-btn {
+        font-size: 0;
+      }
+    }
+  }
+}
+html[dir="rtl"] {
+  .signup {
+    &-form {
+      &__controls-item--agree {
+        input {
+          margin-right: unset;
+          margin-left: 20px;
+        }
+      }
+    }
   }
 }
 /***** END SIGNUP SECTION *****/
@@ -70,21 +166,87 @@
   }
   /***** SUBSCRIBE *****/
   &-subscribe {
-    border-bottom: 1px solid #BDC7DF;
+    border-bottom: 1px solid #bdc7df;
     justify-content: space-between;
     align-items: center;
 
+    &__form {
+      width: 100%;
+    }
+    &__form-body {
+      justify-content: space-between;
+    }
     &__title {
       margin-right: 60px;
       flex-shrink: 0;
     }
-    &__form-wrapper {
+    &__form-inputs {
       max-width: 930px;
       width: 100%;
+      position: relative;
+      flex-wrap: wrap;
     }
-    &__form-email {
+    &__form-email,
+    &__form-item {
       width: 100%;
       margin-right: 20px;
+    }
+    &__form-item {
+      position: relative;
+      width: calc(100% - 237px);
+    }
+    &__form-item--agree {
+      order: 99;
+      margin-top: 30px;
+      label {
+        font-size: 18px;
+      }
+      input {
+        width: 25px;
+        height: 25px;
+        margin: 0;
+        margin-right: 20px;
+      }
+    }
+    &__form-thank {
+      align-items: center;
+      display: none;
+      & > svg {
+        margin-right: 16px;
+      }
+      & > p:nth-child(2) {
+        margin-right: 30px;
+      }
+    }
+    &__form.thank &__form-thank {
+      display: flex;
+    }
+    &__form.thank &__form-inputs {
+      display: none;
+    }
+    &__form.loading .loader {
+      display: block;
+    }
+    &__form.loading &__form-submit {
+      font-size: 0;
+    }
+    .loader {
+      width: 30px;
+      height: 30px;
+      top: unset;
+      left: unset;
+      bottom: 16px;
+      right: 95px;
+      transform: none;
+      display: none;
+    }
+    .valid-error {
+      color: $white;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      margin-top: 0;
+      transform: translateY(100%);
     }
   }
   /***** END SUBSCRIBE *****/
@@ -150,7 +312,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: background-color .5s;
+      transition: background-color 0.5s;
       border-radius: 6px;
       &:hover {
         background-color: $white;
@@ -245,20 +407,29 @@
       &__item-title + &__list {
         height: 0;
         overflow: hidden;
-        transition: height .5s;
+        transition: height 0.5s;
       }
+    }
+    &-subscribe__form.thank &-subscribe__form-body {
+      flex-wrap: wrap;
+    }
+    &-subscribe__form-thank {
+      width: 100%;
+      margin-top: 40px;
     }
   }
 
   @include respond-to(x-large) {
-    &-subscribe {
+    &-subscribe__form-body {
       flex-direction: column;
       align-items: flex-start;
-
-      &__form-wrapper {
-        margin-top: 40px;
-        max-width: none;
-      }
+    }
+    &-subscribe__form-inputs {
+      margin-top: 40px;
+      max-width: none;
+    }
+    &-subscribe__title {
+      margin-right: 0;
     }
     .bottom-footer {
       &__list-link {
@@ -282,6 +453,13 @@
         margin-top: 20px;
       }
     }
+    &-subscribe__form-thank {
+      flex-direction: column;
+      align-items: flex-start;
+      p {
+        margin-top: 10px;
+      }
+    }
   }
 
   @include respond-to(medium) {
@@ -292,15 +470,46 @@
 
   @include respond-to(small) {
     &-subscribe {
-      &__title, &__form-email {
+      &__title,
+      &__form-email,
+      &__form-item {
         margin-right: 0;
       }
-      &__form {
+      &__form-inputs {
         flex-direction: column;
         align-items: center;
       }
       &__form-submit {
         margin-top: 20px;
+      }
+      &__form.loading &__form-submit {
+        font-size: 16px;
+      }
+      .loader {
+        position: static;
+        margin-top: 5px;
+      }
+      .valid-error {
+        position: static;
+        transform: none;
+        margin-top: 5px;
+      }
+      &__form-item {
+        width: 100%;
+      }
+      &__form-item--agree {
+        order: 0;
+        width: 100%;
+        label {
+          flex-wrap: wrap;
+        }
+        span {
+          max-width: calc(100% - 45px);
+        }
+        .valid-error {
+          width: 100%;
+          order: 99;
+        }
       }
     }
     &-social {
@@ -313,11 +522,134 @@
       }
     }
     .bottom-footer {
+      &__list {
+        justify-content: space-between;
+      }
+      &__list-item {
+        flex: 0 1 calc(50% - 10px);
+        &:nth-child(n + 3) {
+          margin-top: 15px;
+        }
+      }
+      &__list-item:nth-child(even) .bottom-footer__list-link::after {
+        content: unset;
+      }
+      &__list-item:first-child .bottom-footer__list-link {
+        padding-left: 12px;
+      }
       &__list-link {
         padding: 12px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
       }
       &__text {
-        margin-top: 10px;
+        margin-top: 20px;
+      }
+    }
+  }
+}
+
+/*** Static ***/
+.footer {
+  .cruise-deal .footer-nav__list-link:hover::before {
+    content: unset;
+  }
+  .cruise-deal strong {
+    margin-top: -5px;
+    display: block;
+    font-size: 14px;
+  }
+  .partners-portal {
+    position: relative;
+    strong {
+      position: absolute;
+      font-weight: 400;
+      bottom: 25px;
+    }
+    @include respond-to(xxx-large) {
+      strong {
+        bottom: 15px;
+      }
+    }
+    @include respond-to(x-large) {
+      strong {
+        bottom: 0px;
+      }
+    }
+    @include respond-to(small) {
+      strong {
+        bottom: -5px;
+      }
+    }
+  }
+}
+/*** End static ***/
+
+html[dir="rtl"] {
+  .footer {
+    &-subscribe {
+      .valid-error {
+        right: 0;
+      }
+      &__form-item {
+        margin-right: unset;
+        margin-left: 20px;
+      }
+      &__form-item--agree {
+        input {
+          margin-right: unset;
+          margin-left: 20px;
+        }
+      }
+      &__form-thank > svg {
+        margin-right: unset;
+        margin-left: 16px;
+      }
+      &__form-thank p:nth-child(2) {
+        margin-right: unset;
+        margin-left: 30px;
+      }
+      .loader {
+        right: unset;
+        left: 95px;
+        top: 10px;
+      }
+      @include respond-to(small) {
+        &__form-item {
+          margin-left: 0;
+        }
+      }
+    }
+    .cruise-deal strong {
+      margin-top: 0px;
+    }
+    .partners-portal strong {
+      bottom: 20px;
+      @include respond-to(xxx-large) {
+        bottom: 15px;
+      }
+      @include respond-to(x-large) {
+        bottom: 0;
+      }
+    }
+  }
+  .signup {
+    &-form__thank {
+      &-title {
+        & > svg {
+          margin-right: unset;
+          margin-left: 20px;
+        }
+      }
+    }
+    &-form__controls {
+      margin-left: 40px;
+      margin-right: 0;
+    }
+    @include respond-to(large) {
+      &-form__controls {
+        margin-left: unset;
       }
     }
   }

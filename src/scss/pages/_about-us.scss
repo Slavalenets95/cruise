@@ -5,11 +5,17 @@
       max-width: 600px;
     }
     &::before {
-      background-image: url('../images/about-us-page/about-us-intro.jpg');
+      background-image: url('../images/about-us-page/about-us-new-intro.jpg');
+      background-position: bottom -65px left;
+    }
+    @include respond-to(x-large) {
+      &::before {
+        background-position: bottom left;
+      }
     }
     @include respond-to(small) {
       &::before {
-        background-image: url('../images/about-us-page/about-us-intro--mobile.jpg');
+        //background-image: url('../images/about-us-page/about-us-intro--mobile.jpg');
       }
     }
   }
@@ -213,24 +219,55 @@
   /***** OUR VALUES SECTION *****/
 
   /***** CTA SECTION *****/
-  .cta-section {
-    background: url("../images/ship-bg.jpg") top left/cover #7bb7cd;
-    min-height: 850px;
-
+  .about-page__cta {
+    background: url("../images/about-us-page/about-cta.jpg") top left/cover #7bb7cd;
+    background-position: right bottom -165px;
     @include respond-to(xxx-large) {
-      min-height: 600px;
-      background-position: center;
+      background-position: right bottom -100px;
     }
+    @include respond-to(xx-large) {
+      background-position: right center;
+    }
+    @include respond-to(medium) {
+      background-position: right center;
+    }
+  }
+  // .cta-section {
+  //   min-height: 850px;
 
-    @include respond-to(small) {
-      background-image: url("../images/ship-bg--mobile.png");
-      padding: 50px 0 30px;
-      min-height: 540px;
+  //   @include respond-to(xxx-large) {
+  //     min-height: 600px;
+  //     background-position: center;
+  //   }
 
-      &__content {
-        margin-top: 80px;
+  //   @include respond-to(small) {
+  //     padding: 50px 0 30px;
+  //     min-height: 540px;
+
+  //     &__content {
+  //       margin-top: 80px;
+  //     }
+  //   }
+  // }
+  /***** END CTA SECTION *****/
+}
+html[dir="rtl"] {
+  .about-us-page {
+    .about-us-intro {
+      &::before {
+        transform: unset;
+        border-radius: 0 0 0 200px;
+      }
+      @include respond-to(medium) {
+        &::before {
+          border-radius: 0 0 0 100px;
+        }
+      }
+      @include respond-to(small) {
+        &::before {
+          border-radius: 0;
+        }
       }
     }
   }
-  /***** END CTA SECTION *****/
 }

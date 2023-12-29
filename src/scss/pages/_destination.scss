@@ -2,7 +2,7 @@
   background-image: url("../images/destinations/alain-alsukhna-intro.png");
 }
 .al-aqaba .destination-intro {
-  background-image: url("../images/destinations/AlAqaba-intro.png");
+  background-image: url("../images/destinations/AlAqaba-intro.jpg");
 }
 .jeddah .destination-intro {
   background-image: url("../images/destinations/jeddah-intro.jpg");
@@ -17,7 +17,8 @@
   background-image: url("../images/destinations/dammam-intro.png");
 }
 .dubai .destination-intro {
-  background-image: url("../images/destinations/dubai-intro.png");
+  background-image: url("../images/destinations/dubai-intro.jpg");
+  background-position: bottom left;
 }
 .khasab .destination-intro {
   background-image: url("../images/destinations/khasab-intro.png");
@@ -163,6 +164,7 @@
   background-size: cover;
   border-radius: 0px 0px 200px 0px;
   background-color: #ecf3fa;
+  min-height: 350px;
   &::before,
   &::after {
     content: '';
@@ -228,7 +230,7 @@ html[dir="rtl"] {
     }
   }
   &__img {
-    width: 49.47916%;
+    width: calc(50% + 10px);
     border-radius: 600px 0 0 0;
     min-height: 430px;
     object-fit: cover;
@@ -286,14 +288,14 @@ html[dir="rtl"] {
     &__text-wrapper {
       margin-left: calc(((100vw - 960px) / 2) - 15px);
     }
-    &--img-left {
-      padding-right: 15px;
-    }
     &--img-left &__text-wrapper {
+      margin-top: 30px;
       margin-right: calc(((100vw - 960px) / 2) - 15px);
     }
     &__img {
       min-height: 270px;
+      align-self: stretch;
+      width: calc(50% + 5px);
     }
   }
   @include respond-to(large) {
@@ -312,6 +314,7 @@ html[dir="rtl"] {
       max-height: 320px;
     }
     &--img-left {
+      padding-top: 40px;
       padding-right: 0;
     }
     &__text-wrapper,
@@ -422,6 +425,22 @@ html[dir="rtl"] {
       &--img-left .destination-content__text-wrapper {
         margin-left: 0;
       }
+    }
+  }
+}
+.jeddah .destination-content {
+  &__img {
+    align-self: stretch;
+  }
+  @include respond-to(x-large) {
+    &--img-left .destination-content__text-wrapper {
+      margin-left: 30px;
+    }
+  }
+  @include respond-to(large) {
+    &--img-left .destination-content__text-wrapper {
+      margin-left: auto;
+      margin-right: auto;
     }
   }
 }

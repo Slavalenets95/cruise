@@ -2,32 +2,13 @@
 .cruise-intro {
   background-color: $lighest-blue;
   &::before {
-    background: url("../images/cruise-101/cruise-101-intro.jpg") center/cover #ace6f4;
+    background: url("../images/cruise-101/cruise-101-intro.jpg") bottom left/cover #ace6f4;
   }
   &::after {
-    display: none;
+    background: linear-gradient(126deg, rgba(1, 47, 125, 0.9) 12.99%, rgba(0, 48, 131, 0) 100%);
   }
-  @include respond-to(xxx-large) {
-    &::after {
-      content: "";
-      display: block;
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      border-radius: 0 0 200px 0;
-      left: 0;
-      top: 0;
-      background: linear-gradient(126deg, rgba(1, 47, 125, 0.9) 12.99%, rgba(0, 48, 131, 0) 100%);
-    }
-    .section-header__title,
-    .section-header__description {
-      color: $white;
-    }
-  }
-  @include respond-to(large) {
-    &::before {
-      background-position: right center;
-    }
+  .section-header__description {
+    max-width: 650px;
   }
   @include respond-to(medium) {
     &::after {
@@ -35,17 +16,121 @@
     }
   }
   @include respond-to(small) {
+    // &::before {
+    //   background-image: url("../images/cruise-101/cruise-101-intro--mobile.jpg");
+    // }
+  }
+}
+html[dir="rtl"] {
+  .cruise-intro {
     &::before {
-      background-image: url("../images/cruise-101/cruise-101-intro--mobile.jpg");
+      transform: unset;
+      border-radius: 0 0 0 200px;
+    }
+    &::after {
+      background: linear-gradient(to left, rgba(1, 47, 125, 0.9) 12.99%, rgba(0, 48, 131, 0) 100%);
+    }
+    @include respond-to(medium) {
+      &::before {
+        border-radius: 0 0 0 100px;
+      }
+    }
+    @include respond-to(small) {
+      &::before {
+        border-radius: 0;
+      }
     }
   }
 }
 /***** END INTRO *****/
 
+.cruise-page__after-intro {
+  .section-header {
+    max-width: 1200px;
+    @include respond-to(xxx-large) {
+      max-width: 750px;
+    }
+    @include respond-to(large) {
+      max-width: unset;
+    }
+  }
+}
+html[dir="rtl"] {
+  .cruise-page__after-intro {
+    .section-header {
+      max-width: 1200px;
+      @include respond-to(xxx-large) {
+        max-width: 950px;
+      }
+      @include respond-to(xx-large) {
+        max-width: 750px;
+      }
+      @include respond-to(large) {
+        max-width: unset;
+      }
+    }
+  }
+}
 /***** CONTENT *****/
 .cruise-page__content {
   &-img-wrapper {
-    height: calc(100% - 160px);
+    left: unset;
+    right: 0;
+  }
+  &-img {
+    border-radius: 1000px 0 0 0;
+    min-height: 460px;
+  }
+  .page-content__text {
+    margin-right: auto;
+    margin-left: unset;
+    li:not(:first-child) {
+      margin-top: 10px;
+    }
+  }
+  strong {
+    font-weight: 600;
+  }
+  @include respond-to(x-large) {
+    &-img-wrapper {
+      max-height: 450px;
+    }
+    &-img {
+      min-height: unset;
+    }
+  }
+  @include respond-to(large) {
+    &-img-wrapper {
+      max-height: unset;
+    }
+  }
+}
+html[dir="rtl"] {
+  .cruise-page__content {
+    .cruise-page__content-img-wrapper {
+      right: unset;
+      left: 0;
+    }
+    .page-content__text {
+      margin-right: unset;
+      margin-left: auto;
+    }
+    .page-content__img {
+      transform: unset;
+      border-radius: 0 1000px 0 0;
+    }
+  }
+  .cruise-why {
+    &__img-wrapper {
+      left: unset;
+      right: 0;
+    }
+    &__header,
+    &__footer-content,
+    &__content {
+      margin-right: auto;
+      margin-left: unset;
+    }
   }
 }
 /***** END CONTENT *****/
@@ -55,11 +140,11 @@
   &__content,
   &__header {
     max-width: 1040px;
-    margin-right: auto;
+    margin-left: auto;
   }
   &__img-wrapper {
     position: absolute;
-    right: 0;
+    left: 0;
     top: 60px;
     width: 36.427%;
   }
@@ -67,6 +152,7 @@
     width: 100%;
     object-fit: cover;
     display: block;
+    min-height: 605px;
     max-height: 615px;
     border-radius: 12px;
   }
@@ -81,6 +167,7 @@
     }
   }
   &__footer-content {
+    margin-left: auto;
     padding: 20px 50px;
     max-width: 1380px;
     border-radius: 74px 0px 100px 0px;
@@ -99,28 +186,32 @@
     &__content-row {
       flex-direction: column;
       ul:not(:first-child) {
-        margin-top: 20px;
+        margin-top: 5px;
       }
     }
     &__img-wrapper {
       width: 42%;
-      top: 0;
+      top: 30px;
     }
     &__img {
-      min-height: 600px;
+      min-height: 570px;
     }
   }
 
   @include respond-to(xx-large) {
+    &__header,
     &__content {
       max-width: 630px;
     }
     &__img {
-      min-height: 550px;
+      min-height: 500px;
     }
   }
 
   @include respond-to(x-large) {
+    &__header {
+      max-width: unset;
+    }
     &__content {
       max-width: 520px;
     }
@@ -291,6 +382,7 @@
       opacity: 1;
       pointer-events: all;
       visibility: visible;
+      z-index: 98;
     }
 
     &-left {
@@ -319,6 +411,12 @@
       overflow-x: scroll;
       scrollbar-width: auto;
       scrollbar-color: #98aace #ffffff;
+      ul {
+        margin-top: 10px;
+      }
+      li:nth-child(n + 2) {
+        margin-top: 10px;
+      }
       &::-webkit-scrollbar {
         width: 8px;
       }
@@ -367,4 +465,20 @@
   }
 }
 /*** END POPUP ***/
+
+/*** CTA ***/
+.cruise-101-page__cta {
+  background: url("../images/about-us-page/about-cta.jpg") top left/cover #7bb7cd;
+  background-position: right bottom -165px;
+  @include respond-to(xxx-large) {
+    background-position: right bottom -100px;
+  }
+  @include respond-to(xx-large) {
+    background-position: right center;
+  }
+  @include respond-to(medium) {
+    background-position: right center;
+  }
+}
+/*** END CTA ***/
 /***** END CARDS *****/

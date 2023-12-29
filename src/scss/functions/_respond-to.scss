@@ -28,6 +28,9 @@ $extra-small: 450px;
   @else if $media == min-xx-large {
     @media (min-width: $xx-large) { @content; }
   }
+  @else if $media == min-x-large {
+    @media (min-width: $x-large) { @content; }
+  }
   @else if $media == extra-small {
     @media (max-width: $extra-small) { @content }
   }

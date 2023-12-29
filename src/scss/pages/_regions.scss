@@ -54,7 +54,7 @@
   &__header {
     align-items: center;
   }
-  &__title {
+  &__title-block {
     margin-left: 20px;
   }
   &__img {
@@ -85,6 +85,14 @@
 
   @include respond-to(small) {
     padding: 0;
+  }
+}
+html[dir="rtl"] {
+  .regions-card {
+    &__title-block {
+      margin-left: unset;
+      margin-right: 20px;
+    }
   }
 }
 /***** END CARD *****/

@@ -13,13 +13,15 @@ import Popup from './js/_popup';
 import PopupSlider from './js/_popupSlider';
 import { throttle } from './js/helpers';
 import GallerySlider from './js/_gallery-slider';
+import Cookies from './js/_cookies';
+import Youtube from './js/_youtube';
 
 window.addEventListener('load', () => {
   Header.make();
   Footer.make();
   Faq.make();
   Overlay.make();
-  SearchPanel.make();
+  // SearchPanel.make();
   Dropdowns.make();
   Sliders.make();
   // Scroller.make();
@@ -28,6 +30,8 @@ window.addEventListener('load', () => {
   Popup.make();
   PopupSlider.make();
   GallerySlider.init();
+  Cookies.make();
+  Youtube.make();
 })
 
 /***** REINITIALIZATION *****/

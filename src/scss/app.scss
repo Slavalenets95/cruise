@@ -1,9 +1,12 @@
 @import '~reset.scss';
+@import 'intl-tel-input/build/css/intlTelInput.css';
 @import './vars/index';
 @import './functions/index';
 @import './ui/index';
 @import './template/index';
 @import './pages/index';
-@import './components/search-panel';
+// @import './components/search-panel';
+@import './components/sign-popup';
+@import './components/cookies';
 @import 'swiper/scss';
 @import './rtl.scss';

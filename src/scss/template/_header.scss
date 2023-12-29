@@ -21,7 +21,7 @@
 
       svg {
         transform: rotate(90deg);
-        transition: transform .3s;
+        transition: transform 0.3s;
       }
 
       &[data-active] svg {
@@ -98,7 +98,7 @@
         width: 25px;
         height: 3px;
         background: $dark-blue;
-        transition: all .5s;
+        transition: all 0.5s;
         opacity: 1;
       }
       span:not(:last-child) {
@@ -174,9 +174,9 @@
       visibility 0.5s;
 
     &[data-active] {
-        opacity: 1;
-        visibility: visible;
-        pointer-events: all;
+      opacity: 1;
+      visibility: visible;
+      pointer-events: all;
     }
 
     &-container {
@@ -200,7 +200,7 @@
       left: 0;
       width: 100%;
       height: 90px;
-      transition: opacity .5s;
+      transition: opacity 0.5s;
       opacity: 0;
       pointer-events: none;
       z-index: 98;
@@ -238,7 +238,7 @@
   }
   /***** END HEADER TOP *****/
 
-  @include respond-to(xxx-large) {
+  @include respond-to(x-large) {
     &-logo,
     &-nav {
       margin-right: 10px;
@@ -262,12 +262,13 @@
     }
   }
 
-  @include respond-to(xx-large) {
+  @include respond-to(x-large) {
     min-height: 100px;
     &-nav {
       display: none;
     }
-    .search, .search-bg {
+    .search,
+    .search-bg {
       display: none !important;
     }
     &-nav {
@@ -308,7 +309,7 @@
     }
   }
 
-  @include respond-to(xx-large) {
+  @include respond-to(x-large) {
     .header-nav {
       position: absolute;
       width: 90%;
@@ -320,7 +321,9 @@
       display: block;
       margin-right: 0;
       visibility: hidden;
-      transition: visibility .5s, opacity .5s;
+      transition:
+        visibility 0.5s,
+        opacity 0.5s;
       z-index: 99;
       opacity: 0;
       pointer-events: none;
@@ -386,6 +389,7 @@
         align-items: center;
         position: relative;
         margin-bottom: 15px;
+        width: 100%;
         svg {
           width: 30px;
           height: 30px;
@@ -397,3 +401,44 @@
     }
   }
 }
+
+/*** Static ***/
+.header {
+  .cruise-deal {
+    position: relative;
+    &::before {
+      content: "coming soon";
+      position: absolute;
+      color: $dark-blue;
+      font-size: 14px;
+      bottom: 35px;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      width: 100%;
+      transition: color .3s;
+    }
+    &[data-active]::before {
+      color: $white;
+    }
+    @include respond-to(x-large) {
+      flex-direction: column-reverse;
+      align-items: flex-start;
+      &::before {
+        position: static;
+        text-align: unset;
+        transform: unset;
+      }
+    }
+  }
+}
+html[dir="rtl"] {
+  .header {
+    .cruise-deal {
+      &::before {
+        content: "قريباً";
+      }
+    }
+  }
+}
+/*** End static ***/

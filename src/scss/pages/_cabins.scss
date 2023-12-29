@@ -235,6 +235,7 @@
     }
   }
   @include respond-to(small) {
+    padding-top: 40px;
     &__body-view {
       .prev, .next {
         display: none;
