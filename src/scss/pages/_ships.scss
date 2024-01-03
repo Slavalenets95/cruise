@@ -110,9 +110,10 @@ html[dir="rtl"] {
     margin: 0 auto;
     flex-wrap: wrap;
     max-width: 1535px;
+    justify-content: center;
   }
   &__card {
-    flex: calc(25% - 37.5px);
+    flex: 0 1 calc(25% - 37.5px);
     margin-right: 50px;
     padding: 40px 20px;
     border-radius: 12px;
@@ -126,6 +127,9 @@ html[dir="rtl"] {
     }
     &:nth-child(n + 5) {
       margin-top: 50px;
+    }
+    &:last-child {
+      margin-right: 0;
     }
     &-header {
       height: 108px;

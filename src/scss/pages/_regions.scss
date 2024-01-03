@@ -10,11 +10,11 @@
   &__link {
     min-width: 282px;
   }
-  @include respond-to(small) {
-    &::before {
-      background-image: url('../images/regions/regions-intro--mobile.jpg');
-    }
-  }
+  // @include respond-to(small) {
+  //   &::before {
+  //     background-image: url('../images/regions/regions-intro--mobile.jpg');
+  //   }
+  // }
 }
 /***** END REGIONS INTRO *****/
 

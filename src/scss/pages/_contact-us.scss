@@ -207,6 +207,9 @@
     &__image-wrapper {
       max-width: 48.52%;
     }
+    &__img {
+      object-position: right;
+    }
     &__form-wrapper {
       max-width: 650px;
       min-height: 790px;
@@ -224,12 +227,6 @@
   }
 
   @include respond-to(x-large) {
-    &__image-wrapper {
-      max-width: 40%;
-    }
-  }
-
-  @include respond-to(large) {
     &__image-wrapper {
       display: none;
     }
