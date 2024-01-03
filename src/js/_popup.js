@@ -68,7 +68,7 @@ class Popup {
           this.settings.popup.toggleAttribute('data-popup-active');
           sessionStorage.setItem(LS_KEY, '1');
         }
-      }, 1 * 1000);
+      }, 20 * 1000);
     }
   }
 }
