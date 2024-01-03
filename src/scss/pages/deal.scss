@@ -1,0 +1,314 @@
+/*** Intro ***/
+.deal-page {
+  .page-intro {
+    background-color: $lighest-blue;
+    &::before {
+      background-image: url('../images/deal/deal-intro.jpg');
+    }
+    @include respond-to(xxx-large) {
+      &__text {
+        max-width: 570px;
+      }
+    }
+    @include respond-to(large) {
+      &::before {
+        background-position: right center;
+      }
+    }
+  }
+}
+/*** End intro ***/
+
+/*** Content after intro ***/
+.deal-page {
+  .page-content {
+    .section-header {
+      max-width: 1264px;
+    }
+    @include respond-to(xxx-large) {
+      .section-header {
+        max-width: 1000px;
+      }
+    }
+    @include respond-to(small) {
+      padding: 60px 0 20px;
+    }
+  }
+}
+/*** End content after intro ***/
+
+/*** Offers ***/
+.deal-offers {
+  &__cards {
+    flex-wrap: wrap;
+  }
+  &__card {
+    flex: 0 1 calc(25% - 15px);
+    margin-right: 20px;
+    position: relative;
+    display: flex;
+    height: 345px;
+    &:nth-child(4n) {
+      margin-right: 0;
+    }
+    &:nth-child(n + 5) {
+      margin-top: 60px;
+    }
+    &, &::before, &-img {
+      border-radius: 12px;
+    }
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      background: linear-gradient(180deg, rgba(1, 11, 67, 0.00) 20.31%, rgba(1, 11, 67, 0.70) 76.82%);
+      width: 100%;
+      height: 100%;
+    }
+    &-img {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+    &-content {
+      position: absolute;
+      bottom: -26px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      width: calc(100% - 20px);
+    }
+    &-starting {
+      line-height: 1.6;
+    }
+    &-link {
+      margin-top: 15px;
+    }
+  }
+  @include respond-to(xxx-large) {
+    &__card {
+      height: 320px;
+    }
+  }
+  @include respond-to(xx-large) {
+    &__card {
+      height: 300px;
+    }
+  }
+  @include respond-to(x-large) {
+    &__card {
+      flex: 0 1 calc(50% - 20px);
+      margin-right: 40px;
+      &:nth-child(2n) {
+        margin-right: 0;
+      }
+      &:nth-child(n + 3) {
+        margin-top: 60px;
+      }
+    }
+  }
+  @include respond-to(small) {
+    &__cards {
+      flex-direction: column;
+    }
+    &__card {
+      flex: 0 1 auto;
+      margin-right: 0;
+      height: 280px;
+      &:nth-child(n + 2) {
+        margin-top: 50px;
+      }
+    }
+  }
+}
+/*** End offers ***/
+
+/*** Cta ***/
+.deal-cta {
+  &__container {
+    background: url('../images/deal/deal-cta.jpg') top left/cover no-repeat;
+    &, &::before {
+      border-radius: 12px;
+    }
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      background: linear-gradient(180deg, rgba(1, 11, 67, 0.00) 20.31%, rgba(1, 11, 67, 0.30) 76.82%), linear-gradient(0deg, rgba(1, 11, 67, 0.61) 0%, rgba(1, 11, 67, 0.61) 100%);
+      width: 100%;
+      height: 100%;
+    }
+  }
+  &__link {
+    margin-top: 15px;
+  }
+}
+/*** End cta ***/
+
+/*** Categories ***/
+.deal-cat {
+  &__title {
+    align-items: center;
+    &-ic {
+      margin-right: 20px;
+    }
+  }
+  &__cards {
+    flex-wrap: wrap;
+  }
+  &__card {
+    flex: 0 1 calc(25% - 13.5px);
+    margin-right: 18px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 12px;
+    &:nth-child(4n) {
+      margin-right: 0;
+    }
+    &-img {
+      height: 285px;
+      width: 100%;
+      object-fit: cover;
+      border-radius: 12px 12px 0 0;
+    }
+    &-body {
+      background-color: $white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 133px;
+      padding: 20px;
+      border-radius: 0 0 12px 12px;
+    }
+  }
+  &--blue {
+    background-color: #CCE9F7;
+  }
+  &--white &__card-body {
+    background-color: $lighest-blue;
+  }
+  @include respond-to(xxx-large) {
+    &__card {
+      &-img {
+        height: 250px;
+      }
+      &-body {
+        min-height: 120px;
+      }
+    }
+  }
+  @include respond-to(xx-large) {
+    &__card {
+      &-img {
+        height: 230px;
+      }
+    }
+  }
+  @include respond-to(x-large) {
+    &__card {
+      flex: 0 1 calc(50% - 20px);
+      margin-right: 40px;
+      &:nth-child(2n) {
+        margin-right: 0;
+      }
+      &:nth-child(n + 3) {
+        margin-top: 40px;
+      }
+    }
+  }
+  @include respond-to(small) {
+    &__cards {
+      flex-direction: column;
+    }
+    &__card {
+      margin-right: 0;
+      &:nth-child(n + 2) {
+        margin-top: 50px;
+      }
+    }
+  }
+}
+/*** End categories ***/
+
+/*** Book now ***/
+.deal-book {
+  &__cards {
+    flex-wrap: wrap;
+  }
+  &__card {
+    flex: 0 1 calc(33.333333% - 16px);
+    margin-right: 24px;
+    border-radius: 16px;
+    &:nth-child(3n) {
+      margin-right: 0;
+    }
+    &-header {
+      height: 250px;
+      display: flex;
+    }
+    &-img {
+      border-radius: 16px 16px 0 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    &-body {
+      border-radius: 0 0 16px 16px;
+      background-color: $white;
+      align-items: center;
+      padding: 30px;
+      justify-content: space-between;
+    }
+    &-title {
+      margin-right: 10px;
+    }
+    &-link svg {
+      margin-left: 5px;
+    }
+  }
+  @include respond-to(xx-large) {
+    &__card {
+      &-body {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      &-link {
+        margin-top: 20px;
+        align-self: center;
+      }
+    }
+  }
+  @include respond-to(x-large) {
+    &__cards {
+      flex-direction: column;
+      align-items: center;
+    }
+    &__card:nth-child(n + 2) {
+      margin-top: 50px;
+    }
+  }
+  @include respond-to(small) {
+    &__card {
+      &-header {
+        height: 220px;
+      }
+      &-body {
+        padding: 20px;
+      }
+    }
+  }
+}
+/*** End book now ***/
+
+/*** Cta ***/
+.deal-page {
+  .page-cta {
+    background-image: url('../images/deal/deal-cta-2.jpg');
+  }
+}
+/*** End cta ***/
