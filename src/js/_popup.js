@@ -50,9 +50,9 @@ class Popup {
     if(this.settings.popup.querySelector('video')) {
       this.settings.popup.querySelector('video').pause();
     }
-    if(this.settings.popup.querySelector('iframe')) {
-      this.settings.popup.querySelector('iframe').contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
-    }
+    // if(this.settings.popup.querySelector('iframe')) {
+    //   this.settings.popup.querySelector('iframe').contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+    // }
   }
 
   autoShow() {

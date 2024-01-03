@@ -14,7 +14,7 @@ import PopupSlider from './js/_popupSlider';
 import { throttle } from './js/helpers';
 import GallerySlider from './js/_gallery-slider';
 import Cookies from './js/_cookies';
-import Youtube from './js/_youtube';
+// import Youtube from './js/_youtube';
 
 window.addEventListener('load', () => {
   Header.make();
@@ -31,7 +31,7 @@ window.addEventListener('load', () => {
   PopupSlider.make();
   GallerySlider.init();
   Cookies.make();
-  Youtube.make();
+  // Youtube.make();
 })
 
 /***** REINITIALIZATION *****/

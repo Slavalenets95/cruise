@@ -203,6 +203,13 @@ html[dir="rtl"] {
     }
   }
 }
+html[dir="rtl"] {
+  .char-cards {
+    &__card:last-child {
+      margin-left: 0;
+    }
+  }
+}
 
 .ships-facilities {
   &__container {
