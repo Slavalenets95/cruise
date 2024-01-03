@@ -312,3 +312,43 @@
   }
 }
 /*** End cta ***/
+
+/*** Early booking ***/
+.deal-booking {
+  background: url('../images/deal/deal-booking.jpg') top left/cover no-repeat;
+  padding: 40px;
+  min-height: 565px;
+  display: flex;
+  align-items: center;
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to left, rgba(1, 11, 67, 0.00) 19.76%, rgba(1, 11, 67, 0.68) 69.98%);
+  }
+  &__content {
+    max-width: 915px;
+  }
+  @include respond-to(xx-large) {
+    min-height: 470px;
+  }
+}
+/*** End early booking ***/
+
+/*** Call ***/
+.deal-call {
+  background: url('../images/deal/deal-call.jpg') top left/cover no-repeat;
+  min-height: 485px;
+  display: flex;
+  align-items: center;
+  &__content {
+    flex-direction: column;
+    align-items: center;
+    max-width: 915px;
+    margin: 0 auto;
+  }
+}
+/** End call ***/
