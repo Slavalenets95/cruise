@@ -21,6 +21,9 @@
       }
     }
     @include respond-to(small) {
+      &::before {
+        background-image: url('../images/ships-page/ships-intro--mobile.jpg');
+      }
       min-height: 330px;
     }
   }

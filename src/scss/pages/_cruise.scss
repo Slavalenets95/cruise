@@ -16,9 +16,9 @@
     }
   }
   @include respond-to(small) {
-    // &::before {
-    //   background-image: url("../images/cruise-101/cruise-101-intro--mobile.jpg");
-    // }
+    &::before {
+      background-image: url("../images/cruise-101/cruise-101-intro--mobile.jpg");
+    }
   }
 }
 html[dir="rtl"] {

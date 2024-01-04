@@ -15,7 +15,7 @@
     }
     @include respond-to(small) {
       &::before {
-        //background-image: url('../images/about-us-page/about-us-intro--mobile.jpg');
+        background-image: url('../images/ships-page/ships-intro--mobile.jpg');
       }
     }
   }
