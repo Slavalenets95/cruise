@@ -112,6 +112,17 @@
     font-size: 40px;
   }
 }
+.title-58 > *:first-child {
+  font-size: 58px;
+  line-height: 1.4;
+  @include respond-to(xxx-large) {
+    font-size: 45px;
+  }
+
+  @include respond-to(small) {
+    font-size: 36px;
+  }
+}
 .text-60,
 .title-60 > *:first-child {
   font-size: 60px;
