@@ -11,6 +11,7 @@ node_modules
 *.jar
 *.rar
 *.tar
+*.zip
 
 *.com
 *.class
@@ -29,3 +30,4 @@ web.config
 /.htaccess
 /readme.html
 /sitemap.xml.gz
+/assets
