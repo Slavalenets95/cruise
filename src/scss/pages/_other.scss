@@ -1,0 +1,60 @@
+/*** Cookies page ***/
+.cookies-policy {
+  &__text-wrapper {
+    max-width: 1394px;
+    li:not(:first-child) {
+      margin-top: 15px;
+    }
+  }
+  table {
+    margin-top: 20px;
+    width: 100%;
+    font-size: 16px;
+    /* Thead */
+    thead {
+      color: $white;
+      tr {
+        background-color: #32579E;
+      }
+      td {
+        padding: 12px;
+        border: unset;
+      }
+      td:not(:last-child) {
+        border-right: 1px solid #6681B8;
+      }
+      tr:first-child td:first-child {
+        border-radius: 6px 0 0 0;
+      }
+      tr:first-child td:last-child {
+        border-radius: 0 6px 0 0;
+      }
+    }
+    /* End thead */
+
+    /* Tbody */
+    tbody {
+      td {
+        padding: 8px 12px;
+        border: unset;
+      }
+      td:not(:last-child) {
+        border-right: 1px solid #CCD4E7;
+      }
+      tr:nth-child(odd) td {
+        background-color: $white;
+      }
+      tr:nth-child(even) td {
+        background-color: #F5F7FB;
+      }
+      tr:last-child td:first-child {
+        border-radius: 0 0 0 6px;
+      }
+      tr:last-child td:last-child {
+        border-radius: 0 0 6px 0;
+      }
+    }
+    /* End tbody */
+  }
+}
+/*** End cookies page ***/
