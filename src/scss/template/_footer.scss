@@ -39,10 +39,7 @@
         align-items: center;
         font-size: 18px;
       }
-      .custom {
-        width: 25px;
-        height: 25px;
-        margin: 0;
+      .checkbox {
         margin-right: 20px;
       }
     }
@@ -150,7 +147,7 @@ html[dir="rtl"] {
   .signup {
     &-form {
       &__controls-item--agree {
-        input {
+        .checkbox {
           margin-right: unset;
           margin-left: 20px;
         }
@@ -201,10 +198,7 @@ html[dir="rtl"] {
       label {
         font-size: 18px;
       }
-      input {
-        width: 25px;
-        height: 25px;
-        margin: 0;
+      .checkbox {
         margin-right: 20px;
       }
     }
@@ -597,7 +591,7 @@ html[dir="rtl"] {
         margin-left: 20px;
       }
       &__form-item--agree {
-        input {
+        .checkbox {
           margin-right: unset;
           margin-left: 20px;
         }

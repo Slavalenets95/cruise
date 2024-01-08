@@ -147,10 +147,7 @@
       width: 100%;
       order: 99;
     }
-    input {
-      width: 25px;
-      height: 25px;
-      margin: 0;
+    .checkbox {
       margin-right: 20px;
     }
   }
@@ -269,7 +266,7 @@ html[dir="rtl"] {
     &__form {
       justify-content: flex-end;
       &-item--agree {
-        input {
+        .checkbox {
           margin-right: unset;
           margin-left: 20px;
         }

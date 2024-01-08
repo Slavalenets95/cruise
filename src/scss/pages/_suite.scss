@@ -67,14 +67,14 @@ html[dir="rtl"] {
   &__subtitle-block {
     line-height: 1.5;
   }
-  &:nth-child(odd) {
+  &:nth-child(even) {
     flex-direction: row-reverse;
   }
-  &:nth-child(odd) &__img-block {
+  &:nth-child(even) &__img-block {
     margin-right: unset;
     margin-left: 70px;
   }
-  &:nth-child(odd) &__img {
+  &:nth-child(even) &__img {
     border-radius: 0px 0px 0px 80px;
   }
   @include respond-to(xx-large) {
