@@ -1,31 +1,35 @@
 /*** Cookies page ***/
 .cookies-policy {
+  .custom-scrollbar {
+    &::-webkit-scrollbar {
+      height: 7px;
+    }
+  }
   &__text-wrapper {
-    max-width: 1394px;
     li:not(:first-child) {
       margin-top: 15px;
     }
   }
   .table-wrapper {
     margin-top: 20px;
-    overflow: scroll;
+    overflow-x: scroll;
   }
   table {
     width: 100%;
     font-size: 16px;
-    min-width: 1394px;
+    overflow: hidden;
     /* Thead */
     thead {
       color: $white;
       tr {
-        background-color: #32579E;
+        background-color: #32579e;
       }
       td {
         padding: 12px;
         border: unset;
       }
       td:not(:last-child) {
-        border-right: 1px solid #6681B8;
+        border-right: 1px solid #6681b8;
       }
       tr:first-child td:first-child {
         border-radius: 6px 0 0 0;
@@ -43,13 +47,13 @@
         border: unset;
       }
       td:not(:last-child) {
-        border-right: 1px solid #CCD4E7;
+        border-right: 1px solid #ccd4e7;
       }
       tr:nth-child(odd) td {
         background-color: $white;
       }
       tr:nth-child(even) td {
-        background-color: #F5F7FB;
+        background-color: #f5f7fb;
       }
       tr:last-child td:first-child {
         border-radius: 0 0 0 6px;
@@ -59,6 +63,21 @@
       }
     }
     /* End tbody */
+  }
+  // 1400
+  @include respond-to(xx-large) {
+    table {
+      table-layout: fixed;
+      td {
+        width: 20%;
+      }
+    }
+  }
+  // 992
+  @include respond-to(large) {
+    .table-wrapper__fix {
+      min-width: 960px;
+    }
   }
 }
 /*** End cookies page ***/
