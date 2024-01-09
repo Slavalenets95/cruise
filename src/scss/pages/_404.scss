@@ -24,6 +24,15 @@
     }
   }
 }
+html[dir="rtl"] {
+  .intro-404 {
+    &__section-header {
+      max-width: 794px;
+      margin-right: unset;
+      margin-left: 40px;
+    }
+  }
+}
 
 .cards-404 {
   background: url('../images/404/cards-bg.jpg') top left/cover no-repeat;
@@ -100,8 +109,40 @@
     }
   }
 }
+html[dir="rtl"] {
+  .cards-404 {
+    &__section-header {
+      margin-right: unset;
+      margin-left: 40px;
+    }
+    &__item {
+      &:nth-child(2),
+      &:first-child {
+        margin-right: unset;
+        margin-left: 20px;
+      }
+    }
+    // 600
+    @include respond-to(small) {
+      &__item {
+        &:nth-child(n) {
+          margin-left: unset;
+        }
+      }
+    }
+  }
+}
 
-.cta-404 {
-  background-image: url('../images/cabins/cta-bg.jpg');
-  background-position: right center;
+.page-404__cta {
+  background: url("../images/about-us-page/about-cta.jpg") top left/cover #7bb7cd;
+  background-position: right bottom -165px;
+  @include respond-to(xxx-large) {
+    background-position: right bottom -100px;
+  }
+  @include respond-to(xx-large) {
+    background-position: right center;
+  }
+  @include respond-to(medium) {
+    background-position: right center;
+  }
 }
