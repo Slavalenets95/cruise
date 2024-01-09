@@ -96,6 +96,9 @@
     &-link {
       margin-top: 15px;
     }
+    .scaled {
+      width: 100%;
+    }
   }
   @include respond-to(xxx-large) {
     &__card {
@@ -129,6 +132,34 @@
       height: 280px;
       &:nth-child(n + 2) {
         margin-top: 50px;
+      }
+    }
+  }
+}
+html[dir="rtl"] {
+  .deal-offers {
+    &__card {
+      margin-right: unset;
+      margin-left: 20px;
+      &:last-child {
+        margin-left: unset;
+      }
+    }
+    // 1200
+    @include respond-to(x-large) {
+      &__card {
+        margin-left: 40px;
+        &:nth-child(2n) {
+          margin-left: 0;
+        }
+      }
+    }
+    // 600
+    @include respond-to(small) {
+      &__card {
+        &:nth-child(n) {
+          margin-left: 0;
+        }
       }
     }
   }
@@ -352,6 +383,13 @@
   }
   @include respond-to(large) {
     background-position: top left;
+  }
+}
+html[dir="rtl"] {
+  .deal-booking {
+    &::before {
+      background: linear-gradient(to right, rgba(1, 11, 67, 0) 19.76%, rgba(1, 11, 67, 0.68) 69.98%);
+    }
   }
 }
 /*** End early booking ***/

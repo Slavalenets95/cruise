@@ -110,16 +110,20 @@
 html[dir="rtl"] {
   .page-intro {
     &--radius {
-      &::before {
-        transform: scaleX(-1);
+      &::before, &::after {
+        border-radius: 0 0 0 200px;
       }
       &::after {
-        border-radius: 0 0 0 200px;
         background: linear-gradient(to left, rgba(1, 47, 125, 0.60) 22.12%, rgba(0, 48, 131, 0.00) 69.44%);
       }
       @include respond-to(medium) {
-        &::after {
+        &::after, &::before {
           border-radius: 0 0 0 100px;
+        }
+      }
+      @include respond-to(small) {
+        &::after, &::before {
+          border-radius: 0;
         }
       }
     }
