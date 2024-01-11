@@ -1,7 +1,10 @@
+import { throttle } from './helpers';
+
 class Footer {
   make() {
     /***** FOOTER TOGGLE NAV *****/
     const footer = document.querySelector('.footer');
+    const scrollTopBtn = document.querySelector('.scroll-top-btn');
 
     if (footer) {
       footer.addEventListener('click', evt => {
@@ -17,6 +20,20 @@ class Footer {
           }
           subMenu.toggleAttribute('data-active');
         }
+      })
+    }
+
+    if (scrollTopBtn) {
+      window.addEventListener('scroll', throttle(() => {
+        window.scrollY > window.innerHeight
+          ? scrollTopBtn.classList.add("show")
+          : scrollTopBtn.classList.remove("show");
+      }, 50))
+      scrollTopBtn.addEventListener('click', () => {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
       })
     }
     /***** END FOOTER TOGGLE NAV *****/

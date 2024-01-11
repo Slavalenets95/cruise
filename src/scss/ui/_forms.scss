@@ -92,7 +92,7 @@ select {
   height: 25px;
   background: url('../images/checkbox--no-active.svg') center center/contain no-repeat;
 }
-.input-checkbox:checked + .checkbox {
+.input-checkbox:checked ~ .checkbox {
   background-image: url('../images/checkbox--active.svg');
 }
 /***** END FORM STYLES *****/
