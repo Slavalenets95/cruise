@@ -27,365 +27,453 @@
 
 <body class="home-page">
   <!-- HEADER -->
-  <%= templates.headerEn %>
-    <!-- END HEADER -->
-    <main class="main">
-      <!-- HOME INTRO -->
-      <div class="home-intro section white flex">
-        <div class="home-intro__slider swiper relative">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide home-intro__video-slide relative" data-swiper-autoplay="9000">
-              <div class="container">
-                <div class="home-intro__video-slide-wrapper relative">
-                  <div class="section-header">
-                    <div class="section-header__title home-intro__video-slide-title">
-                      <h1>A world of experiences awaits you on our Remarkably Arabian waves</h1>
-                    </div>
-                    <div class="home-intro__video-slide-controls mt-2">
-                      <div class="section-links flex">
-                        <button class="section-links__item control control--white" type="button">
-                          <span class="section-links__item__text">Play Full Video</span>
-                          <span class="section-links__item-ic control-ic">
-                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none"
-                              xmlns="http://www.w3.org/2000/svg">
-                              <path fill-rule="evenodd" clip-rule="evenodd"
-                                d="M4 5.04803C4 4.46922 4.46922 4 5.04803 4H26.952C27.5308 4 28 4.46922 28 5.04803V26.952C28 27.5308 27.5308 28 26.952 28H5.04803C4.46922 28 4 27.5308 4 26.952V5.04803ZM6.09607 6.09607V25.9039H25.9039V6.09607H6.09607Z"
-                                fill="white" />
-                              <path fill-rule="evenodd" clip-rule="evenodd"
-                                d="M15.9257 9.42358C15.3734 9.42358 14.9257 8.97587 14.9257 8.42358C14.9257 7.8713 15.3734 7.42358 15.9257 7.42358L23.5763 7.42358C24.1286 7.42358 24.5763 7.8713 24.5763 8.42358L24.5763 16.0742C24.5763 16.6265 24.1286 17.0742 23.5763 17.0742C23.024 17.0742 22.5763 16.6265 22.5763 16.0742L22.5763 11.0325L18.2912 15.3176C17.8819 15.7269 17.2183 15.7269 16.809 15.3176C16.3998 14.9083 16.3998 14.2447 16.809 13.8354L21.2209 9.42358L15.9257 9.42358Z"
-                                fill="white" />
-                              <path fill-rule="evenodd" clip-rule="evenodd"
-                                d="M9.92566 15.4236C9.92566 14.8713 9.47794 14.4236 8.92566 14.4236C8.37337 14.4236 7.92566 14.8713 7.92566 15.4236V23.0742C7.92566 23.6265 8.37337 24.0742 8.92566 24.0742H16.5763C17.1286 24.0742 17.5763 23.6265 17.5763 23.0742C17.5763 22.5219 17.1286 22.0742 16.5763 22.0742H11.5345L15.8197 17.7891C16.2289 17.3798 16.2289 16.7162 15.8197 16.307C15.4104 15.8977 14.7468 15.8977 14.3375 16.307L9.92566 20.7188V15.4236Z"
-                                fill="white" />
-                            </svg>
-                          </span>
-                        </button>
-                        <a href="/aroya-ship" class="section-links__item section-links__link control control--white">
-                          <span class="section-links__item__text">Learn More</span>
-                          <span class="section-links__item-ic control-ic">
-                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none"
-                              xmlns="http://www.w3.org/2000/svg">
-                              <g id="Icon/arrow">
-                                <path id="Vector (Stroke)" fill-rule="evenodd" clip-rule="evenodd"
-                                  d="M22.5118 14.8215C23.1627 15.4724 23.1627 16.5277 22.5118 17.1785L11.8452 27.8452C11.1943 28.4961 10.139 28.4961 9.48815 27.8452C8.83728 27.1943 8.83728 26.139 9.48815 25.4882L18.9763 16L9.48816 6.51186C8.83728 5.86099 8.83728 4.80572 9.48816 4.15484C10.139 3.50397 11.1943 3.50397 11.8452 4.15484L22.5118 14.8215Z"
-                                  fill="white" />
-                              </g>
-                            </svg>
-                          </span>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <video preload="none" class="home-intro__video" loop autoplay muted playsinline
-                  poster="./images/home-intro-video-poster.jpg">
-                  <source type="video/mp4" src="./images/home-intro-video.mp4">
-                  </source>
-                  Sorry, your browser doesn't support embedded videos
-                </video>
-              </div>
-            </div>
-            <!-- <div class="swiper-slide home-intro__slide relative">
-              <div class="container">
-                <div class="home-intro__slide-wrapper">
-                  <div class="home-intro__slide-text">
-                    <div class="section-header white">
-                      <div class="section-header__title">
-                        <h2>Discover our exceptional journeys with exclusive offers and packages!</h2>
-                      </div>
-                    </div>
-                    <a href="#" class="main-btn main-btn--light-blue main-btn--wide mt-4">Explore more</a>
-                  </div>
-                  <img loading="lazy" src="./images/home-page/home-intro__slide.jpg" alt="" class="home-intro__slide-img">
-                </div>
-              </div>
-            </div> -->
-          </div>
-          <!-- <div class="home-intro__slider-nav swiper-nav">
-            <div class="container swiper-nav__container">
-              <button type="button" class="swiper-nav__btn prev">
-                <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <g id="Icon/arrow">
-                    <path id="Vector (Stroke)" fill-rule="evenodd" clip-rule="evenodd"
-                      d="M9.70921 11.7806C9.43026 12.0596 9.43026 12.5118 9.70921 12.7908L14.2806 17.3622C14.5596 17.6412 15.0118 17.6412 15.2908 17.3622C15.5697 17.0833 15.5697 16.631 15.2908 16.3521L11.2244 12.2857L15.2908 8.21936C15.5697 7.94042 15.5697 7.48816 15.2908 7.20921C15.0118 6.93026 14.5596 6.93026 14.2806 7.20921L9.70921 11.7806Z"
-                      fill="white" />
-                  </g>
+  <header class="header white flex scrolled">
+    <div class="container header-container flex">
+      <div class="header-logo">
+        <a href="/" class="header-logo__link flex">
+          <img src="../images/header-logo.svg" alt="Aroya cruises">
+        </a>
+      </div>
+      <div class="header-main">
+        <nav class="header-nav">
+          <ul class="header-nav__list text-16 semibold flex">
+            <li class="header-nav__list-item flex">
+              <a class="header-nav__list-link flex" href="#">AROYA Ship</a>
+            </li>
+            <li class="header-nav__list-item flex">
+              <a href="#" class="header-nav__list-link flex">Destinations</a>
+            </li>
+            <li class="header-nav__list-item flex">
+              <span class="header-nav__list-link flex">
+                Aroya Experiences
+                <svg class="header-nav__list-link-ic" xmlns="http://www.w3.org/2000/svg" width="21" height="20"
+                  viewBox="0 0 21 20" fill="none">
+                  <path d="M5.87175 8.33333L10.0384 12.5L14.2051 8.33333" stroke="white" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round" />
                 </svg>
-              </button>
-              <div class="swiper-nav__dots"></div>
-              <button type="button" class="swiper-nav__btn next">
-                <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <g id="Icon/arrow">
-                    <path id="Vector (Stroke)" fill-rule="evenodd" clip-rule="evenodd"
-                      d="M15.2908 11.7806C15.5697 12.0596 15.5697 12.5118 15.2908 12.7908L10.7194 17.3622C10.4404 17.6412 9.98815 17.6412 9.70921 17.3622C9.43026 17.0833 9.43026 16.631 9.70921 16.3521L13.7756 12.2857L9.70921 8.21936C9.43026 7.94042 9.43026 7.48816 9.70921 7.20921C9.98815 6.93026 10.4404 6.93026 10.7194 7.20921L15.2908 11.7806Z"
-                      fill="white" />
-                  </g>
-                </svg>
-              </button>
-            </div>
-          </div> -->
+              </span>
+              <div class="header-nav__sub-list-wrap">
+                <ul class="header-nav__sub-list">
+                  <li class="header-nav__sub-list-item">
+                    <a href="#" class="header-nav__sub-list-link">About Aroya</a>
+                  </li>
+                  <li class="header-nav__sub-list-item">
+                    <a href="#" class="header-nav__sub-list-link">Aroya Cruise 101</a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li class="header-nav__list-item flex">
+              <a href="#" class="header-nav__list-link flex">Cruise Deal</a>
+            </li>
+            <li class="header-nav__list-item flex">
+              <a href="#" class="header-nav__list-link flex">Contact Us</a>
+            </li>
+          </ul>
+        </nav>
+        <div class="header-main__language text-16">
+          <a href="#" class="header-main__language-link flex">
+            <svg class="header-main__language-ic" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+              viewBox="0 0 20 20" fill="none">
+              <g id="Group 1">
+                <path id="Vector (Stroke)" fill-rule="evenodd" clip-rule="evenodd"
+                  d="M9.76812 1.5C5.20176 1.5 1.5 5.20176 1.5 9.76812C1.5 14.3345 5.20176 18.0362 9.76812 18.0362C14.3345 18.0362 18.0362 14.3345 18.0362 9.76812C18.0362 5.20176 14.3345 1.5 9.76812 1.5ZM0.5 9.76812C0.5 4.64948 4.64948 0.5 9.76812 0.5C14.8868 0.5 19.0362 4.64948 19.0362 9.76812C19.0362 14.8868 14.8868 19.0362 9.76812 19.0362C4.64948 19.0362 0.5 14.8868 0.5 9.76812Z"
+                  fill="white" />
+                <path id="Vector (Stroke)_2" fill-rule="evenodd" clip-rule="evenodd"
+                  d="M3.79613 7.10872C2.267 7.89224 1.5 8.88494 1.5 9.84059C1.5 10.7962 2.267 11.7889 3.79613 12.5725C5.29873 13.3424 7.40938 13.8333 9.76812 13.8333C12.1268 13.8333 14.2375 13.3424 15.7401 12.5725C17.2692 11.7889 18.0362 10.7962 18.0362 9.84059C18.0362 8.88494 17.2692 7.89224 15.7401 7.10872C14.2375 6.33879 12.1268 5.84784 9.76812 5.84784C7.40938 5.84784 5.29873 6.33879 3.79613 7.10872ZM3.34011 6.21875C5.01095 5.36262 7.28435 4.84784 9.76812 4.84784C12.2519 4.84784 14.5253 5.36262 16.1961 6.21875C17.8404 7.06129 19.0362 8.31497 19.0362 9.84059C19.0362 11.3662 17.8404 12.6199 16.1961 13.4624C14.5253 14.3186 12.2519 14.8333 9.76812 14.8333C7.28435 14.8333 5.01095 14.3186 3.34011 13.4624C1.69581 12.6199 0.5 11.3662 0.5 9.84059C0.5 8.31497 1.69581 7.06129 3.34011 6.21875Z"
+                  fill="white" />
+                <path id="Vector (Stroke)_3" fill-rule="evenodd" clip-rule="evenodd"
+                  d="M7.10854 3.79613C6.33861 5.29873 5.84766 7.40938 5.84766 9.76812C5.84766 12.1268 6.33861 14.2375 7.10854 15.7401C7.89206 17.2692 8.88476 18.0362 9.84041 18.0362C10.7961 18.0362 11.7888 17.2692 12.5723 15.7401C13.3422 14.2375 13.8332 12.1268 13.8332 9.76812C13.8332 7.40938 13.3422 5.29873 12.5723 3.79613C11.7888 2.267 10.7961 1.5 9.84041 1.5C8.88476 1.5 7.89206 2.267 7.10854 3.79613ZM6.21857 3.34011C7.0611 1.69581 8.31478 0.5 9.84041 0.5C11.366 0.5 12.6197 1.69581 13.4623 3.34011C14.3184 5.01095 14.8332 7.28435 14.8332 9.76812C14.8332 12.2519 14.3184 14.5253 13.4623 16.1961C12.6197 17.8404 11.366 19.0362 9.84041 19.0362C8.31478 19.0362 7.0611 17.8404 6.21857 16.1961C5.36244 14.5253 4.84766 12.2519 4.84766 9.76812C4.84766 7.28435 5.36244 5.01095 6.21857 3.34011Z"
+                  fill="white" />
+                <path id="Vector (Stroke)_4" fill-rule="evenodd" clip-rule="evenodd"
+                  d="M9.19531 19V1H10.1953V19H9.19531Z" fill="white" />
+                <path id="Vector (Stroke)_5" fill-rule="evenodd" clip-rule="evenodd"
+                  d="M1 9.19568H18.8696V10.1957H1V9.19568Z" fill="white" />
+              </g>
+            </svg>
+            <span class="header-main__language__txt uc">Ar</span>
+          </a>
         </div>
       </div>
-      <!-- END INTRO -->
-      <div>
-        <!-- HOME DESTINATION -->
-        <div class="home-destins py-10">
-          <div class="container">
-            <div class="section-header">
-              <div class="section-header__title dark-blue">
-                <h2>Explore our destinations</h2>
-              </div>
-            </div>
-            <div class="home-destins__items mt-4">
-              <div class="home-destins__item flex">
-                <div class="home-destins__item-text-wrapper light-bg--2">
-                  <div class="home-destins__item-ic">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="31" viewBox="0 0 30 31" fill="none">
-                      <circle cx="15" cy="15.5" r="13" stroke="#003083" stroke-width="4" />
-                      <circle cx="15" cy="15.5" r="6" fill="#003083" />
-                    </svg>
-                  </div>
-                  <div class="home-destins__item-content sd mt-1 title-34 f-medium f-dark-blue">
-                    <h3>Sharm El Sheikh</h3>
-                    <p>Your renewed appointment among the pristine beaches and reserves in the heart of the
-                      turquoise Sinai desert, where the Arabian atmosphere, oriental arts, and the joy of
-                      barbecue with the sounds of the night.
-                    </p>
-                    <div class="home-destins__item-links flex">
-                      <!-- <a href="https://uat.booking.aroya.com/touchb2c/"
-                        class="home-destins__item-link main-btn main-btn--light-blue">Book Now</a> -->
-                      <a href="/sharm-el-sheikh" class="home-destins__item-more">
-                        <span class="home-destins__item-more-txt">Learn More</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="17" viewBox="0 0 16 17" fill="none">
-                          <path fill-rule="evenodd" clip-rule="evenodd"
-                            d="M11.2559 7.91079C11.5814 8.23622 11.5814 8.76386 11.2559 9.0893L5.92259 14.4226C5.59715 14.7481 5.06951 14.7481 4.74408 14.4226C4.41864 14.0972 4.41864 13.5696 4.74408 13.2441L9.48816 8.50004L4.74408 3.75596C4.41864 3.43053 4.41864 2.90289 4.74408 2.57745C5.06951 2.25201 5.59715 2.25201 5.92259 2.57745L11.2559 7.91079Z"
-                            fill="#003083" />
-                        </svg>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div class="home-destins__item-image-wrapper flex">
-                  <img loading="lazy" class="home-destins__item-image" src="./images/home-page/home-destins-1.jpg"
-                    alt="">
-                </div>
-              </div>
-              <div class="home-destins__item flex">
-                <div class="home-destins__item-text-wrapper light-bg--2">
-                  <div class="home-destins__item-ic">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="31" viewBox="0 0 30 31" fill="none">
-                      <circle cx="15" cy="15.5" r="13" stroke="#003083" stroke-width="4" />
-                      <circle cx="15" cy="15.5" r="6" fill="#003083" />
-                    </svg>
-                  </div>
-                  <div class="home-destins__item-content sd mt-1 title-34 f-medium f-dark-blue">
-                    <h3>Aqaba</h3>
-                    <p>The cradle of civilizations and the sounds of religions. It is an integrated world that embraces
-                      the Red Sea and tells tales of development and prosperity through the ages.
-                    </p>
-                    <div class="home-destins__item-links flex">
-                      <!-- <a href="https://uat.booking.aroya.com/touchb2c/"
-                        class="home-destins__item-link main-btn main-btn--light-blue">Book Now</a> -->
-                      <a href="/al-aqaba" class="home-destins__item-more">
-                        <span class="home-destins__item-more-txt">Learn More</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="17" viewBox="0 0 16 17" fill="none">
-                          <path fill-rule="evenodd" clip-rule="evenodd"
-                            d="M11.2559 7.91079C11.5814 8.23622 11.5814 8.76386 11.2559 9.0893L5.92259 14.4226C5.59715 14.7481 5.06951 14.7481 4.74408 14.4226C4.41864 14.0972 4.41864 13.5696 4.74408 13.2441L9.48816 8.50004L4.74408 3.75596C4.41864 3.43053 4.41864 2.90289 4.74408 2.57745C5.06951 2.25201 5.59715 2.25201 5.92259 2.57745L11.2559 7.91079Z"
-                            fill="#003083" />
-                        </svg>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div class="home-destins__item-image-wrapper flex ">
-                  <img loading="lazy" class="home-destins__item-image" src="./images/home-page/home-destins-2.jpg"
-                    alt="">
-                </div>
-              </div>
-              <div class="home-destins__item flex">
-                <div class="home-destins__item-text-wrapper light-bg--2">
-                  <div class="home-destins__item-ic">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="31" viewBox="0 0 30 31" fill="none">
-                      <circle cx="15" cy="15.5" r="13" stroke="#003083" stroke-width="4" />
-                      <circle cx="15" cy="15.5" r="6" fill="#003083" />
-                    </svg>
-                  </div>
-                  <div class="home-destins__item-content sd mt-1 title-34 f-medium f-dark-blue">
-                    <h3>Jeddah</h3>
-                    <p>Mermaid of the sea and city of warmth. It welcomes you with love among its old buildings, lively
-                      streets and diverse cultures. Recognized by UNESCO, it's a tour that captivates you between its
-                      ancient past and its rich present.
-                    </p>
-                    <div class="home-destins__item-links flex">
-                      <!-- <a href="https://uat.booking.aroya.com/touchb2c/"
-                        class="home-destins__item-link main-btn main-btn--light-blue">Book Now</a> -->
-                      <a href="/jeddah" class="home-destins__item-more">
-                        <span class="home-destins__item-more-txt">Learn More</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="17" viewBox="0 0 16 17" fill="none">
-                          <path fill-rule="evenodd" clip-rule="evenodd"
-                            d="M11.2559 7.91079C11.5814 8.23622 11.5814 8.76386 11.2559 9.0893L5.92259 14.4226C5.59715 14.7481 5.06951 14.7481 4.74408 14.4226C4.41864 14.0972 4.41864 13.5696 4.74408 13.2441L9.48816 8.50004L4.74408 3.75596C4.41864 3.43053 4.41864 2.90289 4.74408 2.57745C5.06951 2.25201 5.59715 2.25201 5.92259 2.57745L11.2559 7.91079Z"
-                            fill="#003083" />
-                        </svg>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div class="home-destins__item-image-wrapper flex">
-                  <img loading="lazy" class="home-destins__item-image" src="./images/home-page/home-destins-3.jpg"
-                    alt="">
-                </div>
-              </div>
-            </div>
-            <div class="home-destins__footer flex mt-6">
-              <a href="/destinations" class="home-destins__footer-link square-btn square-btn--light-blue">Explore
-                More</a>
-            </div>
-          </div>
+      <div class="header-ui flex">
+        <div class="header-hamb">
+          <button class="header-hamb__btn" type="button">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
         </div>
-        <!-- END HOME DESTINATION -->
-      </div>
-      <!-- BLOG SECTION -->
-      <div class="blog section py-6 light-bg">
-        <div class="container">
-          <div class="blog-cards custom-scroll">
-            <div class="blog-card">
-              <div class="blog-card__header">
-                <img loading="lazy" class="blog-card__header-img" src="./images/home-page/home-blog-1.jpg" alt="">
-              </div>
-              <div class="blog-card__body sd sd--m-10 f-dark-blue title-26 f-bold">
-                <h3>Blossom Spa</h3>
-                <p>Indulgence and exceptional services</p>
-                <p>Enjoy the comfort and purity of beauty at Blossom Spa, where the finest unique beauty products and
-                  global competencies we have dedicated to your comfort.
-                </p>
-              </div>
-            </div>
-            <div class="blog-card">
-              <div class="blog-card__header">
-                <img loading="lazy" class="blog-card__header-img" src="./images/home-page/home-blog-3.jpg" alt="">
-              </div>
-              <div class="blog-card__body sd sd--m-10 f-dark-blue title-26 f-bold">
-                <h3>Khuzama Experience</h3>
-                <p>A unique atmosphere to create your memories</p>
-                <p>Enjoy luxury in the Khuzama VIP area, to find an outlet that creates the most beautiful memories with
-                  authentic Arabian features.
-                </p>
-              </div>
-            </div>
-            <div class="blog-card">
-              <div class="blog-card__header">
-                <img loading="lazy" class="blog-card__header-img" src="./images/home-page/home-blog-2.jpg" alt="">
-              </div>
-              <div class="blog-card__body sd sd--m-10 f-dark-blue title-26 f-bold">
-                <h3>Culinary Experience</h3>
-                <p>An exceptional experience that inspires your senses</p>
-                <p>A world of authentic flavors awaits you, where authentic flavors intermingle with international
-                  quality and Arabian features.
-                </p>
-              </div>
-            </div>
-            <div class="blog-card">
-              <div class="blog-card__header">
-                <img loading="lazy" class="blog-card__header-img" src="./images/home-page/home-blog-4.jpg" alt="">
-              </div>
-              <div class="blog-card__body sd sd--m-10 f-dark-blue title-26 f-bold">
-                <h3>AROYA Theatre</h3>
-                <p>Our live shows await you for a pleasure that waves your imagination</p>
-                <p>Enjoy a range of our live shows that have been scheduled periodically, to provide you with a variety
-                  of fun opportunities to suit different tastes.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- END BLOG SECTION -->
-    </main>
-    <!-- SIGNUP -->
-    <div class="signup light-bg">
-      <div class="container py-6">
-        <div class="signup-main">
-          <form class="signup-form">
-            <div class="section-header section-header--custom center blue">
-              <div class="section-header__title title-34 secondary-f f-medium">
-                <h2>Never miss a cruise deal, sign up today</h2>
-              </div>
-            </div>
-            <div class="signup-form__main mt-4">
-              <div class="signup-form__body">
-                <div class="signup-form__controls">
-                  <div class="signup-form__controls-item">
-                    <input class="signup-form__control" name="email" type="text" placeholder="Email Address">
-                  </div>
-                  <div class="signup-form__controls-item">
-                    <input class="signup-form__control" name="phone" type="phone" placeholder="Phone">
-                    <span class="optional">Optional</span>
-                  </div>
-                  <div class="signup-form__controls-item signup-form__controls-item--agree gray">
-                    <label class="flex">
-                      <input class="input-checkbox" name="agree" type="checkbox">
-                      <span class="checkbox"></span>
-                      <span>I agree to receive news and updates.</span>
-                    </label>
-                  </div>
-                </div>
-                <div class="signup-form__submit-wrapper">
-                  <button class="signup-form__submit-btn main-btn main-btn--light-blue uc" type="submit">Sign up
-                  </button>
-                  <span class="loader"></span>
-                </div>
-              </div>
-              <div class="signup-footer sd sd--light-links gray">
-                <p>Sign up to receive information about our special offers and deals. You can unsubscribe at any time.
-                  For
-                  more details about how we use your information, view our <a href="#">Privacy Policy</a>.</p>
-              </div>
-            </div>
-            <div class="signup-form__thank center">
-              <div class="signup-form__thank-title flex">
-                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="41" viewBox="0 0 40 41" fill="none">
-                  <path fill-rule="evenodd" clip-rule="evenodd"
-                    d="M20 0.500014C22.6269 0.496918 25.2285 1.01283 27.6554 2.01814C30.0823 3.02342 32.2867 4.49826 34.1419 6.35793C36.0016 8.21323 37.4765 10.4176 38.4818 12.8446C39.4871 15.2715 40.003 17.8731 40 20.5C40.0031 23.1269 39.4872 25.7285 38.4819 28.1554C37.4766 30.5824 36.0017 32.7868 34.142 34.642C32.2868 36.5017 30.0824 37.9766 27.6554 38.9819C25.2285 39.9872 22.6269 40.5031 20 40.5C17.3731 40.503 14.7715 39.9871 12.3446 38.9818C9.91768 37.9765 7.71329 36.5017 5.85801 34.642C3.9983 32.7868 2.52343 30.5824 1.51814 28.1554C0.512831 25.7285 -0.0030847 23.1269 1.38749e-05 20.5C-0.00302423 17.8731 0.512914 15.2715 1.51821 12.8446C2.5235 10.4177 3.99833 8.21328 5.858 6.358C7.71328 4.49833 9.91768 3.0235 12.3446 2.01821C14.7715 1.01291 17.3731 0.496973 20 0.500014ZM26.2638 5.37768C24.2788 4.55544 22.1509 4.13359 20.0024 4.13637H19.9977C17.8491 4.13364 15.7212 4.55551 13.7362 5.37775C11.7512 6.19999 9.94825 7.40639 8.43096 8.92762L8.42762 8.93096C6.90639 10.4482 5.69999 12.2512 4.87775 14.2362C4.05551 16.2212 3.63364 18.3491 3.63637 20.4977V20.5024C3.63359 22.6509 4.05544 24.7788 4.87768 26.7638C5.69992 28.7488 6.90634 30.5518 8.4276 32.069L8.43097 32.0724C9.94825 33.5936 11.7512 34.8 13.7362 35.6222C15.7212 36.4445 17.8491 36.8664 19.9977 36.8636H20.0024C22.1509 36.8664 24.2788 36.4446 26.2638 35.6223C28.2488 34.8001 30.0518 33.5937 31.569 32.0724L31.5724 32.069C33.0937 30.5518 34.3001 28.7488 35.1223 26.7638C35.9446 24.7788 36.3664 22.6509 36.3636 20.5024V20.4977C36.3664 18.3491 35.9445 16.2212 35.1222 14.2362C34.3 12.2512 33.0936 10.4483 31.5724 8.93096L31.569 8.9276C30.0518 7.40634 28.2488 6.19992 26.2638 5.37768Z"
-                    fill="url(#paint0_linear_3538_20479)" />
-                  <path
-                    d="M20.0024 4.13637C22.1509 4.13359 24.2788 4.55544 26.2638 5.37768C28.2488 6.19992 30.0518 7.40634 31.569 8.9276L31.5724 8.93096C33.0936 10.4483 34.3 12.2512 35.1222 14.2362C35.9445 16.2212 36.3664 18.3491 36.3636 20.4977V20.5024C36.3664 22.6509 35.9446 24.7788 35.1223 26.7638C34.3001 28.7488 33.0937 30.5518 31.5724 32.069L31.569 32.0724C30.0518 33.5937 28.2488 34.8001 26.2638 35.6223C24.2788 36.4446 22.1509 36.8664 20.0024 36.8636H19.9977C17.8491 36.8664 15.7212 36.4445 13.7362 35.6222C11.7512 34.8 9.94825 33.5936 8.43097 32.0724L8.4276 32.069C6.90634 30.5518 5.69992 28.7488 4.87768 26.7638C4.05544 24.7788 3.63359 22.6509 3.63637 20.5024V20.4977C3.63364 18.3491 4.05551 16.2212 4.87775 14.2362C5.69999 12.2512 6.90639 10.4482 8.42762 8.93096L8.43096 8.92762C9.94825 7.40639 11.7512 6.19999 13.7362 5.37775C15.7212 4.55551 17.8491 4.13364 19.9977 4.13637H20.0024Z"
-                    fill="url(#paint1_linear_3538_20479)" />
-                  <path fill-rule="evenodd" clip-rule="evenodd"
-                    d="M30.3766 13.7601C31.0867 14.4701 31.0867 15.6213 30.3766 16.3314L19.4675 27.2404C18.7575 27.9505 17.6063 27.9505 16.8963 27.2404L11.4417 21.7859C10.7317 21.0759 10.7317 19.9247 11.4417 19.2146C12.1518 18.5046 13.303 18.5046 14.013 19.2146L18.1819 23.3835L27.8053 13.7601C28.5154 13.05 29.6666 13.05 30.3766 13.7601Z"
-                    fill="white" />
-                  <defs>
-                    <linearGradient id="paint0_linear_3538_20479" x1="0" y1="0.5" x2="48.2676" y2="21.4709"
-                      gradientUnits="userSpaceOnUse">
-                      <stop stop-color="#0092D7" />
-                      <stop offset="1" stop-color="#012E89" />
-                    </linearGradient>
-                    <linearGradient id="paint1_linear_3538_20479" x1="0" y1="0.5" x2="48.2676" y2="21.4709"
-                      gradientUnits="userSpaceOnUse">
-                      <stop stop-color="#0092D7" />
-                      <stop offset="1" stop-color="#012E89" />
-                    </linearGradient>
-                  </defs>
-                </svg>
-                <p class="text-34 dark-blue medium">Thank you for your subscription.</p>
-              </div>
-              <p class="mt-1 text-20">
-                You will receive the latest news on your email.
-              </p>
-            </div>
-          </form>
+        <div class="header-language text-16 flex">
+          <a href="#" class="header-language__link flex">
+            <svg class="header-language__ic" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+              viewBox="0 0 20 20" fill="none">
+              <g id="Group 1">
+                <path id="Vector (Stroke)" fill-rule="evenodd" clip-rule="evenodd"
+                  d="M9.76812 1.5C5.20176 1.5 1.5 5.20176 1.5 9.76812C1.5 14.3345 5.20176 18.0362 9.76812 18.0362C14.3345 18.0362 18.0362 14.3345 18.0362 9.76812C18.0362 5.20176 14.3345 1.5 9.76812 1.5ZM0.5 9.76812C0.5 4.64948 4.64948 0.5 9.76812 0.5C14.8868 0.5 19.0362 4.64948 19.0362 9.76812C19.0362 14.8868 14.8868 19.0362 9.76812 19.0362C4.64948 19.0362 0.5 14.8868 0.5 9.76812Z"
+                  fill="white" />
+                <path id="Vector (Stroke)_2" fill-rule="evenodd" clip-rule="evenodd"
+                  d="M3.79613 7.10872C2.267 7.89224 1.5 8.88494 1.5 9.84059C1.5 10.7962 2.267 11.7889 3.79613 12.5725C5.29873 13.3424 7.40938 13.8333 9.76812 13.8333C12.1268 13.8333 14.2375 13.3424 15.7401 12.5725C17.2692 11.7889 18.0362 10.7962 18.0362 9.84059C18.0362 8.88494 17.2692 7.89224 15.7401 7.10872C14.2375 6.33879 12.1268 5.84784 9.76812 5.84784C7.40938 5.84784 5.29873 6.33879 3.79613 7.10872ZM3.34011 6.21875C5.01095 5.36262 7.28435 4.84784 9.76812 4.84784C12.2519 4.84784 14.5253 5.36262 16.1961 6.21875C17.8404 7.06129 19.0362 8.31497 19.0362 9.84059C19.0362 11.3662 17.8404 12.6199 16.1961 13.4624C14.5253 14.3186 12.2519 14.8333 9.76812 14.8333C7.28435 14.8333 5.01095 14.3186 3.34011 13.4624C1.69581 12.6199 0.5 11.3662 0.5 9.84059C0.5 8.31497 1.69581 7.06129 3.34011 6.21875Z"
+                  fill="white" />
+                <path id="Vector (Stroke)_3" fill-rule="evenodd" clip-rule="evenodd"
+                  d="M7.10854 3.79613C6.33861 5.29873 5.84766 7.40938 5.84766 9.76812C5.84766 12.1268 6.33861 14.2375 7.10854 15.7401C7.89206 17.2692 8.88476 18.0362 9.84041 18.0362C10.7961 18.0362 11.7888 17.2692 12.5723 15.7401C13.3422 14.2375 13.8332 12.1268 13.8332 9.76812C13.8332 7.40938 13.3422 5.29873 12.5723 3.79613C11.7888 2.267 10.7961 1.5 9.84041 1.5C8.88476 1.5 7.89206 2.267 7.10854 3.79613ZM6.21857 3.34011C7.0611 1.69581 8.31478 0.5 9.84041 0.5C11.366 0.5 12.6197 1.69581 13.4623 3.34011C14.3184 5.01095 14.8332 7.28435 14.8332 9.76812C14.8332 12.2519 14.3184 14.5253 13.4623 16.1961C12.6197 17.8404 11.366 19.0362 9.84041 19.0362C8.31478 19.0362 7.0611 17.8404 6.21857 16.1961C5.36244 14.5253 4.84766 12.2519 4.84766 9.76812C4.84766 7.28435 5.36244 5.01095 6.21857 3.34011Z"
+                  fill="white" />
+                <path id="Vector (Stroke)_4" fill-rule="evenodd" clip-rule="evenodd"
+                  d="M9.19531 19V1H10.1953V19H9.19531Z" fill="white" />
+                <path id="Vector (Stroke)_5" fill-rule="evenodd" clip-rule="evenodd"
+                  d="M1 9.19568H18.8696V10.1957H1V9.19568Z" fill="white" />
+              </g>
+            </svg>
+            <span class="header-language__txt uc">Ar</span>
+          </a>
         </div>
       </div>
     </div>
-    <!-- END SIGNUP -->
-    <div class="video-popup">
-      <button type="button" class="video-popup__close flex" data-popup-close aria-label="Video popup close">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
-          <path fill-rule="evenodd" clip-rule="evenodd"
-            d="M3.41622 3.91622C3.97117 3.36126 4.87093 3.36126 5.42589 3.91622L4.42105 4.92105L3.41622 5.92589C2.86126 5.37093 2.86126 4.47117 3.41622 3.91622ZM12 10.4903L5.4266 3.91693L4.42105 4.92105L3.41622 5.92589L9.99033 12.5L3.41622 19.0741C2.86126 19.6291 2.86126 20.5288 3.41622 21.0838C3.97117 21.6387 4.87093 21.6387 5.42589 21.0838L12 14.5097L18.5697 21.0794L18.5705 21.0802L18.5713 21.081L18.5725 21.0822L18.5734 21.0831L19.5687 20.0892L18.5741 21.0838C19.1291 21.6387 20.0288 21.6387 20.5838 21.0838C21.1387 20.5288 21.1387 19.6291 20.5838 19.0741L20.5831 19.0734L20.5822 19.0725L20.5802 19.0705L20.5794 19.0697L14.0097 12.5L20.5838 5.92589C21.1387 5.37093 21.1387 4.47117 20.5838 3.91622C20.0288 3.36126 19.1291 3.36126 18.5741 3.91622L12 10.4903Z"
-            fill="#012E89"></path>
-        </svg>
-      </button>
-      <!-- <div class="video-popup__wrapper flex">
+  </header>
+  <!-- END HEADER -->
+  <main class="main">
+    <!-- HOME INTRO -->
+    <div class="home-intro relative section white flex">
+      <div class="home-intro__slider swiper relative">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide home-intro__video-slide relative" data-swiper-autoplay="9000">
+            <div class="container">
+              <div class="home-intro__video-slide-wrapper relative">
+                <div class="section-header">
+                  <div class="section-header__title home-intro__video-slide-title">
+                    <h1>A world of experiences awaits you on our Remarkably Arabian waves</h1>
+                  </div>
+                  <div class="home-intro__video-slide-controls mt-2">
+                    <div class="section-links flex">
+                      <button class="section-links__item control control--white" type="button">
+                        <span class="section-links__item__text">Play Full Video</span>
+                        <span class="section-links__item-ic control-ic">
+                          <svg width="32" height="32" viewBox="0 0 32 32" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                              d="M4 5.04803C4 4.46922 4.46922 4 5.04803 4H26.952C27.5308 4 28 4.46922 28 5.04803V26.952C28 27.5308 27.5308 28 26.952 28H5.04803C4.46922 28 4 27.5308 4 26.952V5.04803ZM6.09607 6.09607V25.9039H25.9039V6.09607H6.09607Z"
+                              fill="white" />
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                              d="M15.9257 9.42358C15.3734 9.42358 14.9257 8.97587 14.9257 8.42358C14.9257 7.8713 15.3734 7.42358 15.9257 7.42358L23.5763 7.42358C24.1286 7.42358 24.5763 7.8713 24.5763 8.42358L24.5763 16.0742C24.5763 16.6265 24.1286 17.0742 23.5763 17.0742C23.024 17.0742 22.5763 16.6265 22.5763 16.0742L22.5763 11.0325L18.2912 15.3176C17.8819 15.7269 17.2183 15.7269 16.809 15.3176C16.3998 14.9083 16.3998 14.2447 16.809 13.8354L21.2209 9.42358L15.9257 9.42358Z"
+                              fill="white" />
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                              d="M9.92566 15.4236C9.92566 14.8713 9.47794 14.4236 8.92566 14.4236C8.37337 14.4236 7.92566 14.8713 7.92566 15.4236V23.0742C7.92566 23.6265 8.37337 24.0742 8.92566 24.0742H16.5763C17.1286 24.0742 17.5763 23.6265 17.5763 23.0742C17.5763 22.5219 17.1286 22.0742 16.5763 22.0742H11.5345L15.8197 17.7891C16.2289 17.3798 16.2289 16.7162 15.8197 16.307C15.4104 15.8977 14.7468 15.8977 14.3375 16.307L9.92566 20.7188V15.4236Z"
+                              fill="white" />
+                          </svg>
+                        </span>
+                      </button>
+                      <a href="/aroya-ship" class="section-links__item section-links__link control control--white">
+                        <span class="section-links__item__text">Learn More</span>
+                        <span class="section-links__item-ic control-ic">
+                          <svg width="32" height="32" viewBox="0 0 32 32" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <g id="Icon/arrow">
+                              <path id="Vector (Stroke)" fill-rule="evenodd" clip-rule="evenodd"
+                                d="M22.5118 14.8215C23.1627 15.4724 23.1627 16.5277 22.5118 17.1785L11.8452 27.8452C11.1943 28.4961 10.139 28.4961 9.48815 27.8452C8.83728 27.1943 8.83728 26.139 9.48815 25.4882L18.9763 16L9.48816 6.51186C8.83728 5.86099 8.83728 4.80572 9.48816 4.15484C10.139 3.50397 11.1943 3.50397 11.8452 4.15484L22.5118 14.8215Z"
+                                fill="white" />
+                            </g>
+                          </svg>
+                        </span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <video preload="none" class="home-intro__video" loop autoplay muted playsinline
+                poster="./images/home-intro-video-poster.jpg">
+                <source type="video/mp4" src="./images/home-intro-video.mp4">
+                </source>
+                Sorry, your browser doesn't support embedded videos
+              </video>
+            </div>
+          </div>
+          <div class="swiper-slide home-intro__slide relative">
+            <div class="container">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="home-intro__slider-nav swiper-nav">
+        <div class="container swiper-nav__container">
+          <button type="button" class="swiper-nav__btn prev">
+            <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g id="Icon/arrow">
+                <path id="Vector (Stroke)" fill-rule="evenodd" clip-rule="evenodd"
+                  d="M9.70921 11.7806C9.43026 12.0596 9.43026 12.5118 9.70921 12.7908L14.2806 17.3622C14.5596 17.6412 15.0118 17.6412 15.2908 17.3622C15.5697 17.0833 15.5697 16.631 15.2908 16.3521L11.2244 12.2857L15.2908 8.21936C15.5697 7.94042 15.5697 7.48816 15.2908 7.20921C15.0118 6.93026 14.5596 6.93026 14.2806 7.20921L9.70921 11.7806Z"
+                  fill="white" />
+              </g>
+            </svg>
+          </button>
+          <div class="swiper-nav__dots"></div>
+          <button type="button" class="swiper-nav__btn next">
+            <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g id="Icon/arrow">
+                <path id="Vector (Stroke)" fill-rule="evenodd" clip-rule="evenodd"
+                  d="M15.2908 11.7806C15.5697 12.0596 15.5697 12.5118 15.2908 12.7908L10.7194 17.3622C10.4404 17.6412 9.98815 17.6412 9.70921 17.3622C9.43026 17.0833 9.43026 16.631 9.70921 16.3521L13.7756 12.2857L9.70921 8.21936C9.43026 7.94042 9.43026 7.48816 9.70921 7.20921C9.98815 6.93026 10.4404 6.93026 10.7194 7.20921L15.2908 11.7806Z"
+                  fill="white" />
+              </g>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    </div>
+    <!-- END INTRO -->
+    <div>
+      <!-- HOME DESTINATION -->
+      <div class="home-destins py-10">
+        <div class="container">
+          <div class="section-header">
+            <div class="section-header__title dark-blue">
+              <h2>Explore our destinations</h2>
+            </div>
+          </div>
+          <div class="home-destins__items mt-4">
+            <div class="home-destins__item flex">
+              <div class="home-destins__item-text-wrapper light-bg--2">
+                <div class="home-destins__item-ic">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="30" height="31" viewBox="0 0 30 31" fill="none">
+                    <circle cx="15" cy="15.5" r="13" stroke="#003083" stroke-width="4" />
+                    <circle cx="15" cy="15.5" r="6" fill="#003083" />
+                  </svg>
+                </div>
+                <div class="home-destins__item-content sd mt-1 title-34 f-medium f-dark-blue">
+                  <h3>Sharm El Sheikh</h3>
+                  <p>Your renewed appointment among the pristine beaches and reserves in the heart of the
+                    turquoise Sinai desert, where the Arabian atmosphere, oriental arts, and the joy of
+                    barbecue with the sounds of the night.
+                  </p>
+                  <div class="home-destins__item-links flex">
+                    <!-- <a href="https://uat.booking.aroya.com/touchb2c/"
+                        class="home-destins__item-link main-btn main-btn--light-blue">Book Now</a> -->
+                    <a href="/sharm-el-sheikh" class="home-destins__item-more">
+                      <span class="home-destins__item-more-txt">Learn More</span>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="17" viewBox="0 0 16 17" fill="none">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                          d="M11.2559 7.91079C11.5814 8.23622 11.5814 8.76386 11.2559 9.0893L5.92259 14.4226C5.59715 14.7481 5.06951 14.7481 4.74408 14.4226C4.41864 14.0972 4.41864 13.5696 4.74408 13.2441L9.48816 8.50004L4.74408 3.75596C4.41864 3.43053 4.41864 2.90289 4.74408 2.57745C5.06951 2.25201 5.59715 2.25201 5.92259 2.57745L11.2559 7.91079Z"
+                          fill="#003083" />
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="home-destins__item-image-wrapper flex">
+                <img loading="lazy" class="home-destins__item-image" src="./images/home-page/home-destins-1.jpg" alt="">
+              </div>
+            </div>
+            <div class="home-destins__item flex">
+              <div class="home-destins__item-text-wrapper light-bg--2">
+                <div class="home-destins__item-ic">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="30" height="31" viewBox="0 0 30 31" fill="none">
+                    <circle cx="15" cy="15.5" r="13" stroke="#003083" stroke-width="4" />
+                    <circle cx="15" cy="15.5" r="6" fill="#003083" />
+                  </svg>
+                </div>
+                <div class="home-destins__item-content sd mt-1 title-34 f-medium f-dark-blue">
+                  <h3>Aqaba</h3>
+                  <p>The cradle of civilizations and the sounds of religions. It is an integrated world that embraces
+                    the Red Sea and tells tales of development and prosperity through the ages.
+                  </p>
+                  <div class="home-destins__item-links flex">
+                    <!-- <a href="https://uat.booking.aroya.com/touchb2c/"
+                        class="home-destins__item-link main-btn main-btn--light-blue">Book Now</a> -->
+                    <a href="/al-aqaba" class="home-destins__item-more">
+                      <span class="home-destins__item-more-txt">Learn More</span>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="17" viewBox="0 0 16 17" fill="none">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                          d="M11.2559 7.91079C11.5814 8.23622 11.5814 8.76386 11.2559 9.0893L5.92259 14.4226C5.59715 14.7481 5.06951 14.7481 4.74408 14.4226C4.41864 14.0972 4.41864 13.5696 4.74408 13.2441L9.48816 8.50004L4.74408 3.75596C4.41864 3.43053 4.41864 2.90289 4.74408 2.57745C5.06951 2.25201 5.59715 2.25201 5.92259 2.57745L11.2559 7.91079Z"
+                          fill="#003083" />
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="home-destins__item-image-wrapper flex ">
+                <img loading="lazy" class="home-destins__item-image" src="./images/home-page/home-destins-2.jpg" alt="">
+              </div>
+            </div>
+            <div class="home-destins__item flex">
+              <div class="home-destins__item-text-wrapper light-bg--2">
+                <div class="home-destins__item-ic">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="30" height="31" viewBox="0 0 30 31" fill="none">
+                    <circle cx="15" cy="15.5" r="13" stroke="#003083" stroke-width="4" />
+                    <circle cx="15" cy="15.5" r="6" fill="#003083" />
+                  </svg>
+                </div>
+                <div class="home-destins__item-content sd mt-1 title-34 f-medium f-dark-blue">
+                  <h3>Jeddah</h3>
+                  <p>Mermaid of the sea and city of warmth. It welcomes you with love among its old buildings, lively
+                    streets and diverse cultures. Recognized by UNESCO, it's a tour that captivates you between its
+                    ancient past and its rich present.
+                  </p>
+                  <div class="home-destins__item-links flex">
+                    <!-- <a href="https://uat.booking.aroya.com/touchb2c/"
+                        class="home-destins__item-link main-btn main-btn--light-blue">Book Now</a> -->
+                    <a href="/jeddah" class="home-destins__item-more">
+                      <span class="home-destins__item-more-txt">Learn More</span>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="17" viewBox="0 0 16 17" fill="none">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                          d="M11.2559 7.91079C11.5814 8.23622 11.5814 8.76386 11.2559 9.0893L5.92259 14.4226C5.59715 14.7481 5.06951 14.7481 4.74408 14.4226C4.41864 14.0972 4.41864 13.5696 4.74408 13.2441L9.48816 8.50004L4.74408 3.75596C4.41864 3.43053 4.41864 2.90289 4.74408 2.57745C5.06951 2.25201 5.59715 2.25201 5.92259 2.57745L11.2559 7.91079Z"
+                          fill="#003083" />
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="home-destins__item-image-wrapper flex">
+                <img loading="lazy" class="home-destins__item-image" src="./images/home-page/home-destins-3.jpg" alt="">
+              </div>
+            </div>
+          </div>
+          <div class="home-destins__footer flex mt-6">
+            <a href="/destinations" class="home-destins__footer-link square-btn square-btn--light-blue">Explore
+              More</a>
+          </div>
+        </div>
+      </div>
+      <!-- END HOME DESTINATION -->
+    </div>
+    <!-- BLOG SECTION -->
+    <div class="blog section py-6 light-bg">
+      <div class="container">
+        <div class="blog-cards custom-scroll">
+          <div class="blog-card">
+            <div class="blog-card__header">
+              <img loading="lazy" class="blog-card__header-img" src="./images/home-page/home-blog-1.jpg" alt="">
+            </div>
+            <div class="blog-card__body sd sd--m-10 f-dark-blue title-26 f-bold">
+              <h3>Blossom Spa</h3>
+              <p>Indulgence and exceptional services</p>
+              <p>Enjoy the comfort and purity of beauty at Blossom Spa, where the finest unique beauty products and
+                global competencies we have dedicated to your comfort.
+              </p>
+            </div>
+          </div>
+          <div class="blog-card">
+            <div class="blog-card__header">
+              <img loading="lazy" class="blog-card__header-img" src="./images/home-page/home-blog-3.jpg" alt="">
+            </div>
+            <div class="blog-card__body sd sd--m-10 f-dark-blue title-26 f-bold">
+              <h3>Khuzama Experience</h3>
+              <p>A unique atmosphere to create your memories</p>
+              <p>Enjoy luxury in the Khuzama VIP area, to find an outlet that creates the most beautiful memories with
+                authentic Arabian features.
+              </p>
+            </div>
+          </div>
+          <div class="blog-card">
+            <div class="blog-card__header">
+              <img loading="lazy" class="blog-card__header-img" src="./images/home-page/home-blog-2.jpg" alt="">
+            </div>
+            <div class="blog-card__body sd sd--m-10 f-dark-blue title-26 f-bold">
+              <h3>Culinary Experience</h3>
+              <p>An exceptional experience that inspires your senses</p>
+              <p>A world of authentic flavors awaits you, where authentic flavors intermingle with international
+                quality and Arabian features.
+              </p>
+            </div>
+          </div>
+          <div class="blog-card">
+            <div class="blog-card__header">
+              <img loading="lazy" class="blog-card__header-img" src="./images/home-page/home-blog-4.jpg" alt="">
+            </div>
+            <div class="blog-card__body sd sd--m-10 f-dark-blue title-26 f-bold">
+              <h3>AROYA Theatre</h3>
+              <p>Our live shows await you for a pleasure that waves your imagination</p>
+              <p>Enjoy a range of our live shows that have been scheduled periodically, to provide you with a variety
+                of fun opportunities to suit different tastes.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END BLOG SECTION -->
+  </main>
+  <!-- SIGNUP -->
+  <div class="signup light-bg">
+    <div class="container py-6">
+      <div class="signup-main">
+        <form class="signup-form">
+          <div class="section-header section-header--custom center blue">
+            <div class="section-header__title title-34 secondary-f f-medium">
+              <h2>Never miss a cruise deal, sign up today</h2>
+            </div>
+          </div>
+          <div class="signup-form__main mt-4">
+            <div class="signup-form__body">
+              <div class="signup-form__controls">
+                <div class="signup-form__controls-item">
+                  <input class="signup-form__control" name="email" type="text" placeholder="Email Address">
+                </div>
+                <div class="signup-form__controls-item">
+                  <input class="signup-form__control" name="phone" type="phone" placeholder="Phone">
+                  <span class="optional">Optional</span>
+                </div>
+                <div class="signup-form__controls-item signup-form__controls-item--agree gray">
+                  <label class="flex">
+                    <input class="input-checkbox" name="agree" type="checkbox">
+                    <span class="checkbox"></span>
+                    <span>I agree to receive news and updates.</span>
+                  </label>
+                </div>
+              </div>
+              <div class="signup-form__submit-wrapper">
+                <button class="signup-form__submit-btn main-btn main-btn--light-blue uc" type="submit">Sign up
+                </button>
+                <span class="loader"></span>
+              </div>
+            </div>
+            <div class="signup-footer sd sd--light-links gray">
+              <p>Sign up to receive information about our special offers and deals. You can unsubscribe at any time.
+                For
+                more details about how we use your information, view our <a href="#">Privacy Policy</a>.</p>
+            </div>
+          </div>
+          <div class="signup-form__thank center">
+            <div class="signup-form__thank-title flex">
+              <svg xmlns="http://www.w3.org/2000/svg" width="40" height="41" viewBox="0 0 40 41" fill="none">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M20 0.500014C22.6269 0.496918 25.2285 1.01283 27.6554 2.01814C30.0823 3.02342 32.2867 4.49826 34.1419 6.35793C36.0016 8.21323 37.4765 10.4176 38.4818 12.8446C39.4871 15.2715 40.003 17.8731 40 20.5C40.0031 23.1269 39.4872 25.7285 38.4819 28.1554C37.4766 30.5824 36.0017 32.7868 34.142 34.642C32.2868 36.5017 30.0824 37.9766 27.6554 38.9819C25.2285 39.9872 22.6269 40.5031 20 40.5C17.3731 40.503 14.7715 39.9871 12.3446 38.9818C9.91768 37.9765 7.71329 36.5017 5.85801 34.642C3.9983 32.7868 2.52343 30.5824 1.51814 28.1554C0.512831 25.7285 -0.0030847 23.1269 1.38749e-05 20.5C-0.00302423 17.8731 0.512914 15.2715 1.51821 12.8446C2.5235 10.4177 3.99833 8.21328 5.858 6.358C7.71328 4.49833 9.91768 3.0235 12.3446 2.01821C14.7715 1.01291 17.3731 0.496973 20 0.500014ZM26.2638 5.37768C24.2788 4.55544 22.1509 4.13359 20.0024 4.13637H19.9977C17.8491 4.13364 15.7212 4.55551 13.7362 5.37775C11.7512 6.19999 9.94825 7.40639 8.43096 8.92762L8.42762 8.93096C6.90639 10.4482 5.69999 12.2512 4.87775 14.2362C4.05551 16.2212 3.63364 18.3491 3.63637 20.4977V20.5024C3.63359 22.6509 4.05544 24.7788 4.87768 26.7638C5.69992 28.7488 6.90634 30.5518 8.4276 32.069L8.43097 32.0724C9.94825 33.5936 11.7512 34.8 13.7362 35.6222C15.7212 36.4445 17.8491 36.8664 19.9977 36.8636H20.0024C22.1509 36.8664 24.2788 36.4446 26.2638 35.6223C28.2488 34.8001 30.0518 33.5937 31.569 32.0724L31.5724 32.069C33.0937 30.5518 34.3001 28.7488 35.1223 26.7638C35.9446 24.7788 36.3664 22.6509 36.3636 20.5024V20.4977C36.3664 18.3491 35.9445 16.2212 35.1222 14.2362C34.3 12.2512 33.0936 10.4483 31.5724 8.93096L31.569 8.9276C30.0518 7.40634 28.2488 6.19992 26.2638 5.37768Z"
+                  fill="url(#paint0_linear_3538_20479)" />
+                <path
+                  d="M20.0024 4.13637C22.1509 4.13359 24.2788 4.55544 26.2638 5.37768C28.2488 6.19992 30.0518 7.40634 31.569 8.9276L31.5724 8.93096C33.0936 10.4483 34.3 12.2512 35.1222 14.2362C35.9445 16.2212 36.3664 18.3491 36.3636 20.4977V20.5024C36.3664 22.6509 35.9446 24.7788 35.1223 26.7638C34.3001 28.7488 33.0937 30.5518 31.5724 32.069L31.569 32.0724C30.0518 33.5937 28.2488 34.8001 26.2638 35.6223C24.2788 36.4446 22.1509 36.8664 20.0024 36.8636H19.9977C17.8491 36.8664 15.7212 36.4445 13.7362 35.6222C11.7512 34.8 9.94825 33.5936 8.43097 32.0724L8.4276 32.069C6.90634 30.5518 5.69992 28.7488 4.87768 26.7638C4.05544 24.7788 3.63359 22.6509 3.63637 20.5024V20.4977C3.63364 18.3491 4.05551 16.2212 4.87775 14.2362C5.69999 12.2512 6.90639 10.4482 8.42762 8.93096L8.43096 8.92762C9.94825 7.40639 11.7512 6.19999 13.7362 5.37775C15.7212 4.55551 17.8491 4.13364 19.9977 4.13637H20.0024Z"
+                  fill="url(#paint1_linear_3538_20479)" />
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M30.3766 13.7601C31.0867 14.4701 31.0867 15.6213 30.3766 16.3314L19.4675 27.2404C18.7575 27.9505 17.6063 27.9505 16.8963 27.2404L11.4417 21.7859C10.7317 21.0759 10.7317 19.9247 11.4417 19.2146C12.1518 18.5046 13.303 18.5046 14.013 19.2146L18.1819 23.3835L27.8053 13.7601C28.5154 13.05 29.6666 13.05 30.3766 13.7601Z"
+                  fill="white" />
+                <defs>
+                  <linearGradient id="paint0_linear_3538_20479" x1="0" y1="0.5" x2="48.2676" y2="21.4709"
+                    gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#0092D7" />
+                    <stop offset="1" stop-color="#012E89" />
+                  </linearGradient>
+                  <linearGradient id="paint1_linear_3538_20479" x1="0" y1="0.5" x2="48.2676" y2="21.4709"
+                    gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#0092D7" />
+                    <stop offset="1" stop-color="#012E89" />
+                  </linearGradient>
+                </defs>
+              </svg>
+              <p class="text-34 dark-blue medium">Thank you for your subscription.</p>
+            </div>
+            <p class="mt-1 text-20">
+              You will receive the latest news on your email.
+            </p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- END SIGNUP -->
+  <div class="video-popup">
+    <button type="button" class="video-popup__close flex" data-popup-close aria-label="Video popup close">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
+        <path fill-rule="evenodd" clip-rule="evenodd"
+          d="M3.41622 3.91622C3.97117 3.36126 4.87093 3.36126 5.42589 3.91622L4.42105 4.92105L3.41622 5.92589C2.86126 5.37093 2.86126 4.47117 3.41622 3.91622ZM12 10.4903L5.4266 3.91693L4.42105 4.92105L3.41622 5.92589L9.99033 12.5L3.41622 19.0741C2.86126 19.6291 2.86126 20.5288 3.41622 21.0838C3.97117 21.6387 4.87093 21.6387 5.42589 21.0838L12 14.5097L18.5697 21.0794L18.5705 21.0802L18.5713 21.081L18.5725 21.0822L18.5734 21.0831L19.5687 20.0892L18.5741 21.0838C19.1291 21.6387 20.0288 21.6387 20.5838 21.0838C21.1387 20.5288 21.1387 19.6291 20.5838 19.0741L20.5831 19.0734L20.5822 19.0725L20.5802 19.0705L20.5794 19.0697L14.0097 12.5L20.5838 5.92589C21.1387 5.37093 21.1387 4.47117 20.5838 3.91622C20.0288 3.36126 19.1291 3.36126 18.5741 3.91622L12 10.4903Z"
+          fill="#012E89"></path>
+      </svg>
+    </button>
+    <!-- <div class="video-popup__wrapper flex">
         <div class="video-popup__content">
           <svg class="video-popup__start" height="100%" version="1.1" viewBox="0 0 68 48" width="100%">
             <path class="ytp-large-play-button-bg"
@@ -396,14 +484,14 @@
           <img src="https://img.youtube.com/vi/blAB_JqAJNw/maxresdefault.jpg" alt="" class="video-popup__thumb">
         </div>
       </div> -->
-      <video preload="none" class="video-popup__tag" controls poster="./images/home-intro-video-poster.jpg">
-        <source type="video/mp4" src="./images/full-video.mp4">
-        </source>
-        Sorry, your browser doesn't support embedded videos
-      </video>
-    </div>
-    <%= templates.footerEn %>
-      <div class="overlay"></div>
+    <video preload="none" class="video-popup__tag" controls poster="./images/home-intro-video-poster.jpg">
+      <source type="video/mp4" src="./images/full-video.mp4">
+      </source>
+      Sorry, your browser doesn't support embedded videos
+    </video>
+  </div>
+  <%= templates.footerEn %>
+    <div class="overlay"></div>
 </body>
 
 </html>

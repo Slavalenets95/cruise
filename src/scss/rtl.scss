@@ -20,17 +20,6 @@ html[dir="rtl"] {
     margin-right: 0;
     margin-left: 9px;
   }
-  .header-hidden-menu {
-    @include respond-to(x-large) {
-      left: unset;
-      right: 0;
-      transform: translateX(-100%);
-
-      &[data-active] {
-        transform: translateX(0);
-      }
-    }
-  }
   .radius-gradient {
     &::after {
       border-radius: 0 0 80px 0;
@@ -78,82 +67,6 @@ html[dir="rtl"] {
     }
   }
   /***** END FORMS *****/
-
-  /***** HEADER *****/
-  .header {
-    &-nav {
-      margin: 0 50px;
-    }
-    &-nav__sub {
-      &-row:not(:last-child) {
-        margin-right: 0;
-        margin-left: 60px;
-      }
-      &-ic {
-        margin-left: 0;
-        margin-right: 8px;
-      }
-    }
-    &-ui {
-      margin-right: auto;
-
-      &__icon {
-        margin-right: 0;
-        margin-left: 8px;
-      }
-      &__list-tel .header-control,
-      .header-language__current {
-        flex-direction: row-reverse;
-        .header-ui__icon {
-          margin-left: 0;
-          margin-right: 8px;
-        }
-      }
-    }
-    .search {
-      right: auto;
-      left: 0;
-      &-header-form {
-        &__input {
-          margin-right: 0;
-          margin-left: 20px;
-        }
-        &__submit {
-          margin-left: 32px;
-          margin-right: 0;
-        }
-      }
-    }
-    &-top {
-      &__list-item:not(:last-child) {
-        margin-left: 40px;
-        margin-right: 0;
-      }
-      &__list-link,
-      &__language-control {
-        flex-direction: row-reverse;
-      }
-    }
-
-    @include respond-to(x-large) {
-      .header-nav {
-        left: 0;
-        right: auto;
-        margin-left: 0;
-
-        &__sub-row:not(:last-child) {
-          margin-left: 0;
-        }
-        &__sub-back svg {
-          left: unset;
-          right: -30px;
-          transform: rotate(0);
-        }
-      }
-
-    }
-  }
-  /***** END HEADER *****/
 
   /***** HOME PAGE *****/
   .home-intro {

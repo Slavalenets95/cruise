@@ -10,6 +10,9 @@ body {
   color: $dark;
   max-width: 1920px;
   margin: 0 auto;
+  &.no-scroll {
+    overflow: hidden;
+  }
 }
 
 label,

@@ -16,22 +16,20 @@
   &__slider {
     width: 100%;
   }
-  &__video-slide, &__slide {
-    padding: 100px 0 115px;
-    display: flex;
-    align-items: flex-start;
-  }
   &__video-slide {
     position: relative;
+    padding: 260px 0 100px;
+    display: flex;
+    align-items: flex-start;
     &::after {
-      content: '';
+      content: "";
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
       background-color: #003083;
-      opacity: .3;
+      opacity: 0.3;
     }
     &-wrapper {
       display: flex;
@@ -58,26 +56,11 @@
       max-width: 525px;
     }
   }
-  &__slide {
-    background: url("../images/home-intro__slide-bg.jpg") top left/cover no-repeat;
-    &-wrapper {
-      max-width: 845px;
-    }
-    &-img {
-      position: absolute;
-      top: 0;
-      right: 0;
-      height: 100%;
-      object-fit: cover;
-      max-width: 920px;
-      width: 48%;
-      border-radius: 0 0 0 340px;
-    }
-  }
+
   &__slider-nav {
     position: absolute;
     left: 0;
-    bottom: 115px;
+    bottom: 40px;
     width: 100%;
     z-index: 1;
   }
@@ -88,6 +71,9 @@
 
   @include respond-to(xxx-large) {
     min-height: 600px;
+    &__video-slide {
+      padding: 210px 0 100px;
+    }
     &__video-slide-title {
       max-width: 850px;
     }
@@ -107,9 +93,8 @@
 
   @include respond-to(x-large) {
     min-height: 500px;
-    &__video-slide,
-    &__slide {
-      padding: 100px 0 180px;
+    &__video-slide {
+      padding: 190px 0 100px;
     }
     &__slide-img {
       display: none;
@@ -120,9 +105,8 @@
   }
 
   @include respond-to(large) {
-    &__video-slide,
-    &__slide {
-      padding: 160px 0;
+    &__video-slide {
+      padding: 140px 0 100px;
     }
     .swiper-nav__btn {
       display: none;
@@ -134,9 +118,8 @@
   }
 
   @include respond-to(medium) {
-    &__video-slide,
-    &__slide {
-      padding: 60px 0 180px;
+    &__video-slide {
+      padding: 120px 0 100px;
     }
     &__link {
       max-width: 350px;
@@ -144,9 +127,8 @@
   }
 
   @include respond-to(small) {
-    &__video-slide,
-    &__intro-slide {
-      padding: 60px 0 100px;
+    &__video-slide {
+      padding: 130px 0 100px;
     }
     .section-links__item-ic {
       width: 30px;
@@ -160,9 +142,6 @@
     }
     .section-links__item:not(:first-child) {
       margin-top: 20px;
-    }
-    &__slider-nav {
-      bottom: 60px;
     }
   }
 }
@@ -322,8 +301,13 @@
       &-txt {
         margin-right: 8px;
       }
-      svg, &, path {
-        transition: color .3s, fill .3s, margin .3s;
+      svg,
+      &,
+      path {
+        transition:
+          color 0.3s,
+          fill 0.3s,
+          margin 0.3s;
       }
       svg {
         position: relative;
@@ -755,7 +739,9 @@ html[dir="rtl"] {
   pointer-events: none;
   opacity: 0;
   visibility: hidden;
-  transition: opacity .5s, visibility .5s;
+  transition:
+    opacity 0.5s,
+    visibility 0.5s;
   &[data-popup-active] {
     opacity: 1;
     visibility: visible;
@@ -770,7 +756,8 @@ html[dir="rtl"] {
     position: absolute;
     top: 20px;
     right: 0px;
-    svg, path {
+    svg,
+    path {
       fill: $white;
     }
   }

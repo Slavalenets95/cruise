@@ -1,6 +1,5 @@
 .page-intro {
   background: url("../images/pages-blocks/page-intro.jpg") top left/cover no-repeat;
-  min-height: 510px;
   align-items: center;
   .section-header .section-header__title > *:first-child {
     font-weight: 600;
@@ -66,12 +65,15 @@
   &--radius {
     position: relative;
     background: none;
+    background-color: $lighest-blue;
+    min-height: 630px;
     .page-intro__container {
       position: relative;
       z-index: 1;
     }
-    &::before, &::after {
-      content: '';
+    &::before,
+    &::after {
+      content: "";
       position: absolute;
       top: 0;
       left: 0;
@@ -84,45 +86,60 @@
       background-position: center center;
     }
     &::after {
-      background: linear-gradient(91deg, rgba(1, 47, 125, 0.60) 22.12%, rgba(0, 48, 131, 0.00) 69.44%);
+      background: linear-gradient(91deg, rgba(1, 47, 125, 0.6) 22.12%, rgba(0, 48, 131, 0) 69.44%);
     }
-  }
-  @include respond-to(medium) {
-    &::before, &::after {
-      border-radius: 0 0 100px 0;
+    // 1400
+    @include respond-to(xx-large) {
+      min-height: 500px;
+      align-items: flex-start;
+      padding-top: 200px;
     }
-    &--radius {
+    // 1200
+    @include respond-to(x-large) {
       min-height: 400px;
+      padding-top: 150px;
     }
-  }
-  @include respond-to(small) {
-    &--radius {
-      min-height: 330px;
+    // 768
+    @include respond-to(medium) {
+      justify-content: flex-end;
+      &::before,
+      &::after {
+        border-radius: 0 0 100px 0;
+      }
+      .page-intro__container {
+        margin-bottom: 0;
+      }
     }
-    &::before {
-      border-radius: 0;
-    }
-    &::after {
-      background: linear-gradient(126deg, rgba(1, 47, 125, 0.90) 12.99%, rgba(0, 48, 131, 0.00) 100%);
+    // 600
+    @include respond-to(small) {
+      &::before {
+        border-radius: 0;
+      }
+      &::after {
+        background: linear-gradient(126deg, rgba(1, 47, 125, 0.9) 12.99%, rgba(0, 48, 131, 0) 100%);
+      }
     }
   }
 }
 html[dir="rtl"] {
   .page-intro {
     &--radius {
-      &::before, &::after {
+      &::before,
+      &::after {
         border-radius: 0 0 0 200px;
       }
       &::after {
-        background: linear-gradient(to left, rgba(1, 47, 125, 0.60) 22.12%, rgba(0, 48, 131, 0.00) 69.44%);
+        background: linear-gradient(to left, rgba(1, 47, 125, 0.6) 22.12%, rgba(0, 48, 131, 0) 69.44%);
       }
       @include respond-to(medium) {
-        &::after, &::before {
+        &::after,
+        &::before {
           border-radius: 0 0 0 100px;
         }
       }
       @include respond-to(small) {
-        &::after, &::before {
+        &::after,
+        &::before {
           border-radius: 0;
         }
       }
@@ -151,7 +168,7 @@ html[dir="rtl"] {
   @include respond-to(large) {
     min-height: 400px;
   }
-   @include respond-to(extra-small) {
+  @include respond-to(extra-small) {
     .text-50 {
       font-size: 36px;
     }

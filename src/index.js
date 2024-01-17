@@ -40,6 +40,7 @@ function reInit() {
   Sliders.reInit();
   Faq.reinit();
   GallerySlider.reinit();
+  Header.reinit();
 }
 
 window.addEventListener('resize', throttle(reInit, 100));

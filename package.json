@@ -31,6 +31,7 @@
   },
   "dependencies": {
     "date-fns": "^2.30.0",
+    "intl-tel-input": "^18.5.3",
     "json-to-graphql-query": "^2.2.5",
     "reset.scss": "^1.0.0",
     "swiper": "^8.0.6"
