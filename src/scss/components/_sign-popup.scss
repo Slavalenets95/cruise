@@ -158,3 +158,13 @@
     }
   }
 }
+html[dir="rtl"] {
+  .sign-popup__form-item {
+    margin-right: unset;
+    margin-left: 20px;
+  }
+  .sign-popup__form-item--agree .checkbox {
+    margin-right: unset;
+    margin-left: 20px;
+  }
+}
